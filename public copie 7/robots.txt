@@ -1,8 +1,0 @@
-# Maison Mirage — robots.txt
-User-agent: *
-Allow: /
-
-Sitemap: https://www.lamaisonmirage.com/sitemap.xml
-
-# Pages non indexables
-Disallow: /confirmation.html
