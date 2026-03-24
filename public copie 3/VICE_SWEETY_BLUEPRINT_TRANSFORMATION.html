@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VICE SWEETY — Blueprint de Transformation</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    /* === VICE SWEETY MASTER PALETTE === */
+    --neon-pink: #FF2D8A;
+    --neon-pink-soft: #ff6ec7;
+    --neon-blue: #00D4FF;
+    --neon-purple: #B24BF3;
+    --sunset-orange: #FF6B35;
+    --sunset-coral: #e94560;
+    --sunset-gold: #FFB347;
+    --deep-black: #0A0A0F;
+    --rich-black: #111118;
+    --card-bg: #16161F;
+    --card-border: rgba(255,45,138,0.12);
+    --text-primary: rgba(255,255,255,0.92);
+    --text-secondary: rgba(255,255,255,0.6);
+    --text-dim: rgba(255,255,255,0.35);
+    --green: #00FF88;
+    --red: #FF3B5C;
+    --yellow: #FFD700;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--deep-black);
+    color: var(--text-primary);
+    line-height: 1.75;
+    font-size: 15px;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: var(--neon-pink);
+    color: #fff;
+  }
+
+  /* === SCANLINES OVERLAY === */
+  body::after {
+    content:'';
+    position:fixed;
+    inset:0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,0,0,0.03) 2px,
+      rgba(0,0,0,0.03) 4px
+    );
+    pointer-events:none;
+    z-index:9999;
+  }
+
+  /* === HERO === */
+  .hero {
+    min-height: 85vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background: linear-gradient(180deg, #1a0a2e 0%, #0f1a3e 30%, #e94560 70%, #FF6B35 90%, #FFB347 100%);
+    padding: 100px 24px 80px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::before {
+    content:'';
+    position:absolute;
+    inset:0;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E");
+    opacity:0.4;
+    pointer-events:none;
+  }
+  .hero::after {
+    content:'';
+    position:absolute;
+    bottom:0;left:0;right:0;
+    height:180px;
+    background:linear-gradient(transparent, var(--deep-black));
+  }
+  .hero-badge {
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:5px;
+    text-transform:uppercase;
+    color:rgba(255,255,255,0.5);
+    border:1px solid rgba(255,255,255,0.15);
+    padding:8px 24px;
+    border-radius:20px;
+    margin-bottom:35px;
+    position:relative;
+    z-index:1;
+    backdrop-filter:blur(4px);
+    background:rgba(0,0,0,0.2);
+  }
+  .hero h1 {
+    font-family:'Bebas Neue',sans-serif;
+    font-size:clamp(52px,12vw,120px);
+    line-height:0.88;
+    letter-spacing:4px;
+    position:relative;
+    z-index:1;
+    background:linear-gradient(180deg, #fff 0%, var(--neon-pink-soft) 100%);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    text-shadow:0 0 60px rgba(255,110,199,0.3);
+  }
+  .hero .sub {
+    margin-top:20px;
+    font-size:17px;
+    color:rgba(255,255,255,0.65);
+    max-width:650px;
+    position:relative;
+    z-index:1;
+    font-weight:300;
+  }
+  .hero .version {
+    margin-top:30px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:3px;
+    color:rgba(255,255,255,0.3);
+    position:relative;
+    z-index:1;
+  }
+
+  /* === NAV === */
+  .toc {
+    max-width:900px;
+    margin:0 auto;
+    padding:60px 24px 40px;
+  }
+  .toc-label {
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    color:var(--neon-pink);
+    margin-bottom:24px;
+  }
+  .toc-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+    gap:12px;
+  }
+  .toc-item {
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:16px 20px;
+    background:var(--card-bg);
+    border:1px solid var(--card-border);
+    border-radius:12px;
+    text-decoration:none;
+    color:var(--text-primary);
+    font-size:14px;
+    font-weight:500;
+    transition:all 0.3s;
+  }
+  .toc-item:hover {
+    border-color:var(--neon-pink);
+    background:rgba(255,45,138,0.06);
+    transform:translateY(-2px);
+  }
+  .toc-num {
+    font-family:'Bebas Neue',sans-serif;
+    font-size:28px;
+    color:var(--neon-pink);
+    line-height:1;
+  }
+
+  /* === CONTAINER === */
+  .container { max-width:900px; margin:0 auto; padding:0 24px; }
+
+  /* === SECTION === */
+  .axe-section { padding:80px 0 60px; }
+  .axe-num {
+    font-family:'Bebas Neue',sans-serif;
+    font-size:80px;
+    color:rgba(255,45,138,0.1);
+    line-height:1;
+    letter-spacing:4px;
+  }
+  .axe-title {
+    font-family:'Bebas Neue',sans-serif;
+    font-size:clamp(30px,5vw,48px);
+    letter-spacing:3px;
+    background:linear-gradient(90deg, var(--neon-pink), var(--sunset-orange));
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    margin-bottom:10px;
+  }
+  .axe-subtitle {
+    font-size:14px;
+    color:var(--text-dim);
+    font-family:'JetBrains Mono',monospace;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:40px;
+  }
+
+  h3 {
+    font-family:'Bebas Neue',sans-serif;
+    font-size:24px;
+    letter-spacing:2px;
+    color:var(--neon-pink-soft);
+    margin:45px 0 14px;
+  }
+  h4 {
+    font-family:'Space Grotesk',sans-serif;
+    font-size:16px;
+    font-weight:600;
+    color:var(--neon-blue);
+    margin:28px 0 10px;
+    letter-spacing:0.5px;
+  }
+
+  p { margin-bottom:14px; font-size:15px; line-height:1.8; }
+
+  strong { color:#fff; font-weight:600; }
+  em { color:var(--neon-pink-soft); font-style:normal; font-weight:500; }
+
+  /* === CARD SYSTEMS === */
+  .exec-card {
+    border:1px solid var(--card-border);
+    background:var(--card-bg);
+    border-radius:16px;
+    padding:28px;
+    margin:20px 0;
+  }
+  .exec-card.pink { border-left:3px solid var(--neon-pink); }
+  .exec-card.blue { border-left:3px solid var(--neon-blue); }
+  .exec-card.orange { border-left:3px solid var(--sunset-orange); }
+  .exec-card.green { border-left:3px solid var(--green); }
+  .exec-card.purple { border-left:3px solid var(--neon-purple); }
+
+  .card-label {
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    margin-bottom:10px;
+  }
+  .card-label.pink { color:var(--neon-pink); }
+  .card-label.blue { color:var(--neon-blue); }
+  .card-label.orange { color:var(--sunset-orange); }
+  .card-label.green { color:var(--green); }
+
+  /* === CODE BLOCKS === */
+  .code-block {
+    background:#0D0D14;
+    border:1px solid rgba(255,255,255,0.06);
+    border-radius:12px;
+    padding:20px 24px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:13px;
+    line-height:1.7;
+    color:var(--text-secondary);
+    overflow-x:auto;
+    margin:16px 0;
+  }
+  .code-block .comment { color:var(--text-dim); }
+  .code-block .key { color:var(--neon-pink-soft); }
+  .code-block .val { color:var(--neon-blue); }
+  .code-block .str { color:var(--sunset-gold); }
+
+  /* === SWATCH === */
+  .swatch-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(140px, 1fr));
+    gap:12px;
+    margin:20px 0;
+  }
+  .swatch {
+    border-radius:12px;
+    padding:20px 16px;
+    text-align:center;
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    border:1px solid rgba(255,255,255,0.06);
+  }
+  .swatch-name {
+    font-size:12px;
+    font-weight:600;
+    margin-bottom:4px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+  }
+  .swatch-hex { opacity:0.7; }
+
+  /* === TABLE === */
+  .mapping-table {
+    width:100%;
+    border-collapse:collapse;
+    margin:20px 0;
+    font-size:14px;
+  }
+  .mapping-table th {
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--neon-pink);
+    text-align:left;
+    padding:12px 16px;
+    border-bottom:1px solid rgba(255,45,138,0.2);
+  }
+  .mapping-table td {
+    padding:12px 16px;
+    border-bottom:1px solid rgba(255,255,255,0.04);
+    vertical-align:top;
+  }
+  .mapping-table tr:hover td { background:rgba(255,45,138,0.03); }
+  .old { color:var(--text-dim); text-decoration:line-through; }
+  .new { color:var(--green); font-weight:600; }
+  .arrow { color:var(--neon-pink); padding:0 8px; }
+
+  /* === FLOW DIAGRAM === */
+  .flow {
+    display:flex;
+    align-items:center;
+    gap:0;
+    margin:20px 0;
+    overflow-x:auto;
+    padding:10px 0;
+  }
+  .flow-step {
+    background:var(--card-bg);
+    border:1px solid var(--card-border);
+    border-radius:12px;
+    padding:14px 20px;
+    text-align:center;
+    font-size:13px;
+    font-weight:500;
+    white-space:nowrap;
+    min-width:120px;
+  }
+  .flow-step.accent { border-color:var(--neon-pink); background:rgba(255,45,138,0.08); color:var(--neon-pink-soft); }
+  .flow-arrow {
+    font-size:20px;
+    color:var(--neon-pink);
+    padding:0 6px;
+    flex-shrink:0;
+  }
+
+  /* === PRIORITY TAG === */
+  .priority {
+    display:inline-block;
+    font-family:'JetBrains Mono',monospace;
+    font-size:10px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    padding:4px 10px;
+    border-radius:6px;
+    margin-left:8px;
+    vertical-align:middle;
+  }
+  .priority.p0 { background:rgba(255,59,92,0.15); color:var(--red); border:1px solid rgba(255,59,92,0.3); }
+  .priority.p1 { background:rgba(255,107,53,0.15); color:var(--sunset-orange); border:1px solid rgba(255,107,53,0.3); }
+  .priority.p2 { background:rgba(0,212,255,0.1); color:var(--neon-blue); border:1px solid rgba(0,212,255,0.2); }
+
+  /* === DIVIDER === */
+  .divider {
+    height:1px;
+    background:linear-gradient(90deg, transparent, rgba(255,45,138,0.25), transparent);
+    max-width:500px;
+    margin:0 auto;
+  }
+
+  /* === FOOTER === */
+  .blueprint-footer {
+    text-align:center;
+    padding:60px 24px;
+    color:var(--text-dim);
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:3px;
+  }
+
+  /* === RESPONSIVE === */
+  @media (max-width:640px) {
+    .flow { flex-wrap:wrap; justify-content:center; }
+    .swatch-grid { grid-template-columns:repeat(2,1fr); }
+    .toc-grid { grid-template-columns:1fr; }
+    .mapping-table { font-size:12px; }
+    .mapping-table td, .mapping-table th { padding:8px 10px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-badge">Blueprint de Transformation</div>
+  <h1>VICE SWEETY</h1>
+  <p class="sub">De La Maison Mirage à ViceSweety.com — Le plan d'exécution technique et créatif pour la métamorphose totale de la marque, du design system et du parcours client.</p>
+  <div class="version">V1.0 — MARS 2026 — CONFIDENTIAL</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     TABLE OF CONTENTS
+═══════════════════════════════════════════════════════ -->
+<nav class="toc">
+  <div class="toc-label">Sommaire du Blueprint</div>
+  <div class="toc-grid">
+    <a href="#axe1" class="toc-item"><span class="toc-num">01</span> Rebranding & Copywriting</a>
+    <a href="#axe2" class="toc-item"><span class="toc-num">02</span> Design System</a>
+    <a href="#axe3" class="toc-item"><span class="toc-num">03</span> UX & Parcours Client</a>
+    <a href="#axe4" class="toc-item"><span class="toc-num">04</span> CRO & Viralité</a>
+  </div>
+</nav>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AXE 1 — REBRANDING STRUCTUREL & COPYWRITING
+═════════════════════════════════════════════════════════════════════════ -->
+<section class="axe-section container" id="axe1">
+  <div class="axe-num">01</div>
+  <h2 class="axe-title">Rebranding Structurel & Copywriting</h2>
+  <p class="axe-subtitle">Du naming à la voix de marque</p>
+
+  <!-- 1.1 NAMING & URLS -->
+  <h3>1.1 — Mapping Naming & URLs <span class="priority p0">P0 — Critique</span></h3>
+  <p>Chaque occurrence de "Maison Mirage" / "lamaisonmirage" est éradiquée. Voici le mapping systématique :</p>
+
+  <table class="mapping-table">
+    <tr><th>Élément</th><th>Mirage (ancien)</th><th></th><th>Vice Sweety (nouveau)</th></tr>
+    <tr><td>Domaine</td><td class="old">lamaisonmirage.com</td><td class="arrow">→</td><td class="new">vicesweety.com</td></tr>
+    <tr><td>Titre H1</td><td class="old">Maison Mirage</td><td class="arrow">→</td><td class="new">Vice Sweety</td></tr>
+    <tr><td>Meta OG</td><td class="old">og:site_name = "Maison Mirage"</td><td class="arrow">→</td><td class="new">og:site_name = "Vice Sweety"</td></tr>
+    <tr><td>Email</td><td class="old">contact@lamaisonmirage.com</td><td class="arrow">→</td><td class="new">hello@vicesweety.com</td></tr>
+    <tr><td>Instagram</td><td class="old">@maisonmirage</td><td class="arrow">→</td><td class="new">@vicesweety</td></tr>
+    <tr><td>Logo fichier</td><td class="old">maison_mirage_logo_beige.webp</td><td class="arrow">→</td><td class="new">vicesweety-logo-neon.webp</td></tr>
+    <tr><td>Favicon</td><td class="old">favicon (M doré)</td><td class="arrow">→</td><td class="new">favicon (V néon pink/gradient)</td></tr>
+    <tr><td>Brand class CSS</td><td class="old">.brand-name = "Maison Mirage"</td><td class="arrow">→</td><td class="new">.brand-name = "Vice Sweety"</td></tr>
+    <tr><td>JSON-LD name</td><td class="old">"name": "Maison Mirage"</td><td class="arrow">→</td><td class="new">"name": "Vice Sweety"</td></tr>
+    <tr><td>GA Property</td><td class="old">G-JCL4B8SJY0</td><td class="arrow">→</td><td class="new">Nouvelle propriété GA4</td></tr>
+  </table>
+
+  <h4>Arborescence des URLs</h4>
+  <div class="code-block">
+    <span class="comment">/* === VICE SWEETY — SITEMAP === */</span><br>
+    <span class="key">/</span>                    <span class="comment">→ Homepage (Hero + Menu + Feed)</span><br>
+    <span class="key">/menu</span>                <span class="comment">→ Catalogue complet (remplace /index.html#boutique)</span><br>
+    <span class="key">/menu/trompe-loeil</span>   <span class="comment">→ Collection Signature</span><br>
+    <span class="key">/menu/drinks</span>          <span class="comment">→ Milkshakes · Smoothies · Jus</span><br>
+    <span class="key">/menu/cookies</span>         <span class="comment">→ Cookies & Cookie Dough</span><br>
+    <span class="key">/menu/fruits-du-demon</span> <span class="comment">→ Drop Édition Limitée</span><br>
+    <span class="key">/produit/:slug</span>        <span class="comment">→ Fiche produit (ex: /produit/mangue)</span><br>
+    <span class="key">/notre-vice</span>           <span class="comment">→ Remplace /notre-histoire.html</span><br>
+    <span class="key">/lab</span>                  <span class="comment">→ Remplace /atelier.html</span><br>
+    <span class="key">/legal</span>                <span class="comment">→ Mentions légales & CGV</span><br>
+    <span class="comment">/* SUPPRIMÉS : /partenaires /case-studies /evenements /cgv-pro */</span><br>
+    <span class="comment">/* Le B2B n'est plus le focus. C'est du B2C flux Marseille. */</span>
+  </div>
+
+  <!-- 1.2 PROPOSITION DE VALEUR -->
+  <h3>1.2 — Proposition de Valeur : Homepage <span class="priority p0">P0 — Critique</span></h3>
+
+  <div class="exec-card pink">
+    <div class="card-label pink">Headline H1 — Vice Sweety</div>
+    <p style="font-family:'Bebas Neue',sans-serif; font-size:clamp(28px,5vw,42px); letter-spacing:3px; background:linear-gradient(90deg,var(--neon-pink),var(--sunset-orange));-webkit-background-clip:text;-webkit-text-fill-color:transparent; line-height:1; margin-bottom:8px;">
+      Ton Prochain<br>Plaisir Coupable.
+    </p>
+    <p style="color:var(--text-secondary); font-size:15px; margin:0;">
+      <strong>Sub-headline H2 :</strong> Desserts trompe-l'œil, milkshakes obscènes, cookies dangereux. Bienvenue dans le Vice — Marseille.
+    </p>
+  </div>
+
+  <div class="exec-card blue">
+    <div class="card-label blue">Alternative H1 (Test A/B)</div>
+    <p style="font-family:'Bebas Neue',sans-serif; font-size:clamp(24px,4vw,36px); letter-spacing:2px; color:var(--neon-blue); line-height:1; margin-bottom:8px;">
+      Sweet Addiction.<br>Made in Marseille.
+    </p>
+    <p style="color:var(--text-secondary); font-size:15px; margin:0;">
+      <strong>Sub :</strong> Des desserts qui ressemblent à des fruits. Des drinks qui claquent plus fort que le soleil. Zero bullshit — 100% Vice.
+    </p>
+  </div>
+
+  <p>La Headline doit frapper en <strong>moins de 1.5 secondes</strong>. Le mot "Vice" est le mot clé émotionnel. "Plaisir coupable" ancre le positionnement hédoniste. "Marseille" est l'ancrage local qui crédibilise l'authenticité street.</p>
+
+  <!-- 1.3 TONE OF VOICE -->
+  <h3>1.3 — Twist du Ton de Voix <span class="priority p1">P1 — Élevé</span></h3>
+
+  <table class="mapping-table">
+    <tr><th>Contexte</th><th>Mirage (ancien ton)</th><th></th><th>Vice Sweety (nouveau ton)</th></tr>
+    <tr>
+      <td>Eyebrow Hero</td>
+      <td class="old">"Haute Pâtisserie Trompe-l'œil · Marseille"</td>
+      <td class="arrow">→</td>
+      <td class="new">"Desserts Dangereux · Marseille · Since Now"</td>
+    </tr>
+    <tr>
+      <td>Baseline</td>
+      <td class="old">"Ce que vous voyez n'est jamais ce que vous goûtez"</td>
+      <td class="arrow">→</td>
+      <td class="new">"Ça ressemble à un fruit. Ça goûte le paradis. T'es piégé."</td>
+    </tr>
+    <tr>
+      <td>CTA principal</td>
+      <td class="old">"Devenir partenaire"</td>
+      <td class="arrow">→</td>
+      <td class="new">"Commander mon Vice" / "Je craque"</td>
+    </tr>
+    <tr>
+      <td>CTA secondaire</td>
+      <td class="old">"Découvrir la collection"</td>
+      <td class="arrow">→</td>
+      <td class="new">"Voir le Menu" / "Explorer les Vices"</td>
+    </tr>
+    <tr>
+      <td>Section produits</td>
+      <td class="old">"Le Catalogue"</td>
+      <td class="arrow">→</td>
+      <td class="new">"Le Menu des Vices"</td>
+    </tr>
+    <tr>
+      <td>Fiche produit — Hook</td>
+      <td class="old">"Un trompe-l'œil spectaculaire..."</td>
+      <td class="arrow">→</td>
+      <td class="new">"T'as cru que c'était une mangue ? Erreur fatale."</td>
+    </tr>
+    <tr>
+      <td>Réassurance</td>
+      <td class="old">"Réponse 24h · Dégustation gratuite · Dès 5€"</td>
+      <td class="arrow">→</td>
+      <td class="new">"Prêt en 5 min · Take-away · À partir de 6€"</td>
+    </tr>
+    <tr>
+      <td>Page Histoire</td>
+      <td class="old">"Notre Histoire"</td>
+      <td class="arrow">→</td>
+      <td class="new">"Notre Vice" — La story d'un obsédé du sucre à Marseille</td>
+    </tr>
+    <tr>
+      <td>Footer tagline</td>
+      <td class="old">"Chaque création dissimule un secret"</td>
+      <td class="arrow">→</td>
+      <td class="new">"Dangerously Sweet. Unapologetically Marseille."</td>
+    </tr>
+  </table>
+
+  <div class="exec-card orange">
+    <div class="card-label orange">Règle d'or du copywriting Vice Sweety</div>
+    <p><strong>Ton :</strong> Provocant, sexy, direct, jamais vulgaire. On est dans le registre du plaisir assumé, pas de la grossièreté. Pense "publicité parfum de luxe qui parle de nourriture". Tutoiement systématique. Phrases courtes. Points. Pas de virgules inutiles. Le vocabulaire tourne autour de l'addiction, du piège, du vice, de la tentation. On ne "vend" pas — on "corrompt" avec élégance.</p>
+    <p><strong>Interdit :</strong> "Haute pâtisserie", "spectaculaire", "déguster", "artisanal" (trop classique). On remplace par : "dangereux", "obsessionnel", "addictif", "piège", "illusion fatale".</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AXE 2 — OVERHAUL VISUEL & DESIGN SYSTEM
+═════════════════════════════════════════════════════════════════════════ -->
+<section class="axe-section container" id="axe2">
+  <div class="axe-num">02</div>
+  <h2 class="axe-title">Overhaul Visuel & Design System</h2>
+  <p class="axe-subtitle">Vice City Sunset — Le nouveau langage visuel</p>
+
+  <!-- 2.1 PALETTE -->
+  <h3>2.1 — Palette "Vice City Sunset" <span class="priority p0">P0 — Critique</span></h3>
+
+  <p>On éradique le système <em>Luxury Warm Neutrals</em> de Mirage (<code>--cream: #FAF5EF</code>, <code>--ink: #1A1714</code>, <code>--gold: #A8895C</code>). On le remplace par un système nocturne à haute saturation :</p>
+
+  <div class="swatch-grid">
+    <div class="swatch" style="background:#0A0A0F; color:#fff;">
+      <div class="swatch-name">Deep Black</div>
+      <div class="swatch-hex">#0A0A0F</div>
+      <div style="font-size:10px;margin-top:4px;opacity:0.5;">Background principal</div>
+    </div>
+    <div class="swatch" style="background:#16161F; color:#fff;">
+      <div class="swatch-name">Rich Surface</div>
+      <div class="swatch-hex">#16161F</div>
+      <div style="font-size:10px;margin-top:4px;opacity:0.5;">Cards, modales</div>
+    </div>
+    <div class="swatch" style="background:#FF2D8A; color:#fff;">
+      <div class="swatch-name">Neon Vice</div>
+      <div class="swatch-hex">#FF2D8A</div>
+      <div style="font-size:10px;margin-top:4px;opacity:0.5;">Accent primaire, CTA</div>
+    </div>
+    <div class="swatch" style="background:#ff6ec7; color:#000;">
+      <div class="swatch-name">Neon Soft</div>
+      <div class="swatch-hex">#FF6EC7</div>
+      <div style="font-size:10px;margin-top:4px;">Hover, glow, titres</div>
+    </div>
+    <div class="swatch" style="background:#00D4FF; color:#000;">
+      <div class="swatch-name">Neon Cyan</div>
+      <div class="swatch-hex">#00D4FF</div>
+      <div style="font-size:10px;margin-top:4px;">Accent secondaire</div>
+    </div>
+    <div class="swatch" style="background:#FF6B35; color:#fff;">
+      <div class="swatch-name">Sunset Orange</div>
+      <div class="swatch-hex">#FF6B35</div>
+      <div style="font-size:10px;margin-top:4px;opacity:0.8;">Gradient, badges</div>
+    </div>
+    <div class="swatch" style="background:#FFB347; color:#000;">
+      <div class="swatch-name">Sunset Gold</div>
+      <div class="swatch-hex">#FFB347</div>
+      <div style="font-size:10px;margin-top:4px;">Prix, highlights</div>
+    </div>
+    <div class="swatch" style="background:linear-gradient(135deg,#1a0a2e,#0f1a3e); color:#fff; border:1px solid rgba(178,75,243,0.3);">
+      <div class="swatch-name">Deep Purple</div>
+      <div class="swatch-hex">#1A0A2E</div>
+      <div style="font-size:10px;margin-top:4px;opacity:0.5;">Hero gradient base</div>
+    </div>
+  </div>
+
+  <div class="code-block">
+    <span class="comment">/* === VICE SWEETY — CSS TOKENS (remplace Mirage) === */</span><br>
+    <span class="key">:root</span> {<br>
+    &nbsp;&nbsp;<span class="comment">/* Surfaces */</span><br>
+    &nbsp;&nbsp;<span class="key">--bg</span>: <span class="val">#0A0A0F</span>;&nbsp;&nbsp;<span class="comment">/* était --cream: #FAF5EF */</span><br>
+    &nbsp;&nbsp;<span class="key">--surface</span>: <span class="val">#16161F</span>;&nbsp;&nbsp;<span class="comment">/* était --cream-2 */</span><br>
+    &nbsp;&nbsp;<span class="key">--surface-elevated</span>: <span class="val">#1E1E2A</span>;<br>
+    <br>
+    &nbsp;&nbsp;<span class="comment">/* Accents */</span><br>
+    &nbsp;&nbsp;<span class="key">--accent</span>: <span class="val">#FF2D8A</span>;&nbsp;&nbsp;<span class="comment">/* était --gold: #A8895C */</span><br>
+    &nbsp;&nbsp;<span class="key">--accent-soft</span>: <span class="val">#FF6EC7</span>;<br>
+    &nbsp;&nbsp;<span class="key">--accent-2</span>: <span class="val">#00D4FF</span>;&nbsp;&nbsp;<span class="comment">/* cyan — nouveau */</span><br>
+    &nbsp;&nbsp;<span class="key">--sunset</span>: <span class="val">#FF6B35</span>;<br>
+    &nbsp;&nbsp;<span class="key">--gold</span>: <span class="val">#FFB347</span>;&nbsp;&nbsp;<span class="comment">/* sunset gold ≠ ancien gold laiton */</span><br>
+    <br>
+    &nbsp;&nbsp;<span class="comment">/* Texte */</span><br>
+    &nbsp;&nbsp;<span class="key">--text</span>: <span class="val">rgba(255,255,255,0.92)</span>;&nbsp;&nbsp;<span class="comment">/* était --ink: #1A1714 */</span><br>
+    &nbsp;&nbsp;<span class="key">--text-muted</span>: <span class="val">rgba(255,255,255,0.55)</span>;<br>
+    &nbsp;&nbsp;<span class="key">--text-dim</span>: <span class="val">rgba(255,255,255,0.3)</span>;<br>
+    <br>
+    &nbsp;&nbsp;<span class="comment">/* Gradients Vice City */</span><br>
+    &nbsp;&nbsp;<span class="key">--gradient-hero</span>: <span class="str">linear-gradient(180deg, #1a0a2e 0%, #0f1a3e 30%, #e94560 70%, #FF6B35 90%, #FFB347 100%)</span>;<br>
+    &nbsp;&nbsp;<span class="key">--gradient-cta</span>: <span class="str">linear-gradient(135deg, #FF2D8A, #FF6B35)</span>;<br>
+    &nbsp;&nbsp;<span class="key">--glow-pink</span>: <span class="str">0 0 30px rgba(255,45,138,0.4)</span>;<br>
+    &nbsp;&nbsp;<span class="key">--glow-cyan</span>: <span class="str">0 0 30px rgba(0,212,255,0.3)</span>;<br>
+    }
+  </div>
+
+  <!-- 2.2 TYPO -->
+  <h3>2.2 — Typographie "Premium Miami 80s" <span class="priority p0">P0 — Critique</span></h3>
+
+  <p>On vire <em>Cormorant Garamond</em> (trop classique/pâtisserie française) et <em>Outfit</em> (trop neutre). On garde <em>JetBrains Mono</em> pour le technique.</p>
+
+  <div class="exec-card pink">
+    <div class="card-label pink">Paire Typographique Vice Sweety</div>
+    <p><strong style="font-family:'Bebas Neue',sans-serif; font-size:32px; letter-spacing:3px; background:linear-gradient(90deg,var(--neon-pink),var(--sunset-orange));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">BEBAS NEUE</strong></p>
+    <p style="font-size:13px;color:var(--text-secondary);">Titres, headlines, nav brand — Condensée, brutale, impactante. L'énergie Vice City sans le côté "pixel art rétro". Gratuite Google Fonts.</p>
+    <br>
+    <p><strong style="font-family:'Space Grotesk',sans-serif; font-size:18px; color:var(--neon-blue);">Space Grotesk</strong></p>
+    <p style="font-size:13px;color:var(--text-secondary);">Corps, descriptions, UI — Géométrique, moderne, lisible. Suffisamment "tech/premium" pour ne pas faire cheap. Poids 300→700.</p>
+    <br>
+    <p><strong style="font-family:'JetBrains Mono',monospace; font-size:14px; color:var(--sunset-gold);">JetBrains Mono</strong></p>
+    <p style="font-size:13px;color:var(--text-secondary);">Labels, badges, prix, eyebrows — On le conserve de Mirage. Il apporte la tension "labo" qui contraste avec le côté flashy.</p>
+  </div>
+
+  <div class="code-block">
+    <span class="comment">/* === REMPLACEMENT TYPO === */</span><br>
+    <span class="key">--serif</span>: <span class="old">'Cormorant Garamond'</span> <span class="arrow">→</span> <span class="val">SUPPRIMÉ</span>;<br>
+    <span class="key">--display</span>: <span class="val">'Bebas Neue', sans-serif</span>;&nbsp;&nbsp;<span class="comment">/* NOUVEAU — Titres */</span><br>
+    <span class="key">--sans</span>: <span class="old">'Outfit'</span> <span class="arrow">→</span> <span class="val">'Space Grotesk', system-ui, sans-serif</span>;<br>
+    <span class="key">--mono</span>: <span class="val">'JetBrains Mono', monospace</span>;&nbsp;&nbsp;<span class="comment">/* inchangé */</span>
+  </div>
+
+  <!-- 2.3 MISE EN SCÈNE PRODUIT -->
+  <h3>2.3 — Mise en Scène Produit <span class="priority p1">P1 — Élevé</span></h3>
+
+  <p>Les assets Mirage (photos trompe-l'œil sur fond neutre/crème) sont la matière première. Voici le protocole de transformation :</p>
+
+  <div class="exec-card purple">
+    <div class="card-label" style="color:var(--neon-purple);">Protocole Photo — Trompe-l'œil</div>
+    <p><strong>1. Détourage :</strong> Chaque produit existant (mangue, fraise, citron, etc.) est détouré avec masque alpha propre. Les fichiers <code>*-trans.png</code> existent déjà — on les réutilise.</p>
+    <p><strong>2. Fond :</strong> Plus de fond crème. Chaque produit est posé sur du <em>noir profond (#0A0A0F)</em> ou du <em>gradient Vice City</em> (du deep purple au sunset). L'éclairage est dramatique : source unique latérale, ombres portées dures, reflets néon (pink glow à gauche, cyan glow à droite).</p>
+    <p><strong>3. Ambiance :</strong> On ajoute en post-prod des halos de lumière néon (via CSS <code>box-shadow</code> ou via overlay photoshop). Le produit "brille" comme un objet dans une vitrine de boîte de nuit.</p>
+    <p><strong>4. Fruits du Démon (One Piece) :</strong> Shooting spécial. Fond violet très profond. Motifs spirale/psychédéliques en overlay léger. Badge "ÉDITION LIMITÉE" en néon animé. La mise en scène doit évoquer un artefact rare, pas un simple dessert.</p>
+    <p><strong>5. Drinks :</strong> Shooting en mouvement. Splash, éclaboussures figées. Éclairage UV/néon. Le milkshake Vice Sweety doit ressembler à un cocktail de club, pas à un smoothie healthy.</p>
+  </div>
+
+  <div class="exec-card blue">
+    <div class="card-label blue">CSS Product Card — Glow Effect</div>
+    <div class="code-block" style="margin:0;">
+      <span class="key">.product-card</span> {<br>
+      &nbsp;&nbsp;background: var(--surface);<br>
+      &nbsp;&nbsp;border: 1px solid rgba(255,45,138,0.08);<br>
+      &nbsp;&nbsp;border-radius: 20px;<br>
+      &nbsp;&nbsp;overflow: hidden;<br>
+      &nbsp;&nbsp;transition: all 0.4s cubic-bezier(0.16,1,0.3,1);<br>
+      }<br>
+      <span class="key">.product-card:hover</span> {<br>
+      &nbsp;&nbsp;border-color: var(--accent);<br>
+      &nbsp;&nbsp;box-shadow: var(--glow-pink);<br>
+      &nbsp;&nbsp;transform: translateY(-6px) scale(1.02);<br>
+      }<br>
+      <span class="key">.product-card img</span> {<br>
+      &nbsp;&nbsp;filter: contrast(1.05) saturate(1.1);<br>
+      &nbsp;&nbsp;transition: transform 0.6s var(--ease-out);<br>
+      }<br>
+      <span class="key">.product-card:hover img</span> {<br>
+      &nbsp;&nbsp;transform: scale(1.08);<br>
+      }
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AXE 3 — UX & PARCOURS CLIENT
+═════════════════════════════════════════════════════════════════════════ -->
+<section class="axe-section container" id="axe3">
+  <div class="axe-num">03</div>
+  <h2 class="axe-title">UX & Parcours Client</h2>
+  <p class="axe-subtitle">Modèle Marseille-Flux · Take-Away · 3 clics max</p>
+
+  <!-- 3.1 SIMPLIFICATION -->
+  <h3>3.1 — Simplification Radicale <span class="priority p0">P0 — Critique</span></h3>
+
+  <p>Mirage a 11 pages et un parcours B2B complexe (devis, partenariats, case studies, événements). Vice Sweety est un <strong>commerce B2C de flux</strong>. Le parcours doit être : <em>voir → vouloir → payer → partir.</em></p>
+
+  <div class="exec-card green">
+    <div class="card-label green">Pages supprimées</div>
+    <p>
+      <span class="old">partenaires.html</span> — Plus de B2B comme focus principal<br>
+      <span class="old">case-studies.html</span> — Pas de case studies en B2C street food<br>
+      <span class="old">evenements.html</span> — Intégré comme section optionnelle dans /notre-vice<br>
+      <span class="old">cgv-pro.html</span> — Remplacé par CGV B2C standard<br>
+      <span class="old">atelier.html</span> → Fusionné dans <span class="new">/lab</span> (version courte, visuelle, 30 secondes de scroll max)
+    </p>
+  </div>
+
+  <h4>Parcours d'achat cible : 3 étapes, 90 secondes</h4>
+  <div class="flow">
+    <div class="flow-step accent">🏠 Homepage<br><small>Hero + Menu rapide</small></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">📋 Menu<br><small>Scroll ou filtre</small></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">👆 Ajout panier<br><small>Quantité + taille</small></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step accent">💳 Checkout<br><small>Panier latéral</small></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step" style="border-color:var(--green);">✅ Confirmation<br><small>Heure retrait</small></div>
+  </div>
+
+  <p>Le panier est un <strong>drawer latéral</strong> (pas une page séparée). Le checkout est <strong>one-page</strong> : coordonnées + heure de retrait + paiement (CB ou Apple Pay). Zéro création de compte obligatoire. Guest checkout par défaut.</p>
+
+  <!-- 3.2 STRUCTURE MENU -->
+  <h3>3.2 — Architecture du Menu <span class="priority p0">P0 — Critique</span></h3>
+
+  <p>La hiérarchisation suit la logique de <strong>marge × volume × viralité</strong> :</p>
+
+  <div class="exec-card pink">
+    <div class="card-label pink">Niveau 1 — Drinks (Header du menu, gros visuel)</div>
+    <p><strong>Pourquoi en premier :</strong> Panier moyen le plus accessible (6–8€), temps de préparation rapide, achat impulsif, marge excellente sur les liquides. C'est le produit d'appel qui fait rentrer les gens.</p>
+    <p><strong>Produits :</strong> Milkshakes Vice (6 parfums, noms provocants), Smoothies Frais (4 recettes), Jus Pressés (3 classiques).</p>
+    <p><strong>Présentation :</strong> Carrousel horizontal plein écran. Photos splash/mouvement. Badge "BEST SELLER" sur le top 3.</p>
+  </div>
+
+  <div class="exec-card orange">
+    <div class="card-label orange">Niveau 2 — Trompe-l'œil Signature (Le cœur de la marque)</div>
+    <p><strong>Pourquoi en deuxième :</strong> C'est le produit signature, celui qui génère l'UGC et la viralité. Plus cher (8–14€), mais c'est l'expérience "wow" qui fait revenir et partager.</p>
+    <p><strong>Produits :</strong> Les 14 parfums existants (mangue, framboise, passion, coco, popcorn, baklava, datte, vanille, cacahuète, pécan, fraise, pêche, citron, cacao).</p>
+    <p><strong>Présentation :</strong> Grille 2 colonnes sur mobile, 3 sur desktop. Photos fond noir + glow néon. Chaque card affiche : nom, "ça ressemble à...", prix, bouton "Ajouter".</p>
+  </div>
+
+  <div class="exec-card blue">
+    <div class="card-label blue">Niveau 3 — Cookies & Cookie Dough (L'upsell)</div>
+    <p><strong>Pourquoi en troisième :</strong> Produit de volume, faible ticket (3–5€), parfait en add-on ("ajoute un cookie à ta commande pour 3€"). Pas le produit d'appel mais le multiplicateur de panier.</p>
+    <p><strong>Présentation :</strong> Section compacte, 1 ligne horizontale scrollable. Design plus sobre, focus sur la texture (gros plan, chocolate chip fondant).</p>
+  </div>
+
+  <div class="exec-card" style="border-left:3px solid var(--red); background:rgba(255,59,92,0.04);">
+    <div class="card-label" style="color:var(--red);">Section Spéciale — Fruits du Démon (Drop Limité)</div>
+    <p><strong>Positionnement :</strong> Section flottante / bannière qui apparaît <em>entre</em> les Drinks et les Trompe-l'œil quand un drop est actif. Fond violet profond, animation glitch, compteur de stock en temps réel.</p>
+    <p><strong>Mécanique :</strong> "50 exemplaires/jour. Quand c'est fini, c'est fini." — Pas de pré-commande, pas de réassort annoncé. FOMO pur.</p>
+  </div>
+
+  <!-- 3.3 NAVIGATION -->
+  <h3>3.3 — Navigation <span class="priority p1">P1 — Élevé</span></h3>
+
+  <div class="code-block">
+    <span class="comment">/* === NAVBAR VICE SWEETY === */</span><br>
+    <span class="comment">/* Mirage avait 7 liens + CTA "Devis". C'est mort. */</span><br><br>
+    <span class="key">Desktop :</span><br>
+    [Logo Vice Sweety] &nbsp; <span class="val">Menu</span> &nbsp; <span class="val">Notre Vice</span> &nbsp; <span class="val">Le Lab</span> &nbsp;&nbsp;&nbsp; [🛒 Panier (X)] &nbsp; [📍 Marseille]<br><br>
+    <span class="key">Mobile :</span><br>
+    [☰ Burger] &nbsp; [Logo] &nbsp; [🛒 Panier (X)]<br>
+    <span class="comment">/* 3 liens max dans le burger : Menu · Notre Vice · Le Lab */</span><br>
+    <span class="comment">/* Le bouton 📍 affiche l'adresse + horaires en bottom sheet */</span>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AXE 4 — STRATÉGIE CRO & VIRALITÉ
+═════════════════════════════════════════════════════════════════════════ -->
+<section class="axe-section container" id="axe4">
+  <div class="axe-num">04</div>
+  <h2 class="axe-title">Stratégie CRO & Viralité</h2>
+  <p class="axe-subtitle">FOMO · Social Proof · UGC Machine</p>
+
+  <!-- 4.1 FOMO & RARETÉ -->
+  <h3>4.1 — Mécaniques FOMO & Rareté <span class="priority p0">P0 — Critique</span></h3>
+
+  <table class="mapping-table">
+    <tr><th>Mécanique</th><th>Placement</th><th>Détail technique</th></tr>
+    <tr>
+      <td><strong>Compteur de stock live</strong></td>
+      <td>Section Fruits du Démon + fiche produit</td>
+      <td>Badge animé : "🔥 Il en reste 12/50 aujourd'hui". Couleur passe du vert au orange (<20) au rouge (<5). Pulse animation quand &lt;10.</td>
+    </tr>
+    <tr>
+      <td><strong>Timer de drop</strong></td>
+      <td>Hero banner (quand drop actif)</td>
+      <td>Countdown : "Prochain drop Fruits du Démon dans 2j 14h 32min". Fond violet avec effet glitch CSS. Disparaît quand le drop est live.</td>
+    </tr>
+    <tr>
+      <td><strong>"X personnes regardent ce produit"</strong></td>
+      <td>Fiche produit (top right)</td>
+      <td>Icône œil + compteur semi-aléatoire (base réelle + variance ±3). Ex: "👁 14 personnes regardent ça maintenant".</td>
+    </tr>
+    <tr>
+      <td><strong>Social proof notif</strong></td>
+      <td>Bottom-left toast (toutes pages)</td>
+      <td>Slide-in toutes les 25s : "Sarah vient de commander un Vice Mangue 🔥 — il y a 2 min". Données semi-réelles (prénoms pool + dernier produit commandé).</td>
+    </tr>
+    <tr>
+      <td><strong>Upsell panier</strong></td>
+      <td>Drawer panier</td>
+      <td>"Ajoute un cookie pour seulement 3€ de plus" + progress bar : "Plus que 4€ pour la livraison gratuite" (si livraison implémentée).</td>
+    </tr>
+    <tr>
+      <td><strong>Badge "Sold Out" stylisé</strong></td>
+      <td>Card produit (quand stock = 0)</td>
+      <td>Overlay diagonal rouge néon "SOLD OUT" avec effet VHS/scanline. Le produit reste visible mais non cliquable. Crée l'envie pour le prochain drop.</td>
+    </tr>
+  </table>
+
+  <!-- 4.2 SOCIAL MEDIA / UGC -->
+  <h3>4.2 — Intégration Social Media & UGC <span class="priority p1">P1 — Élevé</span></h3>
+
+  <div class="exec-card pink">
+    <div class="card-label pink">Section "Le Mur du Vice" — Homepage</div>
+    <p><strong>Concept :</strong> Grille Instagram/TikTok en masonry layout, intégrée directement dans la homepage entre le menu et le footer. Pas un simple widget Instagram embed — un mur construit sur mesure qui mixe :</p>
+    <p>
+      → <strong>Posts Instagram</strong> du compte @vicesweety (via API ou scraping léger)<br>
+      → <strong>UGC clients</strong> repostés (avec credit) — sélectionnés manuellement pour le contrôle qualité<br>
+      → <strong>TikTok embeds</strong> des vidéos virales (réactions, unboxing, "c'est pas un vrai fruit?!")<br>
+      → <strong>Faux screenshots de stories</strong> avec réactions ("OMG", "C'EST PAS POSSIBLE", emoji 🤯)
+    </p>
+  </div>
+
+  <div class="exec-card blue">
+    <div class="card-label blue">Design du Mur</div>
+    <p><strong>Layout :</strong> Masonry grid, 3 colonnes desktop / 2 mobile. Scroll infini (lazy load). Fond : <code>var(--deep-black)</code> avec bordures néon subtiles au hover.</p>
+    <p><strong>Esthétique :</strong> Chaque card a un léger <code>border-radius: 16px</code>, un overlay gradient sombre en bas pour le texte, et un <strong>glow rose au hover</strong>. Le hashtag <code>#ViceSweety</code> est affiché en badge Bebas Neue sur chaque card.</p>
+    <p><strong>CTA :</strong> En fin de mur : <em>"Poste ton Vice avec #ViceSweety et apparais ici."</em> — Bouton lien vers Instagram.</p>
+  </div>
+
+  <div class="exec-card orange">
+    <div class="card-label orange">Mécanique UGC — Le "Vice Pass"</div>
+    <p><strong>Concept :</strong> Chaque commande inclut un sticker QR Code (imprimé sur le packaging Vice Sweety) qui redirige vers une landing page <code>vicesweety.com/share</code>. Le client uploade sa photo/vidéo, et si elle est sélectionnée pour le Mur du Vice, il obtient un <strong>drink gratuit à sa prochaine visite</strong>.</p>
+    <p><strong>Coût :</strong> ~1.50€ de coût matière par drink offert. ROI : une vidéo UGC organique vaut ~50-200€ en équivalent pub. Le ratio est imbattable.</p>
+  </div>
+
+  <!-- 4.3 PRODUCT PAGE CRO -->
+  <h3>4.3 — Fiche Produit — Architecture CRO <span class="priority p1">P1 — Élevé</span></h3>
+
+  <div class="code-block">
+    <span class="comment">/* === FICHE PRODUIT — WIREFRAME STRUCTUREL === */</span><br><br>
+    ┌─────────────────────────────────────────────┐<br>
+    │ &nbsp;[📸 Photo produit fond noir + glow]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
+    │ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Swipe gallery (3 vues)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
+    ├─────────────────────────────────────────────┤<br>
+    │ &nbsp;👁 12 personnes regardent ça&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
+    │ &nbsp;<span class="val">MANGUE FATALE</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
+    │ &nbsp;"Ça ressemble à une mangue."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
+    │ &nbsp;"Spoiler: c'en est pas une."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
+    │ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
+    │ &nbsp;<span class="key">8.90€</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
+    │ &nbsp;[- 1 +]&nbsp;&nbsp;[🛒 AJOUTER MON VICE]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
+    │ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
+    │ &nbsp;⚡ Prêt en 5 min · 🔄 Take-away&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
+    ├─────────────────────────────────────────────┤<br>
+    │ &nbsp;🎯 "Les gens ajoutent aussi:"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
+    │ &nbsp;[Cookie Vice] [Milkshake Obscur]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
+    └─────────────────────────────────────────────┘
+  </div>
+
+  <!-- 4.4 PANIER MOYEN -->
+  <h3>4.4 — Leviers Panier Moyen (Cible 12–18€) <span class="priority p0">P0 — Critique</span></h3>
+
+  <div class="exec-card green">
+    <div class="card-label green">Stratégie de pricing & bundles</div>
+    <p><strong>Pricing unitaire :</strong></p>
+    <p>
+      → Trompe-l'œil : <strong>8.90€ – 12.90€</strong> (selon complexité)<br>
+      → Milkshake : <strong>6.90€ – 8.90€</strong> (selon taille M/L)<br>
+      → Smoothie / Jus : <strong>5.90€ – 7.90€</strong><br>
+      → Cookie : <strong>3.50€</strong> (unitaire) / <strong>9€</strong> (box de 3)<br>
+      → Cookie Dough : <strong>5.90€</strong><br>
+      → Fruits du Démon : <strong>14.90€</strong> (pricing premium justifié par la rareté)
+    </p>
+    <p><strong>Bundles :</strong></p>
+    <p>
+      → <em>"Le Vice Complet"</em> : 1 trompe-l'œil + 1 drink = <strong>14.90€</strong> (au lieu de 17.80€) — Panier moyen : 14.90€ ✅<br>
+      → <em>"Vice x2"</em> : 2 trompe-l'œil = <strong>15.90€</strong> (au lieu de 17.80€) — Pour les couples<br>
+      → <em>"Full Vice"</em> : 1 trompe-l'œil + 1 drink + 1 cookie = <strong>17.90€</strong> — Le jackpot marge
+    </p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     RÉCAP EXÉCUTION
+═════════════════════════════════════════════════════════════════════════ -->
+<section class="axe-section container" id="recap">
+  <div class="axe-num">∞</div>
+  <h2 class="axe-title">Roadmap d'Exécution</h2>
+  <p class="axe-subtitle">Séquence de déploiement</p>
+
+  <div class="exec-card pink">
+    <div class="card-label pink">Sprint 1 — Fondations (Semaine 1-2)</div>
+    <p>
+      → Achat domaine vicesweety.com + setup DNS<br>
+      → Création logo Vice Sweety (néon pink/gradient, lettrage Bebas Neue)<br>
+      → Mise en place du Design System CSS (tokens, typo, composants de base)<br>
+      → Refonte homepage : Hero + Section Menu + Footer<br>
+      → Retraitement photo de tous les trompe-l'œil existants (fond noir + glow)
+    </p>
+  </div>
+
+  <div class="exec-card blue">
+    <div class="card-label blue">Sprint 2 — Commerce (Semaine 3-4)</div>
+    <p>
+      → Intégration e-commerce (Shopify ou Snipcart) : catalogue, panier, checkout<br>
+      → Pages produit avec architecture CRO complète<br>
+      → Bundles et logique de pricing<br>
+      → Setup paiement CB + Apple Pay / Google Pay<br>
+      → Page /notre-vice et /lab
+    </p>
+  </div>
+
+  <div class="exec-card orange">
+    <div class="card-label orange">Sprint 3 — Growth (Semaine 5-6)</div>
+    <p>
+      → Mécaniques FOMO (compteur stock, social proof notifs, timer drops)<br>
+      → Section "Mur du Vice" + mécanisme UGC (QR code packaging)<br>
+      → Setup GA4 + events tracking (ajout panier, checkout, conversion)<br>
+      → Landing page Fruits du Démon (premier drop)<br>
+      → Setup Instagram/TikTok @vicesweety + premiers contenus
+    </p>
+  </div>
+
+  <div class="exec-card green">
+    <div class="card-label green">Sprint 4 — Optimisation (Semaine 7-8)</div>
+    <p>
+      → A/B test headlines (variantes H1)<br>
+      → Optimisation mobile (Core Web Vitals, LCP < 2.5s)<br>
+      → SEO local (Google Business, schema LocalBusiness, mots clés Marseille)<br>
+      → Analyse premier mois : taux de conversion, panier moyen, produits stars<br>
+      → Itération sur le menu et les bundles selon la data
+    </p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<footer class="blueprint-footer">
+  VICE SWEETY — BLUEPRINT DE TRANSFORMATION V1.0<br>
+  MARS 2026 · CONFIDENTIAL · MARSEILLE
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vice Sweety — Desserts Dangereux · Marseille</title>
+  <meta name="description" content="Vice Sweety — Desserts trompe-l'œil, milkshakes obscènes, cookies dangereux. Le plaisir coupable premium de Marseille." />
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+/* ══════════════════════════════════════════════════════════════
+   VICE SWEETY × CARROT EXPRESS — CLEAN ÉPURÉ LANDING PAGE
+   Inspired by carrotexpress.com's minimal, image-forward approach
+   Combined with Vice Sweety's Miami Vice brand DNA
+══════════════════════════════════════════════════════════════ */
+
+:root {
+  --bg: #FEFCFF;
+  --surface: #F8F4FA;
+  --accent: #e63b7a;
+  --accent-soft: #F990E8;
+  --cyan: #0BD2D3;
+  --gold: #c8963e;
+  --coral: #e8775a;
+  --text: #1a1025;
+  --text-muted: #6b5f78;
+  --text-dim: #a89bb5;
+  --display: 'Bebas Neue', sans-serif;
+  --sans: 'Space Grotesk', system-ui, sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --radius-full: 999px;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: var(--sans); background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+img, video { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; transition: color 0.3s; }
+
+/* ── TOP BANNER ── */
+.top-banner {
+  background: var(--accent);
+  color: #fff;
+  text-align: center;
+  padding: 0.6rem 1rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.top-banner a {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ── NAVBAR ── */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(254,252,255,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(26,16,37,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2.5rem;
+  height: 72px;
+  transition: all 0.3s;
+}
+.navbar.scrolled {
+  box-shadow: 0 2px 20px rgba(26,16,37,0.06);
+}
+.nav-burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 200;
+}
+.nav-burger span {
+  width: 22px;
+  height: 1.5px;
+  background: var(--text);
+  transition: all 0.3s;
+}
+.nav-left, .nav-right {
+  display: flex;
+  align-items: center;
+  gap: 2.2rem;
+}
+.nav-left a, .nav-right a {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text);
+  transition: color 0.3s;
+}
+.nav-left a:hover, .nav-right a:hover { color: var(--accent); }
+.nav-brand img {
+  height: 110px;
+  margin: -30px 0;
+  width: auto;
+  transition: transform 0.3s;
+}
+.nav-brand:hover img { transform: scale(1.03); }
+.btn-order {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.8rem;
+  border-radius: var(--radius-full);
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--accent);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s var(--ease-out);
+}
+.btn-order:hover {
+  background: #d8296a;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(230,59,122,0.25);
+}
+
+/* ── HERO — Full-width immersive image ── */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 85vh;
+  min-height: 500px;
+  overflow: hidden;
+}
+.hero-slides {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+.hero-slide.active { opacity: 1; }
+.hero-slide img,
+.hero-slide video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(26,10,46,0.15) 0%, rgba(26,10,46,0.5) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+.hero-title {
+  font-family: var(--display);
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  color: #fff;
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  text-shadow: 0 4px 40px rgba(0,0,0,0.3);
+  margin-bottom: 0.8rem;
+}
+.hero-subtitle {
+  font-family: var(--sans);
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  color: rgba(255,255,255,0.85);
+  font-weight: 300;
+  letter-spacing: 0.03em;
+  max-width: 40ch;
+}
+.hero-arrows {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  pointer-events: none;
+  z-index: 5;
+}
+.hero-arrow {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: all 0.3s;
+}
+.hero-arrow:hover {
+  background: rgba(255,255,255,0.3);
+}
+.hero-dots {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.6rem;
+  z-index: 5;
+}
+.hero-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.4);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.hero-dot.active {
+  background: #fff;
+  transform: scale(1.2);
+}
+
+/* ── CATEGORY BLOCKS — 50/50 split ── */
+.category-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 55vh;
+}
+.category-block {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.category-block img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease-out);
+}
+.category-block:hover img {
+  transform: scale(1.04);
+}
+.category-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(26,10,46,0.25);
+  transition: background 0.4s;
+}
+.category-block:hover .category-label {
+  background: rgba(26,10,46,0.4);
+}
+.category-label h2 {
+  font-family: var(--display);
+  font-size: clamp(2rem, 4vw, 4rem);
+  color: #fff;
+  letter-spacing: 0.08em;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+/* ── FULL-WIDTH TAGLINE SECTION ── */
+.tagline-section {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  min-height: 450px;
+  overflow: hidden;
+}
+.tagline-section img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.tagline-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(26,10,46,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tagline-text {
+  font-family: var(--display);
+  font-size: clamp(2.5rem, 6vw, 6rem);
+  color: #fff;
+  text-align: center;
+  letter-spacing: 0.04em;
+  text-shadow: 0 6px 30px rgba(0,0,0,0.35);
+  line-height: 1;
+  padding: 0 2rem;
+}
+
+/* ── MENU GRID — Clean product cards ── */
+.menu-section {
+  padding: 5rem 4vw;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.menu-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.menu-header h2 {
+  font-family: var(--display);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  color: var(--text);
+  letter-spacing: 0.03em;
+}
+.menu-header p {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+.menu-filters {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+.filter-btn {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.55rem 1.3rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--text-dim);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+.filter-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+.product-card {
+  background: var(--surface);
+  border-radius: 1.2rem;
+  overflow: hidden;
+  transition: all 0.35s var(--ease-out);
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+}
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(26,16,37,0.1);
+}
+.product-card-img {
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.product-card-img img {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+  transition: transform 0.4s var(--ease-out);
+}
+.product-card:hover .product-card-img img {
+  transform: scale(1.06);
+}
+.product-badge {
+  position: absolute;
+  top: 0.8rem;
+  left: 0.8rem;
+  font-family: var(--mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.7rem;
+  border-radius: var(--radius-full);
+  color: #fff;
+  font-weight: 600;
+}
+.badge-new { background: var(--accent); }
+.badge-season { background: var(--gold); }
+.badge-limited { background: var(--coral); }
+.product-card-body {
+  padding: 1rem 1.2rem 1.2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.product-card-name {
+  font-family: var(--display);
+  font-size: 1.25rem;
+  color: var(--text);
+  letter-spacing: 0.02em;
+}
+.product-card-sub {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-top: 0.15rem;
+}
+.product-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(26,16,37,0.05);
+}
+.product-price {
+  font-family: var(--mono);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--gold);
+}
+.btn-add {
+  font-family: var(--mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-full);
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.btn-add:hover { background: #d8296a; transform: scale(1.04); }
+
+/* ── INFO BLOCKS — 50/50 (Locations + Vice Club) ── */
+.info-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 45vh;
+}
+.info-block {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.info-block img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease-out);
+}
+.info-block:hover img { transform: scale(1.04); }
+.info-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(26,10,46,0.35);
+  transition: background 0.4s;
+}
+.info-block:hover .info-label { background: rgba(26,10,46,0.5); }
+.info-label h3 {
+  font-family: var(--display);
+  font-size: clamp(1.8rem, 3.5vw, 3.5rem);
+  color: #fff;
+  letter-spacing: 0.08em;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+.info-label p {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.8);
+  margin-top: 0.5rem;
+  font-weight: 300;
+}
+
+/* ── NEWSLETTER BANNER ── */
+.newsletter-banner {
+  background: var(--text);
+  padding: 1.5rem 2rem;
+  text-align: center;
+}
+.newsletter-banner p {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+}
+.newsletter-banner strong {
+  color: var(--accent-soft);
+}
+
+/* ── FOOTER — Clean Carrot Express style columns ── */
+.footer {
+  background: var(--bg);
+  border-top: 1px solid rgba(26,16,37,0.08);
+  padding: 4rem 4vw 2rem;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto 3rem;
+}
+.footer-col h4 {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: 1.2rem;
+}
+.footer-col a {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin-bottom: 0.6rem;
+  transition: color 0.3s;
+}
+.footer-col a:hover { color: var(--accent); }
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(26,16,37,0.06);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer-copy {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+}
+.footer-social {
+  display: flex;
+  gap: 1rem;
+}
+.footer-social a {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(26,16,37,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  transition: all 0.3s;
+}
+.footer-social a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ── MOBILE NAV OVERLAY ── */
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  background: rgba(26,16,37,0.98);
+  backdrop-filter: blur(10px);
+  z-index: 150;
+  display: flex;
+  flex-direction: column;
+  padding: 6rem 3rem 3rem;
+  gap: 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+}
+.mobile-menu.open { opacity: 1; visibility: visible; }
+.mobile-menu a {
+  font-family: var(--display);
+  font-size: 2.5rem;
+  color: #fff;
+  transition: color 0.3s;
+}
+.mobile-menu a:hover { color: var(--accent-soft); }
+.mobile-menu-footer {
+  margin-top: auto;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.mobile-menu-footer a {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .nav-burger { display: flex; }
+  .nav-left, .nav-right .nav-link-desktop { display: none; }
+  .navbar { padding: 0 1rem; height: 64px; }
+  .nav-brand img { height: 80px; margin: -15px 0; }
+  .hero { height: 65vh; }
+  .hero-title { font-size: clamp(2.2rem, 6vw, 3.5rem); }
+  .category-row, .info-row { grid-template-columns: 1fr; }
+  .category-row { min-height: auto; }
+  .category-block { min-height: 40vh; }
+  .info-block { min-height: 35vh; }
+  .tagline-section { height: 50vh; min-height: 300px; }
+  .menu-section { padding: 3rem 3vw; }
+  .menu-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1rem; }
+  .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 480px) {
+  .hero { height: 55vh; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .product-card-name { font-size: 1rem; }
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+}
+.fade-up.visible {
+  animation: fadeUp 0.7s var(--ease-out) forwards;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+  </style>
+</head>
+<body>
+
+  <!-- ═══════ TOP BANNER ═══════ -->
+  <div class="top-banner">
+    Nouveau · <strong>Édition Limitée Passion</strong> · <a href="#menu">Découvrir →</a>
+  </div>
+
+  <!-- ═══════ MOBILE MENU ═══════ -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#menu">Menu</a>
+    <a href="notre-vice.html">Notre Vice</a>
+    <a href="lab.html">Le Lab</a>
+    <a href="#faq">FAQ</a>
+    <div class="mobile-menu-footer">
+      <a href="mailto:hello@vicesweety.com">hello@vicesweety.com</a>
+      <a href="tel:+33622356575">+33 6 22 35 65 75</a>
+      <a href="https://www.instagram.com/vicesweety" target="_blank">@vicesweety</a>
+    </div>
+  </div>
+
+  <!-- ═══════ NAVBAR ═══════ -->
+  <nav class="navbar" id="navbar">
+    <button class="nav-burger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-left">
+      <a href="#menu">Menu</a>
+      <a href="notre-vice.html">Notre Vice</a>
+      <a href="lab.html">Le Lab</a>
+    </div>
+    <a href="#" class="nav-brand">
+      <img src="img/Vice_Sweety_logo.png" alt="Vice Sweety" />
+    </a>
+    <div class="nav-right">
+      <a href="#faq" class="nav-link-desktop">FAQ</a>
+      <a href="mailto:hello@vicesweety.com" class="nav-link-desktop">Contact</a>
+      <button class="btn-order" onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})">Commander</button>
+    </div>
+  </nav>
+
+  <!-- ═══════ HERO CAROUSEL ═══════ -->
+  <section class="hero">
+    <div class="hero-slides" id="heroSlides">
+      <div class="hero-slide active">
+        <img src="img/fraise-coupe.png" alt="La Fraise Vice Sweety" style="object-position: center;" />
+        <div class="hero-overlay">
+          <h1 class="hero-title">TON PROCHAIN<br>PLAISIR COUPABLE</h1>
+          <p class="hero-subtitle">Desserts trompe-l'œil · Milkshakes obscènes · Cookies dangereux</p>
+        </div>
+      </div>
+      <div class="hero-slide">
+        <img src="img/peche.webp" alt="La Pêche Vice Sweety" />
+        <div class="hero-overlay">
+          <h1 class="hero-title">DESSERTS<br>DANGEREUX</h1>
+          <p class="hero-subtitle">Artisanal · Marseille · Since Now</p>
+        </div>
+      </div>
+      <div class="hero-slide">
+        <img src="img/citron-coupe.webp" alt="Le Citron Vice Sweety" />
+        <div class="hero-overlay">
+          <h1 class="hero-title">L'ILLUSION<br>SE RÉVÈLE</h1>
+          <p class="hero-subtitle">Tu coupes. Tu découvres. Tu comprends.</p>
+        </div>
+      </div>
+    </div>
+    <div class="hero-arrows">
+      <button class="hero-arrow" id="heroPrev" aria-label="Précédent">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <button class="hero-arrow" id="heroNext" aria-label="Suivant">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+    </div>
+    <div class="hero-dots" id="heroDots">
+      <div class="hero-dot active" data-index="0"></div>
+      <div class="hero-dot" data-index="1"></div>
+      <div class="hero-dot" data-index="2"></div>
+    </div>
+  </section>
+
+  <!-- ═══════ CATEGORY BLOCKS 50/50 ═══════ -->
+  <div class="category-row">
+    <a href="#menu" class="category-block" onclick="filterCategory('trompe')">
+      <img src="img/mangue-zoom.webp" alt="Trompe-l'œil" />
+      <div class="category-label">
+        <h2>TROMPE-L'ŒIL</h2>
+      </div>
+    </a>
+    <a href="#menu" class="category-block" onclick="filterCategory('drinks')">
+      <img src="img/fraise-zoom.webp" alt="Drinks & Cookies" />
+      <div class="category-label">
+        <h2>DRINKS & COOKIES</h2>
+      </div>
+    </a>
+  </div>
+
+  <!-- ═══════ MENU GRID ═══════ -->
+  <section class="menu-section" id="menu">
+    <div class="menu-header fade-up">
+      <h2>LES VICES</h2>
+      <p>Choisis ton plaisir coupable.</p>
+    </div>
+
+    <div class="menu-filters fade-up">
+      <button class="filter-btn active" data-filter="all">Tout</button>
+      <button class="filter-btn" data-filter="trompe">Trompe-l'œil</button>
+      <button class="filter-btn" data-filter="drinks">Drinks</button>
+      <button class="filter-btn" data-filter="cookies">Cookies</button>
+    </div>
+
+    <div class="menu-grid" id="menuGrid">
+      <a href="produit-fraise.html" class="product-card fade-up" data-cat="trompe">
+        <div class="product-card-img">
+          <img src="img/fraise-trans.webp" alt="La Fraise" loading="lazy" />
+          <span class="product-badge badge-new">Bestseller</span>
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-name">La Fraise</div>
+          <div class="product-card-sub">T'as cru que c'était un fruit ?</div>
+          <div class="product-card-footer">
+            <span class="product-price">8,90€</span>
+            <button class="btn-add">Ajouter</button>
+          </div>
+        </div>
+      </a>
+      <a href="produit-mangue.html" class="product-card fade-up" data-cat="trompe">
+        <div class="product-card-img">
+          <img src="img/mangue-trans.webp" alt="La Mangue" loading="lazy" />
+          <span class="product-badge badge-season">Saison été</span>
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-name">La Mangue</div>
+          <div class="product-card-sub">Cœur Exotique · Velours</div>
+          <div class="product-card-footer">
+            <span class="product-price">8,90€</span>
+            <button class="btn-add">Ajouter</button>
+          </div>
+        </div>
+      </a>
+      <a href="produit-framboise.html" class="product-card fade-up" data-cat="trompe">
+        <div class="product-card-img">
+          <img src="img/framboise-trans.webp" alt="La Framboise" loading="lazy" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-name">La Framboise</div>
+          <div class="product-card-sub">Velours Rouge · Acidulée</div>
+          <div class="product-card-footer">
+            <span class="product-price">8,90€</span>
+            <button class="btn-add">Ajouter</button>
+          </div>
+        </div>
+      </a>
+      <a href="produit-peche.html" class="product-card fade-up" data-cat="trompe">
+        <div class="product-card-img">
+          <img src="img/peche-trans.webp" alt="La Pêche" loading="lazy" />
+          <span class="product-badge badge-season">Saison été</span>
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-name">La Pêche</div>
+          <div class="product-card-sub">Signature Fruitée</div>
+          <div class="product-card-footer">
+            <span class="product-price">8,90€</span>
+            <button class="btn-add">Ajouter</button>
+          </div>
+        </div>
+      </a>
+      <a href="produit-citron.html" class="product-card fade-up" data-cat="trompe">
+        <div class="product-card-img">
+          <img src="img/citron-trans.webp" alt="Le Citron" loading="lazy" />
+          <span class="product-badge badge-new">Nouveau</span>
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-name">Le Citron</div>
+          <div class="product-card-sub">Zeste Givré · Acidité</div>
+          <div class="product-card-footer">
+            <span class="product-price">8,90€</span>
+            <button class="btn-add">Ajouter</button>
+          </div>
+        </div>
+      </a>
+      <a href="produit-passion.html" class="product-card fade-up" data-cat="trompe">
+        <div class="product-card-img">
+          <img src="img/passion-trans.webp" alt="La Passion" loading="lazy" />
+          <span class="product-badge badge-limited">Édition limitée</span>
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-name">La Passion</div>
+          <div class="product-card-sub">Éclat Tropical · Cœur Exotique</div>
+          <div class="product-card-footer">
+            <span class="product-price">8,90€</span>
+            <button class="btn-add">Ajouter</button>
+          </div>
+        </div>
+      </a>
+      <a href="produit-milkshake-vice.html" class="product-card fade-up" data-cat="drinks">
+        <div class="product-card-img">
+          <img src="img/drink-placeholder.webp" alt="Milkshake Vice" loading="lazy" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-name">Milkshake Vice</div>
+          <div class="product-card-sub">Neon Rose · Addictif</div>
+          <div class="product-card-footer">
+            <span class="product-price">7,50€</span>
+            <button class="btn-add">Ajouter</button>
+          </div>
+        </div>
+      </a>
+      <a href="produit-smoothie-sunset.html" class="product-card fade-up" data-cat="drinks">
+        <div class="product-card-img">
+          <img src="img/drink-placeholder.webp" alt="Smoothie Sunset" loading="lazy" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-name">Smoothie Sunset</div>
+          <div class="product-card-sub">Tropical · Frais</div>
+          <div class="product-card-footer">
+            <span class="product-price">6,90€</span>
+            <button class="btn-add">Ajouter</button>
+          </div>
+        </div>
+      </a>
+      <a href="produit-cookie-vice.html" class="product-card fade-up" data-cat="cookies">
+        <div class="product-card-img">
+          <img src="img/cookie-placeholder.webp" alt="Cookie Vice" loading="lazy" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-name">Cookie Vice</div>
+          <div class="product-card-sub">Chocolat Noir · Dangereux</div>
+          <div class="product-card-footer">
+            <span class="product-price">5,90€</span>
+            <button class="btn-add">Ajouter</button>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══════ FULL-WIDTH TAGLINE ═══════ -->
+  <section class="tagline-section">
+    <img src="img/cacahuete-zoom.webp" alt="Vice Sweety — Dangerously Sweet" />
+    <div class="tagline-overlay">
+      <div class="tagline-text">DANGEROUSLY SWEET.</div>
+    </div>
+  </section>
+
+  <!-- ═══════ INFO BLOCKS 50/50 ═══════ -->
+  <div class="info-row">
+    <a href="#" class="info-block">
+      <img src="img/atelier-glacage2.webp" alt="Notre Atelier" />
+      <div class="info-label">
+        <h3>NOTRE ATELIER</h3>
+        <p>Marseille · Fait maison · Tous les jours</p>
+      </div>
+    </a>
+    <a href="#" class="info-block">
+      <img src="img/boite-trans.webp" alt="Vice Club" style="background: var(--surface);" />
+      <div class="info-label">
+        <h3>VICE CLUB</h3>
+        <p>Avantages exclusifs · Éditions limitées</p>
+      </div>
+    </a>
+  </div>
+
+  <!-- ═══════ NEWSLETTER BANNER ═══════ -->
+  <div class="newsletter-banner">
+    <p><strong>Rejoins le Vice Club</strong> · Promos exclusives, nouveautés, éditions limitées en avant-première.</p>
+  </div>
+
+  <!-- ═══════ FOOTER ═══════ -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Vice Sweety</h4>
+        <a href="notre-vice.html">Notre Vice</a>
+        <a href="lab.html">Le Lab</a>
+        <a href="#">Notre Atelier</a>
+        <a href="#">Carrières</a>
+      </div>
+      <div class="footer-col">
+        <h4>Menu</h4>
+        <a href="#menu">Trompe-l'œil</a>
+        <a href="#menu">Drinks</a>
+        <a href="#menu">Cookies</a>
+        <a href="#menu">Éditions Limitées</a>
+      </div>
+      <div class="footer-col">
+        <h4>Aide</h4>
+        <a href="#faq">FAQ</a>
+        <a href="mailto:hello@vicesweety.com">Contact</a>
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="#">Allergènes</a>
+      </div>
+      <div class="footer-col">
+        <h4>Nous trouver</h4>
+        <a href="tel:+33622356575">+33 6 22 35 65 75</a>
+        <a href="mailto:hello@vicesweety.com">hello@vicesweety.com</a>
+        <a href="#">Marseille, France</a>
+        <a href="#">10h–21h · Tous les jours</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">&copy; 2026 Vice Sweety · Marseille</span>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/vicesweety" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@vicesweety" target="_blank" rel="noopener" aria-label="TikTok">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.8a8.27 8.27 0 0 0 4.76 1.5v-3.4a4.85 4.85 0 0 1-1-.21z"/></svg>
+        </a>
+        <a href="mailto:hello@vicesweety.com" aria-label="Email">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════ JAVASCRIPT ═══════ -->
+  <script>
+  // Hero Carousel
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots = document.querySelectorAll('.hero-dot');
+  let currentSlide = 0;
+  let autoplay;
+
+  function goToSlide(i) {
+    slides[currentSlide].classList.remove('active');
+    dots[currentSlide].classList.remove('active');
+    currentSlide = (i + slides.length) % slides.length;
+    slides[currentSlide].classList.add('active');
+    dots[currentSlide].classList.add('active');
+  }
+
+  function startAutoplay() {
+    autoplay = setInterval(() => goToSlide(currentSlide + 1), 5000);
+  }
+
+  document.getElementById('heroNext').addEventListener('click', () => {
+    clearInterval(autoplay);
+    goToSlide(currentSlide + 1);
+    startAutoplay();
+  });
+  document.getElementById('heroPrev').addEventListener('click', () => {
+    clearInterval(autoplay);
+    goToSlide(currentSlide - 1);
+    startAutoplay();
+  });
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      clearInterval(autoplay);
+      goToSlide(parseInt(dot.dataset.index));
+      startAutoplay();
+    });
+  });
+  startAutoplay();
+
+  // Filter
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.product-card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      cards.forEach(c => {
+        c.style.display = (f === 'all' || c.dataset.cat === f) ? '' : 'none';
+      });
+    });
+  });
+
+  function filterCategory(cat) {
+    filterBtns.forEach(b => {
+      b.classList.toggle('active', b.dataset.filter === cat);
+    });
+    cards.forEach(c => {
+      c.style.display = (c.dataset.cat === cat) ? '' : 'none';
+    });
+  }
+
+  // Mobile menu
+  const burger = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => mobileMenu.classList.remove('open'));
+  });
+
+  // Navbar scroll
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  // Reveal on scroll
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

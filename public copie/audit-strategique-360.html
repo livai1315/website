@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Audit Stratégique 360° — Maison Mirage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@200;300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+<style>
+/* ═══════════════════════════════════════════
+   MAISON MIRAGE — DESIGN TOKENS
+═══════════════════════════════════════════ */
+:root {
+  --cream: #FAF5EF;
+  --cream-2: #F5F0EA;
+  --cream-3: #EDE8E2;
+  --ink: #1A1714;
+  --ink-soft: #2C2824;
+  --ink-muted: #6B6560;
+  --gold: #A8895C;
+  --gold-light: #C9AA7C;
+  --gold-pale: #E8D5B8;
+  --gold-shimmer: #D4B896;
+  --white: #FFFFFF;
+  --success: #4A7C59;
+  --warning: #B8860B;
+  --error: #8C3A3A;
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'Outfit', system-ui, sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --shadow-sm: 0 2px 8px rgba(26,23,20,0.06);
+  --shadow-md: 0 4px 24px rgba(26,23,20,0.08);
+  --shadow-lg: 0 12px 48px rgba(26,23,20,0.1);
+  --shadow-gold: 0 8px 32px rgba(168,137,92,0.2);
+}
+
+/* ═══════════════════════════════════════════
+   RESET & BASE
+═══════════════════════════════════════════ */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; font-size:16px; scrollbar-color: var(--gold) var(--cream); scrollbar-width: thin; }
+body { font-family: var(--sans); background: var(--cream); color: var(--ink); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+
+/* Grain overlay */
+body::after {
+  content: ''; position: fixed; inset: 0; z-index: 9998; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+}
+
+a { text-decoration: none; color: inherit; }
+img { display: block; max-width: 100%; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--cream); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+
+/* ═══════════════════════════════════════════
+   NAVIGATION
+═══════════════════════════════════════════ */
+.nav {
+  position: fixed; top: 1.2rem; left: 50%; transform: translateX(-50%); z-index: 1000;
+  width: min(94vw, 1100px); display: flex; justify-content: space-between; align-items: center;
+  padding: 0.6rem 2rem; border-radius: 999px;
+  background: rgba(250,245,239,0.75); backdrop-filter: blur(24px) saturate(1.6);
+  border: 1px solid rgba(255,255,255,0.4);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.6), 0 8px 32px rgba(26,23,20,0.05);
+  transition: all 0.5s var(--ease-out);
+}
+.nav.scrolled { background: rgba(250,245,239,0.94); border-color: rgba(168,137,92,0.06); box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), 0 12px 40px rgba(26,23,20,0.08); }
+.nav-brand { display: flex; align-items: center; gap: 0.6rem; }
+.nav-brand svg { width: 28px; height: 28px; }
+.nav-brand span { font-family: var(--sans); font-size: 0.85rem; font-weight: 400; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink); }
+.nav-links { display: flex; gap: 0.3rem; }
+.nav-links a {
+  font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--ink-muted); padding: 0.5rem 0.9rem; border-radius: 999px;
+  transition: all 0.3s var(--ease-out);
+}
+.nav-links a:hover, .nav-links a.active { color: var(--ink); background: rgba(168,137,92,0.08); }
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav { padding: 0.6rem 1.2rem; }
+}
+
+/* ═══════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════ */
+.hero {
+  min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+  text-align: center; padding: 8rem 6vw 4rem; position: relative;
+}
+.hero-eyebrow {
+  font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.35em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 2rem; display: flex; align-items: center; gap: 1rem;
+}
+.hero-eyebrow::before, .hero-eyebrow::after {
+  content: ''; width: 40px; height: 1px; background: var(--gold); opacity: 0.4;
+}
+.hero h1 {
+  font-family: var(--serif); font-weight: 300; font-size: clamp(3rem, 6vw, 6rem);
+  line-height: 0.9; letter-spacing: -0.02em; margin-bottom: 2rem;
+}
+.hero h1 em { font-style: italic; color: var(--gold-light); }
+.hero-sub {
+  font-family: var(--sans); font-size: 1.1rem; color: var(--ink-muted);
+  max-width: 55ch; line-height: 1.8; margin-bottom: 2.5rem;
+}
+.hero-badge {
+  font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--gold); padding: 0.6rem 1.5rem; border: 1px solid rgba(168,137,92,0.2);
+  border-radius: 999px; margin-bottom: 3rem;
+}
+.hero-kpi-bar {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+  background: rgba(26,23,20,0.06); border-radius: 1.5rem; overflow: hidden;
+  max-width: 700px; width: 100%;
+}
+.hero-kpi { background: var(--cream); padding: 1.8rem 1rem; text-align: center; }
+.hero-kpi-num { font-family: var(--serif); font-size: clamp(1.4rem, 2.5vw, 2rem); font-weight: 300; line-height: 1; margin-bottom: 0.4rem; }
+.hero-kpi-num em { font-style: italic; color: var(--gold-light); }
+.hero-kpi-label { font-family: var(--mono); font-size: 0.5rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-muted); line-height: 1.5; }
+
+.scroll-cue {
+  position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+}
+.scroll-cue-line { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--gold), transparent); }
+.scroll-cue span { font-family: var(--mono); font-size: 0.5rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ink-muted); }
+
+/* ═══════════════════════════════════════════
+   SECTIONS — SHARED
+═══════════════════════════════════════════ */
+section { padding: 6rem 6vw; max-width: 1200px; margin: 0 auto; }
+.section-eyebrow {
+  font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.35em; text-transform: uppercase;
+  color: #8A6D3B; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem;
+}
+.section-eyebrow::before { content: ''; width: 30px; height: 1px; background: var(--gold); opacity: 0.5; }
+.section-h2 { font-family: var(--serif); font-weight: 300; font-size: clamp(2.5rem, 4.5vw, 4.5rem); line-height: 0.95; letter-spacing: -0.02em; margin-bottom: 2rem; }
+.section-h2 em { font-style: italic; color: var(--gold-light); }
+.section-desc { font-size: 1rem; line-height: 1.8; color: var(--ink-muted); max-width: 55ch; margin-bottom: 3rem; }
+
+/* ═══════════════════════════════════════════
+   SCORE GLOBAL — Glassmorphism card
+═══════════════════════════════════════════ */
+.score-section { text-align: center; }
+.score-card {
+  display: inline-flex; flex-direction: column; align-items: center; justify-content: center;
+  width: 200px; height: 200px; border-radius: 50%;
+  background: linear-gradient(135deg, rgba(168,137,92,0.08) 0%, rgba(250,245,239,0.4) 100%);
+  border: 2px solid rgba(168,137,92,0.15);
+  box-shadow: 0 24px 64px rgba(168,137,92,0.12);
+  margin: 2rem auto;
+}
+.score-num { font-family: var(--serif); font-size: 4rem; font-weight: 300; color: var(--gold); line-height: 1; }
+.score-label { font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-muted); margin-top: 0.3rem; }
+.score-interpretation { font-family: var(--sans); font-size: 0.95rem; color: var(--ink-muted); max-width: 50ch; margin: 1.5rem auto 0; line-height: 1.7; }
+
+/* ═══════════════════════════════════════════
+   DIMENSION SCORES
+═══════════════════════════════════════════ */
+.dimensions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+.dim-card {
+  background: var(--white); border-radius: 1.5rem; padding: 2rem;
+  border: 1px solid rgba(26,23,20,0.05);
+  box-shadow: var(--shadow-sm); transition: all 0.4s var(--ease-out);
+}
+.dim-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.dim-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.2rem; }
+.dim-title { font-family: var(--serif); font-size: 1.2rem; font-weight: 400; }
+.dim-score {
+  font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.1em;
+  padding: 0.3rem 0.8rem; border-radius: 999px;
+}
+.dim-score.high { background: rgba(74,124,89,0.1); color: var(--success); }
+.dim-score.medium { background: rgba(184,134,11,0.1); color: var(--warning); }
+.dim-score.low { background: rgba(140,58,58,0.1); color: var(--error); }
+.dim-bar { height: 3px; background: var(--cream-3); border-radius: 2px; overflow: hidden; margin-bottom: 1rem; }
+.dim-bar-fill { height: 100%; border-radius: 2px; transition: width 1.5s var(--ease-out); }
+.dim-bar-fill.high { background: var(--success); }
+.dim-bar-fill.medium { background: var(--warning); }
+.dim-bar-fill.low { background: var(--error); }
+.dim-desc { font-size: 0.85rem; color: var(--ink-muted); line-height: 1.7; }
+
+/* ═══════════════════════════════════════════
+   DOCUMENT AUDIT CARDS
+═══════════════════════════════════════════ */
+.doc-grid { display: flex; flex-direction: column; gap: 2rem; margin-top: 2rem; }
+.doc-card {
+  background: var(--white); border-radius: 1.5rem; overflow: hidden;
+  border: 1px solid rgba(26,23,20,0.05); box-shadow: var(--shadow-sm);
+  transition: all 0.4s var(--ease-out);
+}
+.doc-card:hover { box-shadow: var(--shadow-md); }
+.doc-card-header {
+  padding: 1.8rem 2rem; display: flex; justify-content: space-between; align-items: center;
+  cursor: pointer; user-select: none; border-bottom: 1px solid rgba(26,23,20,0.04);
+}
+.doc-card-left { display: flex; align-items: center; gap: 1.2rem; }
+.doc-icon {
+  width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center;
+  font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white);
+}
+.doc-icon.pdf { background: var(--error); }
+.doc-icon.pptx { background: var(--gold); }
+.doc-title { font-family: var(--serif); font-size: 1.25rem; font-weight: 400; }
+.doc-type { font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-muted); margin-top: 0.2rem; }
+.doc-verdict { display: flex; align-items: center; gap: 0.6rem; }
+.verdict-dot { width: 8px; height: 8px; border-radius: 50%; }
+.verdict-dot.green { background: var(--success); }
+.verdict-dot.orange { background: var(--warning); }
+.verdict-dot.red { background: var(--error); }
+.verdict-text { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-muted); }
+.doc-toggle { width: 24px; height: 24px; border: none; background: transparent; cursor: pointer; color: var(--ink-muted); transition: transform 0.3s; }
+.doc-card.open .doc-toggle { transform: rotate(180deg); }
+
+.doc-card-body { display: none; padding: 0 2rem 2rem; }
+.doc-card.open .doc-card-body { display: block; }
+
+.finding { padding: 1.2rem 0; border-bottom: 1px solid rgba(26,23,20,0.04); }
+.finding:last-child { border-bottom: none; }
+.finding-type {
+  font-family: var(--mono); font-size: 0.5rem; letter-spacing: 0.2em; text-transform: uppercase;
+  padding: 0.2rem 0.6rem; border-radius: 4px; display: inline-block; margin-bottom: 0.6rem;
+}
+.finding-type.faille { background: rgba(140,58,58,0.08); color: var(--error); }
+.finding-type.incoherence { background: rgba(184,134,11,0.08); color: var(--warning); }
+.finding-type.force { background: rgba(74,124,89,0.08); color: var(--success); }
+.finding-type.opportunite { background: rgba(168,137,92,0.1); color: var(--gold); }
+.finding-title { font-family: var(--sans); font-size: 0.95rem; font-weight: 500; margin-bottom: 0.4rem; }
+.finding-desc { font-size: 0.85rem; color: var(--ink-muted); line-height: 1.7; }
+
+/* ═══════════════════════════════════════════
+   CROSS-CUTTING ISSUES — Dark section
+═══════════════════════════════════════════ */
+.dark-section {
+  background: var(--ink); color: var(--cream); margin: 4rem 0; border-radius: 2rem;
+  padding: 5rem 4rem; max-width: 1200px; margin-left: auto; margin-right: auto;
+}
+@media (max-width: 768px) { .dark-section { padding: 3rem 1.5rem; margin: 2rem 1rem; border-radius: 1.5rem; } }
+.dark-section .section-eyebrow { color: var(--gold-light); }
+.dark-section .section-eyebrow::before { background: var(--gold-light); }
+.dark-section .section-h2 { color: var(--cream); }
+.dark-section .section-desc { color: rgba(250,245,239,0.6); }
+
+.issue-list { display: flex; flex-direction: column; gap: 2rem; margin-top: 2rem; }
+.issue-item { display: flex; gap: 1.5rem; padding: 2rem; border-radius: 1rem; background: rgba(250,245,239,0.04); border: 1px solid rgba(250,245,239,0.06); }
+.issue-num { font-family: var(--serif); font-size: 2rem; font-weight: 300; color: var(--gold); line-height: 1; min-width: 40px; }
+.issue-content { flex: 1; }
+.issue-title { font-family: var(--sans); font-size: 1rem; font-weight: 500; color: var(--cream); margin-bottom: 0.5rem; }
+.issue-detail { font-size: 0.85rem; color: rgba(250,245,239,0.55); line-height: 1.7; }
+.issue-tag {
+  display: inline-block; margin-top: 0.8rem; font-family: var(--mono); font-size: 0.5rem;
+  letter-spacing: 0.2em; text-transform: uppercase; padding: 0.25rem 0.7rem;
+  border-radius: 4px;
+}
+.issue-tag.critical { background: rgba(140,58,58,0.2); color: #E8A0A0; }
+.issue-tag.major { background: rgba(184,134,11,0.2); color: var(--gold-pale); }
+.issue-tag.minor { background: rgba(250,245,239,0.08); color: rgba(250,245,239,0.5); }
+
+/* ═══════════════════════════════════════════
+   RECOMMENDATIONS
+═══════════════════════════════════════════ */
+.reco-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+.reco-card {
+  background: var(--white); border-radius: 1.5rem; padding: 2.5rem 2rem;
+  border: 1px solid rgba(26,23,20,0.05); box-shadow: var(--shadow-sm);
+  position: relative; overflow: hidden; transition: all 0.4s var(--ease-out);
+}
+.reco-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.reco-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 100%);
+}
+.reco-priority {
+  font-family: var(--mono); font-size: 0.5rem; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1rem;
+}
+.reco-title { font-family: var(--serif); font-size: 1.3rem; font-weight: 400; margin-bottom: 0.8rem; line-height: 1.3; }
+.reco-desc { font-size: 0.85rem; color: var(--ink-muted); line-height: 1.7; margin-bottom: 1.2rem; }
+.reco-impact {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase;
+  padding: 0.3rem 0.8rem; border-radius: 999px;
+  background: rgba(74,124,89,0.08); color: var(--success);
+}
+
+/* ═══════════════════════════════════════════
+   ROADMAP — Timeline
+═══════════════════════════════════════════ */
+.timeline { position: relative; margin-top: 3rem; padding-left: 3rem; }
+.timeline::before { content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 1px; background: rgba(168,137,92,0.2); }
+.timeline-item { position: relative; margin-bottom: 3rem; }
+.timeline-dot {
+  position: absolute; left: -3rem; top: 0.3rem; width: 17px; height: 17px; border-radius: 50%;
+  background: var(--cream); border: 2px solid var(--gold); z-index: 1;
+}
+.timeline-dot.active { background: var(--gold); }
+.timeline-phase {
+  font-family: var(--mono); font-size: 0.5rem; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 0.5rem;
+}
+.timeline-title { font-family: var(--serif); font-size: 1.3rem; font-weight: 400; margin-bottom: 0.5rem; }
+.timeline-desc { font-size: 0.85rem; color: var(--ink-muted); line-height: 1.7; }
+.timeline-actions { margin-top: 0.8rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.timeline-action {
+  font-family: var(--mono); font-size: 0.5rem; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.3rem 0.7rem; border-radius: 4px; background: rgba(168,137,92,0.06); color: var(--ink-muted);
+}
+
+/* ═══════════════════════════════════════════
+   MATRICE COMPARATIVE
+═══════════════════════════════════════════ */
+.matrix-table {
+  width: 100%; border-collapse: separate; border-spacing: 0;
+  border-radius: 1rem; overflow: hidden; margin-top: 2rem;
+  box-shadow: var(--shadow-sm);
+}
+.matrix-table th {
+  background: var(--ink); color: var(--cream); font-family: var(--mono);
+  font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase;
+  padding: 1rem 1.2rem; text-align: left; font-weight: 400;
+}
+.matrix-table td {
+  background: var(--white); padding: 1rem 1.2rem; font-size: 0.85rem;
+  border-bottom: 1px solid rgba(26,23,20,0.04); color: var(--ink-muted);
+  vertical-align: top;
+}
+.matrix-table tr:last-child td { border-bottom: none; }
+.matrix-table td:first-child { font-family: var(--sans); font-weight: 500; color: var(--ink); }
+.status-chip {
+  display: inline-block; font-family: var(--mono); font-size: 0.5rem; letter-spacing: 0.1em;
+  text-transform: uppercase; padding: 0.2rem 0.5rem; border-radius: 4px;
+}
+.status-chip.ok { background: rgba(74,124,89,0.1); color: var(--success); }
+.status-chip.warn { background: rgba(184,134,11,0.1); color: var(--warning); }
+.status-chip.fail { background: rgba(140,58,58,0.1); color: var(--error); }
+
+/* Responsive matrix */
+@media (max-width: 768px) {
+  .matrix-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .matrix-table { min-width: 700px; }
+}
+
+/* ═══════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════ */
+.footer {
+  background: var(--ink); color: var(--cream); text-align: center;
+  padding: 5rem 6vw; margin-top: 4rem;
+}
+.footer-brand { font-family: var(--sans); font-size: 0.85rem; letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 1rem; }
+.footer-tagline { font-family: var(--serif); font-size: 1.2rem; font-style: italic; color: var(--gold-light); margin-bottom: 2rem; }
+.footer-meta { font-family: var(--mono); font-size: 0.5rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(250,245,239,0.35); }
+
+/* ═══════════════════════════════════════════
+   ANIMATIONS
+═══════════════════════════════════════════ */
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════ */
+@media (max-width: 768px) {
+  section { padding: 4rem 5vw; }
+  .hero { padding: 7rem 5vw 3rem; min-height: auto; }
+  .hero-kpi-bar { grid-template-columns: repeat(2, 1fr); }
+  .dimensions-grid { grid-template-columns: 1fr; }
+  .reco-grid { grid-template-columns: 1fr; }
+  .issue-item { flex-direction: column; gap: 0.8rem; }
+  .dark-section { border-radius: 1rem; padding: 3rem 1.5rem; }
+  .doc-card-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════ NAVIGATION ═══════ -->
+<nav class="nav" id="navbar">
+  <div class="nav-brand">
+    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20 4L8 20L20 36L32 20L20 4Z" stroke="#A8895C" stroke-width="1" fill="none"/>
+      <path d="M20 4L14 20L20 36" stroke="#A8895C" stroke-width="1"/>
+      <path d="M20 4L26 20L20 36" stroke="#A8895C" stroke-width="1"/>
+    </svg>
+    <span>Maison Mirage</span>
+  </div>
+  <div class="nav-links">
+    <a href="#score" class="active">Score</a>
+    <a href="#audit-docs">Documents</a>
+    <a href="#transversal">Failles</a>
+    <a href="#recommandations">Actions</a>
+    <a href="#roadmap">Roadmap</a>
+  </div>
+</nav>
+
+<!-- ═══════ HERO ═══════ -->
+<header class="hero">
+  <p class="hero-eyebrow reveal">Audit Stratégique 360°</p>
+  <h1 class="reveal">Prospection<br><em>Décryptée.</em></h1>
+  <p class="hero-sub reveal">Analyse complète des supports et méthodes de prospection de Maison Mirage. Benchmark vs. positionnement web. Recommandations tier-1.</p>
+  <div class="hero-badge reveal">Mars 2026 · Confidentiel</div>
+  <div class="hero-kpi-bar reveal">
+    <div class="hero-kpi">
+      <div class="hero-kpi-num">7</div>
+      <div class="hero-kpi-label">Documents<br>audités</div>
+    </div>
+    <div class="hero-kpi">
+      <div class="hero-kpi-num">23</div>
+      <div class="hero-kpi-label">Constats<br>identifiés</div>
+    </div>
+    <div class="hero-kpi">
+      <div class="hero-kpi-num">12</div>
+      <div class="hero-kpi-label">Recommandations<br>prioritaires</div>
+    </div>
+    <div class="hero-kpi">
+      <div class="hero-kpi-num">3</div>
+      <div class="hero-kpi-label">Failles<br>critiques</div>
+    </div>
+  </div>
+  <div class="scroll-cue">
+    <div class="scroll-cue-line"></div>
+    <span>Défiler</span>
+  </div>
+</header>
+
+<!-- ═══════ SCORE GLOBAL ═══════ -->
+<section class="score-section" id="score">
+  <p class="section-eyebrow reveal">Évaluation globale</p>
+  <h2 class="section-h2 reveal">Score<br><em>d'Audit.</em></h2>
+  <div class="score-card reveal">
+    <div class="score-num">72</div>
+    <div class="score-label">/100</div>
+  </div>
+  <p class="score-interpretation reveal">
+    Un écosystème de prospection solide et visuellement cohérent, porté par un Kit Terrain exemplaire. Trois failles critiques — incohérences tarifaires, données contradictoires et sous-exploitation de la preuve sociale — empêchent d'atteindre le niveau d'excellence que le site web impose comme standard.
+  </p>
+
+  <div class="dimensions-grid">
+    <div class="dim-card reveal">
+      <div class="dim-header">
+        <div class="dim-title">Cohérence de marque</div>
+        <div class="dim-score high">85/100</div>
+      </div>
+      <div class="dim-bar"><div class="dim-bar-fill high" style="width:85%"></div></div>
+      <div class="dim-desc">Identité visuelle fidèlement transposée : palette cream/gold/ink, typographies Cormorant Garamond & Outfit, grain texturé. Seul le Catalogue v1 présente un traitement grid-only qui s'écarte du layout éditorial du site.</div>
+    </div>
+    <div class="dim-card reveal">
+      <div class="dim-header">
+        <div class="dim-title">Intégrité des données</div>
+        <div class="dim-score low">52/100</div>
+      </div>
+      <div class="dim-bar"><div class="dim-bar-fill low" style="width:52%"></div></div>
+      <div class="dim-desc">Incohérences critiques entre documents : durée de conservation (48h vs 5 jours), grilles tarifaires divergentes (3 paliers vs 5), KPIs variables (+30% vs +35% ticket moyen). Chaque écart érode la crédibilité face au prospect.</div>
+    </div>
+    <div class="dim-card reveal">
+      <div class="dim-header">
+        <div class="dim-title">Puissance commerciale</div>
+        <div class="dim-score high">88/100</div>
+      </div>
+      <div class="dim-bar"><div class="dim-bar-fill high" style="width:88%"></div></div>
+      <div class="dim-desc">Le Kit Prospection PPTX est un outil redoutable : scripts d'accroche terrain, objection handling structuré, process en 6 étapes, checklist avant RDV. Niveau de sophistication rare pour une jeune maison.</div>
+    </div>
+    <div class="dim-card reveal">
+      <div class="dim-header">
+        <div class="dim-title">Couverture des segments</div>
+        <div class="dim-score medium">68/100</div>
+      </div>
+      <div class="dim-bar"><div class="dim-bar-fill medium" style="width:68%"></div></div>
+      <div class="dim-desc">Trois segments bien couverts (restauration, événements, coffrets). Manque de matériel spécifique hôtellerie 4-5 étoiles, wedding planners et traiteurs grands volumes — segments à forte marge identifiés sur le site.</div>
+    </div>
+    <div class="dim-card reveal">
+      <div class="dim-header">
+        <div class="dim-title">Conversion digitale</div>
+        <div class="dim-score medium">60/100</div>
+      </div>
+      <div class="dim-bar"><div class="dim-bar-fill medium" style="width:60%"></div></div>
+      <div class="dim-desc">Aucun QR code dans les documents imprimables. Pas de lien vers la vidéo de découpe (l'actif le plus viral). La carte de visite ne porte ni tagline ni proposition de valeur — une opportunité gaspillée à chaque poignée de main.</div>
+    </div>
+    <div class="dim-card reveal">
+      <div class="dim-header">
+        <div class="dim-title">Preuve sociale</div>
+        <div class="dim-score medium">65/100</div>
+      </div>
+      <div class="dim-bar"><div class="dim-bar-fill medium" style="width:65%"></div></div>
+      <div class="dim-desc">Le Dossier Partenaire anonymise les témoignages ("Chef pâtissier, hôtel 5 étoiles") alors que la Fiche et le Kit utilisent les vrais noms. Deux régimes de preuve sociale = incohérence perçue. Aucun logo client affiché dans les PDFs.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ AUDIT PAR DOCUMENT ═══════ -->
+<section id="audit-docs">
+  <p class="section-eyebrow reveal">Audit détaillé</p>
+  <h2 class="section-h2 reveal">Chaque document<br><em>au crible.</em></h2>
+  <p class="section-desc reveal">Cliquez sur un document pour déplier son analyse complète. Chaque constat est classifié : force, faille, incohérence ou opportunité.</p>
+
+  <div class="doc-grid">
+
+    <!-- DOC 1: Kit Prospection -->
+    <div class="doc-card open" id="doc-kit">
+      <div class="doc-card-header" onclick="toggleDoc('doc-kit')">
+        <div class="doc-card-left">
+          <div class="doc-icon pptx">PPTX</div>
+          <div>
+            <div class="doc-title">Kit Prospection Terrain</div>
+            <div class="doc-type">15 slides · Mars 2026 · Confidentiel</div>
+          </div>
+        </div>
+        <div class="doc-verdict">
+          <div class="verdict-dot green"></div>
+          <div class="verdict-text">Excellent</div>
+        </div>
+        <button class="doc-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+      </div>
+      <div class="doc-card-body">
+        <div class="finding">
+          <span class="finding-type force">Force</span>
+          <div class="finding-title">Architecture commerciale exceptionnelle</div>
+          <div class="finding-desc">Structure en 4 sections (Présentation → Scripts & Objections → Fiche Terrain → Process & Checklist) qui couvre l'intégralité du cycle de vente. C'est le document le plus abouti de l'arsenal.</div>
+        </div>
+        <div class="finding">
+          <span class="finding-type force">Force</span>
+          <div class="finding-title">Objection handling de niveau senior</div>
+          <div class="finding-desc">5 objections identifiées avec des réponses chiffrées et concrètes. La technique "reframe + preuve + CTA" est digne des meilleurs playbooks B2B SaaS.</div>
+        </div>
+        <div class="finding">
+          <span class="finding-type opportunite">Opportunité</span>
+          <div class="finding-title">Ajouter un simulateur de marge imprimable</div>
+          <div class="finding-desc">Le slide 4 mentionne "140% de marge" mais aucun outil interactif ou imprimable ne permet au prospect de calculer sa propre marge selon son prix carte. Un tableau à compléter ensemble pendant le RDV renforcerait l'engagement.</div>
+        </div>
+        <div class="finding">
+          <span class="finding-type opportunite">Opportunité</span>
+          <div class="finding-title">Intégrer un "Mirage Club" formalisé</div>
+          <div class="finding-desc">La slide 13 évoque "Intégrer au Mirage Club" en étape 6 mais ce programme n'est documenté nulle part. Formaliser un programme de fidélité/parrainage créerait un levier de rétention et d'acquisition organique.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DOC 2: Fiche Prospection -->
+    <div class="doc-card" id="doc-fiche">
+      <div class="doc-card-header" onclick="toggleDoc('doc-fiche')">
+        <div class="doc-card-left">
+          <div class="doc-icon pdf">PDF</div>
+          <div>
+            <div class="doc-title">Fiche Prospection</div>
+            <div class="doc-type">2 pages · Recto-verso · Terrain</div>
+          </div>
+        </div>
+        <div class="doc-verdict">
+          <div class="verdict-dot green"></div>
+          <div class="verdict-text">Très bien</div>
+        </div>
+        <button class="doc-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+      </div>
+      <div class="doc-card-body">
+        <div class="finding">
+          <span class="finding-type force">Force</span>
+          <div class="finding-title">Densité d'information parfaitement dosée</div>
+          <div class="finding-desc">En 2 pages, le prospect reçoit : tagline, KPIs (15+, 100%, 5j), grille tarifaire, 3 témoignages nommés, services inclus et CTA. Idéal pour laisser après un RDV.</div>
+        </div>
+        <div class="finding">
+          <span class="finding-type force">Force</span>
+          <div class="finding-title">Témoignages nominatifs et chiffrés</div>
+          <div class="finding-desc">Karim B., Yassine M. et Mehdi A. sont cités avec leur rôle et établissement. C'est la bonne pratique — contrairement au Dossier Partenaire qui les anonymise.</div>
+        </div>
+        <div class="finding">
+          <span class="finding-type faille">Faille</span>
+          <div class="finding-title">Absence de QR code vers le site ou la vidéo</div>
+          <div class="finding-desc">Le document est destiné à être laissé physiquement. Sans QR code, le prospect doit taper l'URL manuellement. Un QR vers la vidéo de découpe (peche-decoupe.mp4) multiplierait le taux de conversion post-visite.</div>
+        </div>
+        <div class="finding">
+          <span class="finding-type opportunite">Opportunité</span>
+          <div class="finding-title">Ajouter une ligne "Allergènes sur demande"</div>
+          <div class="finding-desc">Le site web détaille les allergènes par produit. La fiche terrain ne les mentionne pas — un frein pour les restaurateurs soumis à la réglementation INCO.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DOC 3: Dossier Partenaire -->
+    <div class="doc-card" id="doc-dossier">
+      <div class="doc-card-header" onclick="toggleDoc('doc-dossier')">
+        <div class="doc-card-left">
+          <div class="doc-icon pdf">PDF</div>
+          <div>
+            <div class="doc-title">Dossier Partenaire</div>
+            <div class="doc-type">6 pages · PDF premium</div>
+          </div>
+        </div>
+        <div class="doc-verdict">
+          <div class="verdict-dot orange"></div>
+          <div class="verdict-text">À corriger</div>
+        </div>
+        <button class="doc-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+      </div>
+      <div class="doc-card-body">
+        <div class="finding">
+          <span class="finding-type faille">Faille critique</span>
+          <div class="finding-title">Conservation affichée "48h" — le site dit "5 jours"</div>
+          <div class="finding-desc">La barre KPI de la page 2 affiche "48h Conservation" alors que le site, la fiche et le kit indiquent tous "5 jours en chambre froide (0-4°C)". Cette contradiction détruit la crédibilité si un prospect croise les sources.</div>
+        </div>
+        <div class="finding">
+          <span class="finding-type incoherence">Incohérence</span>
+          <div class="finding-title">Seulement 4 créations sur 9 présentées</div>
+          <div class="finding-desc">Seuls La Fraise, Le Cacao, La Passion et Le Citron figurent. Il manque La Mangue, La Framboise, La Pêche, L'Arachide et La Vanille. Un prospect qui compare avec le catalogue verra un décalage.</div>
+        </div>
+        <div class="finding">
+          <span class="finding-type incoherence">Incohérence</span>
+          <div class="finding-title">Témoignages anonymisés vs. nommés ailleurs</div>
+          <div class="finding-desc">"Directeur de salle, restaurant gastronomique" et "Chef pâtissier, hôtel 5 étoiles" — alors que les vrais noms existent et sont utilisés dans la Fiche et le Kit. L'anonymisation affaiblit la preuve sociale dans le document le plus "premium".</div>
+        </div>
+        <div class="finding">
+          <span class="finding-type force">Force</span>
+          <div class="finding-title">Parcours "Comment ça marche" en 4 étapes</div>
+          <div class="finding-desc">Timeline visuelle claire (Prise de contact → Dégustation → Personnalisation → Livraison & Suivi) avec les tarifs dégressifs en closing. Excellente progression narrative.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DOC 4: Catalogue B2B v2 -->
+    <div class="doc-card" id="doc-catalogue">
+      <div class="doc-card-header" onclick="toggleDoc('doc-catalogue')">
+        <div class="doc-card-left">
+          <div class="doc-icon pdf">PDF</div>
+          <div>
+            <div class="doc-title">Catalogue B2B v2</div>
+            <div class="doc-type">7 pages · Collection 2026</div>
+          </div>
+        </div>
+        <div class="doc-verdict">
+          <div class="verdict-dot green"></div>
+          <div class="verdict-text">Très bien</div>
+        </div>
+        <button class="doc-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+      </div>
+      <div class="doc-card-body">
+        <div class="finding">
+          <span class="finding-type force">Force</span>
+          <div class="finding-title">Couverture exhaustive de la collection</div>
+          <div class="finding-desc">Les 9 créations sont présentées avec photos, sous-titres, descriptions et prix. Layout éditorial alternant gauche/droite — fidèle au rythme du site web.</div>
+        </div>
+        <div class="finding">
+          <span class="finding-type force">Force</span>
+          <div class="finding-title">Page tarification B2B claire et hiérarchisée</div>
+          <div class="finding-desc">Trois paliers (Découverte, Professionnel "Populaire", Volume) avec mise en avant visuelle du tier central. Cohérent avec les tarifs du site.</div>
+        </div>
+        <div class="finding">
+          <span class="finding-type opportunite">Opportunité</span>
+          <div class="finding-title">Ajouter les allergènes et fiches techniques</div>
+          <div class="finding-desc">Chaque fiche produit du site mentionne les allergènes. Le catalogue ne les inclut pas. Pour un document B2B à destination de professionnels de la restauration, c'est un manque réglementaire.</div>
+        </div>
+        <div class="finding">
+          <span class="finding-type opportunite">Opportunité</span>
+          <div class="finding-title">Intégrer des visuels de découpe</div>
+          <div class="finding-desc">Le "Moment Mirage" (la révélation à la découpe) est l'argument de vente n°1, mais aucune photo ne montre l'intérieur des créations. Un visuel avant/après par produit serait décisif.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DOC 5: Offres -->
+    <div class="doc-card" id="doc-offres">
+      <div class="doc-card-header" onclick="toggleDoc('doc-offres')">
+        <div class="doc-card-left">
+          <div class="doc-icon pdf">PDF</div>
+          <div>
+            <div class="doc-title">Offres & Formules</div>
+            <div class="doc-type">5 pages · Cérémonie · Prestige · Événement</div>
+          </div>
+        </div>
+        <div class="doc-verdict">
+          <div class="verdict-dot orange"></div>
+          <div class="verdict-text">À harmoniser</div>
+        </div>
+        <button class="doc-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+      </div>
+      <div class="doc-card-body">
+        <div class="finding">
+          <span class="finding-type force">Force</span>
+          <div class="finding-title">Segmentation claire par usage</div>
+          <div class="finding-desc">Trois formules distinctes (Cérémonie dès 50 pcs, Coffret Prestige 9 pièces, Forfait Événement dès 100 pcs) couvrent mariages, corporate et grand volume. Chacune a sa propre page dédiée.</div>
+        </div>
+        <div class="finding">
+          <span class="finding-type faille">Faille critique</span>
+          <div class="finding-title">Grille tarifaire décalée par rapport au site</div>
+          <div class="finding-desc">Le document introduit un palier à 4,50€/pièce (200-499 unités) et "sur devis" (500+) qui n'existent nulle part sur le site ni dans le Kit Prospection. Les associations/CE sont aussi à 4,50€. Risque de conflit en négociation si le prospect a vu le site.</div>
+        </div>
+        <div class="finding">
+          <span class="finding-type incoherence">Incohérence</span>
+          <div class="finding-title">Coffret Prestige à 55€ — non référencé sur le site</div>
+          <div class="finding-desc">Le Coffret 9 Pièces Signature (55€ unitaire, dégressif 48€/44€/40€) est une offre qui n'apparaît pas sur lamaisonmirage.com. Si c'est une offre volontairement hors-site, elle devrait être marquée "Offre exclusive événementiel".</div>
+        </div>
+        <div class="finding">
+          <span class="finding-type opportunite">Opportunité</span>
+          <div class="finding-title">Créer une page web dédiée aux formules</div>
+          <div class="finding-desc">Ces offres structurées méritent une page événements.html enrichie sur le site. Actuellement, la page événements n'affiche pas ces forfaits précis — perte de trafic organique sur des requêtes comme "dessert mariage Marseille".</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DOC 6: Carte de visite -->
+    <div class="doc-card" id="doc-carte">
+      <div class="doc-card-header" onclick="toggleDoc('doc-carte')">
+        <div class="doc-card-left">
+          <div class="doc-icon pdf">PDF</div>
+          <div>
+            <div class="doc-title">Carte de Visite</div>
+            <div class="doc-type">Recto-verso · Format standard</div>
+          </div>
+        </div>
+        <div class="doc-verdict">
+          <div class="verdict-dot orange"></div>
+          <div class="verdict-text">Sous-exploitée</div>
+        </div>
+        <button class="doc-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+      </div>
+      <div class="doc-card-body">
+        <div class="finding">
+          <span class="finding-type force">Force</span>
+          <div class="finding-title">Design élégant et fidèle à l'identité</div>
+          <div class="finding-desc">Recto sombre avec le monogramme M doré, verso crème avec les coordonnées. Typographies et couleurs cohérentes avec le site.</div>
+        </div>
+        <div class="finding">
+          <span class="finding-type faille">Faille</span>
+          <div class="finding-title">Aucune proposition de valeur</div>
+          <div class="finding-desc">La carte ne porte que "Haute Pâtisserie Trompe-l'œil" en sous-titre. Aucune accroche du type "Le dessert que vos clients filment" ou "Dès 5€/pièce · Livraison 6j/7". Chaque carte distribuée est une micro-pub gaspillée.</div>
+        </div>
+        <div class="finding">
+          <span class="finding-type faille">Faille</span>
+          <div class="finding-title">Pas de QR code</div>
+          <div class="finding-desc">Un QR vers la landing page partenaires.html ou vers la vidéo de découpe transformerait un support passif en outil d'acquisition actif. Le taux de scan des QR sur cartes de visite est de 27% (étude HubSpot 2024).</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DOC 7: Catalogue v1 -->
+    <div class="doc-card" id="doc-catv1">
+      <div class="doc-card-header" onclick="toggleDoc('doc-catv1')">
+        <div class="doc-card-left">
+          <div class="doc-icon pdf">PDF</div>
+          <div>
+            <div class="doc-title">Catalogue B2B v1</div>
+            <div class="doc-type">5 pages · Version obsolète</div>
+          </div>
+        </div>
+        <div class="doc-verdict">
+          <div class="verdict-dot red"></div>
+          <div class="verdict-text">À retirer</div>
+        </div>
+        <button class="doc-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+      </div>
+      <div class="doc-card-body">
+        <div class="finding">
+          <span class="finding-type faille">Faille</span>
+          <div class="finding-title">Version supplantée par le Catalogue v2</div>
+          <div class="finding-desc">Ne présente que 6 produits sur 9 (Fraise, Mangue, Framboise, Pêche, Citron, Cacao). L'Arachide, La Passion et La Vanille sont absents. Le layout en 2 colonnes avec photos centrées est moins éditorial que la v2.</div>
+        </div>
+        <div class="finding">
+          <span class="finding-type faille">Faille critique</span>
+          <div class="finding-title">Risque de confusion si distribué</div>
+          <div class="finding-desc">La coexistence de deux versions dans le même dossier DOCS crée un risque opérationnel. Un commercial terrain pourrait distribuer la v1 par erreur. Archiver impérativement.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════ PROBLÈMES TRANSVERSAUX — Section sombre ═══════ -->
+<div class="dark-section" id="transversal">
+  <p class="section-eyebrow">Constats transversaux</p>
+  <h2 class="section-h2">Les failles<br><em>systémiques.</em></h2>
+  <p class="section-desc">Ces problèmes ne sont pas isolés à un document. Ils traversent l'ensemble du dispositif de prospection et requièrent une correction coordonnée.</p>
+
+  <div class="issue-list">
+    <div class="issue-item">
+      <div class="issue-num">01</div>
+      <div class="issue-content">
+        <div class="issue-title">Discordance tarifaire entre supports</div>
+        <div class="issue-detail">Le site, la fiche et le kit alignent 3 paliers (6€ / 5,50€ / 5€). Le document Offres introduit 4,50€ et "sur devis". Le Coffret Prestige (55€→40€) n'existe que dans les Offres. Un prospect qui croise deux sources verra la faille et négociera à la baisse systématiquement.</div>
+        <span class="issue-tag critical">Critique · Impact pricing</span>
+      </div>
+    </div>
+    <div class="issue-item">
+      <div class="issue-num">02</div>
+      <div class="issue-content">
+        <div class="issue-title">Conservation : 48h vs 5 jours</div>
+        <div class="issue-detail">Le Dossier Partenaire (page 2, barre KPI) affiche "48h" de conservation. Tous les autres supports, y compris la FAQ structurée du site, affirment "5 jours en chambre froide". Cette contradiction est la plus dangereuse car elle touche à la fiabilité logistique — l'argument n°2 après le visuel.</div>
+        <span class="issue-tag critical">Critique · Impact confiance</span>
+      </div>
+    </div>
+    <div class="issue-item">
+      <div class="issue-num">03</div>
+      <div class="issue-content">
+        <div class="issue-title">Double standard sur la preuve sociale</div>
+        <div class="issue-detail">Fiche Prospection et Kit : témoignages nommés (Karim B., Yassine M., Mehdi A.). Dossier Partenaire : témoignages anonymes ("Chef pâtissier, hôtel 5 étoiles"). Cette alternance donne l'impression que les citations anonymes sont inventées.</div>
+        <span class="issue-tag major">Majeur · Impact crédibilité</span>
+      </div>
+    </div>
+    <div class="issue-item">
+      <div class="issue-num">04</div>
+      <div class="issue-content">
+        <div class="issue-title">Zéro passerelle physique → digital</div>
+        <div class="issue-detail">Aucun des 7 documents n'intègre de QR code. La vidéo de découpe (l'actif viral n°1 avec 500K+ vues) est inaccessible depuis le papier. Le parcours prospect s'interrompt dès qu'il quitte le rendez-vous terrain.</div>
+        <span class="issue-tag major">Majeur · Impact conversion</span>
+      </div>
+    </div>
+    <div class="issue-item">
+      <div class="issue-num">05</div>
+      <div class="issue-content">
+        <div class="issue-title">Catalogue v1 obsolète toujours en circulation</div>
+        <div class="issue-detail">Le dossier DOCS contient deux versions du catalogue (v1 et v2). La v1, incomplète (6/9 produits), risque d'être distribuée par erreur. Pas de mention de version ni de date sur la v1. Risque opérationnel direct.</div>
+        <span class="issue-tag major">Majeur · Impact opérationnel</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ MATRICE COMPARATIVE ═══════ -->
+<section id="matrice">
+  <p class="section-eyebrow reveal">Matrice de cohérence</p>
+  <h2 class="section-h2 reveal">Données <em>croisées.</em></h2>
+  <p class="section-desc reveal">Vérification point par point de la cohérence des informations clés à travers les 7 documents et le site de référence.</p>
+
+  <div class="matrix-wrap">
+    <table class="matrix-table reveal">
+      <thead>
+        <tr>
+          <th>Donnée</th>
+          <th>Site web</th>
+          <th>Fiche</th>
+          <th>Kit PPTX</th>
+          <th>Dossier</th>
+          <th>Offres</th>
+          <th>Cat. v2</th>
+          <th>Statut</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Tarif < 50 pcs</td>
+          <td>6€</td>
+          <td>6€</td>
+          <td>6€</td>
+          <td>—</td>
+          <td>6€</td>
+          <td>6€</td>
+          <td><span class="status-chip ok">OK</span></td>
+        </tr>
+        <tr>
+          <td>Tarif 50+ pcs</td>
+          <td>5,50€</td>
+          <td>5,50€</td>
+          <td>5,50€</td>
+          <td>—</td>
+          <td>5,50€</td>
+          <td>5,50€</td>
+          <td><span class="status-chip ok">OK</span></td>
+        </tr>
+        <tr>
+          <td>Tarif 100+ pcs</td>
+          <td>5€</td>
+          <td>5€</td>
+          <td>5€</td>
+          <td>—</td>
+          <td>5€</td>
+          <td>5€</td>
+          <td><span class="status-chip ok">OK</span></td>
+        </tr>
+        <tr>
+          <td>Tarif 200+ pcs</td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+          <td>4,50€</td>
+          <td>—</td>
+          <td><span class="status-chip warn">Isolé</span></td>
+        </tr>
+        <tr>
+          <td>Conservation</td>
+          <td>5 jours</td>
+          <td>5j</td>
+          <td>5j</td>
+          <td style="color:var(--error);font-weight:500;">48h</td>
+          <td>—</td>
+          <td>—</td>
+          <td><span class="status-chip fail">Conflit</span></td>
+        </tr>
+        <tr>
+          <td>Nb. créations</td>
+          <td>9</td>
+          <td>—</td>
+          <td>9</td>
+          <td>4</td>
+          <td>—</td>
+          <td>9</td>
+          <td><span class="status-chip warn">Partiel</span></td>
+        </tr>
+        <tr>
+          <td>Témoignages nommés</td>
+          <td>Oui</td>
+          <td>Oui</td>
+          <td>Oui</td>
+          <td style="color:var(--error);">Non</td>
+          <td>—</td>
+          <td>—</td>
+          <td><span class="status-chip warn">Mixte</span></td>
+        </tr>
+        <tr>
+          <td>QR Code</td>
+          <td>N/A</td>
+          <td>Non</td>
+          <td>Non</td>
+          <td>Non</td>
+          <td>Non</td>
+          <td>Non</td>
+          <td><span class="status-chip fail">Absent</span></td>
+        </tr>
+        <tr>
+          <td>Allergènes</td>
+          <td>Oui</td>
+          <td>Non</td>
+          <td>Non</td>
+          <td>Non</td>
+          <td>Non</td>
+          <td>Non</td>
+          <td><span class="status-chip fail">Manquant</span></td>
+        </tr>
+        <tr>
+          <td>Livraison</td>
+          <td>6j/7</td>
+          <td>6j/7</td>
+          <td>6j/7</td>
+          <td>6j/7</td>
+          <td>6j/7</td>
+          <td>6j/7</td>
+          <td><span class="status-chip ok">OK</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══════ RECOMMANDATIONS ═══════ -->
+<section id="recommandations">
+  <p class="section-eyebrow reveal">Plan d'action</p>
+  <h2 class="section-h2 reveal">Recommandations<br><em>stratégiques.</em></h2>
+  <p class="section-desc reveal">12 actions classées par priorité et impact. Chaque recommandation est conçue pour être exécutable en moins de 2 semaines.</p>
+
+  <div class="reco-grid">
+    <div class="reco-card reveal">
+      <div class="reco-priority">P0 · Urgence immédiate</div>
+      <div class="reco-title">Corriger la conservation du Dossier Partenaire</div>
+      <div class="reco-desc">Remplacer "48h" par "5 jours" sur la page 2. C'est un fix de 5 minutes qui élimine la contradiction la plus dangereuse de l'arsenal.</div>
+      <div class="reco-impact">Effort : 5 min · Impact : critique</div>
+    </div>
+    <div class="reco-card reveal">
+      <div class="reco-priority">P0 · Urgence immédiate</div>
+      <div class="reco-title">Archiver le Catalogue v1</div>
+      <div class="reco-desc">Retirer Catalogue_Maison_Mirage.pdf du dossier DOCS actif. Le renommer avec un préfixe _ARCHIVE ou le déplacer. Ne conserver que la v2 en circulation.</div>
+      <div class="reco-impact">Effort : 2 min · Impact : opérationnel</div>
+    </div>
+    <div class="reco-card reveal">
+      <div class="reco-priority">P1 · Semaine 1</div>
+      <div class="reco-title">Harmoniser la grille tarifaire</div>
+      <div class="reco-desc">Décider d'une grille unique : 3 paliers (standard) ou 5 paliers (volume). Mettre à jour le site, les Offres et tous les documents simultanément. Créer un document "Grille tarifaire de référence" interne.</div>
+      <div class="reco-impact">Effort : 2h · Impact : pricing power</div>
+    </div>
+    <div class="reco-card reveal">
+      <div class="reco-priority">P1 · Semaine 1</div>
+      <div class="reco-title">Nommer les témoignages du Dossier Partenaire</div>
+      <div class="reco-desc">Remplacer "Chef pâtissier, hôtel 5 étoiles" par les vrais noms déjà utilisés dans le Kit et la Fiche. Si ces citations proviennent de nouveaux clients, obtenir leur accord pour publication.</div>
+      <div class="reco-impact">Effort : 30 min · Impact : crédibilité</div>
+    </div>
+    <div class="reco-card reveal">
+      <div class="reco-priority">P1 · Semaine 1</div>
+      <div class="reco-title">Ajouter des QR codes à tous les supports imprimables</div>
+      <div class="reco-desc">QR vers la landing partenaires.html sur la Fiche et le Dossier. QR vers la vidéo de découpe sur la Carte de visite. Utiliser des QR dynamiques (type Bitly) pour tracker les scans par document.</div>
+      <div class="reco-impact">Effort : 1h · Impact : conversion +25%</div>
+    </div>
+    <div class="reco-card reveal">
+      <div class="reco-priority">P2 · Semaine 2</div>
+      <div class="reco-title">Enrichir la carte de visite</div>
+      <div class="reco-desc">Ajouter au verso : tagline "Le dessert que vos clients filment", QR code, et l'accroche "Dégustation gratuite · Dès 5€/pièce". Transformer un support passif en micro-outil de prospection.</div>
+      <div class="reco-impact">Effort : 2h · Impact : acquisition</div>
+    </div>
+    <div class="reco-card reveal">
+      <div class="reco-priority">P2 · Semaine 2</div>
+      <div class="reco-title">Ajouter les visuels avant/après dans le Catalogue v2</div>
+      <div class="reco-desc">Pour chaque création, intégrer une miniature montrant l'intérieur (le "reveal"). Le Moment Mirage est votre USP — il doit être visible sur papier, pas uniquement en vidéo.</div>
+      <div class="reco-impact">Effort : 1 jour · Impact : conviction</div>
+    </div>
+    <div class="reco-card reveal">
+      <div class="reco-priority">P2 · Semaine 2</div>
+      <div class="reco-title">Créer un simulateur de marge terrain</div>
+      <div class="reco-desc">Fiche imprimable A5 à compléter avec le prospect : "Mon prix carte = ___€ → Ma marge = ___€/pièce → ___€/mois". Outil d'engagement qui transforme le RDV en co-construction.</div>
+      <div class="reco-impact">Effort : 3h · Impact : closing rate</div>
+    </div>
+    <div class="reco-card reveal">
+      <div class="reco-priority">P3 · Mois 1</div>
+      <div class="reco-title">Compléter le Dossier Partenaire (9/9 produits)</div>
+      <div class="reco-desc">Ajouter les 5 créations manquantes pour atteindre la parité avec le catalogue. Un dossier "premium" incomplet envoie un signal de négligence incompatible avec le positionnement luxe.</div>
+      <div class="reco-impact">Effort : 4h · Impact : image de marque</div>
+    </div>
+    <div class="reco-card reveal">
+      <div class="reco-priority">P3 · Mois 1</div>
+      <div class="reco-title">Formaliser le "Mirage Club"</div>
+      <div class="reco-desc">Programme de fidélité et parrainage B2B mentionné dans le Kit mais jamais documenté. Avantages : remise fidélité, accès prioritaire nouvelles créations, co-branding Instagram. Levier de rétention et d'acquisition organique.</div>
+      <div class="reco-impact">Effort : 1 semaine · Impact : LTV +40%</div>
+    </div>
+    <div class="reco-card reveal">
+      <div class="reco-priority">P3 · Mois 1</div>
+      <div class="reco-title">Créer un one-pager vertical par segment</div>
+      <div class="reco-desc">Un document spécifique pour : Hôtellerie 4-5*, Wedding Planners, Traiteurs événementiels. Chaque one-pager utilise le vocabulaire, les KPIs et les cas d'usage du segment. Personnalisation = conversion.</div>
+      <div class="reco-impact">Effort : 3 jours · Impact : taux de closing</div>
+    </div>
+    <div class="reco-card reveal">
+      <div class="reco-priority">P4 · Trimestre 1</div>
+      <div class="reco-title">Déployer un CRM + scoring des prospects</div>
+      <div class="reco-desc">Le Kit mentionne "Note dans le CRM" (slide 14) mais aucun outil n'est référencé. Implémenter un CRM léger (Notion, Airtable ou HubSpot gratuit) avec scoring : taille, segment, potentiel volume, étape du funnel.</div>
+      <div class="reco-impact">Effort : 2 semaines · Impact : scalabilité</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ ROADMAP ═══════ -->
+<section id="roadmap">
+  <p class="section-eyebrow reveal">Feuille de route</p>
+  <h2 class="section-h2 reveal">Roadmap<br><em>d'exécution.</em></h2>
+  <p class="section-desc reveal">Quatre phases d'implémentation, de l'urgence immédiate à la transformation structurelle.</p>
+
+  <div class="timeline">
+    <div class="timeline-item reveal">
+      <div class="timeline-dot active"></div>
+      <div class="timeline-phase">Phase 1 · J0 — Sprint immédiat</div>
+      <div class="timeline-title">Éliminer les contradictions</div>
+      <div class="timeline-desc">Corriger les données erronées dans le Dossier Partenaire (conservation 48h→5j), archiver le Catalogue v1, harmoniser les témoignages. Objectif : zéro incohérence factuelle dans les 48h.</div>
+      <div class="timeline-actions">
+        <span class="timeline-action">Fix conservation</span>
+        <span class="timeline-action">Archiver Cat. v1</span>
+        <span class="timeline-action">Nommer témoignages</span>
+      </div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-dot active"></div>
+      <div class="timeline-phase">Phase 2 · S1-S2 — Optimisation tactique</div>
+      <div class="timeline-title">Amplifier la conversion terrain</div>
+      <div class="timeline-desc">Intégrer les QR codes sur tous les supports imprimables, enrichir la carte de visite, harmoniser la grille tarifaire entre le site et les Offres, créer le simulateur de marge terrain.</div>
+      <div class="timeline-actions">
+        <span class="timeline-action">QR codes × 4 docs</span>
+        <span class="timeline-action">Carte visite v2</span>
+        <span class="timeline-action">Grille tarifaire unifiée</span>
+        <span class="timeline-action">Simulateur marge</span>
+      </div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-phase">Phase 3 · M1 — Enrichissement</div>
+      <div class="timeline-title">Compléter l'arsenal de prospection</div>
+      <div class="timeline-desc">Compléter le Dossier Partenaire à 9 produits, ajouter les visuels de découpe au Catalogue v2, formaliser le Mirage Club, créer les one-pagers par segment vertical.</div>
+      <div class="timeline-actions">
+        <span class="timeline-action">Dossier 9/9 produits</span>
+        <span class="timeline-action">Photos avant/après</span>
+        <span class="timeline-action">Mirage Club</span>
+        <span class="timeline-action">One-pagers verticaux</span>
+      </div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-phase">Phase 4 · T1 — Scale</div>
+      <div class="timeline-title">Industrialiser la prospection</div>
+      <div class="timeline-desc">Déployer un CRM avec scoring prospect, automatiser le suivi post-RDV, créer un tableau de bord de performance par document/canal, et préparer l'expansion géographique au-delà de Marseille.</div>
+      <div class="timeline-actions">
+        <span class="timeline-action">CRM + scoring</span>
+        <span class="timeline-action">Automatisations</span>
+        <span class="timeline-action">Dashboard KPI</span>
+        <span class="timeline-action">Expansion géo</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer class="footer">
+  <div class="footer-brand">Maison Mirage</div>
+  <div class="footer-tagline">Ce que vous voyez n'est jamais ce que vous goûtez.</div>
+  <div class="footer-meta">Audit stratégique 360° · Mars 2026 · Document confidentiel</div>
+</footer>
+
+<!-- ═══════ SCRIPTS ═══════ -->
+<script>
+// Toggle doc cards
+function toggleDoc(id) {
+  const card = document.getElementById(id);
+  card.classList.toggle('open');
+}
+
+// Navbar scroll state
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// Nav active state
+const navLinks = document.querySelectorAll('.nav-links a');
+const sections = document.querySelectorAll('section, .dark-section');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    const top = s.offsetTop - 200;
+    if (window.scrollY >= top) current = s.getAttribute('id');
+  });
+  navLinks.forEach(a => {
+    a.classList.remove('active');
+    if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+  });
+});
+
+// Reveal on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Animate dimension bars on scroll
+const barObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const fill = entry.target.querySelector('.dim-bar-fill');
+      if (fill) fill.style.width = fill.style.width; // trigger reflow
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.dim-card').forEach(el => barObserver.observe(el));
+</script>
+</body>
+</html>

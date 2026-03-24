@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menu — Vice Sweety · Desserts Dangereux</title>
+  <meta name="description" content="Le menu Vice Sweety — Trompe-l'œil, milkshakes, cookies. Commander en ligne à Marseille." />
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+:root {
+  --pink-light: #FDE8EF;
+  --pink: #F8B4C8;
+  --pink-mid: #E88FAC;
+  --pink-hot: #e63b7a;
+  --berry: #8B1A3A;
+  --red: #D42255;
+  --cream: #FFFAF6;
+  --white: #FFFFFF;
+  --text: #2d1540;
+  --text-light: rgba(255,255,255,0.85);
+  --gold: #c8963e;
+  --display: 'Bebas Neue', sans-serif;
+  --sans: 'Space Grotesk', system-ui, sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family: var(--sans); background: var(--cream); color: var(--text); line-height:1.5; overflow-x:hidden; }
+img { max-width:100%; height:auto; display:block; }
+a { color:inherit; text-decoration:none; }
+
+/* ═══════ NAVBAR ═══════ */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(139,26,58,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 3rem;
+  height: 70px;
+}
+.nav-logo img { height: 75px; margin: -10px 0; }
+.nav-right { display: flex; align-items: center; gap: 1.5rem; }
+.nav-back {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--berry);
+  transition: color 0.3s;
+}
+.nav-back:hover { color: var(--red); }
+.btn-cta {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.6rem 1.6rem;
+  border-radius: 999px;
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--white);
+  background: var(--red);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s var(--ease);
+}
+.btn-cta:hover { transform:translateY(-1px); box-shadow:0 4px 16px rgba(212,34,85,0.3); }
+.nav-burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+.nav-burger span { width:22px; height:2px; background:var(--berry); border-radius:2px; transition:all 0.3s; }
+
+/* ═══════ PAGE HEADER ═══════ */
+.page-header {
+  background: var(--pink);
+  padding: 4rem 4vw 3rem;
+  text-align: center;
+}
+.page-header h1 {
+  font-family: var(--display);
+  font-size: clamp(3rem, 7vw, 6rem);
+  color: var(--berry);
+  letter-spacing: 0.02em;
+  line-height: 0.9;
+}
+.page-header p {
+  font-size: 1.05rem;
+  color: var(--berry);
+  font-weight: 300;
+  margin-top: 0.8rem;
+  max-width: 40ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ═══════ FILTERS ═══════ */
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 2rem 4vw 0;
+  flex-wrap: wrap;
+}
+.pill {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.5rem 1.2rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--berry);
+  background: transparent;
+  color: var(--berry);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.pill:hover, .pill.active {
+  background: var(--red);
+  border-color: var(--red);
+  color: var(--white);
+}
+
+/* ═══════ MENU GRID ═══════ */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 2.5rem 4vw 4rem;
+}
+.pcard {
+  background: var(--white);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  transition: all 0.4s var(--ease);
+  display: block;
+  color: inherit;
+}
+.pcard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 48px rgba(139,26,58,0.1);
+}
+.pcard-img {
+  aspect-ratio: 1;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--pink-light);
+  position: relative;
+}
+.pcard-img img {
+  width: 75%; height: 75%;
+  object-fit: contain;
+  transition: transform 0.5s var(--ease);
+}
+.pcard:hover .pcard-img img { transform: scale(1.08) rotate(-2deg); }
+.pcard-badge {
+  position: absolute;
+  top: 0.8rem; left: 0.8rem;
+  font-family: var(--mono);
+  font-size: 0.48rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  color: var(--white);
+  font-weight: 600;
+}
+.badge-best { background: var(--red); }
+.badge-season { background: var(--gold); }
+.badge-limited { background: var(--berry); }
+.badge-new { background: var(--pink-hot); }
+.pcard-body { padding: 1rem 1.2rem 1.3rem; }
+.pcard-name {
+  font-family: var(--display);
+  font-size: 1.3rem;
+  color: var(--berry);
+}
+.pcard-sub {
+  font-size: 0.82rem;
+  color: var(--pink-mid);
+  margin-top: 0.1rem;
+}
+.pcard-desc {
+  font-size: 0.85rem;
+  color: var(--text);
+  font-weight: 300;
+  margin-top: 0.5rem;
+  line-height: 1.6;
+}
+.pcard-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--pink-light);
+}
+.pcard-price {
+  font-family: var(--mono);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--red);
+}
+.btn-add {
+  font-family: var(--mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  background: var(--red);
+  color: var(--white);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.btn-add:hover { background: var(--berry); transform:scale(1.05); }
+
+/* ═══════ REASSURANCE BAR ═══════ */
+.reassurance {
+  background: var(--berry);
+  padding: 2rem 4vw;
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+.reassurance-item {
+  text-align: center;
+  color: var(--text-light);
+}
+.reassurance-item strong {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--pink);
+  margin-bottom: 0.2rem;
+}
+.reassurance-item span {
+  font-size: 0.85rem;
+  font-weight: 300;
+}
+
+/* ═══════ FOOTER MINI ═══════ */
+.footer-mini {
+  background: var(--berry);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 1.5rem 4vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer-mini span {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.35);
+}
+.footer-mini a {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  transition: color 0.3s;
+}
+.footer-mini a:hover { color: var(--pink); }
+
+/* ═══════ MOBILE OVERLAY ═══════ */
+.mobile-menu {
+  position: fixed; inset:0;
+  background: var(--berry);
+  z-index: 150;
+  display: flex;
+  flex-direction: column;
+  padding: 5rem 2.5rem 2.5rem;
+  gap: 1.2rem;
+  opacity:0; visibility:hidden;
+  transition: all 0.35s;
+}
+.mobile-menu.open { opacity:1; visibility:visible; }
+.mobile-menu a { font-family:var(--display); font-size:2.5rem; color:var(--white); }
+.mobile-menu a:hover { color:var(--pink); }
+
+/* ═══════ RESPONSIVE ═══════ */
+@media (max-width: 768px) {
+  .nav { padding: 0 1.2rem; }
+  .nav-right .nav-back { display: none; }
+  .nav-burger { display: flex; }
+  .nav-logo img { height: 60px; }
+  .menu-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; padding: 2rem 3vw; }
+  .page-header { padding: 3rem 4vw 2rem; }
+  .reassurance { gap: 1.5rem; }
+}
+@media (max-width: 480px) {
+  .menu-grid { grid-template-columns: 1fr; }
+}
+
+/* ═══════ REVEAL ═══════ */
+@keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+.reveal { opacity:0; transform:translateY(20px); }
+.reveal.visible { animation: fadeUp 0.6s var(--ease) forwards; }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity:1; transform:none; } }
+  </style>
+</head>
+<body>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mm">
+  <a href="index-moic.html">Accueil</a>
+  <a href="#" onclick="filterCat('all');document.getElementById('mm').classList.remove('open');return false;">Tout</a>
+  <a href="#" onclick="filterCat('trompe');document.getElementById('mm').classList.remove('open');return false;">Trompe-l'œil</a>
+  <a href="#" onclick="filterCat('drinks');document.getElementById('mm').classList.remove('open');return false;">Drinks</a>
+  <a href="#" onclick="filterCat('cookies');document.getElementById('mm').classList.remove('open');return false;">Cookies</a>
+</div>
+
+<!-- Navbar -->
+<nav class="nav">
+  <a href="index-moic.html" class="nav-logo">
+    <img src="img/Vice_Sweety_logo.png" alt="Vice Sweety" />
+  </a>
+  <div class="nav-right">
+    <a href="index-moic.html" class="nav-back">← Retour</a>
+    <button class="btn-cta" id="cartBtn" style="display:none;">
+      Panier (<span id="cartCount">0</span>)
+    </button>
+  </div>
+  <button class="nav-burger" id="burger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Page Header -->
+<div class="page-header">
+  <h1>LE MENU</h1>
+  <p>Trompe-l'œil addictifs, drinks qui claquent, cookies dangereux. Choisis ton vice.</p>
+</div>
+
+<!-- Filters -->
+<div class="filters">
+  <button class="pill active" data-f="all">Tout</button>
+  <button class="pill" data-f="trompe">Trompe-l'œil</button>
+  <button class="pill" data-f="drinks">Drinks</button>
+  <button class="pill" data-f="cookies">Cookies</button>
+</div>
+
+<!-- Menu Grid -->
+<div class="menu-grid" id="grid">
+
+  <!-- TROMPE-L'ŒIL -->
+  <a href="produit-fraise.html" class="pcard reveal" data-c="trompe">
+    <div class="pcard-img"><img src="img/fraise-trans.webp" alt="La Fraise" loading="lazy"/><span class="pcard-badge badge-best">Bestseller</span></div>
+    <div class="pcard-body">
+      <div class="pcard-name">La Fraise</div>
+      <div class="pcard-sub">T'as cru que c'était un fruit ?</div>
+      <div class="pcard-desc">Ganache montée, confit intense, présentation spectaculaire.</div>
+      <div class="pcard-foot"><span class="pcard-price">8,90€</span><button class="btn-add" onclick="addToCart(event,'La Fraise',8.90)">Ajouter</button></div>
+    </div>
+  </a>
+
+  <a href="produit-mangue.html" class="pcard reveal" data-c="trompe">
+    <div class="pcard-img"><img src="img/mangue-trans.webp" alt="La Mangue" loading="lazy"/><span class="pcard-badge badge-season">Saison été</span></div>
+    <div class="pcard-body">
+      <div class="pcard-name">La Mangue</div>
+      <div class="pcard-sub">Cœur Exotique · Velours</div>
+      <div class="pcard-desc">Ganache velours mangue, cœur de passion exotique.</div>
+      <div class="pcard-foot"><span class="pcard-price">8,90€</span><button class="btn-add" onclick="addToCart(event,'La Mangue',8.90)">Ajouter</button></div>
+    </div>
+  </a>
+
+  <a href="produit-framboise.html" class="pcard reveal" data-c="trompe">
+    <div class="pcard-img"><img src="img/framboise-trans.webp" alt="La Framboise" loading="lazy"/></div>
+    <div class="pcard-body">
+      <div class="pcard-name">La Framboise</div>
+      <div class="pcard-sub">Velours Rouge · Acidulée</div>
+      <div class="pcard-desc">Ganache velours framboise, acidulée et raffinée.</div>
+      <div class="pcard-foot"><span class="pcard-price">8,90€</span><button class="btn-add" onclick="addToCart(event,'La Framboise',8.90)">Ajouter</button></div>
+    </div>
+  </a>
+
+  <a href="produit-peche.html" class="pcard reveal" data-c="trompe">
+    <div class="pcard-img"><img src="img/peche-trans.webp" alt="La Pêche" loading="lazy"/><span class="pcard-badge badge-season">Saison été</span></div>
+    <div class="pcard-body">
+      <div class="pcard-name">La Pêche</div>
+      <div class="pcard-sub">Signature Fruitée</div>
+      <div class="pcard-desc">Notre signature. Ganache fruitée, texture veloutée.</div>
+      <div class="pcard-foot"><span class="pcard-price">8,90€</span><button class="btn-add" onclick="addToCart(event,'La Pêche',8.90)">Ajouter</button></div>
+    </div>
+  </a>
+
+  <a href="produit-citron.html" class="pcard reveal" data-c="trompe">
+    <div class="pcard-img"><img src="img/citron-trans.webp" alt="Le Citron" loading="lazy"/><span class="pcard-badge badge-new">Nouveau</span></div>
+    <div class="pcard-body">
+      <div class="pcard-name">Le Citron</div>
+      <div class="pcard-sub">Zeste Givré · Acidité</div>
+      <div class="pcard-desc">Zeste givré, acidité équilibrée, fraîcheur absolue.</div>
+      <div class="pcard-foot"><span class="pcard-price">8,90€</span><button class="btn-add" onclick="addToCart(event,'Le Citron',8.90)">Ajouter</button></div>
+    </div>
+  </a>
+
+  <a href="produit-passion.html" class="pcard reveal" data-c="trompe">
+    <div class="pcard-img"><img src="img/passion-trans.webp" alt="La Passion" loading="lazy"/><span class="pcard-badge badge-limited">Édition Limitée</span></div>
+    <div class="pcard-body">
+      <div class="pcard-name">La Passion</div>
+      <div class="pcard-sub">Éclat Tropical · Cœur Exotique</div>
+      <div class="pcard-desc">Édition limitée — éclat tropical, cœur passion.</div>
+      <div class="pcard-foot"><span class="pcard-price">8,90€</span><button class="btn-add" onclick="addToCart(event,'La Passion',8.90)">Ajouter</button></div>
+    </div>
+  </a>
+
+  <!-- DRINKS -->
+  <a href="produit-milkshake-vice.html" class="pcard reveal" data-c="drinks">
+    <div class="pcard-img"><img src="img/drink-placeholder.webp" alt="Milkshake Vice" loading="lazy"/></div>
+    <div class="pcard-body">
+      <div class="pcard-name">Milkshake Vice</div>
+      <div class="pcard-sub">Neon Rose · Addictif</div>
+      <div class="pcard-desc">Le milkshake qui porte bien son nom. Crémeux, rose, addictif.</div>
+      <div class="pcard-foot"><span class="pcard-price">7,50€</span><button class="btn-add" onclick="addToCart(event,'Milkshake Vice',7.50)">Ajouter</button></div>
+    </div>
+  </a>
+
+  <a href="produit-smoothie-sunset.html" class="pcard reveal" data-c="drinks">
+    <div class="pcard-img"><img src="img/drink-placeholder.webp" alt="Smoothie Sunset" loading="lazy"/></div>
+    <div class="pcard-body">
+      <div class="pcard-name">Smoothie Sunset</div>
+      <div class="pcard-sub">Tropical · Frais</div>
+      <div class="pcard-desc">Mangue, passion, fraîcheur. Le sunset dans un verre.</div>
+      <div class="pcard-foot"><span class="pcard-price">6,90€</span><button class="btn-add" onclick="addToCart(event,'Smoothie Sunset',6.90)">Ajouter</button></div>
+    </div>
+  </a>
+
+  <a href="produit-jus-frais.html" class="pcard reveal" data-c="drinks">
+    <div class="pcard-img"><img src="img/drink-placeholder.webp" alt="Jus Frais" loading="lazy"/></div>
+    <div class="pcard-body">
+      <div class="pcard-name">Jus Frais</div>
+      <div class="pcard-sub">Vitaminé · Premium</div>
+      <div class="pcard-desc">Pressé à froid, 100% fruits, énergie pure.</div>
+      <div class="pcard-foot"><span class="pcard-price">6,90€</span><button class="btn-add" onclick="addToCart(event,'Jus Frais',6.90)">Ajouter</button></div>
+    </div>
+  </a>
+
+  <!-- COOKIES -->
+  <a href="produit-cookie-vice.html" class="pcard reveal" data-c="cookies">
+    <div class="pcard-img"><img src="img/cookie-placeholder.webp" alt="Cookie Vice" loading="lazy"/></div>
+    <div class="pcard-body">
+      <div class="pcard-name">Cookie Vice</div>
+      <div class="pcard-sub">Chocolat Noir · Dangereux</div>
+      <div class="pcard-desc">Cœur fondant chocolat noir, croûte croustillante. Dangereux.</div>
+      <div class="pcard-foot"><span class="pcard-price">5,90€</span><button class="btn-add" onclick="addToCart(event,'Cookie Vice',5.90)">Ajouter</button></div>
+    </div>
+  </a>
+
+  <a href="produit-cookie-dough.html" class="pcard reveal" data-c="cookies">
+    <div class="pcard-img"><img src="img/cookie-placeholder.webp" alt="Cookie Dough" loading="lazy"/></div>
+    <div class="pcard-body">
+      <div class="pcard-name">Cookie Dough</div>
+      <div class="pcard-sub">Pâte Brute · Cru</div>
+      <div class="pcard-desc">Pâte à cookie crue, pépites de chocolat. Le vice originel.</div>
+      <div class="pcard-foot"><span class="pcard-price">5,90€</span><button class="btn-add" onclick="addToCart(event,'Cookie Dough',5.90)">Ajouter</button></div>
+    </div>
+  </a>
+
+</div>
+
+<!-- Reassurance -->
+<div class="reassurance">
+  <div class="reassurance-item">
+    <strong>Prêt en 5 min</strong>
+    <span>Frais à la commande</span>
+  </div>
+  <div class="reassurance-item">
+    <strong>Take-away</strong>
+    <span>Marseille · Sur place</span>
+  </div>
+  <div class="reassurance-item">
+    <strong>Paiement sécurisé</strong>
+    <span>CB · Apple Pay</span>
+  </div>
+  <div class="reassurance-item">
+    <strong>Ingrédients premium</strong>
+    <span>Sélectionnés avec soin</span>
+  </div>
+</div>
+
+<!-- Footer mini -->
+<div class="footer-mini">
+  <span>&copy; 2026 Vice Sweety · Marseille</span>
+  <div>
+    <a href="index-moic.html">Accueil</a>
+    <a href="mentions-legales.html" style="margin-left:1rem;">Mentions légales</a>
+  </div>
+</div>
+
+<script>
+// Mobile menu
+const burger = document.getElementById('burger');
+const mm = document.getElementById('mm');
+burger.addEventListener('click', () => mm.classList.toggle('open'));
+
+// Filters
+function filterCat(cat) {
+  document.querySelectorAll('.pill').forEach(b => {
+    b.classList.toggle('active', b.dataset.f === cat);
+  });
+  document.querySelectorAll('.pcard').forEach(c => {
+    c.style.display = (cat === 'all' || c.dataset.c === cat) ? '' : 'none';
+  });
+}
+document.querySelectorAll('.pill').forEach(p => {
+  p.addEventListener('click', () => filterCat(p.dataset.f));
+});
+
+// Cart
+let cart = [];
+const cartBtn = document.getElementById('cartBtn');
+const cartCount = document.getElementById('cartCount');
+
+function addToCart(e, name, price) {
+  e.preventDefault();
+  e.stopPropagation();
+  cart.push({ name, price });
+  cartCount.textContent = cart.length;
+  cartBtn.style.display = 'inline-flex';
+
+  // Brief visual feedback
+  const btn = e.target;
+  btn.textContent = '✓ Ajouté';
+  btn.style.background = 'var(--berry)';
+  setTimeout(() => {
+    btn.textContent = 'Ajouter';
+    btn.style.background = '';
+  }, 1200);
+}
+
+// Scroll reveal
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
+}, { threshold: 0.05 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>

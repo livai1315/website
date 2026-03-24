@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>L'Atelier — Maison Mirage · Notre Savoir-faire</title>
+  <meta name="description" content="Découvrez les coulisses de Maison Mirage. De la sélection des matières premières au glaçage miroir, chaque étape est menée avec une rigueur artisanale absolue." />
+  <meta property="og:title" content="L'Atelier — Maison Mirage" />
+  <meta property="og:description" content="De la matière première à la finition trompe-l'œil : les coulisses d'une haute pâtisserie artisanale à Marseille." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.lamaisonmirage.com/atelier.html" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:image" content="https://www.lamaisonmirage.com/img/atelier-glacage.webp" />
+  <meta property="og:site_name" content="Maison Mirage" />
+  <link rel="canonical" href="https://www.lamaisonmirage.com/atelier.html" />
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@200;300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JCL4B8SJY0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JCL4B8SJY0');
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+
+  <style>
+    main {
+      display: flex; flex-direction: column; gap: 5rem;
+      min-height: calc(100dvh - 100px);
+      padding: 9rem 6vw 5rem; align-items: center;
+    }
+
+    .content-side {
+      width: 100%; max-width: 1100px; position: relative;
+      text-align: center; display: flex; flex-direction: column; align-items: center;
+    }
+
+    h1 { font-family:var(--serif); font-size:clamp(3.2rem, 5vw, 5.5rem); font-weight:300; line-height:0.9; margin-bottom:2.5rem; letter-spacing:-0.02em; }
+    h1 em { font-style:italic; color:var(--gold); }
+    .description { font-size:1.1rem; line-height:1.8; color:var(--ink-muted); max-width:60ch; margin: 0 auto; }
+
+    .hero-img-wrapper {
+      width: 100%; max-width: 500px; aspect-ratio: 9/16;
+      border-radius: 2.5rem; overflow: hidden;
+      box-shadow: 0 40px 80px rgba(26,23,20,0.08);
+      margin: 3rem auto 0; border: 1px solid rgba(26,23,20,0.05);
+    }
+    .hero-img-wrapper img { width:100%; height:100%; object-fit:cover; transition:transform 1.2s cubic-bezier(0.2,0.8,0.2,1); }
+    .hero-img-wrapper:hover img { transform:scale(1.04); }
+
+    .visual-anchor { position:absolute; top:-10%; left:50%; transform:translateX(-50%) rotate(-15deg); width:600px; height:200px; border-radius:999px; background:radial-gradient(ellipse at center, rgba(168,137,92,0.15) 0%, transparent 70%); pointer-events:none; z-index:-1; }
+
+    /* --- PROCESS STEPS --- */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3rem;
+      width: 100%;
+      max-width: 1000px;
+      text-align: left;
+    }
+    .step-card {
+      position: relative;
+      border-radius: 2rem;
+      overflow: hidden;
+      background: var(--white);
+      border: 1px solid rgba(26,23,20,0.04);
+      box-shadow: 0 4px 20px rgba(26,23,20,0.04);
+      transition: transform 0.4s var(--ease-out), box-shadow 0.4s;
+    }
+    .step-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 48px rgba(26,23,20,0.1);
+    }
+    .step-img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      overflow: hidden;
+    }
+    .step-img img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.8s cubic-bezier(0.16,1,0.3,1);
+    }
+    .step-card:hover .step-img img { transform: scale(1.05); }
+
+    .step-body {
+      padding: 2rem 2rem 2.2rem;
+    }
+    .step-num {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.6rem;
+    }
+    .step-title {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 0.8rem;
+      line-height: 1.2;
+    }
+    .step-desc {
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      color: var(--ink-muted);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 768px) {
+      main { padding: 8rem 7vw 4rem; gap: 3.5rem; }
+      .steps-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .step-body { padding: 1.5rem 1.5rem 1.8rem; }
+      h1 { font-size: clamp(2.6rem, 8vw, 3.5rem); }
+    }
+
+    /* --- PHILOSOPHY QUOTE --- */
+    .philosophy-quote {
+      max-width: 700px;
+      text-align: center;
+      padding: 4rem 2rem;
+      position: relative;
+    }
+    .philosophy-quote::before {
+      content: '\201C';
+      position: absolute;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--serif);
+      font-size: 6rem;
+      color: var(--gold-pale);
+      line-height: 1;
+      opacity: 0.4;
+    }
+    .philosophy-quote blockquote {
+      font-family: var(--serif);
+      font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.6;
+      color: var(--ink);
+    }
+    .philosophy-quote cite {
+      display: block;
+      margin-top: 1.5rem;
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-style: normal;
+    }
+
+    /* --- CTA SECTION --- */
+    .atelier-cta {
+      max-width: 600px;
+      text-align: center;
+      padding: 3rem 2rem;
+      background: var(--ink);
+      border-radius: 2rem;
+      width: 100%;
+    }
+    .atelier-cta-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+    .atelier-cta h3 {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight: 300;
+      color: var(--cream);
+      line-height: 1.1;
+      margin-bottom: 2rem;
+    }
+    .atelier-cta h3 em { font-style: italic; color: var(--gold-light); }
+    .atelier-cta-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .atelier-cta-links a {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--cream);
+      opacity: 0.7;
+      transition: opacity 0.3s, color 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .atelier-cta-links a:hover { opacity: 1; color: var(--gold-light); }
+    .atelier-cta-links a svg { width: 12px; height: 12px; }
+
+    /* --- PAGE FOOTER (same as partenaires) --- */
+    .page-footer { padding: 4rem 6vw 3rem; border-top: 1px solid rgba(26,23,20,0.06); text-align: center; }
+    .page-footer-tagline { font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 2rem; }
+    .page-footer-links { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 2rem; }
+    .page-footer-links a { font-family: var(--sans); font-size: 0.85rem; color: var(--ink-muted); transition: color 0.3s; }
+    .page-footer-links a:hover { color: var(--gold); }
+    .page-footer-copy { font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.1em; color: var(--ink-muted); opacity: 0.5; }
+  </style>
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@maisonmirage" />
+  <meta name="twitter:title" content="L'Atelier — Maison Mirage" />
+  <meta name="twitter:description" content="De la matière première à la finition trompe-l'œil : les coulisses d'une haute pâtisserie artisanale à Marseille." />
+  <meta name="twitter:image" content="https://www.lamaisonmirage.com/img/atelier-glacage.webp" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Accueil",
+            "item": "https://www.lamaisonmirage.com/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "L'Atelier",
+            "item": "https://www.lamaisonmirage.com/atelier.html"
+        }
+    ]
+}
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Maison Mirage",
+    "url": "https://www.lamaisonmirage.com",
+    "logo": "https://www.lamaisonmirage.com/img/maison_mirage_logo_beige.webp",
+    "description": "Haute pâtisserie trompe-l'œil à Marseille. Desserts spectaculaires pour restaurants et événements.",
+    "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Marseille",
+        "addressRegion": "Provence-Alpes-Côte d'Azur",
+        "addressCountry": "FR"
+    },
+    "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "sales",
+        "email": "contact@lamaisonmirage.com"
+    }
+}
+  </script>
+</head>
+<body>
+
+  <div class="page-transition" style="position:fixed;inset:0;z-index:99999;background:var(--cream);pointer-events:none;"></div>
+
+  <!-- MOBILE OVERLAY -->
+  <!-- ═══════ MOBILE OVERLAY ═══════ -->
+  <div id="mobile-overlay" role="dialog" aria-label="Menu de navigation">
+    <a href="index.html" class="mobile-nav-item">Accueil</a>
+    <a href="index.html#boutique" class="mobile-nav-item">Le Catalogue</a>
+    <a href="atelier.html" class="mobile-nav-item">L'Atelier</a>
+    <a href="notre-histoire.html" class="mobile-nav-item">Notre Histoire</a>
+    <a href="partenaires.html" class="mobile-nav-item">Espace Pro</a>
+    <a href="case-studies.html" class="mobile-nav-item">Résultats</a>
+    <a href="evenements.html" class="mobile-nav-item">Événements</a>
+    <div class="mobile-nav-footer">
+      <a href="mailto:contact@lamaisonmirage.com">contact@lamaisonmirage.com</a>
+      <a href="tel:+33622356575">+33 (0)6 22 35 65 75</a>
+    </div>
+  </div>
+
+  <!-- ═══════ NAVIGATION ═══════ -->
+  <nav id="navbar" class="visible">
+    <!-- Mobile burger (hidden on desktop) -->
+    <button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-overlay">
+      <span></span><span></span><span></span>
+    </button>
+    <!-- Desktop links — left of brand -->
+    <div class="nav-links-left">
+      <a href="index.html#boutique">Catalogue</a>
+      <a href="atelier.html">L'Atelier</a>
+      <a href="notre-histoire.html">Notre Histoire</a>
+    </div>
+    <a href="index.html" class="nav-brand" aria-label="Retour à l'accueil">
+      <img src="img/maison_mirage_logo_beige.webp" alt="" class="brand-logo" width="36" height="36" />
+      <span class="brand-name">Maison Mirage</span>
+    </a>
+    <!-- Desktop links — right of brand + CTA -->
+    <div class="nav-links-right">
+      <a href="case-studies.html">Résultats</a>
+      <a href="evenements.html">Événements</a>
+      <a href="partenaires.html" class="nav-cta">
+        <span>Devis</span>
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- HERO -->
+    <section class="content-side">
+      <div class="visual-anchor"></div>
+      <p class="eyebrow gs-reveal">Savoir-faire artisanal</p>
+      <h1 class="gs-reveal">L'Atelier<br><em>Mirage.</em></h1>
+      <p class="description gs-reveal">Chaque création naît d'un protocole artisanal en 4 étapes. De la sélection des matières premières à la finition trompe-l'œil, rien n'est laissé au hasard — même sur de gros volumes.</p>
+
+      <div class="hero-img-wrapper gs-reveal">
+        <img src="img/hamza-action.webp" alt="Le chef Hamza Hamdi sculpte une pièce trompe-l'œil sous un éclairage d'atelier — Maison Mirage" loading="lazy" />
+      </div>
+    </section>
+
+    <!-- 4 ÉTAPES -->
+    <section class="content-side">
+      <p class="eyebrow gs-reveal" style="margin-bottom:3rem;">Notre procédé</p>
+
+      <div class="steps-grid">
+        <div class="step-card gs-reveal">
+          <div class="step-img">
+            <img src="img/ingredient.webp" alt="Fruits exotiques, pistaches, chocolat et épices disposés sur un plan de travail d'atelier" loading="lazy" />
+          </div>
+          <div class="step-body">
+            <div class="step-num">01 — Matière</div>
+            <h3 class="step-title">La profusion des matières</h3>
+            <p class="step-desc">Fruits de saison gorgés de soleil, pistaches iraniennes, chocolats grands crus, gousses de Madagascar. Chaque ingrédient est sélectionné pour son intensité gustative et sa traçabilité.</p>
+          </div>
+        </div>
+
+        <div class="step-card gs-reveal">
+          <div class="step-img">
+            <img src="img/montage.webp" alt="Pochage précis d'une crème dans des moules en silicone — étape d'assemblage" loading="lazy" />
+          </div>
+          <div class="step-body">
+            <div class="step-num">02 — Assemblage</div>
+            <h3 class="step-title">L'assemblage du cœur</h3>
+            <p class="step-desc">Les textures sont superposées dans un ordre précis. Chaque couche — crémeux, confit, croustillant — joue un rôle dans le voyage gustatif. La recette est calibrée pour une régularité parfaite.</p>
+          </div>
+        </div>
+
+        <div class="step-card gs-reveal">
+          <div class="step-img">
+            <img src="img/atelier-glacage.webp" alt="Dessert trompe-l'œil fraise plongé dans un glaçage miroir rouge vif" loading="lazy" />
+          </div>
+          <div class="step-body">
+            <div class="step-num">03 — Glaçage</div>
+            <h3 class="step-title">Le glaçage miroir</h3>
+            <p class="step-desc">Un enrobage miroir vient sceller la pièce et révéler ses premiers reflets. La température et la viscosité sont contrôlées au degré près pour un résultat lisse et brillant.</p>
+          </div>
+        </div>
+
+        <div class="step-card gs-reveal">
+          <div class="step-img">
+            <img src="img/atelier-finition.webp" alt="Détail des mains au pinceau peignant la texture d'une feuille en chocolat" loading="lazy" />
+          </div>
+          <div class="step-body">
+            <div class="step-num">04 — Finition</div>
+            <h3 class="step-title">La finition trompe-l'œil</h3>
+            <p class="step-desc">L'enrobage final reproduit avec une fidélité troublante la matière du fruit original. Texture de peau, imperfections naturelles, dégradés de couleur — l'illusion est totale.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHILOSOPHY QUOTE -->
+    <section class="philosophy-quote gs-reveal">
+      <blockquote>
+        Nos pièces ne sont pas décorées pour ressembler à des fruits. Elles sont sculptées pour qu'on ne puisse pas les distinguer de la réalité.
+      </blockquote>
+      <cite>Maison Mirage — Marseille</cite>
+    </section>
+
+    <!-- CTA -->
+    <section class="atelier-cta gs-reveal">
+      <p class="atelier-cta-eyebrow">Prêt à servir</p>
+      <h3>Découvrez la<br><em>collection.</em></h3>
+      <div class="atelier-cta-links">
+        <a href="index.html#boutique">
+          <span>Voir le catalogue</span>
+          <svg viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="partenaires.html">
+          <span>Devenir partenaire</span>
+          <svg viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-brand-text">Maison Mirage</div>
+    <div class="footer-tagline">Haute Pâtisserie · Marseille</div>
+
+    <nav class="footer-nav">
+      <a href="index.html#boutique">Le Catalogue</a>
+      <a href="atelier.html">L'Atelier</a>
+      <a href="notre-histoire.html">Notre Histoire</a>
+      <a href="case-studies.html">Résultats</a>
+      <a href="evenements.html">Événements</a>
+      <a href="partenaires.html">Espace Pro</a>
+    </nav>
+    <div class="footer-contact">
+      <a href="mailto:contact@lamaisonmirage.com">contact@lamaisonmirage.com</a><br/>
+      <a href="tel:+33622356575">+33 (0)6 22 35 65 75</a>
+    </div>
+    <p class="footer-address">Marseille, France · Lun–Sam 8h–18h</p>
+
+    <!-- Réseaux sociaux -->
+    <div class="footer-social">
+      <a href="https://www.instagram.com/maisonmirage" target="_blank" rel="noopener noreferrer" aria-label="Instagram Maison Mirage">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <a href="https://www.tiktok.com/@maisonmirage" target="_blank" rel="noopener noreferrer" aria-label="TikTok Maison Mirage">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.8a8.27 8.27 0 0 0 4.76 1.5v-3.4a4.85 4.85 0 0 1-1-.21z"/></svg>
+      </a>
+      <a href="mailto:contact@lamaisonmirage.com" aria-label="Email Maison Mirage">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </a>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 Maison Mirage</span>
+      <a href="mentions-legales.html">Mentions légales</a>
+      <a href="cgv-pro.html">CGV Pro</a>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const tl = gsap.timeline({ delay: 0.1 });
+      tl.from("#navReveal", { opacity: 0, y: -20, duration: 1, ease: "power3.out" })
+        .from(".gs-reveal", { opacity: 0, y: 30, duration: 1, stagger: 0.15, ease: "power3.out" }, "-=0.6");
+
+      // Page transitions
+      const transitionLayer = document.querySelector('.page-transition');
+      gsap.to(transitionLayer, { opacity:0, duration:0.8, ease:"power2.inOut", onComplete:()=>{ transitionLayer.style.display='none'; }});
+
+      document.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function(e) {
+          if (this.target==='_blank' || this.href.includes('#') || this.href.startsWith('mailto:') || this.href.startsWith('tel:') || this.hostname!==window.location.hostname) return;
+          e.preventDefault();
+          const targetUrl = this.href;
+          transitionLayer.style.display = 'block';
+          gsap.to(transitionLayer, { opacity:1, duration:0.5, ease:"power2.inOut", onComplete:()=>{ window.location.href=targetUrl; }});
+        });
+      });
+
+      window.addEventListener('pageshow', (e) => {
+        if (e.persisted) gsap.to(transitionLayer, { opacity:0, duration:0.4, onComplete:()=>{ transitionLayer.style.display='none'; }});
+      });
+    });
+
+    document.getElementById('navbar').classList.add('visible');
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Burger menu
+    const navBurger = document.getElementById('navBurger');
+    const mobileOverlay = document.getElementById('mobile-overlay');
+    const navbar = document.getElementById('navbar');
+    if(navBurger && mobileOverlay) {
+      function closeMenu() {
+        navBurger.classList.remove('open');
+        navBurger.setAttribute('aria-expanded', 'false');
+        mobileOverlay.classList.remove('open');
+        if(navbar) navbar.classList.remove('menu-open');
+        document.body.style.overflow = '';
+        document.body.classList.remove('menu-active');
+      }
+      navBurger.addEventListener('click', function() {
+        const opening = !this.classList.contains('open');
+        this.classList.toggle('open');
+        this.setAttribute('aria-expanded', opening);
+        mobileOverlay.classList.toggle('open');
+        if(navbar) navbar.classList.toggle('menu-open');
+        document.body.style.overflow = opening ? 'hidden' : '';
+        document.body.classList.toggle('menu-active', opening);
+      });
+      document.querySelectorAll('.mobile-nav-item').forEach(l => l.addEventListener('click', closeMenu));
+      document.addEventListener('keydown', e => { if(e.key === 'Escape' && mobileOverlay.classList.contains('open')) closeMenu(); });
+      mobileOverlay.addEventListener('click', e => { if(e.target === mobileOverlay) closeMenu(); });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VICE SWEETY — Audit 360° Élite</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
+
+  :root {
+    --pink: #ff6ec7;
+    --orange: #ffa500;
+    --coral: #e94560;
+    --purple: #1a0a2e;
+    --deep: #0a0a0a;
+    --green: #00ff88;
+    --red: #ff3b3b;
+    --yellow: #ffd700;
+    --blue: #4fc3f7;
+    --text: rgba(255,255,255,0.78);
+    --text-dim: rgba(255,255,255,0.45);
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--deep);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 15px;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(180deg, #1a0a2e 0%, #0f3460 40%, #e94560 75%, #ffa500 100%);
+    padding: 80px 20px 60px;
+    position: relative;
+  }
+  .hero::after {
+    content:'';
+    position:absolute;
+    bottom:0;left:0;right:0;
+    height:120px;
+    background:linear-gradient(transparent, var(--deep));
+  }
+  .hero-badge {
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 6px 20px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+  }
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(50px, 10vw, 100px);
+    line-height: 0.9;
+    letter-spacing: 3px;
+    background: linear-gradient(180deg, #fff 0%, #ff6ec7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .hero p {
+    margin-top:15px;
+    font-size:16px;
+    color:rgba(255,255,255,0.6);
+    max-width:600px;
+  }
+
+  /* LAYOUT */
+  .container { max-width:900px; margin:0 auto; padding: 0 24px; }
+
+  /* SECTION */
+  .audit-section { padding: 70px 0; }
+  .section-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 60px;
+    color: rgba(255,110,199,0.15);
+    line-height: 1;
+  }
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(28px, 5vw, 42px);
+    letter-spacing: 2px;
+    background: linear-gradient(90deg, var(--pink), var(--orange));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 25px;
+  }
+  h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 2px;
+    color: var(--pink);
+    margin: 35px 0 12px;
+  }
+  p { margin-bottom: 16px; }
+
+  .divider {
+    height:1px;
+    background: linear-gradient(90deg, transparent, rgba(255,110,199,0.3), transparent);
+    max-width:500px;
+    margin:0 auto;
+  }
+
+  /* VERDICT BOX */
+  .verdict {
+    border-left: 3px solid var(--pink);
+    padding: 20px 24px;
+    background: rgba(255,110,199,0.05);
+    border-radius: 0 12px 12px 0;
+    margin: 25px 0;
+  }
+  .verdict-title {
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--pink);
+    margin-bottom: 8px;
+  }
+  .verdict p { margin-bottom: 0; font-size: 14px; }
+
+  /* ALERT BOX */
+  .alert {
+    border: 1px solid var(--red);
+    background: rgba(255,59,59,0.06);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin: 25px 0;
+  }
+  .alert-title {
+    font-weight:700; font-size:13px; text-transform:uppercase;
+    letter-spacing:2px; color:var(--red); margin-bottom:8px;
+  }
+  .alert p { margin-bottom:0; font-size:14px; }
+
+  /* WIN BOX */
+  .win {
+    border: 1px solid var(--green);
+    background: rgba(0,255,136,0.04);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin: 25px 0;
+  }
+  .win-title {
+    font-weight:700; font-size:13px; text-transform:uppercase;
+    letter-spacing:2px; color:var(--green); margin-bottom:8px;
+  }
+  .win p { margin-bottom:0; font-size:14px; }
+
+  /* PRODUCT GRID */
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+    margin: 25px 0;
+  }
+  .product-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 14px;
+    padding: 22px;
+  }
+  .product-card h4 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 1px;
+    color: var(--orange);
+    margin-bottom: 8px;
+  }
+  .product-card p { font-size: 13px; color: var(--text-dim); margin-bottom: 0; }
+  .product-price {
+    display: inline-block;
+    background: rgba(255,165,0,0.15);
+    color: var(--orange);
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 10px;
+  }
+
+  /* TIER TABLE */
+  .tier-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 14px;
+  }
+  .tier-table th {
+    text-align: left;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: var(--pink);
+    padding: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .tier-table td {
+    padding: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    color: var(--text-dim);
+  }
+  .tier-table tr:hover td { color: var(--text); }
+  .badge-viral {
+    background: var(--pink);
+    color: #000;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .badge-margin {
+    background: var(--green);
+    color: #000;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .badge-star {
+    background: var(--yellow);
+    color: #000;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* QUICK WIN */
+  .qw-grid {
+    display: grid;
+    gap: 16px;
+    margin: 25px 0;
+  }
+  .qw-item {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+    padding: 20px;
+  }
+  .qw-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    color: rgba(255,110,199,0.25);
+    min-width: 40px;
+    line-height: 1;
+  }
+  .qw-content h4 {
+    font-weight: 700;
+    font-size: 15px;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+  .qw-content p { font-size: 13px; color: var(--text-dim); margin: 0; }
+
+  /* TIMELINE */
+  .roadmap-item {
+    border-left: 2px solid var(--pink);
+    padding: 0 0 40px 30px;
+    position: relative;
+    margin-left: 20px;
+  }
+  .roadmap-item::before {
+    content: '';
+    position: absolute;
+    left: -7px;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    background: var(--pink);
+    border-radius: 50%;
+  }
+  .roadmap-item:last-child { border-left-color: transparent; }
+  .roadmap-phase {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--orange);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .roadmap-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    letter-spacing: 2px;
+    color: #fff;
+    margin: 4px 0 8px;
+  }
+  .roadmap-text { font-size: 14px; color: var(--text-dim); }
+
+  /* NAMING ANALYSIS */
+  .naming-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 25px 0;
+  }
+  .naming-pro, .naming-con {
+    border-radius: 12px;
+    padding: 20px;
+  }
+  .naming-pro {
+    background: rgba(0,255,136,0.04);
+    border: 1px solid rgba(0,255,136,0.15);
+  }
+  .naming-con {
+    background: rgba(255,59,59,0.04);
+    border: 1px solid rgba(255,59,59,0.15);
+  }
+  .naming-pro h4 { color: var(--green); font-family:'Bebas Neue'; letter-spacing:2px; font-size:16px; margin-bottom:10px; }
+  .naming-con h4 { color: var(--red); font-family:'Bebas Neue'; letter-spacing:2px; font-size:16px; margin-bottom:10px; }
+  .naming-pro li, .naming-con li { font-size:13px; color:var(--text-dim); margin-bottom:6px; list-style:none; }
+  .naming-pro li::before { content:'✅ '; }
+  .naming-con li::before { content:'⚠️ '; }
+
+  /* FOOTER */
+  .footer {
+    text-align:center;
+    padding:50px 20px;
+    font-size:11px;
+    color:rgba(255,255,255,0.2);
+    letter-spacing:3px;
+  }
+
+  strong { color: #fff; }
+  em { color: var(--pink); font-style: normal; }
+
+  @media(max-width:600px) {
+    .naming-grid { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">Audit 360° — Confidentiel</div>
+  <h1>VICE SWEETY</h1>
+  <p>Audit stratégique sans filtre. Branding, produit, retail, marketing. Le verdict d'un DA/Stratège sur ton concept — et comment le rendre inarrêtable à Marseille.</p>
+</div>
+
+<div class="container">
+
+<!-- ============================================================ -->
+<!-- SECTION 0 : TIMING -->
+<!-- ============================================================ -->
+<div class="audit-section">
+  <div class="section-num">00</div>
+  <div class="section-title">LE TIMING EST CHIRURGICAL</div>
+
+  <p>Avant toute chose, posons les faits. <strong>GTA 6 sort le 19 novembre 2026.</strong> Rockstar lance sa campagne marketing massive cet été 2026. On parle de billboards dans Times Square, de bus entiers recouverts d'artwork Vice City, de filtres AR, de TikTok challenges. L'esthétique néon/sunset/Miami va être <strong>partout</strong> dans la culture populaire pendant 6 à 12 mois.</p>
+
+  <p>Ça veut dire quoi pour toi ? Que <strong>ta fenêtre de tir est maintenant</strong>. Si tu ouvres entre septembre et novembre 2026, tu surfes gratuitement sur des milliards de dollars de marketing culturel sans dépenser un centime. Les gens vont voir "Vice" + esthétique néon/sunset et le lien mental se fait tout seul. C'est du brand awareness offert par Rockstar Games.</p>
+
+  <div class="win">
+    <div class="win-title">Avantage stratégique majeur</div>
+    <p>Tu ne copies pas GTA. Tu captures une énergie culturelle qui va dominer l'année. La vibe "Vice City" est un mouvement esthétique — pas une licence. Des centaines de marques dans la mode, la food et le lifestyle utilisent déjà cette esthétique sans aucun problème juridique.</p>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================================ -->
+<!-- SECTION 1 : STRATÉGIE PRODUIT -->
+<!-- ============================================================ -->
+<div class="audit-section">
+  <div class="section-num">01</div>
+  <div class="section-title">STRATÉGIE PRODUIT & CARTE</div>
+
+  <h3>LA VITRINE : TON ARME NUMÉRO 1</h3>
+
+  <p>La vitrine d'une pâtisserie trompe-l'œil, c'est pas un présentoir — <strong>c'est ton écran publicitaire permanent</strong>. Les gens doivent s'arrêter, sortir leur téléphone, et filmer AVANT même d'entrer. C'est le contenu organique le plus puissant qui existe.</p>
+
+  <p>Problème classique : trop de références = confusion + banalisation. Si tu mets 25 trompe-l'œil en vitrine, plus rien n'est spécial. La rareté crée le désir.</p>
+
+  <div class="verdict">
+    <div class="verdict-title">Règle d'or vitrine</div>
+    <p><strong>Maximum 8-10 références visibles simultanément.</strong> Rotation hebdomadaire de 2-3 pièces. Les classiques restent (mangue, framboise, passion). Les "drops" tournent. Ça crée le flux de retour : "C'est quoi cette semaine ?"</p>
+  </div>
+
+  <h3>HIÉRARCHIE DES TROMPE-L'ŒIL PAR POTENTIEL</h3>
+
+  <table class="tier-table">
+    <tr>
+      <th>Produit</th>
+      <th>Potentiel</th>
+      <th>Pourquoi</th>
+      <th>Prix cible</th>
+    </tr>
+    <tr>
+      <td><strong>Fruits du Démon (One Piece)</strong></td>
+      <td><span class="badge-viral">VIRAL +++</span></td>
+      <td>Communauté One Piece = massive. Cross-culture anime × food = TikTok gold. Drop limité = FOMO maximum.</td>
+      <td><span class="product-price">9.50€</span></td>
+    </tr>
+    <tr>
+      <td><strong>Mangue</strong></td>
+      <td><span class="badge-star">SIGNATURE</span></td>
+      <td>Le plus photogénique. Couleur sunset = cohérent avec la DA. Doit être en vitrine H24.</td>
+      <td><span class="product-price">7.50€</span></td>
+    </tr>
+    <tr>
+      <td><strong>Passion</strong></td>
+      <td><span class="badge-star">SIGNATURE</span></td>
+      <td>Tendance acidulée 2026 (39% des consommateurs). Texture coupée en deux = effect wow.</td>
+      <td><span class="product-price">7.50€</span></td>
+    </tr>
+    <tr>
+      <td><strong>Popcorn</strong></td>
+      <td><span class="badge-viral">VIRAL ++</span></td>
+      <td>L'inattendu. Un popcorn qui est un dessert = dissonance cognitive = partage garanti. Parfait pour la DA "cinéma/pop culture".</td>
+      <td><span class="product-price">8.50€</span></td>
+    </tr>
+    <tr>
+      <td><strong>Baklava</strong></td>
+      <td><span class="badge-margin">MARGE +++</span></td>
+      <td>Ancrage méditerranéen/Marseille. Parle à la diaspora. Coût matière faible. Storytelling local fort.</td>
+      <td><span class="product-price">7.50€</span></td>
+    </tr>
+    <tr>
+      <td><strong>Cacahuète</strong></td>
+      <td><span class="badge-margin">MARGE ++</span></td>
+      <td>Texture bluffante, goût universel, coût matière bas. Le "crowd-pleaser".</td>
+      <td><span class="product-price">7.00€</span></td>
+    </tr>
+    <tr>
+      <td><strong>Framboise</strong></td>
+      <td><span class="badge-star">SIGNATURE</span></td>
+      <td>Classique qui rassure. Couleur rose = on-brand. Point d'entrée pour les néophytes.</td>
+      <td><span class="product-price">7.00€</span></td>
+    </tr>
+    <tr>
+      <td><strong>Noix de Coco</strong></td>
+      <td><span class="badge-margin">MARGE ++</span></td>
+      <td>Vibe tropicale = cohérent Miami. Bonne marge. Bon pour l'été marseillais.</td>
+      <td><span class="product-price">7.00€</span></td>
+    </tr>
+  </table>
+
+  <h3>STRUCTURE DE CARTE RECOMMANDÉE</h3>
+
+  <div class="product-grid">
+    <div class="product-card">
+      <h4>🎨 LES TROMPE-L'ŒIL</h4>
+      <p>Le cœur de métier. 8-10 réf. max. Rotation des "drops". C'est la raison pour laquelle les gens viennent. Marge cible : 75-80%.</p>
+      <div class="product-price">7.00€ — 9.50€</div>
+    </div>
+    <div class="product-card">
+      <h4>🥤 LES DRINKS (CRUCIAL)</h4>
+      <p>Milkshakes "Insta-ready" overloaded, smoothies, limonades colorées. <strong>C'est ton volume.</strong> À Marseille quand il fait 35°C, le drink = 50%+ du CA en été. Gobelets brandés, pailles rose, le visuel doit être aussi fort que les gâteaux.</p>
+      <div class="product-price">5.00€ — 8.00€</div>
+    </div>
+    <div class="product-card">
+      <h4>🍪 LES "QUICK VICES"</h4>
+      <p>Cookies, financiers, mignardises. Le grab & go pour les petits budgets et le flux. C'est ce qui permet de ne pas perdre le client qui hésite sur un trompe-l'œil à 8€. Format sac kraft brandé.</p>
+      <div class="product-price">3.00€ — 4.50€</div>
+    </div>
+    <div class="product-card">
+      <h4>💎 LES "DROPS" (ÉDITIONS LIMITÉES)</h4>
+      <p>Fruits du Démon, collabs, créations saisonnières. Annoncés uniquement sur Instagram/TikTok. Quantité limitée par jour. C'est ton moteur FOMO. Quand c'est fini, c'est fini.</p>
+      <div class="product-price">8.50€ — 12.00€</div>
+    </div>
+  </div>
+
+  <div class="alert">
+    <div class="alert-title">Alerte — Les Drinks</div>
+    <p>Ne sous-estime JAMAIS la gamme boissons. À Marseille, en été, c'est potentiellement 40-55% de ton CA. Le milkshake Vice Sweety doit être aussi iconique que tes trompe-l'œil. <strong>Pense : gobelet XXL, couleur sunset gradient, toppings qui dépassent, chantilly rose.</strong> C'est ton produit le plus facilement transportable, filmable en marchant, et le plus margé après les mignardises.</p>
+  </div>
+
+  <h3>PANIER MOYEN CIBLE</h3>
+  <p>Scénario type : <strong>1 trompe-l'œil (7.50€) + 1 drink (5.50€) = 13€</strong>. Avec un cookie en add-on : <strong>16.50€</strong>. C'est dans ta fourchette 12-18€. L'add-on cookie/mignardise doit être proposé systématiquement en caisse — c'est un +25% de panier moyen pour 2 secondes de phrase.</p>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================================ -->
+<!-- SECTION 2 : BRANDING & DA -->
+<!-- ============================================================ -->
+<div class="audit-section">
+  <div class="section-num">02</div>
+  <div class="section-title">AUDIT BRANDING & DIRECTION ARTISTIQUE</div>
+
+  <h3>LE NAMING : "VICE SWEETY"</h3>
+
+  <p>Soyons directs.</p>
+
+  <div class="naming-grid">
+    <div class="naming-pro">
+      <h4>Forces</h4>
+      <ul>
+        <li>"Vice" est puissant — désir, interdit, plaisir coupable. Ça polarise. Bien.</li>
+        <li>La connexion Vice City est immédiate sans être une copie</li>
+        <li>Court, mémorable, international</li>
+        <li>0 marques à l'INPI — territoire vierge</li>
+        <li>Fonctionne en français et en anglais</li>
+      </ul>
+    </div>
+    <div class="naming-con">
+      <h4>Faiblesses</h4>
+      <ul>
+        <li>"Sweety" avec le Y sonne enfantin/mignon — ça <strong>dilue</strong> l'énergie "Vice"</li>
+        <li>Le Y final fait cheap/TikTok/éphémère, pas premium</li>
+        <li>Le contraste Vice (dark/edgy) + Sweety (cute/kawaii) crée une dissonance</li>
+        <li>"Sweety" est phonétiquement faible — la bouche finit sur un son aigu, pas percutant</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <div class="verdict-title">Verdict naming</div>
+    <p><strong>VICE SWEET</strong> (sans le Y) est objectivement plus fort. C'est plus sec, plus direct, plus premium. La bouche finit sur un T — net, catégorique. Compare à voix haute : "Vice Sweet-<em>y</em>" (qui s'éteint) vs "Vice Swee<strong>T</strong>" (qui claque). Pour une marque qui veut être franchisée et iconique, la version sans Y est supérieure.<br><br>
+    <strong>Axe alternatif :</strong> Si tu veux garder le Y parce que ça te tient à cœur — alors assume-le à fond dans la DA. Fais du Y un élément graphique du logo (surdimensionné, néon, distinctif). Transforme la faiblesse en signature.</p>
+  </div>
+
+  <h3>MIAMI 80s À MARSEILLE : LE PIÈGE À ÉVITER</h3>
+
+  <p>Le risque n°1 : que ça fasse <strong>chicha lounge</strong>. Marseille a déjà plein d'endroits avec du néon rose, des palmiers plastique et de la déco "tropicale" cheap. C'est le cliché absolu. Si tu tombes là-dedans, t'es mort.</p>
+
+  <p>La clé : <strong>la qualité d'exécution fait TOUT</strong>. La même palette rose/orange/violet peut donner soit un bar à narguilé du Vieux-Port, soit un Museum of Ice Cream. La différence :</p>
+
+  <div class="product-grid">
+    <div class="product-card">
+      <h4>❌ VERSION CHEAP</h4>
+      <p>Néon LED AliExpress collé au mur. Palmier en plastique. Mur rose uni peint à la truelle. Musique urbaine au hasard. Mobilier IKEA noir. Sol carrelé blanc.</p>
+    </div>
+    <div class="product-card">
+      <h4>✅ VERSION PREMIUM</h4>
+      <p>Néon vrai verre custom avec ta signature. Murs gradient airbrush professionnel (rose → orange → violet). Mobilier sur-mesure avec matériaux quality (terrazzo, laiton, velours). Playlist synthwave/lo-fi curatée. Éclairage indirect warm. Sol résine colorée ou terrazzo pink.</p>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <div class="verdict-title">Règle d'or DA Marseille</div>
+    <p><strong>Exploite la lumière naturelle de Marseille au lieu de lutter contre.</strong> Miami 80s ce n'est pas que du néon dans le noir — c'est aussi les façades Art Deco de South Beach baignées de soleil. Ta boutique doit avoir une grande vitrine qui laisse entrer la lumière dorée marseillaise. Le néon prend le relais en fin de journée. Tu obtiens deux ambiances : jour (soleil + pastel + énergie) et nuit (néon + deep + mystère). Deux raisons de venir.</p>
+  </div>
+
+  <h3>PALETTE COULEUR — VALIDATION</h3>
+
+  <p>Le gradient sunset (rose → corail → orange → violet profond) est <strong>validé</strong>. C'est la palette la plus instagrammable qui existe en 2026, et elle va être amplifiée par le marketing GTA 6. Deux ajustements :</p>
+
+  <p><strong>1. Ajouter du blanc cassé/crème</strong> comme couleur de respiration. Si tout est saturé, rien ne ressort. Les trompe-l'œil ont besoin d'un fond neutre pour briller. La vitrine doit être sur fond clair.</p>
+
+  <p><strong>2. Le violet/noir doit rester en fond</strong>, jamais dominant. Un intérieur trop sombre à Marseille serait anxiogène et contre-culturel. Les Marseillais vivent dehors, dans la lumière. Tu veux du "sunset lounge", pas du "cave à cocktails".</p>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================================ -->
+<!-- SECTION 3 : EXPERIENCE RETAIL -->
+<!-- ============================================================ -->
+<div class="audit-section">
+  <div class="section-num">03</div>
+  <div class="section-title">EXPÉRIENCE RETAIL & FLUX OPÉRATIONNEL</div>
+
+  <h3>L'AVANTAGE DÉCISIF : ZÉRO CUISSON MINUTE</h3>
+
+  <p>Le fait de ne PAS avoir de crêpes/pancakes est ton <strong>avantage compétitif opérationnel massif</strong>. La plupart des concepts dessert en France sont plombés par la cuisson minute : files d'attente de 15 min, odeurs, personnel supplémentaire, variabilité de qualité. Toi, tout sort du labo. <strong>Le client pointe, tu sers, il paye.</strong> C'est le modèle Apple Store de la pâtisserie.</p>
+
+  <h3>DESIGN DU PARCOURS CLIENT — 90 SECONDES MAX</h3>
+
+  <p>Le flow doit être linéaire et irrésistible. Pas de table en salle au début — c'est du take-away premium avec option de consommer sur un comptoir haut ou en terrasse.</p>
+
+  <p><strong>Étape 1 — STOP (0-3 sec) :</strong> La vitrine arrête le passant. Les trompe-l'œil + néon font le job. Le passant sort son téléphone.</p>
+
+  <p><strong>Étape 2 — ENTER (3-15 sec) :</strong> Il entre. L'intérieur confirme la promesse. L'odeur (diffuseur vanille/caramel), la musique (synthwave chill), la lumière. La vitrine réfrigérée est face à lui, éclairée comme des bijoux.</p>
+
+  <p><strong>Étape 3 — CHOOSE (15-45 sec) :</strong> Les produits sont classés visuellement par catégorie. Signalétique claire avec prix. La gamme boisson est sur un menu mural lumineux au-dessus de la caisse. Pas de surcharge — maximum 4 catégories lisibles en 3 secondes.</p>
+
+  <p><strong>Étape 4 — PAY (45-60 sec) :</strong> Add-on en caisse ("Un cookie Vice pour compléter ?"). TPE rapide. Packaging brandé prêt en 10 sec.</p>
+
+  <p><strong>Étape 5 — SHARE (60-90 sec) :</strong> Le client se tourne vers le "photo spot" (mur néon avec logo). Il déballe. Il filme. Il poste. Tu as ton contenu gratuit.</p>
+
+  <h3>LE "PHOTO MOMENT" — NON NÉGOCIABLE</h3>
+
+  <div class="win">
+    <div class="win-title">Le mur Vice</div>
+    <p>Un mur dédié avec le logo néon Vice Sweet(y), le gradient sunset, et un comptoir/tablette à hauteur parfaite pour poser le produit et filmer. <strong>Ce mur doit être éclairé spécifiquement</strong> pour que les photos soient belles sans filtre — lumière chaude, pas de LED blanche agressive. Ajoute un QR code vers ton Instagram juste à côté. C'est ton UGC factory.</p>
+  </div>
+
+  <p><strong>Deuxième photo moment :</strong> le produit lui-même. Le trompe-l'œil doit arriver sur un petit plateau/support brandé avec le logo visible. Le client le photographie AVANT de le manger. C'est 2 contenus organiques par client : le mur + le produit.</p>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================================ -->
+<!-- SECTION 4 : MARKETING -->
+<!-- ============================================================ -->
+<div class="audit-section">
+  <div class="section-num">04</div>
+  <div class="section-title">MARKETING & PSYCHOLOGIE D'ACQUISITION</div>
+
+  <h3>STRATÉGIE FOMO — LES DROPS</h3>
+
+  <p>Le système de "drops" est ton levier psychologique le plus puissant. Voici comment le structurer :</p>
+
+  <p><strong>Drop hebdomadaire :</strong> Chaque lundi, annonce sur Instagram/TikTok le trompe-l'œil de la semaine. Quantité limitée (ex: 30 pièces/jour). Quand c'est fini, c'est fini. Pas de "on en refait demain". La rareté est réelle, pas simulée — les gens détectent le faux FOMO.</p>
+
+  <p><strong>Drop événementiel — Fruits du Démon :</strong> C'est ta bombe nucléaire virale. One Piece est le manga le plus vendu de l'histoire. La communauté est fanatique. Un Fruit du Démon en trompe-l'œil pâtissier, c'est la convergence parfaite entre anime culture et food art. Mais attention :</p>
+
+  <div class="alert">
+    <div class="alert-title">Propriété intellectuelle — One Piece</div>
+    <p>Tu ne peux PAS nommer tes produits "Gomu Gomu no Mi" ou utiliser les noms officiels One Piece. C'est la licence de Toei/Shueisha. En revanche, tu peux créer des <strong>"fruits mystiques" ou "forbidden fruits"</strong> qui ressemblent à des fruits du démon sans les nommer. Le public comprendra. Appelle-les "Forbidden Vice" ou "Demon Drop" — le clin d'œil est évident sans violer la licence. Et les fans partageront d'autant plus en disant "Regardez, c'est le Gomu Gomu".</p>
+  </div>
+
+  <h3>STRATÉGIE DE LANCEMENT — JOUR 1</h3>
+
+  <p><strong>Phase 0 — Teasing (J-30) :</strong> Compte Instagram/TikTok avec contenu mystérieux. Vidéos des mains du chef qui sculptent des trompe-l'œil. Jamais le lieu. Jamais le nom complet. Juste "V" en néon rose. "Something sweet is coming to Marseille." Objectif : 5-10K followers avant l'ouverture.</p>
+
+  <p><strong>Phase 1 — Micro-influenceurs Marseille (J-7) :</strong> Invite 15-20 food influenceurs Marseille (5K-50K followers) pour une soirée privée d'ouverture. PAS des gros comptes nationaux — les locaux. Ce sont eux qui font bouger les Marseillais. Ils découvrent le lieu, filment, postent. Tu veux 20 stories/reels le même soir.</p>
+
+  <p><strong>Phase 2 — Opening Day (J-0) :</strong> Les 50 premiers clients reçoivent un trompe-l'œil gratuit. File d'attente = preuve sociale = contenu organique = viralité. C'est un investissement marketing, pas une perte.</p>
+
+  <p><strong>Phase 3 — Vague nationale (J+7 à J+30) :</strong> Si le contenu local performe (et il performera si l'exécution est bonne), les algorithmes TikTok poussent nationalement. C'est là que tu contactes les plus gros comptes food France.</p>
+
+  <h3>SURF SUR LA HYPE GTA 6</h3>
+
+  <p>La campagne marketing de Rockstar démarre cet été 2026. Voici comment surfer sans violer :</p>
+
+  <p><strong>Ce que tu PEUX faire :</strong> Utiliser l'esthétique néon/sunset/80s/synthwave (c'est un mouvement culturel, pas une marque). Utiliser le mot "Vice" (c'est un mot du dictionnaire). Poster du contenu "Vice City vibe" au moment où le marketing GTA 6 sature les feeds. Les gens feront le lien tout seuls.</p>
+
+  <p><strong>Ce que tu NE PEUX PAS faire :</strong> Utiliser le logo GTA, le nom "Grand Theft Auto", les personnages, ou des assets visuels de Rockstar. Même pas en "clin d'œil".</p>
+
+  <div class="win">
+    <div class="win-title">Concept viral GTA-inspired (sans licence)</div>
+    <p><strong>"Vice Wanted List"</strong> — Chaque mois, lance un classement des 5 desserts les plus commandés, présenté comme un "avis de recherche" style affiche de l'Ouest sauvage mais en néon. Le #1 est "Most Wanted". Les clients votent pour le prochain "wanted". C'est du gaming + engagement + contenu + FOMO. Zéro problème légal.</p>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================================ -->
+<!-- SECTION 5 : QUICK WINS -->
+<!-- ============================================================ -->
+<div class="audit-section">
+  <div class="section-num">05</div>
+  <div class="section-title">QUICK WINS — 5 ACTIONS IMMÉDIATES</div>
+
+  <div class="qw-grid">
+    <div class="qw-item">
+      <div class="qw-num">01</div>
+      <div class="qw-content">
+        <h4>Tranche le naming maintenant</h4>
+        <p>Vice Sweet ou Vice Sweety — décide et dépose à l'INPI dans les classes 30 (pâtisserie) et 43 (restauration) cette semaine. Chaque jour sans dépôt est un risque que quelqu'un d'autre le prenne. Budget : ~250€ pour un dépôt en ligne.</p>
+      </div>
+    </div>
+    <div class="qw-item">
+      <div class="qw-num">02</div>
+      <div class="qw-content">
+        <h4>Sécurise les réseaux sociaux</h4>
+        <p>Crée @vicesweety (ou @vicesweet) sur Instagram, TikTok, Twitter/X, et le nom de domaine vicesweety.com / vicesweet.fr MAINTENANT. Même si tu ne postes rien encore. C'est gratuit et ça te protège.</p>
+      </div>
+    </div>
+    <div class="qw-item">
+      <div class="qw-num">03</div>
+      <div class="qw-content">
+        <h4>Développe LE milkshake signature</h4>
+        <p>Avant même l'ouverture, perfectionne un milkshake "Most Wanted" qui soit visuellement imbattable. Gradient rose-orange, chantilly qui déborde, topping spectaculaire, gobelet brandé. C'est ton produit viral n°1 à Marseille en été. Teste-le, filme-le, ajuste jusqu'à ce que chaque angle soit instagrammable.</p>
+      </div>
+    </div>
+    <div class="qw-item">
+      <div class="qw-num">04</div>
+      <div class="qw-content">
+        <h4>Photoshoot produit de niveau éditorial</h4>
+        <p>Investis dans un vrai shooting de tes trompe-l'œil avec un photographe food pro. Fond dark avec éclairage néon rasant. Ces images sont ta vitrine digitale — elles doivent être de qualité magazine. Budget : 500-800€ pour un shooting complet. ROI : incalculable.</p>
+      </div>
+    </div>
+    <div class="qw-item">
+      <div class="qw-num">05</div>
+      <div class="qw-content">
+        <h4>Lance le teasing Instagram maintenant</h4>
+        <p>Commence à poster du contenu "behind the scenes" en labo. Les mains du chef qui sculptent, le détail d'un trompe-l'œil en cours, des textures en gros plan. Pas de reveal complet. Juste assez pour créer de l'attente. 3-4 posts/semaine minimum. L'algorithme a besoin de données avant le jour J.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================================ -->
+<!-- SECTION 6 : ROADMAP -->
+<!-- ============================================================ -->
+<div class="audit-section">
+  <div class="section-num">06</div>
+  <div class="section-title">ROADMAP STRATÉGIQUE — DE MARSEILLE AU MONDE</div>
+
+  <div class="roadmap-item">
+    <div class="roadmap-phase">Axe 1 — Branding (0-6 mois)</div>
+    <div class="roadmap-title">DEVENIR LE SPOT DESSERT DE MARSEILLE</div>
+    <p class="roadmap-text">Un seul flagship hyper-exécuté. Emplacement stratégique : Vieux-Port (touristes + locaux), Cours Julien (culture + jeunes), ou La Joliette (Les Terrasses du Port, flux massif). Objectif : être dans le top 3 des endroits food les plus taggés à Marseille sur Instagram en 6 mois. Investis TOUT dans la qualité d'exécution du lieu + produit. Pas de compromis. C'est ta vitrine pour le reste de l'aventure.</p>
+  </div>
+
+  <div class="roadmap-item">
+    <div class="roadmap-phase">Axe 2 — Expérience (6-18 mois)</div>
+    <div class="roadmap-title">LABO CENTRAL + DEUXIÈME POINT DE VENTE</div>
+    <p class="roadmap-text">Le modèle labo central est ton moyen de scaler sans exploser les coûts. Un labo en zone artisanale (loyer faible) qui produit pour toutes les boutiques. Le 2e point : format plus petit, kiosque ou corner en centre commercial (Les Terrasses du Port, Plan de Campagne). Format express : vitrine + caisse + mur photo. Pas d'assise. Pur flux. Marge opérationnelle maximale. C'est ce format "boîte" qui est franchisable.</p>
+  </div>
+
+  <div class="roadmap-item">
+    <div class="roadmap-phase">Axe 3 — Scaling (18-36 mois)</div>
+    <div class="roadmap-title">PACA → NATIONAL → EXPORT</div>
+    <p class="roadmap-text">Aix-en-Provence, Nice, Montpellier en franchise ou succursale. Puis Paris (le test ultime). En parallèle, développe une gamme retail : cookies Vice Sweet en sachet, pâte à tartiner, merch (casquettes, totes, t-shirts). La marque dépasse le lieu. Tu vends du lifestyle, pas juste du dessert. Et quand le modèle est prouvé en France : Dubaï, Maroc, Espagne. Le nom international + l'esthétique universelle permettent l'export direct.</p>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================================ -->
+<!-- SECTION 7 : VERDICT FINAL -->
+<!-- ============================================================ -->
+<div class="audit-section">
+  <div class="section-num">07</div>
+  <div class="section-title">VERDICT FINAL</div>
+
+  <p>Karim, le concept est solide. Le timing avec GTA 6 est un alignement des planètes qu'il ne faut pas rater. Le trompe-l'œil comme différenciation est la bonne carte — c'est la tendance food la plus virale de 2025-2026, et tu la maîtrises. Marseille comme terrain de lancement est parfait : zéro concurrence sur ce créneau, ville solaire qui colle à la DA, cible jeune et touristique.</p>
+
+  <p>Les trois choses qui vont faire ou défaire ce projet :</p>
+
+  <p><strong>1. L'exécution du lieu.</strong> Si c'est cheap, c'est mort. La différence entre un concept viral et un concept oublié, c'est 30% de budget supplémentaire dans les finitions. Mets l'argent dans la vitrine, l'éclairage, et le mur photo. Le reste peut être simple.</p>
+
+  <p><strong>2. La gamme boissons.</strong> À Marseille, en été, c'est tes drinks qui paient ton loyer. Ne les traite pas comme un "plus" — traite-les comme ton deuxième pilier. Un milkshake Vice Sweet sur le Vieux-Port en juillet, c'est de la publicité ambulante.</p>
+
+  <p><strong>3. La vitesse d'exécution.</strong> Le marketing GTA 6 démarre cet été. Si tu ouvres en Q3 2026, tu surfes la plus grosse vague culturelle de la décennie. Si tu ouvres en 2027, la vague est passée et tu dois créer ta propre hype à partir de zéro. La différence de coût d'acquisition client entre les deux scénarios est de x5 minimum.</p>
+
+  <div class="win">
+    <div class="win-title">Le mot de la fin</div>
+    <p>Vice Sweet(y) a le potentiel d'être la première marque de pâtisserie expérientielle franchisée née en France. Pas la première pâtisserie — la première <em>marque</em>. La France a Ladurée pour le macaron luxe, Pierre Hermé pour la haute pâtisserie. Mais elle n'a pas encore son Museum of Ice Cream, son Milk Bar, son SALSWEE. Tu es devant un boulevard. Maintenant, exécute.</p>
+  </div>
+</div>
+
+</div><!-- end container -->
+
+<div class="footer">
+  VICE SWEET(Y) — AUDIT 360° CONFIDENTIEL<br>
+  Préparé pour Karim Farid — Mars 2026
+</div>
+
+</body>
+</html>

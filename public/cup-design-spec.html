@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vice Sweety — Cup Print Spec</title>
+<style>
+:root {
+  --dark: #0c0028;
+  --dark-mid: #1a0a2e;
+  --pink: #F990E8;
+  --hot-pink: #FF69B4;
+  --cyan: #0BD2D3;
+  --white: #fff;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background: var(--dark); color: var(--white); font-family: 'Space Grotesk', system-ui, sans-serif; padding: 3rem 2rem; }
+h1 { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; color: var(--pink); text-align:center; margin-bottom: 0.5rem; text-shadow: 0 0 30px rgba(249,144,232,0.3); }
+.subtitle { text-align:center; color: rgba(255,255,255,0.5); font-size: 0.85rem; margin-bottom: 3rem; }
+
+/* Layout */
+.specs { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; max-width: 1200px; margin: 0 auto; }
+.spec-card { background: var(--dark-mid); border: 1px solid rgba(249,144,232,0.1); border-radius: 1.5rem; padding: 2rem; }
+.spec-card h2 { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: var(--cyan); margin-bottom: 0.3rem; }
+.spec-card .size { color: var(--pink); font-size: 0.75rem; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.1em; margin-bottom: 1.5rem; }
+
+/* Cup unwrap visualization */
+.cup-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2.2 / 1;
+  background: rgba(255,255,255,0.03);
+  border: 1px dashed rgba(249,144,232,0.2);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+.cup-wrap .label { position:absolute; top:0.4rem; left:0.5rem; font-size:0.5rem; color:rgba(255,255,255,0.25); font-family: 'JetBrains Mono',monospace; letter-spacing:0.1em; text-transform:uppercase; }
+
+/* Palm trees on cup */
+.palm {
+  position: absolute;
+  font-size: var(--palm-size, 18px);
+  color: var(--pink);
+  opacity: 0.55;
+  line-height: 1;
+}
+.palm svg { width: 1em; height: 1em; fill: var(--pink); }
+
+/* Logo on cup */
+.cup-logo {
+  position: absolute;
+  font-family: 'Brush Script MT', 'Segoe Script', cursive;
+  font-size: var(--logo-size, 28px);
+  color: var(--pink);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-shadow: 0 0 15px rgba(249,144,232,0.4);
+  white-space: nowrap;
+}
+.cup-logo .underline {
+  display:block;
+  height:1.5px;
+  background: var(--pink);
+  margin-top:-3px;
+  opacity:0.7;
+  width: 110%;
+  margin-left:-5%;
+}
+
+/* Dimension annotations */
+.dims { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-bottom: 1.5rem; }
+.dim { background: rgba(255,255,255,0.03); padding: 0.6rem 0.8rem; border-radius: 0.5rem; border: 1px solid rgba(255,255,255,0.05); }
+.dim-label { font-family: 'JetBrains Mono',monospace; font-size: 0.55rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--cyan); margin-bottom:0.2rem; }
+.dim-value { font-size: 0.95rem; font-weight: 600; }
+
+/* Rules list */
+.rules { list-style: none; }
+.rules li { padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.04); font-size: 0.82rem; color: rgba(255,255,255,0.7); line-height:1.5; }
+.rules li strong { color: var(--pink); }
+.rules li em { color: var(--cyan); font-style: normal; }
+
+/* Full width section */
+.full-section { grid-column: 1 / -1; background: var(--dark-mid); border:1px solid rgba(249,144,232,0.1); border-radius:1.5rem; padding:2rem; }
+.full-section h2 { font-family:'Bebas Neue',sans-serif; font-size:1.8rem; color:var(--pink); margin-bottom:1rem; }
+
+/* Color swatches */
+.swatches { display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:1rem; }
+.swatch { display:flex; align-items:center; gap:0.5rem; background:rgba(255,255,255,0.03); padding:0.5rem 0.8rem; border-radius:0.5rem; }
+.swatch-dot { width:24px; height:24px; border-radius:50%; border:2px solid rgba(255,255,255,0.1); }
+.swatch-name { font-family:'JetBrains Mono',monospace; font-size:0.65rem; letter-spacing:0.08em; color:rgba(255,255,255,0.6); }
+.swatch-hex { font-family:'JetBrains Mono',monospace; font-size:0.7rem; font-weight:600; }
+
+/* Palm tree SVG inline */
+.palm-icon { display:inline-block; width:18px; height:18px; vertical-align:middle; }
+
+@media(max-width:800px) { .specs { grid-template-columns:1fr; } }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<h1>VICE SWEETY — CUP PRINT SPEC</h1>
+<p class="subtitle">Spécification packaging gobelet transparent · V1.0 · Mars 2026</p>
+
+<div class="specs">
+
+  <!-- ═══════ FORMAT REGULAR ═══════ -->
+  <div class="spec-card">
+    <h2>FORMAT REGULAR</h2>
+    <p class="size">350ml · 12oz · Smoothies · Jus</p>
+
+    <!-- Cup unwrap visual -->
+    <div class="cup-wrap" style="height:200px;">
+      <span class="label">Déroulé gobelet — face avant</span>
+
+      <!-- Row 1 - top -->
+      <div class="palm" style="--palm-size:14px; top:12%; left:8%;">🌴</div>
+      <div class="palm" style="--palm-size:14px; top:10%; left:28%;">🌴</div>
+      <div class="palm" style="--palm-size:14px; top:14%; left:52%;">🌴</div>
+      <div class="palm" style="--palm-size:14px; top:10%; left:74%;">🌴</div>
+      <div class="palm" style="--palm-size:14px; top:12%; left:92%;">🌴</div>
+
+      <!-- Logo centered -->
+      <div class="cup-logo" style="--logo-size:24px; top:30%; left:50%; transform:translateX(-50%);">
+        Vice Sweety
+        <span class="underline"></span>
+      </div>
+
+      <!-- Row 2 - middle -->
+      <div class="palm" style="--palm-size:14px; top:52%; left:5%;">🌴</div>
+      <div class="palm" style="--palm-size:14px; top:55%; left:20%;">🌴</div>
+      <div class="palm" style="--palm-size:14px; top:50%; left:38%;">🌴</div>
+      <div class="palm" style="--palm-size:14px; top:53%; left:62%;">🌴</div>
+      <div class="palm" style="--palm-size:14px; top:50%; left:80%;">🌴</div>
+      <div class="palm" style="--palm-size:14px; top:54%; left:95%;">🌴</div>
+
+      <!-- Row 3 - bottom -->
+      <div class="palm" style="--palm-size:14px; top:75%; left:12%;">🌴</div>
+      <div class="palm" style="--palm-size:14px; top:78%; left:32%;">🌴</div>
+      <div class="palm" style="--palm-size:14px; top:74%; left:48%;">🌴</div>
+      <div class="palm" style="--palm-size:14px; top:77%; left:68%;">🌴</div>
+      <div class="palm" style="--palm-size:14px; top:75%; left:88%;">🌴</div>
+    </div>
+
+    <div class="dims">
+      <div class="dim"><div class="dim-label">Hauteur cup</div><div class="dim-value">115mm</div></div>
+      <div class="dim"><div class="dim-label">Diamètre haut</div><div class="dim-value">95mm</div></div>
+      <div class="dim"><div class="dim-label">Diamètre bas</div><div class="dim-value">70mm</div></div>
+      <div class="dim"><div class="dim-label">Circonf. print</div><div class="dim-value">~298mm</div></div>
+    </div>
+
+    <ul class="rules">
+      <li><strong>Logo</strong> : centré horizontalement, placé à <em>33% depuis le haut</em> du gobelet (tiers supérieur)</li>
+      <li><strong>Palmiers</strong> : <em>3 rangées de 5</em> palmiers (15 total sur le tour complet), taille <em>12mm</em> chacun</li>
+      <li><strong>Espacement vertical</strong> : rangées à <em>15%, 55%, 78%</em> depuis le haut</li>
+      <li><strong>Espacement horizontal</strong> : palmiers en <em>quinconce</em> (décalés d'une rangée à l'autre), ~60mm entre chaque</li>
+      <li><strong>Zone libre logo</strong> : <em>25mm de clearance</em> autour du logo, aucun palmier dans cette zone</li>
+    </ul>
+  </div>
+
+  <!-- ═══════ FORMAT LARGE ═══════ -->
+  <div class="spec-card">
+    <h2>FORMAT LARGE</h2>
+    <p class="size">500ml · 16oz · Milkshakes · Smoothies XL</p>
+
+    <div class="cup-wrap" style="height:230px;">
+      <span class="label">Déroulé gobelet — face avant</span>
+
+      <!-- Row 1 -->
+      <div class="palm" style="--palm-size:16px; top:8%; left:6%;">🌴</div>
+      <div class="palm" style="--palm-size:16px; top:10%; left:25%;">🌴</div>
+      <div class="palm" style="--palm-size:16px; top:7%; left:48%;">🌴</div>
+      <div class="palm" style="--palm-size:16px; top:10%; left:70%;">🌴</div>
+      <div class="palm" style="--palm-size:16px; top:8%; left:90%;">🌴</div>
+
+      <!-- Logo -->
+      <div class="cup-logo" style="--logo-size:28px; top:25%; left:50%; transform:translateX(-50%);">
+        Vice Sweety
+        <span class="underline"></span>
+      </div>
+
+      <!-- Row 2 -->
+      <div class="palm" style="--palm-size:16px; top:45%; left:4%;">🌴</div>
+      <div class="palm" style="--palm-size:16px; top:48%; left:18%;">🌴</div>
+      <div class="palm" style="--palm-size:16px; top:44%; left:35%;">🌴</div>
+      <div class="palm" style="--palm-size:16px; top:47%; left:55%;">🌴</div>
+      <div class="palm" style="--palm-size:16px; top:44%; left:75%;">🌴</div>
+      <div class="palm" style="--palm-size:16px; top:48%; left:93%;">🌴</div>
+
+      <!-- Row 3 -->
+      <div class="palm" style="--palm-size:16px; top:63%; left:10%;">🌴</div>
+      <div class="palm" style="--palm-size:16px; top:65%; left:30%;">🌴</div>
+      <div class="palm" style="--palm-size:16px; top:62%; left:50%;">🌴</div>
+      <div class="palm" style="--palm-size:16px; top:65%; left:72%;">🌴</div>
+      <div class="palm" style="--palm-size:16px; top:63%; left:92%;">🌴</div>
+
+      <!-- Row 4 -->
+      <div class="palm" style="--palm-size:16px; top:82%; left:5%;">🌴</div>
+      <div class="palm" style="--palm-size:16px; top:84%; left:22%;">🌴</div>
+      <div class="palm" style="--palm-size:16px; top:80%; left:42%;">🌴</div>
+      <div class="palm" style="--palm-size:16px; top:83%; left:62%;">🌴</div>
+      <div class="palm" style="--palm-size:16px; top:81%; left:82%;">🌴</div>
+    </div>
+
+    <div class="dims">
+      <div class="dim"><div class="dim-label">Hauteur cup</div><div class="dim-value">135mm</div></div>
+      <div class="dim"><div class="dim-label">Diamètre haut</div><div class="dim-value">95mm</div></div>
+      <div class="dim"><div class="dim-label">Diamètre bas</div><div class="dim-value">72mm</div></div>
+      <div class="dim"><div class="dim-label">Circonf. print</div><div class="dim-value">~298mm</div></div>
+    </div>
+
+    <ul class="rules">
+      <li><strong>Logo</strong> : centré horizontalement, placé à <em>28% depuis le haut</em> (plus haut car cup plus tall)</li>
+      <li><strong>Palmiers</strong> : <em>4 rangées de 5</em> palmiers (20 total sur le tour complet), taille <em>14mm</em> chacun</li>
+      <li><strong>Espacement vertical</strong> : rangées à <em>10%, 46%, 64%, 82%</em> depuis le haut</li>
+      <li><strong>Espacement horizontal</strong> : quinconce décalé, ~60mm entre chaque palmier</li>
+      <li><strong>Zone libre logo</strong> : <em>30mm de clearance</em> autour du logo</li>
+      <li><strong>Rangée 1</strong> (au-dessus du logo) : plus légère, les palmiers sont au-dessus du niveau du smoothie quand le cup est rempli</li>
+    </ul>
+  </div>
+
+  <!-- ═══════ COULEURS PRINT ═══════ -->
+  <div class="full-section">
+    <h2>COULEURS D'IMPRESSION</h2>
+    <p style="color:rgba(255,255,255,0.5); font-size:0.85rem; margin-bottom:1.5rem;">Une seule couleur d'impression sur plastique transparent : le pink Vice Sweety. Tout est imprimé en #F990E8.</p>
+
+    <div class="swatches">
+      <div class="swatch"><div class="swatch-dot" style="background:#F990E8;"></div><div><div class="swatch-hex">#F990E8</div><div class="swatch-name">Logo + Palmiers + Underline</div></div></div>
+      <div class="swatch"><div class="swatch-dot" style="background:transparent; border:2px dashed rgba(255,255,255,0.2);"></div><div><div class="swatch-hex">Transparent</div><div class="swatch-name">Le gobelet lui-même</div></div></div>
+    </div>
+
+    <ul class="rules">
+      <li><strong>Impression monochrome</strong> : une seule couleur = <em>#F990E8</em> (coût réduit, impact maximum)</li>
+      <li><strong>Opacité palmiers</strong> : imprimés à <em>50-55% d'opacité</em> par rapport au logo (le logo est full, les palmiers sont semi-transparents)</li>
+      <li><strong>Opacité logo</strong> : <em>100%</em> — toujours full opacité, c'est l'élément dominant</li>
+      <li><strong>Underline logo</strong> : trait continu sous "Vice Sweety", 1px, 70% opacité, dépasse de 5% de chaque côté</li>
+      <li><strong>Pas de blanc</strong> : pas d'impression blanche, le plastique transparent fait office de "blanc"</li>
+    </ul>
+  </div>
+
+  <!-- ═══════ DISPOSITION PATTERN ═══════ -->
+  <div class="full-section">
+    <h2>RÈGLES DE DISPOSITION DES PALMIERS</h2>
+
+    <ul class="rules">
+      <li><strong>Pattern en quinconce</strong> : les palmiers ne sont PAS alignés en grille. Chaque rangée est <em>décalée de ~30mm</em> horizontalement par rapport à la précédente. Ça donne un rythme naturel, pas un papier peint.</li>
+      <li><strong>Légère irrégularité</strong> : chaque palmier a un <em>offset aléatoire de ±3mm</em> en X et Y par rapport à sa position théorique. Ça évite l'effet "tampon" trop mécanique.</li>
+      <li><strong>Zone de protection logo</strong> : un rectangle invisible de <em>clearance</em> autour du logo (25-30mm) où aucun palmier ne peut tomber. Le logo respire.</li>
+      <li><strong>Densité constante</strong> : la densité de palmiers est <em>identique partout sauf autour du logo</em>. Pas plus dense en bas, pas moins en haut.</li>
+      <li><strong>Taille uniforme</strong> : tous les palmiers font la <em>même taille</em> (12mm regular / 14mm large). Pas de variation de scale.</li>
+      <li><strong>Orientation identique</strong> : tous les palmiers sont <em>droits, même orientation</em>. Pas de rotation aléatoire.</li>
+      <li><strong>Face arrière</strong> : le même pattern continue au dos du gobelet, sans logo. Les palmiers wrappent sur 360°, le logo n'apparaît qu'une fois (face avant).</li>
+    </ul>
+  </div>
+
+  <!-- ═══════ PHILOSOPHIE : CHAQUE PACKAGING = UN CONTENU SOCIAL ═══════ -->
+  <div class="full-section" style="border-color:rgba(255,105,180,0.3); background:linear-gradient(135deg, var(--dark-mid) 0%, #2a1040 100%);">
+    <h2 style="color:var(--hot-pink);">PHILOSOPHIE — LE PACKAGING EST UN MÉDIA</h2>
+    <p style="color:rgba(255,255,255,0.6); font-size:0.9rem; margin-bottom:1.5rem;">La cible primaire = femme 18-35. C'est elle qui scroll, qui story, qui fait des unboxing, qui tague, qui prévoit la sortie avec ses copines. Elle est ton média gratuit. Chaque packaging doit être conçu comme un contenu Instagram/TikTok avant d'être un emballage.</p>
+
+    <ul class="rules">
+      <li><strong>Test ultime</strong> : "Est-ce qu'une meuf de 23 ans prendrait ce truc en photo avant de le manger ?" Si la réponse est non, le packaging a raté.</li>
+      <li><strong>Le "hold moment"</strong> : le packaging doit être beau à TENIR EN MAIN. Pas juste beau posé sur une table. Parce que la story c'est souvent main + packaging + arrière-plan.</li>
+      <li><strong>L'effet "aww"</strong> : au moment de recevoir la commande, il faut un micro-moment de surprise. Un détail inattendu. Le sticker de fermeture avec le flamant. Le papier de soie rose qui dépasse. La cuillère en bois avec "Dangerously Sweet." gravé.</li>
+      <li><strong>Le flat lay</strong> : quand tu poses 3-4 produits Vice Sweety ensemble sur une table, le set doit être instagrammable EN ENSEMBLE. Les couleurs des smoothies + le noir du sachet cookie + le rose du branding = une palette qui se suffit à elle-même.</li>
+      <li><strong>La vidéo "first bite"</strong> : le packaging doit INVITER à filmer le premier geste. Ouvrir le sachet, couper le trompe-l'œil, plonger la cuillère dans le dough. C'est du contenu ASMR gratuit.</li>
+    </ul>
+  </div>
+
+  <!-- ═══════ STRATÉGIE PACKAGING GLOBALE ═══════ -->
+  <div class="full-section" style="border-color:rgba(11,210,211,0.2);">
+    <h2 style="color:var(--cyan);">STRATÉGIE PACKAGING — 4 FORMATS, 1 IDENTITÉ</h2>
+    <p style="color:rgba(255,255,255,0.5); font-size:0.85rem; margin-bottom:1.5rem;">Chaque type de produit a le packaging qui le sert le mieux. Mais tous partagent le même ADN visuel : #F990E8, palmiers, logo neon script. Le client reconnaît Vice Sweety quel que soit le format.</p>
+
+    <ul class="rules">
+      <li><strong>GOBELET TRANSPARENT (drinks)</strong> : le produit est liquide et coloré → la transparence sublime les couleurs. C'est le packaging hero de la marque. Le gradient du smoothie derrière les palmiers pink = la photo que chaque fille prend main tendue devant un mur.</li>
+      <li><strong>SACHET MATTE NOIR (cookies)</strong> : le cookie est solide, opaque, artisanal → un sachet noir mat avec logo pink + palmiers. Le noir fait ressortir le pink mieux que n'importe quoi. Le cookie dépasse du sachet, gooey, instagrammable. C'est la pink box Crumbl version Vice City.</li>
+      <li><strong>POT BRANDÉ (cookie dough)</strong> : la pâte crue est crémeuse, on mange à la cuillère → un petit pot 8oz transparent brandé avec couvercle dome. Mini cuillère en bois fournie. C'est le "Netflix & dough" moment — le pot qu'on emmène chez soi.</li>
+      <li><strong>BARQUETTE DARK PURPLE (crêpes/mini pancakes)</strong> : le produit chaud, le topping visible, le flat lay parfait → une barquette carton dark purple avec papier de soie rose à l'intérieur. Les mini pancakes sont disposés joliment avec le topping qui coule. C'est la photo vue d'en haut que toutes les filles prennent.</li>
+    </ul>
+  </div>
+
+  <!-- ═══════ FORMAT 1 : GOBELET DRINKS ═══════ -->
+  <div class="full-section">
+    <h2>FORMAT 1 — GOBELET TRANSPARENT (DRINKS)</h2>
+
+    <ul class="rules">
+      <li><strong>Produits</strong> : Smoothie Sunset, Milkshake Vice, Jus Frais, tous les drinks</li>
+      <li><strong>12oz (Regular)</strong> : smoothies, jus frais</li>
+      <li><strong>16oz (Large)</strong> : milkshakes, smoothies XL</li>
+      <li><strong>Présentation</strong> : ouvert, sans couvercle, sans paille — le produit respire</li>
+      <li><strong>Garniture</strong> : tranche de fruit sur le bord (mangue, fraise, orange selon le drink)</li>
+      <li><strong>Matière</strong> : PET transparent recyclable</li>
+      <li><strong>Impression</strong> : monochrome #F990E8 — logo 100% + palmiers 55% opacité</li>
+    </ul>
+  </div>
+
+  <!-- ═══════ FORMAT 2 : SACHET COOKIES ═══════ -->
+  <div class="full-section">
+    <h2>FORMAT 2 — SACHET MATTE NOIR (COOKIES)</h2>
+    <p style="color:rgba(255,255,255,0.5); font-size:0.85rem; margin-bottom:1.5rem;">Inspiré par l'impact de la pink box Crumbl : un packaging dédié qui transforme un cookie en objet de désir.</p>
+
+    <ul class="rules">
+      <li><strong>Produits</strong> : Cookie Vice, Cookie Dough (format cookie solide), tout cookie individuel ou duo</li>
+      <li><strong>Format</strong> : sachet papier matte noir, ~14cm × 20cm (tient 1-2 cookies), fond plat pour tenir debout</li>
+      <li><strong>Fermeture</strong> : haut du sachet replié et fermé par un sticker rond noir avec logo Vice Sweety en pink</li>
+      <li><strong>Impression</strong> : logo "Vice Sweety" en #F990E8 centré sur le devant + palmiers en pattern all-over en #FF69B4 (hot pink) à 40% opacité sur le fond noir</li>
+      <li><strong>Le cookie dépasse</strong> : pour la photo (et en vrai), le sachet est légèrement ouvert, le cookie est visible, gooey, tentant</li>
+      <li><strong>Dos du sachet</strong> : infos légales + "Dangerously Sweet." en petit, #F990E8</li>
+      <li><strong>Matière</strong> : papier kraft noir mat, toucher doux (soft touch) si le budget le permet</li>
+      <li><strong>Coût</strong> : un sachet papier imprimé = ~0.05-0.10€/unité, MOINS cher qu'un gobelet custom</li>
+      <li><strong>Pourquoi noir et pas transparent ?</strong> : le cookie est opaque et brun — dans un gobelet transparent il est juste marron derrière du plastique, ça donne rien. Sur fond noir mat, le contraste crée un objet premium. Le client sort un sachet noir avec du neon pink, c'est un statement dans la rue.</li>
+    </ul>
+  </div>
+
+  <!-- ═══════ FORMAT 3 : POT COOKIE DOUGH ═══════ -->
+  <div class="full-section">
+    <h2>FORMAT 3 — POT 8OZ (COOKIE DOUGH)</h2>
+    <p style="color:rgba(255,255,255,0.5); font-size:0.85rem; margin-bottom:1.5rem;">Comme Cookie Dō NYC — un petit pot dédié qu'on mange à la cuillère. Même famille visuelle que les gobelets.</p>
+
+    <ul class="rules">
+      <li><strong>Produits</strong> : Cookie Dough (pâte crue), glaces éventuelles (future extension)</li>
+      <li><strong>Format</strong> : pot/tub 8oz (240ml), plus petit et plus trapu que les gobelets drinks</li>
+      <li><strong>Couvercle</strong> : dome PET transparent, scellé — protège le produit, montre le contenu</li>
+      <li><strong>Impression</strong> : même design que les gobelets — logo #F990E8 + palmiers — mais adapté au format plus court et large</li>
+      <li><strong>Cuillère</strong> : mini cuillère en bois naturel, glissée entre le couvercle et le pot, ou dans un mini sachet kraft</li>
+      <li><strong>Matière</strong> : PET transparent (même fournisseur que les gobelets = économie d'échelle)</li>
+      <li><strong>Pourquoi un pot séparé ?</strong> : le cookie dough se mange à la cuillère, en grignotant. Un gobelet 12oz c'est trop grand et trop haut pour ça — on galère à atteindre le fond. Un pot large et court c'est ergonomique et premium (cf. Ben & Jerry's, Cookie Dō).</li>
+    </ul>
+  </div>
+
+  <!-- ═══════ FORMAT 4 : BARQUETTE CRÊPES / MINI PANCAKES ═══════ -->
+  <div class="full-section">
+    <h2>FORMAT 4 — BARQUETTE DARK PURPLE (CRÊPES / MINI PANCAKES)</h2>
+    <p style="color:rgba(255,255,255,0.5); font-size:0.85rem; margin-bottom:1.5rem;">Le format "flat lay queen" — conçu pour être photographié d'en haut. Le papier de soie rose à l'intérieur fait le "aww moment".</p>
+
+    <ul class="rules">
+      <li><strong>Produits</strong> : mini pancakes, crêpes garnies, toute pâtisserie plate avec topping</li>
+      <li><strong>Format</strong> : barquette/boat carton ~16cm × 10cm × 5cm, bords relevés, fond plat</li>
+      <li><strong>Couleur</strong> : carton dark purple (#1a0a2e) extérieur — pas noir, PURPLE — c'est la couleur signature Vice Sweety qui différencie du noir generic</li>
+      <li><strong>Impression extérieur</strong> : logo "Vice Sweety" en #F990E8 sur un côté + palmiers pattern all-over en #F990E8 à 40% opacité</li>
+      <li><strong>L'intérieur</strong> : tapissé d'un <em>papier de soie rose pâle</em> (#FDE8EF) AVANT de poser les pancakes. Coût : ~0.01€. Impact : ÉNORME. C'est le détail Ladurée — quand tu ouvres, tu vois du pink partout, ça crée l'effet "aww". Les filles photographient ça systématiquement.</li>
+      <li><strong>Présentation produit</strong> : mini pancakes disposés en éventail ou empilés en petite tour, nappés de chocolat/Nutella, fruits frais par-dessus (fraises, framboises), touche de chantilly rose</li>
+      <li><strong>Pourquoi une barquette et pas un cône ?</strong> : la barquette c'est le format flat lay parfait — vue d'en haut on voit tout le topping, toutes les couleurs. Un cône c'est vertical, tu vois que le dessus. Et la barquette c'est plus féminin, plus "plateau de jolies choses", moins "street kebab".</li>
+      <li><strong>Pourquoi dark purple et pas noir ?</strong> : le noir c'est le sachet cookies (on différencie). Le purple foncé c'est la couleur du site Vice Sweety, ça crée une cohérence totale quand la fille poste sa photo — la barquette match le feed Vice City.</li>
+      <li><strong>Matière</strong> : carton alimentaire 300g/m², revêtement intérieur PE (résiste au gras), impression offset ou flexo</li>
+      <li><strong>Coût</strong> : ~0.08-0.15€/u — même gamme de prix que les gobelets</li>
+    </ul>
+  </div>
+
+  <!-- ═══════ MICRO-DÉTAILS QUI FONT LA DIFFÉRENCE ═══════ -->
+  <div class="full-section" style="border-color:rgba(255,105,180,0.3); background:linear-gradient(135deg, var(--dark-mid) 0%, #2a1040 100%);">
+    <h2 style="color:var(--hot-pink);">MICRO-DÉTAILS — CE QUI TRANSFORME UN EMBALLAGE EN OBJET DE DÉSIR</h2>
+    <p style="color:rgba(255,255,255,0.5); font-size:0.85rem; margin-bottom:1.5rem;">Les détails que personne ne commande mais que tout le monde photographie. C'est ça qui fait la différence entre un packaging et une marque.</p>
+
+    <ul class="rules">
+      <li><strong>Sticker de fermeture sachet cookies</strong> : rond, noir mat, logo Vice Sweety en pink + un petit flamant rose en silhouette. C'est un mini-objet collectable. Les filles le collent sur leur coque de téléphone ou leur laptop.</li>
+      <li><strong>Papier de soie rose</strong> (barquette crêpes) : coûte rien, change tout. C'est le "unboxing" de la streetfood.</li>
+      <li><strong>Cuillère en bois gravée</strong> (cookie dough) : "Dangerously Sweet." gravé au laser sur le manche. 0.02€ de plus par cuillère. Elle finit en story avec le caption.</li>
+      <li><strong>Le fond du gobelet</strong> : imprimer un petit message surprise au fond du cup — visible uniquement quand le smoothie est fini. "Tu es officiellement Vicieux(se)." ou "Ton prochain Vice t'attend." C'est le easter egg que les gens partagent en story.</li>
+      <li><strong>Serviette brandée</strong> : une serviette noire (pas blanche — NOIRE) avec le logo Vice Sweety en pink. Coût : ~0.02€/u de plus qu'une serviette blanche. Impact : chaque table, chaque main, chaque photo a du branding Vice Sweety dedans.</li>
+      <li><strong>QR code discret</strong> : sur le dos de chaque packaging, un petit QR code qui renvoie vers un filtre Instagram/TikTok Vice Sweety (flamants + palmiers + neon). Le client scanne, utilise le filtre, poste → UGC gratuit, boucle virale.</li>
+    </ul>
+  </div>
+
+  <!-- ═══════ RÉCAPITULATIF COMMANDES ═══════ -->
+  <div class="full-section" style="border-color:rgba(11,210,211,0.2);">
+    <h2 style="color:var(--cyan);">RÉCAPITULATIF — CE QU'IL FAUT COMMANDER</h2>
+
+    <ul class="rules">
+      <li style="color:var(--cyan); font-size:0.7rem; letter-spacing:0.1em; border:none; padding-bottom:0;"><strong>PACKAGINGS CUSTOM (imprimés)</strong></li>
+      <li><strong>SKU 1</strong> : Gobelet PET 12oz transparent, imprimé #F990E8 mono → <em>smoothies, jus</em></li>
+      <li><strong>SKU 2</strong> : Gobelet PET 16oz transparent, imprimé #F990E8 mono → <em>milkshakes, XL</em></li>
+      <li><strong>SKU 3</strong> : Pot PET 8oz transparent, imprimé #F990E8 mono → <em>cookie dough</em></li>
+      <li><strong>SKU 4</strong> : Sachet papier noir mat ~14×20cm, imprimé #F990E8 + #FF69B4 → <em>cookies</em></li>
+      <li><strong>SKU 5</strong> : Barquette carton dark purple #1a0a2e ~16×10cm, imprimé #F990E8 → <em>crêpes, mini pancakes</em></li>
+      <li style="color:var(--cyan); font-size:0.7rem; letter-spacing:0.1em; border:none; padding-bottom:0; padding-top:1rem;"><strong>CONSOMMABLES & DÉTAILS</strong></li>
+      <li><strong>SKU 6</strong> : Couvercle dome PET 95mm (standard) → <em>cookie dough</em></li>
+      <li><strong>SKU 7</strong> : Sticker rond noir mat + logo pink + flamant → <em>fermeture sachet cookies</em></li>
+      <li><strong>SKU 8</strong> : Mini cuillère bois gravée "Dangerously Sweet." → <em>cookie dough</em></li>
+      <li><strong>SKU 9</strong> : Papier de soie rose pâle #FDE8EF → <em>intérieur barquette crêpes</em></li>
+      <li><strong>SKU 10</strong> : Serviette noire imprimée logo pink → <em>toutes commandes</em></li>
+      <li style="border-top:1px solid rgba(11,210,211,0.15); padding-top:1rem; margin-top:0.5rem; color:var(--cyan);"><strong>TOTAL : 5 packagings custom + 5 consommables = 10 SKUs</strong></li>
+      <li>SKUs 1, 2, 3 = même fournisseur PET transparent → <em>1 interlocuteur</em></li>
+      <li>SKUs 4, 5 = imprimeur carton/papier → <em>1 interlocuteur</em></li>
+      <li>SKUs 6-10 = consommables standard ou petite customisation</li>
+    </ul>
+  </div>
+
+  <!-- ═══════ NOTES POUR IMPRIMEUR ═══════ -->
+  <div class="full-section">
+    <h2>NOTES POUR L'IMPRIMEUR</h2>
+
+    <ul class="rules">
+      <li><strong>Gobelets + Pot (SKU 1-3)</strong> : PET transparent, sérigraphie ou impression UV, monochrome #F990E8, Pantone ~2375 C ou 231 C</li>
+      <li><strong>Sachet cookies (SKU 4)</strong> : papier kraft noir mat, impression 2 couleurs (#F990E8 logo + #FF69B4 palmiers), possibilité soft-touch</li>
+      <li><strong>Barquette crêpes (SKU 5)</strong> : carton alimentaire 300g/m² teint dark purple #1a0a2e, impression mono #F990E8, revêtement PE intérieur</li>
+      <li><strong>Fichiers de production</strong> : vectoriel AI/PDF, déroulé à plat pour chaque format, calques séparés (logo full + pattern opacité réduite)</li>
+      <li><strong>MOQ estimé</strong> : gobelets PET ~1000-5000/taille, sachets papier ~500-2000, barquettes ~1000-3000</li>
+      <li><strong>Budget estimé par unité</strong> :<br>
+        — Gobelets 12/16oz : 0.08-0.15€<br>
+        — Pot 8oz : 0.10-0.18€<br>
+        — Sachets noir mat : 0.05-0.12€<br>
+        — Barquettes purple : 0.08-0.15€<br>
+        — Stickers flamant : 0.02-0.04€<br>
+        — Cuillères gravées : 0.03-0.05€<br>
+        — Papier de soie rose : 0.01€<br>
+        — Serviettes noires : 0.02-0.04€</li>
+    </ul>
+  </div>
+
+</div>
+
+</body>
+</html>

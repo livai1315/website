@@ -1,0 +1,1061 @@
+# BRAINSTORM NOMS DE MARQUE — CONCEPT DESSERT IMMERSIF
+### Couleur: Rose | Énergie: Stranger Things / MOIC | Cible: Gen Z + Millennials
+### Produits: Crêpes, Pancakes, Gaufres, Milkshakes, Cookies, Trompe l'œil, Tiramisu, Smoothies, Jus
+
+---
+
+## ✅ DÉJÀ VÉRIFIÉS INPI (0 marques trouvées)
+- DEJA VU
+- SUGAR TRIP
+- SUGAR DAZE
+- SUGAR CULT
+- SUGAR KRUSH
+- CANDY KRUSH
+- REWIND
+
+## ⚠️ VÉRIFIÉS INPI (quelques marques, à approfondir par classe)
+- HALWA (9 marques)
+- QAMAR (22 marques)
+- HOOKED (42 marques)
+
+## ❌ VÉRIFIÉS INPI (trop encombré)
+- LUCID (262)
+- BLUSH (469)
+- DOSE (1484)
+
+---
+
+## 1. SUGAR + ...
+- Sugar Trip ✅
+- Sugar Daze ✅
+- Sugar Cult ✅
+- Sugar Krush ✅
+- Sugar Spell
+- Sugar Trap
+- Sugar High
+- Sugar Ghost
+- Sugar Rush
+- Sugar Drip
+- Sugar Glow
+- Sugar Loop
+- Sugar Haze
+- Sugar Bomb
+- Sugar Pop
+- Sugar Lush
+- Sugar Wave
+- Sugar Fix
+- Sugar Coated
+- Sugar Bloom
+- Sugar Dust
+- Sugar Fever
+- Sugar Shock
+- Sugar Lane
+- Sugar Moon
+- Sugar Cloud
+- Sugar Noir
+- Sugar Vice
+- Sugar Sins
+- Sugar Dream
+- Sugar Flash
+- Sugar Tone
+- Sugar Pulse
+- Sugar Drift
+- Sugar Vibe
+- Sugar Fade
+- Sugar Realm
+- Sugar Zone
+- Sugar Verse
+- Sugar Scope
+- Sugar Dose
+- Sugar Flux
+- Sugar Melt
+- Sugar Twist
+- Sugar Fuse
+- Sugar Kick
+- Sugar Bite
+- Sugar Edge
+- Sugar Riot
+- Sugar Blaze
+- Sugar Neon
+- Sugar Milk
+- Sugar Code
+- Sugar Link
+- Sugar Lab
+- Sugar Box
+- Sugar Den
+- Sugar Hub
+- Sugar Base
+- Sugar Park
+- Sugar World
+- Sugar Story
+- Sugar Saga
+- Sugar Art
+- Sugar Craft
+- Sugar Play
+- Sugar Club
+- Sugar Room
+- Sugar House
+- Sugar Station
+- Sugar Factory
+- Sugar District
+- Sugar Quarter
+- Sugar Alley
+- Sugar Corner
+- Sugar Society
+- Sugar Republic
+- Sugar Empire
+- Sugar Kingdom
+- Sugar Island
+- Sugar Planet
+- Sugar Galaxy
+- Sugar Cosmos
+- Sugar Orbit
+- Sugar Portal
+- Sugar Gate
+- Sugar Door
+- Sugar Path
+- Sugar Trail
+- Sugar Road
+- Sugar Avenue
+
+## 2. PINK + ...
+- Pink Haze
+- Pink Fever
+- Pink Cloud
+- Pink Rush
+- Pink Trip
+- Pink Drip
+- Pink Sugar
+- Pink Velvet
+- Pink Dust
+- Pink Glow
+- Pink Moon
+- Pink Daze
+- Pink Spell
+- Pink Noir
+- Pink Bloom
+- Pink Bliss
+- Pink Bomb
+- Pink Flash
+- Pink Neon
+- Pink Dream
+- Pink Ghost
+- Pink Cult
+- Pink Vibe
+- Pink Zone
+- Pink Wave
+- Pink Pulse
+- Pink Code
+- Pink Lab
+- Pink Lush
+- Pink Fix
+- Pink Fog
+- Pink Mist
+- Pink Smoke
+- Pink Storm
+- Pink Riot
+- Pink Rebel
+- Pink Shock
+- Pink Flame
+- Pink Heat
+- Pink Ice
+- Pink Frost
+- Pink Candy
+- Pink Milk
+- Pink Cream
+- Pink Honey
+- Pink Syrup
+- Pink Glaze
+- Pink Drizzle
+- Pink Crumble
+- Pink Dough
+- Pink Batter
+- Pink Frosting
+- Pink Sprinkle
+- Pink Swirl
+- Pink Layer
+- Pink Stack
+
+## 3. SWEET + ...
+- Sweet Coma
+- Sweet Vertigo
+- Sweet Void
+- Sweet Panic
+- Sweet Chaos
+- Sweet Rebel
+- Sweet Riot
+- Sweet Asylum
+- Sweet Obsession
+- Sweet Paranoia
+- Sweet Hypnose
+- Sweet Escape
+- Sweet Delirium
+- Sweet Frenzy
+- Sweet Fury
+- Sweet Madness
+- Sweet Insomnia
+- Sweet Trance
+- Sweet Mirage
+- Sweet Illusion
+- Sweet Fantasy
+- Sweet Vision
+- Sweet Lucid
+- Sweet Noir
+- Sweet Neon
+- Sweet Glow
+- Sweet Haze
+- Sweet Fog
+- Sweet Mist
+- Sweet Cloud
+- Sweet Dust
+- Sweet Storm
+- Sweet Thunder
+- Sweet Lightning
+- Sweet Shock
+- Sweet Pulse
+- Sweet Rush
+- Sweet Wave
+- Sweet Drift
+- Sweet Fade
+- Sweet Loop
+- Sweet Rewind
+- Sweet Flash
+- Sweet Pop
+- Sweet Boom
+- Sweet Bang
+- Sweet Blast
+- Sweet Drop
+- Sweet Fall
+- Sweet Rise
+- Sweet Peak
+- Sweet High
+- Sweet Low
+- Sweet Deep
+- Sweet Dark
+- Sweet Light
+- Sweet Bright
+- Sweet Wild
+- Sweet Raw
+- Sweet Pure
+- Sweet Vice
+- Sweet Sin
+- Sweet Crime
+- Sweet Guilty
+- Sweet Wicked
+- Sweet Twisted
+- Sweet Loaded
+- Sweet Stacked
+
+## 4. CANDY + ...
+- Candy Krush ✅
+- Candy Glitch
+- Candy Ghost
+- Candy Haze
+- Candy Neon
+- Candy Trip
+- Candy Trap
+- Candy Cult
+- Candy Flash
+- Candy Rush
+- Candy Boom
+- Candy Pop
+- Candy Punk
+- Candy Riot
+- Candy Rebel
+- Candy Storm
+- Candy Cloud
+- Candy Dream
+- Candy Fever
+- Candy Shock
+- Candy Spell
+- Candy Daze
+- Candy Fix
+- Candy High
+- Candy Loop
+- Candy Melt
+- Candy Drip
+- Candy Glow
+- Candy Dust
+- Candy Bomb
+- Candy Blaze
+- Candy Wave
+- Candy Vibe
+- Candy Code
+- Candy Lab
+- Candy Land (⚠️ jeu existant)
+- Candy Box
+- Candy Den
+- Candy Hub
+- Candy Room
+- Candy House
+- Candy Club
+- Candy Society
+- Candy Planet
+- Candy World
+- Candy Island
+- Candy Kingdom
+
+## 5. NOMS EN UN MOT — PUISSANTS & COURTS
+- Glazed
+- Swoon
+- Craving
+- Drizzle
+- Velvet
+- Lush
+- Frenzy
+- Hype
+- Dipped
+- Melted
+- Twisted
+- Wicked
+- Loaded
+- Stacked
+- Layered
+- Drool
+- Indulge
+- Sinful
+- Devoted
+- Obsessed
+- Hooked
+- Coated
+- Frosted
+- Dusted
+- Sprinkled
+- Whipped
+- Folded
+- Toasted
+- Caramelized
+- Torched
+- Flamed
+- Brûléed
+- Soaked
+- Drenched
+- Smothered
+- Stuffed
+- Crushed
+- Blended
+- Shaken
+- Stirred
+- Poured
+- Scooped
+- Rolled
+- Flipped
+- Tossed
+- Stacked
+- Piled
+- Heaped
+- Overflowed
+- Burst
+- Bloom
+- Flux
+- Pulse
+- Drift
+- Glow
+- Haze
+- Mist
+- Ember
+- Flicker
+- Spark
+- Flash
+- Bolt
+- Surge
+- Swell
+- Ripple
+- Echo
+- Phantom
+- Mirage
+- Illusion
+- Vision
+- Vertigo
+- Trance
+- Reverie
+- Daydream
+- Insomnia
+- Euphoria
+- Nirvana
+- Utopia
+- Eden
+- Oasis
+- Haven
+- Refuge
+- Asylum
+- Cocoon
+- Nebula
+- Nova
+- Aurora
+- Eclipse
+- Cosmos
+- Orbit
+- Zenith
+- Apex
+- Summit
+- Peak
+- Crest
+- Pinnacle
+- Encore
+- Ovation
+- Bravo
+- Opus
+- Epic
+- Legend
+- Myth
+- Fable
+- Saga
+- Tale
+- Lore
+- Relic
+- Fossil
+- Vintage
+- Retro
+- Classic
+- Timeless
+- Eternal
+- Infinite
+- Endless
+- Forever
+- Always
+
+## 6. NOSTALGIE / STRANGER THINGS / RÉTRO
+- Deja Vu ✅
+- Rewind ✅
+- Flashback
+- Replay
+- Retro Sugar
+- Sweet Rewind
+- Sugar Rewind
+- Analog
+- VHS Sugar
+- Neon Sugar
+- After Dark
+- Afterglow
+- Midnight Sugar
+- Late Night Sugar
+- Sugar After Hours
+- Once Upon a Crêpe
+- Sugar Arcade
+- Sugar Cassette
+- Sugar Vinyl
+- Sugar Static
+- Sugar Channel
+- Sugar Frequency
+- Sugar Signal
+- Sugar Broadcast
+- Sugar Radio
+- Sugar Dial
+- Sugar Retro
+- Sugar Vintage
+- Sugar Classic
+- Pink Nostalgia
+- Neon Dreams
+- Neon Crêpes
+- Neon Dough
+- Neon Batter
+- Electric Sugar
+- Electric Sweet
+- Electric Pink
+- Voltage
+- Frequency
+- Wavelength
+- Bandwidth
+- Broadcast
+- Transmission
+- Static
+- Glitch
+- Pixel
+- Bitmap
+- Analog Sugar
+- Digital Sweet
+- 8-Bit Sugar
+- Arcade Sugar
+- Joystick
+- Game Over (Sweets)
+- Level Up
+- Boss Level
+- High Score
+- Sugar Score
+- Sugar Level
+- Sugar Mode
+- Sugar Loading
+- Sugar.exe
+- Ctrl+Sweet
+- Sugar XP
+- Sugar Beta
+- Sugar Demo
+- Sugar Hack
+- Sugar Mod
+- Sugar Patch
+- Sugar Update
+- Sugar Download
+- Sugar Stream
+- Sugar Pixel
+
+## 7. TRIP / VOYAGE / IMMERSIF / EXPÉRIENCE
+- Sugar Trip ✅
+- Sweet Escape
+- Cloud Nine
+- Wonderdaze
+- Daydream
+- Lucid Sweet
+- Sugar Trance
+- Sugar Mirage
+- Sweet Delirium
+- Sugarland
+- Sweetopia
+- Sugar Dimension
+- The Sugar Room
+- Sugar Portal
+- Sugar Gate
+- Sugar Passage
+- Sugar Tunnel
+- Sugar Wormhole
+- Sugar Rabbit Hole
+- Down the Sugar Hole
+- Sugar Wonderland
+- Sugar Matrix
+- Sugar Simulation
+- Sugar Parallel
+- Sugar Alternate
+- Sugar Other Side
+- Sugar Upside Down
+- Sugar Flip Side
+- Sugar Mirror
+- Sugar Reflection
+- Sugar Shadow
+- Sugar Echo
+- Sugar Phantom
+- Sugar Specter
+- Sugar Apparition
+- Sugar Hallucination
+- Sugar Fever Dream
+- Sugar Lucid
+- Sugar Conscious
+- Sugar Subconscious
+- Sugar Hypnosis
+- Sugar Sleepwalk
+- Sugar Somnambulist
+- Sugar Float
+- Sugar Levitate
+- Sugar Hover
+- Sugar Orbit
+- Sugar Wander
+- Sugar Roam
+- Sugar Drift
+- Sugar Flow
+- Sugar Glide
+- Sugar Cruise
+- Sugar Voyage
+- Sugar Journey
+- Sugar Odyssey
+- Sugar Safari
+- Sugar Expedition
+- Sugar Adventure
+- Sugar Quest
+- Sugar Mission
+- Sugar Venture
+
+## 8. EDGY / DARK MAIS FUN
+- Sugar Trap
+- Sugar Sins
+- Vice Sweet
+- Sin City Sweets
+- Guilty
+- Guilty Pleasure
+- Sweet Crime
+- Cheat Code
+- Cheat Day
+- Sugar Dealer
+- The Fix
+- Sweet Addiction
+- Sugar Junkie
+- Wasted
+- Buzzed
+- Sweet Sabotage
+- Sugar Heist
+- Sugar Bandit
+- Sugar Thief
+- Sugar Pirate
+- Sugar Outlaw
+- Sugar Rogue
+- Sugar Rebel
+- Sugar Villain
+- Sugar Menace
+- Sugar Trouble
+- Sugar Danger
+- Sugar Risk
+- Sugar Dare
+- Sugar Temptation
+- Sugar Seduction
+- Sugar Obsession
+- Sugar Possession
+- Sugar Haunted
+- Sugar Cursed
+- Sugar Hex
+- Sugar Voodoo
+- Sugar Witch
+- Sugar Sorcery
+- Sugar Alchemy
+- Sugar Potion
+- Sugar Elixir
+- Sugar Antidote
+- Sugar Remedy
+- Sugar Cure
+- Sugar Medicine
+- Sugar Therapy
+- Sugar Dose
+- Sugar Prescription
+- Sugar Overdose
+- Sugar OD
+- Sugar Relapse
+- Sugar Rehab
+- Sugar Recovery
+- Sugar Anonymous
+- Sugar Confession
+- Sugar Secret
+- Sugar Whisper
+- Sugar Rumor
+- Sugar Scandal
+- Sugar Conspiracy
+- Sugar Underground
+- Sugar Black Market
+- Sugar Contraband
+- Sugar Smuggler
+- Sugar Cartel
+
+## 9. ARABE / ORIGINES / ORIENTAL TWIST
+- Sukkar
+- Halwa ⚠️
+- Qamar ⚠️
+- Helu
+- Bab Halwa
+- Dar Sukkar
+- Sukkar Trip
+- Qamar Rose
+- Qamar Pink
+- Noor Sweet (noor = lumière)
+- Sahara Sweet
+- Raha (confort/plaisir en arabe)
+- Zina (beauté en arabe)
+- Lalla (titre de respect féminin, Maroc)
+- Janna (paradis en arabe)
+- Firdaws (paradis supérieur)
+- Narjis (narcisse, fleur)
+- Yaqut (rubis)
+- Marjan (corail)
+- Zahra (fleur/éclat)
+- Warda (rose en arabe)
+- Samara (compagnie nocturne)
+- Layali (nuits)
+- Sahira (nuit éveillée)
+- Ahlam (rêves)
+- Khayal (imagination/rêverie)
+- Sihr (magie/enchantement)
+- Fustuq (pistache)
+- Tamr (datte)
+- Assal (miel)
+- Zafaran (safran)
+- Kunafa
+- Baklawa
+- Qatayef
+- Mhalbi
+- Ghazl (barbe à papa / fil en arabe)
+- Ghazl al Banat (barbe à papa littéralement)
+- Sukkar wa Ward (sucre et roses)
+- Hilwa (jolie/sucrée féminin)
+- Dalal (coquetterie)
+- Nakhwa
+- Zukkar (variante de sukkar)
+- Lukum (loukoum)
+
+## 10. FRENCH TWIST (français mais pas "maison")
+- Vertige Sucré
+- Fièvre Rose
+- Folie Douce
+- Le Sucre
+- Coup de Sucre
+- Overdose Sucrée
+- Rose Bonbon
+- Éclat Sucré
+- Brûlure Sucrée
+- Frisson
+- Frisson Rose
+- Douceur Noire
+- Péché Sucré
+- Péché Mignon
+- Tentation
+- Envie
+- Délice
+- Gourmandise
+- Mignardise
+- Friandise
+- Régal
+- Festin
+- Banquet
+- Orgie Sucrée
+- Douce Folie
+- Belle Dose
+- Beau Désordre
+- Joli Bordel
+- Jolie Faute
+- Dernier Péché
+- Premier Vertige
+- Doux Chaos
+- Rose Électrique
+- Néon Rose
+- Sucre Brut
+- Sucre Noir
+- Sucre Sauvage
+- Sucre Libre
+- Sucre Fou
+- Sucre Vif
+- Autre Monde
+- L'Envers
+- L'Autre Côté
+- Le Passage
+- Le Miroir
+- Le Reflet
+- Le Songe
+- Le Rêve
+- L'Éveil
+- La Transe
+- La Source
+- La Brèche
+- L'Éclipse
+- L'Oasis
+- Le Mirage
+
+## 11. MASHUPS / ORTHOGRAPHES TWISTÉES
+- Krush'd
+- Sugar'd
+- Glaze'd
+- Pink'd
+- Daze'd
+- Frost'd
+- Stack'd
+- Drip'd
+- Melt'd
+- Twist'd
+- Load'd
+- Whipp'd
+- Dipp'd
+- Flip'd
+- Soak'd
+- Blendid
+- Shookd
+- Sugah
+- Shugar
+- Shuga
+- Zugar
+- Zukar
+- Sukr
+- Swt
+- Pynk
+- Kandy
+- Kream
+- Kake
+- Krêpe
+- Krème
+- Karamel
+- Kookie
+- Flaké
+- Drizzl
+- Glazë
+- Swëet
+- Sügar
+- Crüsh
+
+## 12. JEUX DE MOTS / WORDPLAY
+- Deja Vu ✅ (nostalgie)
+- Sugar Daze ✅ (daze/days)
+- Cheat Day (triche = plaisir coupable)
+- Sweet Tooth (expression anglaise)
+- Sweet Nothings (mots doux)
+- Sugar Coat (enjoliver)
+- Sugar Plum (fée dragée)
+- Eye Candy (plaisir des yeux = trompe l'oeil!)
+- Piece of Cake (facile / morceau de gâteau)
+- Icing on the Cake (cerise sur le gâteau)
+- Cherry on Top
+- Batter Up (pâte + baseball)
+- Bake My Day (make my day)
+- Flipping Good (retourner crêpe)
+- Crêpe Escape
+- Waffle House of Dreams
+- Stack Overflow (pile de pancakes + code)
+- The Last Crêpe
+- No Crêpe Given
+- Holy Crêpe
+- Oh My Gaufre
+- Mon Petit Chou (terme d'affection + pâte à choux)
+- La Vie en Rose (Piaf + pink)
+- C'est la Vie Sucrée
+- Sacré Sucre
+- Très Sweet
+- Ooh La La
+- Voilà
+- Comme Ci Comme Ça Crêpes
+- Merci Beaucoup Bakery
+
+## 13. LIEUX / DESTINATIONS IMAGINAIRES
+- Sugarland
+- Sweetville
+- Sugar City
+- Candy Town
+- Sweet Town
+- Caramel City
+- Chocolate Town
+- Sugar Street
+- Sweet Avenue
+- Pink Boulevard
+- Sugar District
+- Sweet Quarter
+- Candy Corner
+- Sugar Square
+- Pink Plaza
+- Sweet Station
+- Sugar Terminal
+- Candy Central
+- Sugar Depot
+- Pink Pier
+- Sugar Shore
+- Sweet Harbor
+- Candy Cove
+- Sugar Bay
+- Pink Lagoon
+- Sugar Oasis
+- Sweet Mirage
+- Candy Mirage
+- Sugar Paradise
+- Sweet Eden
+- Pink Haven
+- Sugar Sanctuary
+- Sweet Refuge
+- Candy Asylum
+- Sugar Hideout
+- Pink Hideaway
+- Sugar Retreat
+- Sweet Getaway
+
+## 14. PERSONNAGE / MASCOTTE INTÉGRÉ AU NOM
+- Miss Sugar
+- Mister Sweet
+- Madame Rose
+- Lady Pink
+- Queen Candy
+- King Sugar
+- Sugar Mama
+- Sugar Papa
+- Big Mama Sweet
+- Mama Pink
+- Nana Sweet
+- Tante Rose
+- Auntie Sugar
+- Chef Sugar
+- Doctor Sweet
+- Professor Pink
+- Captain Candy
+- Major Sugar
+- General Sweet
+- Sugar Kid
+- Sweet Child
+- Candy Girl
+- Sugar Boy
+- Pink Baby
+- Little Sugar
+- Tiny Sweet
+
+## 15. SENSATIONS / ÉMOTIONS PURES
+- Euphoria
+- Bliss
+- Ecstasy
+- Rapture
+- Elation
+- Exhilaration
+- Intoxication
+- Fascination
+- Obsession
+- Addiction
+- Devotion
+- Passion
+- Desire
+- Temptation
+- Seduction
+- Surrender
+- Abandon
+- Frenzy
+- Delirium
+- Hysteria
+- Mania
+- Fever
+- Rush
+- Thrill
+- Buzz
+- High
+- Peak
+- Climax
+- Crescendo
+- Explosion
+- Eruption
+- Overflow
+- Cascade
+- Avalanche
+- Tsunami
+- Tempest
+- Whirlwind
+- Tornado
+- Hurricane
+- Cyclone
+- Vortex
+- Maelstrom
+- Abyss
+
+## 16. ULTRA COURTS (3-4 LETTRES)
+- Doux
+- Daze
+- Haze
+- Glow
+- Drip
+- Flux
+- Melt
+- Fizz
+- Pop
+- Boom
+- Bang
+- Zap
+- Zip
+- Zing
+- Zest
+- Fuzz
+- Buzz
+- Hush
+- Lush
+- Plush
+- Rush
+- Gush
+- Blush
+- Crush
+- Flush
+- Swish
+- Wish
+- Kiss
+- Miss
+- Bliss
+- Purr
+- Purée
+- Dose
+- Rose
+- Pose
+- Luxe
+- Silk
+- Cake
+- Bake
+- Fake
+- Wake
+- Lake
+- Take
+- Bite
+- Kite
+- Lite
+- Nite
+- Mite
+- Rêve
+- Crème
+- Fleur
+- Coeur
+
+## 17. COMBOS INATTENDUS / WILD CARDS
+- Neon Crêpes
+- Electric Batter
+- Atomic Pancake
+- Cosmic Waffle
+- Galactic Crêpe
+- Stellar Sugar
+- Interstellar Sweet
+- Quantum Cake
+- Plasma Pink
+- Sonic Sugar
+- Turbo Sweet
+- Nitro Crêpe
+- Hyper Sugar
+- Ultra Sweet
+- Mega Pink
+- Super Sucré
+- Supra Sweet
+- Omni Sugar
+- Neo Sweet
+- Proto Pink
+- Cyber Sugar
+- Techno Sweet
+- Synth Sugar
+- Vapor Sweet
+- Retro Drip
+- Vintage Sugar
+- Antique Sweet
+- Fossil Cake
+- Relic Sugar
+- Ghost Kitchen Sweet
+- Phantom Bakery
+- Shadow Sugar
+- Specter Sweet
+- Wraith Cake
+- Poltergeist Pancake
+- Haunted Sugar
+- Cursed Crêpe
+- Enchanted Waffle
+- Bewitched Batter
+- Charmed Sugar
+- Magical Sweet
+- Mystical Pink
+- Mythical Sugar
+- Legendary Sweet
+- Epic Cake
+- Grand Sugar
+- Royal Sweet
+- Noble Pink
+- Sacred Sugar
+- Divine Sweet
+- Holy Crêpe
+- Blessed Sugar
+- Heavenly Sweet
+- Celestial Pink
+- Angelic Sugar
+- Ethereal Sweet
+
+---
+
+## 🏆 TOP PICKS PERSONNELS (à vérifier INPI)
+
+### TIER 1 — Les plus forts pour ton concept
+1. **SUGAR TRIP** ✅ INPI — Le voyage sucré immersif
+2. **DEJA VU** ✅ INPI — Nostalgie + mystère
+3. **SUGAR DAZE** ✅ INPI — État second sucré
+4. **PINK HAZE** — Brume rose, rêveur, Hendrix
+5. **SUGAR SPELL** — Envoûtement
+6. **GLAZED** — Double sens (glaçage + hypnotisé)
+7. **SUGAR TRAP** — Piégé dans la douceur
+8. **EYE CANDY** — Plaisir des yeux = trompe l'œil!
+9. **NEON SUGAR** — L'esthétique dans le nom
+10. **AFTERGLOW** — La sensation post-trip
+
+### TIER 2 — Très forts aussi
+11. **SUGAR HIGH** — L'euphorie
+12. **PINK FEVER** — La fièvre rose
+13. **SUGAR GHOST** — Mystère inattendu
+14. **SWEET VERTIGO** — Le vertige sucré
+15. **REWIND** ✅ INPI — Nostalgie pure
+16. **SUGAR DRIP** — Street art vibes
+17. **SWOON** — S'évanouir de plaisir
+18. **CANDY GLITCH** — Pop culture + erreur
+19. **SUGAR TRANCE** — État hypnotique
+20. **KHAYAL** — Rêverie en arabe
+
+### TIER 3 — Wild cards intéressantes
+21. **HOLY CRÊPE** — Fun, mémorable, French
+22. **EYE CANDY** — Trompe l'œil direct
+23. **SIHR** — Magie en arabe
+24. **FRISSON** — Français mais international
+25. **SUGAR NOIR** — Le contraste dark + sweet
+
+---
+*Liste générée le 22 mars 2026*
+*Recherche INPI effectuée sur data.inpi.fr — vérification préliminaire uniquement*
+*Consulter un conseil en propriété industrielle avant tout dépôt*

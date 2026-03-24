@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /DOCS/
+Disallow: /audits/
+Disallow: /app-ios/
+Disallow: /particuliers/
+Disallow: /inspiration/
+
+Sitemap: https://www.vicesweety.com/sitemap.xml

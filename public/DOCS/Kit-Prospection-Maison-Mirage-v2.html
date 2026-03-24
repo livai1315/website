@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kit de Prospection Maison Mirage 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #FAF5EF;
+            --cream-2: #F5F0EA;
+            --cream-3: #EDE8E2;
+            --ink: #1A1714;
+            --ink-soft: #2C2824;
+            --ink-muted: #6B6560;
+            --gold: #A8895C;
+            --gold-light: #C9AA7C;
+            --gold-pale: #E8D5B8;
+            --white: #FFFFFF;
+            --success: #4A7C59;
+            --error: #8C3A3A;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            font-family: 'Outfit', sans-serif;
+            color: var(--ink);
+            background: var(--cream);
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        @media print {
+            html, body {
+                margin: 0;
+                padding: 0;
+            }
+            .page {
+                page-break-after: always;
+            }
+        }
+
+        .page {
+            width: 210mm;
+            height: 297mm;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Grain texture overlay */
+        .grain {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.3;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 60px 50px;
+        }
+
+        /* PAGE 1 - COVER */
+        .page-cover {
+            background: var(--ink);
+            color: var(--white);
+        }
+
+        .page-cover .content {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .cover-logo {
+            width: 120px;
+            height: 108px;
+            margin-bottom: 40px;
+        }
+
+        .cover-logo svg {
+            width: 100%;
+            height: 100%;
+            color: var(--gold);
+        }
+
+        .cover-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 72px;
+            font-weight: 300;
+            letter-spacing: 0.4em;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .cover-separator {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+            font-size: 20px;
+            color: var(--gold);
+        }
+
+        .cover-separator::before,
+        .cover-separator::after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .cover-subtitle {
+            font-family: 'Outfit', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin: 25px 0;
+        }
+
+        .cover-meta {
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 1px;
+            margin-top: 60px;
+            opacity: 0.8;
+        }
+
+        /* CONTENT PAGES */
+        .page-content {
+            background: var(--cream);
+        }
+
+        .page-content .content {
+            padding: 60px 50px;
+        }
+
+        .eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 2px;
+            color: var(--gold);
+            font-weight: 500;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 54px;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 35px;
+            letter-spacing: -0.5px;
+        }
+
+        .separator {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin: 25px 0;
+            color: var(--gold);
+            font-size: 14px;
+        }
+
+        .separator::before,
+        .separator::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--gold);
+        }
+
+        /* CARDS */
+        .card {
+            background: var(--cream-2);
+            border: 1px solid var(--cream-3);
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 2px;
+        }
+
+        .card-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: 15px;
+        }
+
+        .card-dark {
+            background: var(--ink-soft);
+            color: var(--white);
+            border: none;
+        }
+
+        .card-dark .card-title {
+            color: var(--gold);
+        }
+
+        .card-item {
+            margin: 15px 0;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        .card-item strong {
+            color: var(--gold);
+        }
+
+        .card-item-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        /* SEGMENTS */
+        .segments {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        .segment-card {
+            background: var(--cream-2);
+            border: 1px solid var(--cream-3);
+            padding: 25px;
+            border-radius: 2px;
+        }
+
+        .segment-header {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--success);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .segment-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: 10px;
+        }
+
+        .segment-desc {
+            font-size: 13px;
+            line-height: 1.6;
+            color: var(--ink-muted);
+        }
+
+        /* SCRIPTS */
+        .scripts {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        .script-card {
+            background: var(--ink-soft);
+            color: var(--white);
+            padding: 25px;
+            border-radius: 2px;
+        }
+
+        .script-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--gold-light);
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .script-accroche {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .script-arrow {
+            color: var(--gold-pale);
+            margin: 8px 0;
+        }
+
+        .script-transition {
+            font-size: 13px;
+            line-height: 1.5;
+            color: var(--white);
+        }
+
+        /* OBJECTIONS TABLE */
+        .objections-table {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .objections-row {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 25px;
+            padding: 20px;
+            background: var(--cream-2);
+            border: 1px solid var(--cream-3);
+            margin-bottom: 10px;
+            border-radius: 2px;
+        }
+
+        .objection-label {
+            font-weight: 600;
+            color: var(--error);
+            font-size: 14px;
+        }
+
+        .objection-response {
+            font-size: 13px;
+            line-height: 1.6;
+            color: var(--ink-muted);
+        }
+
+        /* TIMELINE */
+        .timeline {
+            margin-top: 25px;
+        }
+
+        .timeline-step {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 20px;
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid var(--cream-3);
+        }
+
+        .timeline-step:last-child {
+            border-bottom: none;
+        }
+
+        .timeline-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: var(--gold);
+            padding-top: 3px;
+        }
+
+        .timeline-content {
+            font-size: 14px;
+        }
+
+        .timeline-content strong {
+            display: block;
+            color: var(--ink);
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .timeline-content span {
+            color: var(--ink-muted);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        /* CHECKLIST */
+        .checklist {
+            background: var(--white);
+            padding: 30px;
+            border: 1px solid var(--cream-3);
+            border-radius: 2px;
+            margin-top: 20px;
+        }
+
+        .checklist-category {
+            margin-bottom: 25px;
+        }
+
+        .checklist-category:last-child {
+            margin-bottom: 0;
+        }
+
+        .checklist-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .checklist-item {
+            font-size: 13px;
+            margin: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .checklist-item::before {
+            content: '☐';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        /* KIT DOCUMENTS */
+        .kit-items {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .kit-item {
+            background: var(--cream-2);
+            padding: 20px;
+            border: 1px solid var(--cream-3);
+            border-radius: 2px;
+        }
+
+        .kit-item-num {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            letter-spacing: 1px;
+            color: var(--gold);
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .kit-item-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--ink);
+            margin: 8px 0;
+        }
+
+        .kit-item-desc {
+            font-size: 13px;
+            color: var(--ink-muted);
+            line-height: 1.5;
+        }
+
+        /* KPI GRID */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .kpi-card {
+            background: var(--cream-2);
+            padding: 25px;
+            border: 1px solid var(--cream-3);
+            border-radius: 2px;
+            text-align: center;
+        }
+
+        .kpi-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        .kpi-label {
+            font-family: 'Outfit', sans-serif;
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--ink-muted);
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        /* PAGE CLOSING */
+        .page-closing {
+            background: var(--ink);
+            color: var(--white);
+        }
+
+        .page-closing .content {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .closing-logo {
+            width: 100px;
+            height: 90px;
+            margin-bottom: 35px;
+        }
+
+        .closing-logo svg {
+            width: 100%;
+            height: 100%;
+            color: var(--gold);
+        }
+
+        .closing-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 64px;
+            font-weight: 300;
+            letter-spacing: 0.4em;
+            margin-bottom: 35px;
+        }
+
+        .closing-quote {
+            font-family: 'Outfit', sans-serif;
+            font-size: 20px;
+            font-style: italic;
+            margin-bottom: 50px;
+            opacity: 0.95;
+            letter-spacing: -0.3px;
+        }
+
+        .closing-meta {
+            font-size: 11px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            opacity: 0.7;
+            margin: 15px 0;
+        }
+
+        /* UTILITIES */
+        .mt-large {
+            margin-top: 40px;
+        }
+
+        .note-card {
+            background: var(--gold-pale);
+            padding: 15px 20px;
+            border-left: 3px solid var(--gold);
+            margin: 20px 0;
+            font-size: 12px;
+            color: var(--ink);
+            font-style: italic;
+        }
+
+        .rule-card {
+            background: var(--cream-3);
+            padding: 18px 20px;
+            border-radius: 2px;
+            font-size: 12px;
+            color: var(--ink-muted);
+            margin: 15px 0;
+            line-height: 1.6;
+        }
+
+        em {
+            color: var(--gold);
+            font-style: normal;
+            font-weight: 600;
+        }
+
+        .accroche-max {
+            font-weight: 700;
+            color: var(--gold);
+        }
+    </style>
+</head>
+<body>
+
+<!-- PAGE 1: COVER -->
+<div class="page page-cover">
+    <svg class="grain" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+        <filter id="grain">
+            <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4"/>
+            <feColorMatrix type="saturate" values="0.3"/>
+        </filter>
+        <rect width="1024" height="1024" filter="url(#grain)" opacity="0.3"/>
+    </svg>
+    <div class="content">
+        <div class="cover-logo">
+            <img src="assets/logo-m-beige.png" alt="M" style="height: 54px; width: auto;">
+        </div>
+        <h1 class="cover-title">MAISON MIRAGE</h1>
+        <div class="cover-separator">◆</div>
+        <p class="cover-subtitle">KIT DE PROSPECTION TERRAIN</p>
+        <p class="cover-subtitle" style="font-size: 16px; font-weight: 400; letter-spacing: 1px;">Guide Commercial · 2026</p>
+        <div class="cover-meta">
+            Document interne — Confidentiel
+        </div>
+    </div>
+</div>
+
+<!-- PAGE 2: IDENTITÉ -->
+<div class="page page-content">
+    <svg class="grain" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+        <filter id="grain2">
+            <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4"/>
+        </filter>
+        <rect width="1024" height="1024" filter="url(#grain2)" opacity="0.2"/>
+    </svg>
+    <div class="content">
+        <p class="eyebrow">01 · Notre ADN</p>
+        <h2 class="section-title">L'Art de l'Illusion</h2>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-item-label">Ce que nous sommes</span>
+                <strong>Haute pâtisserie trompe-l'œil.</strong> Des desserts qui ressemblent à des fruits, des légumes, des objets — mais qui sont 100% pâtisserie artisanale.
+            </div>
+
+            <div class="card-item" style="margin-top: 25px;">
+                <span class="card-item-label">Notre promesse</span>
+                <strong>Le dessert que vos clients photographient avant de manger.</strong>
+            </div>
+
+            <div class="card-item" style="margin-top: 25px;">
+                <span class="card-item-label">Notre signature</span>
+                <strong>Ce que vous voyez n'est jamais ce que vous goûtez.</strong>
+            </div>
+
+            <div class="card-item" style="margin-top: 25px;">
+                <span class="card-item-label">Notre différenciation</span>
+                <strong>Aucun concurrent direct en France.</strong> Positionnement unique entre pâtisserie d'art et produit B2B scalable.
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- PAGE 3: CIBLE IDÉALE -->
+<div class="page page-content">
+    <svg class="grain" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+        <filter id="grain3">
+            <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4"/>
+        </filter>
+        <rect width="1024" height="1024" filter="url(#grain3)" opacity="0.2"/>
+    </svg>
+    <div class="content">
+        <p class="eyebrow">02 · Profil Client Idéal (ICP)</p>
+        <h2 class="section-title">À qui s'adresser en priorité</h2>
+
+        <div class="segments">
+            <div class="segment-card">
+                <div class="segment-header">Priorité haute</div>
+                <div class="segment-title">Restaurants sans chef pâtissier</div>
+                <div class="segment-desc">Bistrots, brasseries, restaurants avec carte dessert faible ou absente. Ils ont la marge mais pas la compétence interne. C'est notre ICP n°1.</div>
+            </div>
+
+            <div class="segment-card">
+                <div class="segment-header">Priorité haute</div>
+                <div class="segment-title">Hôtels 3-5★ (F&B / room service)</div>
+                <div class="segment-desc">Directeurs F&B qui veulent impressionner sans investir dans un poste de pâtissier. Le room service est un canal sous-exploité.</div>
+            </div>
+
+            <div class="segment-card">
+                <div class="segment-header">Priorité moyenne</div>
+                <div class="segment-title">Traiteurs & événementiel</div>
+                <div class="segment-desc">Wedding planners, traiteurs haut de gamme, agences événementielles. Volume plus élevé mais cycles de vente plus longs.</div>
+            </div>
+        </div>
+
+        <div class="card mt-large" style="background: var(--gold-pale); border: 1px solid var(--gold-light);">
+            <span class="card-item-label">Signaux d'achat à détecter</span>
+            <div class="card-item" style="margin: 10px 0 0 0; color: var(--ink);">
+                — Carte dessert avec seulement des classiques (fondant chocolat, crème brûlée)<br>
+                — Mention "desserts faits maison" mais cuisine visiblement sous-staffée<br>
+                — Belles photos sur Instagram mais desserts basiques<br>
+                — Établissement récent ou en cours de repositionnement
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- PAGE 4: SCRIPTS D'ACCROCHE -->
+<div class="page page-content">
+    <svg class="grain" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+        <filter id="grain4">
+            <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4"/>
+        </filter>
+        <rect width="1024" height="1024" filter="url(#grain4)" opacity="0.2"/>
+    </svg>
+    <div class="content">
+        <p class="eyebrow">03 · Scripts d'Accroche</p>
+        <h2 class="section-title">Les 10 mots qui ouvrent la porte</h2>
+
+        <div class="note-card">
+            <strong>Règle d'or :</strong> ne jamais décrire le produit. Poser une question qui fait réfléchir.
+        </div>
+
+        <div class="scripts">
+            <div class="script-card">
+                <span class="script-label">Script Restaurant</span>
+                <div class="script-accroche">Votre carte dessert fait-elle autant parler que vos plats ?</div>
+                <div class="script-arrow">↓</div>
+                <div class="script-transition">Nos partenaires ont vu leur ticket dessert augmenter de 35%. Je peux vous montrer comment en 2 minutes.</div>
+            </div>
+
+            <div class="script-card">
+                <span class="script-label">Script Hôtel</span>
+                <div class="script-accroche">Combien de vos clients postent vos desserts sur Instagram ?</div>
+                <div class="script-arrow">↓</div>
+                <div class="script-transition">Nos créations sont photographiées à chaque service. C'est du marketing gratuit pour votre établissement.</div>
+            </div>
+
+            <div class="script-card">
+                <span class="script-label">Script Événement</span>
+                <div class="script-accroche">Quel est le dernier dessert qui a vraiment surpris vos invités ?</div>
+                <div class="script-arrow">↓</div>
+                <div class="script-transition">Nous créons des moments viraux. Vos invités filment, partagent, et parlent de votre événement pendant des semaines.</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- PAGE 5: GESTION DES OBJECTIONS -->
+<div class="page page-content">
+    <svg class="grain" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+        <filter id="grain5">
+            <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4"/>
+        </filter>
+        <rect width="1024" height="1024" filter="url(#grain5)" opacity="0.2"/>
+    </svg>
+    <div class="content">
+        <p class="eyebrow">04 · Objections & Réponses</p>
+        <h2 class="section-title">Transformer le non en oui</h2>
+
+        <div class="objections-table">
+            <div class="objections-row">
+                <div class="objection-label">C'est trop cher</div>
+                <div class="objection-response">Dès 5€/pièce revendu 12-15€, c'est 140 à 200% de marge nette. Quel dessert de votre carte génère ce rendement aujourd'hui ?</div>
+            </div>
+
+            <div class="objections-row">
+                <div class="objection-label">On a déjà un pâtissier</div>
+                <div class="objection-response">Parfait. Le trompe-l'œil est un complément, pas un remplacement. C'est le dessert spectacle qui fait parler — votre pâtissier fait le quotidien.</div>
+            </div>
+
+            <div class="objections-row">
+                <div class="objection-label">Nos clients ne connaissent pas</div>
+                <div class="objection-response">C'est justement l'effet. La surprise crée l'émotion, l'émotion crée le partage, le partage crée la visibilité. 100% de nos partenaires renouvellent.</div>
+            </div>
+
+            <div class="objections-row">
+                <div class="objection-label">La conservation ?</div>
+                <div class="objection-response">5 jours à 4°C. Livraison chambre froide 6j/7. On gère toute la logistique — vous commandez, on livre.</div>
+            </div>
+
+            <div class="objections-row">
+                <div class="objection-label">Je veux tester d'abord</div>
+                <div class="objection-response">Exactement notre approche. On livre gratuitement 4 créations à votre établissement. Zéro engagement, zéro risque.</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- PAGE 6: PROCESSUS COMMERCIAL -->
+<div class="page page-content">
+    <svg class="grain" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+        <filter id="grain6">
+            <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4"/>
+        </filter>
+        <rect width="1024" height="1024" filter="url(#grain6)" opacity="0.2"/>
+    </svg>
+    <div class="content">
+        <p class="eyebrow">05 · Le Processus de Vente</p>
+        <h2 class="section-title">De la porte au partenariat</h2>
+
+        <div class="timeline">
+            <div class="timeline-step">
+                <div class="timeline-number">01</div>
+                <div class="timeline-content">
+                    <strong>Identification</strong>
+                    <span>Repérer les établissements cibles (carte dessert faible, pas de pâtissier, bon positionnement)</span>
+                </div>
+            </div>
+
+            <div class="timeline-step">
+                <div class="timeline-number">02</div>
+                <div class="timeline-content">
+                    <strong>Premier Contact</strong>
+                    <span>Visite terrain ou email. Utiliser le script d'accroche. Objectif : obtenir 2 minutes d'attention.</span>
+                </div>
+            </div>
+
+            <div class="timeline-step">
+                <div class="timeline-number">03</div>
+                <div class="timeline-content">
+                    <strong>Proposition Dégustation</strong>
+                    <span>Proposer l'envoi gratuit de 4 créations. Fixer une date de livraison.</span>
+                </div>
+            </div>
+
+            <div class="timeline-step">
+                <div class="timeline-number">04</div>
+                <div class="timeline-content">
+                    <strong>Livraison & Dégustation</strong>
+                    <span>Livrer + appeler 24h après. Question clé : "Quelle a été la réaction de votre équipe ?"</span>
+                </div>
+            </div>
+
+            <div class="timeline-step">
+                <div class="timeline-number">05</div>
+                <div class="timeline-content">
+                    <strong>Présentation Offre</strong>
+                    <span>Envoyer le Catalogue B2B + les Offres adaptées au profil. Proposer un essai de 2 semaines.</span>
+                </div>
+            </div>
+
+            <div class="timeline-step">
+                <div class="timeline-number">06</div>
+                <div class="timeline-content">
+                    <strong>Closing & Onboarding</strong>
+                    <span>Signer, configurer les livraisons régulières, former l'équipe au service (30 min max).</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- PAGE 7: CHECKLIST RENDEZ-VOUS -->
+<div class="page page-content">
+    <svg class="grain" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+        <filter id="grain7">
+            <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4"/>
+        </filter>
+        <rect width="1024" height="1024" filter="url(#grain7)" opacity="0.2"/>
+    </svg>
+    <div class="content">
+        <p class="eyebrow">06 · Checklist Terrain</p>
+        <h2 class="section-title">Avant chaque rendez-vous</h2>
+
+        <div class="checklist">
+            <div class="checklist-category">
+                <div class="checklist-title">Avant le RDV</div>
+                <div class="checklist-item">Fiche Prospection imprimée (avec photos produit)</div>
+                <div class="checklist-item">2-3 créations signature pour dégustation live</div>
+                <div class="checklist-item">Carte de visite Maison Mirage</div>
+                <div class="checklist-item">Catalogue B2B (version papier ou tablette)</div>
+                <div class="checklist-item">Offres Commerciales adaptées au profil</div>
+                <div class="checklist-item">Tablette avec vidéo de découpe/révélation</div>
+            </div>
+
+            <div class="checklist-category">
+                <div class="checklist-title">Pendant le RDV</div>
+                <div class="checklist-item">Poser la question d'accroche (PAS de pitch produit)</div>
+                <div class="checklist-item">Écouter le besoin avant de présenter</div>
+                <div class="checklist-item">Montrer la vidéo de découpe (moment wow)</div>
+                <div class="checklist-item">Proposer la dégustation gratuite</div>
+                <div class="checklist-item">Noter le nom du décideur, volume estimé, objections</div>
+            </div>
+
+            <div class="checklist-category">
+                <div class="checklist-title">Après le RDV</div>
+                <div class="checklist-item">Email de suivi sous 24h (catalogue + lien vidéo)</div>
+                <div class="checklist-item">Planifier la livraison dégustation sous 72h</div>
+                <div class="checklist-item">Mettre à jour le CRM (statut, next step, notes)</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- PAGE 8: DOCUMENTS DU KIT -->
+<div class="page page-content">
+    <svg class="grain" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+        <filter id="grain8">
+            <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4"/>
+        </filter>
+        <rect width="1024" height="1024" filter="url(#grain8)" opacity="0.2"/>
+    </svg>
+    <div class="content">
+        <p class="eyebrow">07 · Votre Kit Complet</p>
+        <h2 class="section-title">Les documents à votre disposition</h2>
+
+        <div class="kit-items">
+            <div class="kit-item">
+                <div class="kit-item-num">01</div>
+                <div class="kit-item-name">Carte de Visite</div>
+                <div class="kit-item-desc">Premier contact. À laisser systématiquement.</div>
+            </div>
+
+            <div class="kit-item">
+                <div class="kit-item-num">02</div>
+                <div class="kit-item-name">Fiche Prospection Terrain</div>
+                <div class="kit-item-desc">Post-rendez-vous. Le document qui reste sur le bureau du gérant.</div>
+            </div>
+
+            <div class="kit-item">
+                <div class="kit-item-num">03</div>
+                <div class="kit-item-name">Catalogue B2B</div>
+                <div class="kit-item-desc">Négociation. Envoi email ou présentation tablette. Le référentiel produit complet.</div>
+            </div>
+
+            <div class="kit-item">
+                <div class="kit-item-num">04</div>
+                <div class="kit-item-name">Dossier Partenaire</div>
+                <div class="kit-item-desc">Décision. Pour les prospects sérieux qui veulent comprendre l'entreprise.</div>
+            </div>
+
+            <div class="kit-item">
+                <div class="kit-item-num">05</div>
+                <div class="kit-item-name">Offres Commerciales</div>
+                <div class="kit-item-desc">Closing. Le document qui chiffre précisément selon le profil (cérémonie, coffret, événement).</div>
+            </div>
+        </div>
+
+        <div class="rule-card">
+            <strong>Règle fondamentale :</strong> Chaque document a un rôle précis. Ne les envoyez pas tous en même temps — calibrez selon l'étape du tunnel.
+        </div>
+    </div>
+</div>
+
+<!-- PAGE 9: KPIs & OBJECTIFS -->
+<div class="page page-content">
+    <svg class="grain" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+        <filter id="grain9">
+            <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4"/>
+        </filter>
+        <rect width="1024" height="1024" filter="url(#grain9)" opacity="0.2"/>
+    </svg>
+    <div class="content">
+        <p class="eyebrow">08 · Objectifs Mensuels</p>
+        <h2 class="section-title">Vos indicateurs de performance</h2>
+
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <div class="kpi-value">20</div>
+                <div class="kpi-label">Visites terrain / mois</div>
+            </div>
+
+            <div class="kpi-card">
+                <div class="kpi-value">10</div>
+                <div class="kpi-label">Dégustations planifiées / mois</div>
+            </div>
+
+            <div class="kpi-card">
+                <div class="kpi-value">5</div>
+                <div class="kpi-label">Nouveaux partenaires signés / mois</div>
+            </div>
+
+            <div class="kpi-card">
+                <div class="kpi-value">100%</div>
+                <div class="kpi-label">Taux de renouvellement partenaires</div>
+            </div>
+
+            <div class="kpi-card">
+                <div class="kpi-value">800€</div>
+                <div class="kpi-label">Panier moyen mensuel par partenaire</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- PAGE 10: CLOSING -->
+<div class="page page-closing">
+    <svg class="grain" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+        <filter id="grain10">
+            <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4"/>
+        </filter>
+        <rect width="1024" height="1024" filter="url(#grain10)" opacity="0.3"/>
+    </svg>
+    <div class="content">
+        <div class="closing-logo">
+            <img src="assets/logo-m-beige.png" alt="M" style="height: 90px; width: auto;">
+        </div>
+        <h1 class="closing-title">MAISON MIRAGE</h1>
+        <p class="closing-quote">Ce que vous voyez n'est jamais ce que vous goûtez.</p>
+        <div class="closing-meta">Document interne — Confidentiel</div>
+        <div class="closing-meta">Kit Commercial 2026</div>
+    </div>
+</div>
+
+</body>
+</html>

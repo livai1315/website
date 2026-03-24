@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vice Sweety — Desserts Dangereux · Marseille</title>
+
+  <meta name="description" content="Vice Sweety — Desserts trompe-l'œil, milkshakes obscènes, cookies dangereux. Le plaisir coupable premium de Marseille. Take-away &amp; commande en ligne." />
+  <meta name="keywords" content="desserts trompe-l'œil, milkshakes premium, cookies, Marseille, take-away, commande en ligne, neon, Vice City" />
+  <link rel="canonical" href="https://www.vicesweety.com/" />
+  <meta property="og:title" content="Vice Sweety — Desserts Dangereux · Marseille" />
+  <meta property="og:description" content="Desserts trompe-l'œil, milkshakes obscènes, cookies dangereux. Le plaisir coupable premium de Marseille. Take-away &amp; commande en ligne." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.vicesweety.com/" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="Vice Sweety" />
+  <meta property="og:image" content="https://www.vicesweety.com/img/hero-flatlay.webp" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="800" />
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png" />
+
+  <!-- Structured Data: LocalBusiness + Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Vice Sweety",
+    "description": "Desserts trompe-l'œil, milkshakes obscènes, cookies dangereux. Le plaisir coupable premium de Marseille. Take-away et commande en ligne.",
+    "url": "https://www.vicesweety.com",
+    "telephone": "+33622356575",
+    "email": "hello@vicesweety.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Marseille",
+      "addressCountry": "FR"
+    },
+    "areaServed": "Marseille",
+    "priceRange": "€€",
+    "openingHours": "Mo-Su 10:00-21:00"
+  }
+  </script>
+
+  <!-- Structured Data: FAQ Page -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "C'est vraiment pas un vrai fruit ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Non. C'est mieux. C'est un dessert trompe-l'œil artisanal présenté comme un fruit parfait. À la première bouchée, tu découvres la magie : texture veloutée, saveur intense, effet visuel dingue."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Comment je commande ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sur le site ou directement au comptoir. Les commandes se préparent en 5 minutes. Pour les grosse commandes, contacte hello@vicesweety.com ou appelle."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Vous livrez ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Take-away pour l'instant. Viens chercher sur place — ça mérite d'être frais."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "C'est quoi les Éditions limitées ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Notre série limitée inspirée des saveurs du moment. Elles changent. C'est limited edition, donc une fois parties, elles sont parties."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Allergènes ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Chaque fiche produit détaille les allergènes déclarés. Si tu as des allergies, on peut te proposer des alternatives ou tu peux vérifier directement avec nous."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="vice-sweety.css" />
+  <link rel="preload" as="image" href="img/hero-flatlay.webp" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@vicesweety" />
+  <meta name="twitter:title" content="Vice Sweety — Desserts Dangereux · Marseille" />
+  <meta name="twitter:description" content="Desserts trompe-l'œil, milkshakes obscènes, cookies dangereux. Le plaisir coupable premium de Marseille." />
+  <meta name="twitter:image" content="https://www.vicesweety.com/img/hero-flatlay.webp" />
+</head>
+<body>
+
+  <!-- Accessibility: skip to content -->
+  <a href="#menu" class="skip-to-content">Aller au contenu</a>
+  <noscript><style>#navbar{opacity:1;translate:0 0;}.reveal{opacity:1;transform:none;}.hero-eyebrow,.hero-h1,.hero-hook,.hero-desc,.hero-actions,.hero-reassurance,.hero-img-main{opacity:1;transform:none;}</style></noscript>
+
+  <!-- ═══════ MOBILE OVERLAY ═══════ -->
+  <div id="mobile-overlay" role="dialog" aria-label="Menu de navigation">
+    <a href="#menu" class="mobile-nav-item">Menu</a>
+    <a href="notre-vice.html" class="mobile-nav-item">Notre Vice</a>
+    <a href="lab.html" class="mobile-nav-item">Le Lab</a>
+    <div class="mobile-nav-footer">
+      <a href="mailto:hello@vicesweety.com">hello@vicesweety.com</a>
+      <a href="tel:+33622356575">+33 (0)6 22 35 65 75</a>
+      <a href="https://www.instagram.com/vicesweety" target="_blank" rel="noopener noreferrer">Instagram @vicesweety</a>
+    </div>
+  </div>
+
+  <!-- ═══════ NAVIGATION ═══════ -->
+  <nav id="navbar">
+    <!-- Mobile burger (hidden on desktop) -->
+    <button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-overlay">
+      <span></span><span></span><span></span>
+    </button>
+    <!-- Desktop links — left of brand -->
+    <div class="nav-links-left">
+      <a href="#menu">Menu</a>
+      <a href="notre-vice.html">Notre Vice</a>
+      <a href="lab.html">Le Lab</a>
+    </div>
+    <a href="#" class="nav-brand" aria-label="Retour à l'accueil">
+      <img src="img/Vice_Sweety_logo.png" alt="Vice Sweety" class="brand-logo" />
+    </a>
+    <!-- Desktop links — right of brand + Cart & Location -->
+    <div class="nav-links-right">
+      <button class="nav-cart-btn" aria-label="Panier">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+        </svg>
+        <span class="cart-badge" id="cartBadge" style="display:none;">0</span>
+      </button>
+      <span class="nav-location">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;margin-right:0.3rem;vertical-align:middle;">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+        </svg>
+        Marseille
+      </span>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════
+       1. HERO — Double CTA + Grid Floor
+  ═══════════════════════════════════════════ -->
+  <header class="hero">
+    <div class="hero-left">
+      <p class="hero-eyebrow">Desserts Dangereux · Marseille · Since Now</p>
+      <h1 class="hero-h1 neon-text">Ton Prochain<br><em>Plaisir Coupable.</em></h1>
+      <p class="hero-baseline">Desserts trompe-l'œil, milkshakes obscènes, cookies dangereux. Bienvenue dans le Vice.</p>
+      <div class="hero-actions">
+        <a href="#menu" class="btn-primary">
+          <span>Commander mon Vice</span>
+          <div class="btn-arrow"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </a>
+        <a href="#menu" class="btn-secondary">
+          <span>Voir le Menu</span>
+          <div class="btn-arrow"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </a>
+      </div>
+      <p class="hero-reassurance">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;margin-right:0.4rem;vertical-align:middle;">
+          <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+        </svg>
+        Prêt en 5 min · Take-away · À partir de 6€
+      </p>
+    </div>
+    <div class="scroll-hint">
+      <div class="scroll-hint-line"></div>
+      <span class="scroll-hint-label">Défiler</span>
+    </div>
+    <div class="hero-right">
+      <video class="hero-img-main" id="heroMain" src="img/peche-decoupe.mp4" poster="img/hero-flatlay.webp" autoplay muted loop playsinline fetchpriority="high"></video>
+      <img src="img/hero-flatlay.webp" alt="Vice Sweety — Desserts Trompe-l'œil" class="hero-img-fallback" width="1200" height="800" style="display:none;" />
+    </div>
+    <!-- Synthwave grid floor -->
+    <div class="grid-floor"></div>
+  </header>
+
+  <!-- Visual Divider: Flamingo Pattern Strip -->
+  <div class="section-divider">
+    <img src="img/flamingo_transparent_clean.png" alt="" class="flamingo-divider-img" />
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       2. MENU — Grille 3×3
+  ═══════════════════════════════════════════ -->
+  <section class="boutique flamingo-bg" id="menu">
+    <div class="boutique-header">
+      <div>
+        <p class="section-eyebrow reveal">Le Menu</p>
+        <h2 class="section-h2 reveal">Les<br><em>Vices.</em></h2>
+      </div>
+      <p class="section-desc reveal">Trompe-l'œil addictifs, drinks qui claquent, cookies dangereux. Choisis ton vice.</p>
+    </div>
+
+    <div class="boutique-filters reveal">
+      <button class="filter-pill active" data-filter="all">Tout</button>
+      <button class="filter-pill" data-filter="trompe">Trompe-l'œil</button>
+      <button class="filter-pill" data-filter="drinks">Drinks</button>
+      <button class="filter-pill" data-filter="cookies">Cookies</button>
+    </div>
+
+    <div class="mobile-swipe-hint">
+      <span>Glisser pour explorer</span>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="m14 6 6 6-6 6"/></svg>
+    </div>
+
+    <div class="shop-grid">
+      <!-- TROMPE-L'ŒIL SECTION -->
+      <a href="produit-fraise.html" class="shop-card reveal" data-cat="trompe" style="display:block;">
+        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/fraise-trans.webp" alt="La Fraise" width="400" height="400" loading="lazy"/><img class="shop-card-zoom" src="img/fraise-zoom.webp" alt="Texture Fraise" loading="lazy"/><div class="shop-card-zoom-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div><div class="shop-card-badge-new">Bestseller</div></div>
+        <div class="shop-card-name">La Fraise</div><div class="shop-card-sub">T'as cru que c'était un fruit ?</div><div class="shop-card-footer"><div class="shop-card-price">8,90<em>€</em></div><button class="btn-ajouter">Ajouter</button></div>
+      </a>
+      <a href="produit-mangue.html" class="shop-card reveal" data-cat="trompe" style="display:block;">
+        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/mangue-trans.webp" alt="La Mangue" width="400" height="400" loading="lazy"/><img class="shop-card-zoom" src="img/mangue-zoom.webp" alt="Texture Mangue" loading="lazy"/><div class="shop-card-badge-season">Saison été</div><div class="shop-card-zoom-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div></div>
+        <div class="shop-card-name">La Mangue</div><div class="shop-card-sub">Cœur Exotique · Velours</div><div class="shop-card-footer"><div class="shop-card-price">8,90<em>€</em></div><button class="btn-ajouter">Ajouter</button></div>
+      </a>
+      <a href="produit-framboise.html" class="shop-card reveal" data-cat="trompe" style="display:block;">
+        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/framboise-trans.webp" alt="La Framboise" width="400" height="400" loading="lazy"/><img class="shop-card-zoom" src="img/framboise-zoom.webp" alt="Texture Framboise" loading="lazy"/><div class="shop-card-zoom-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div></div>
+        <div class="shop-card-name">La Framboise</div><div class="shop-card-sub">Velours Rouge · Acidulée</div><div class="shop-card-footer"><div class="shop-card-price">8,90<em>€</em></div><button class="btn-ajouter">Ajouter</button></div>
+      </a>
+      <a href="produit-peche.html" class="shop-card reveal" data-cat="trompe" style="display:block;">
+        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/peche-trans.webp" alt="La Pêche" width="400" height="400" loading="lazy"/><img class="shop-card-zoom" src="img/peche-zoom.webp" alt="Texture Pêche" loading="lazy"/><div class="shop-card-badge-season">Saison été</div><div class="shop-card-zoom-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div></div>
+        <div class="shop-card-name">La Pêche</div><div class="shop-card-sub">Signature Fruitée</div><div class="shop-card-footer"><div class="shop-card-price">8,90<em>€</em></div><button class="btn-ajouter">Ajouter</button></div>
+      </a>
+      <a href="produit-citron.html" class="shop-card reveal" data-cat="trompe" style="display:block;">
+        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/citron-trans.webp" alt="Le Citron" width="400" height="400" loading="lazy"/><img class="shop-card-zoom" src="img/citron-zoom.webp" alt="Texture Citron" loading="lazy"/><div class="shop-card-badge-new">Nouveau</div><div class="shop-card-zoom-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div></div>
+        <div class="shop-card-name">Le Citron</div><div class="shop-card-sub">Zeste Givré · Acidité</div><div class="shop-card-footer"><div class="shop-card-price">8,90<em>€</em></div><button class="btn-ajouter">Ajouter</button></div>
+      </a>
+      <a href="produit-passion.html" class="shop-card reveal" data-cat="trompe" style="display:block;">
+        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/passion-trans.webp" alt="La Passion" width="400" height="400" loading="lazy"/><img class="shop-card-zoom" src="img/passion-zoom.webp" alt="Texture Passion" loading="lazy"/><div class="shop-card-badge-limited">Édition limitée</div><div class="shop-card-zoom-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div></div>
+        <div class="shop-card-name">La Passion</div><div class="shop-card-sub">Éclat Tropical · Cœur Exotique</div><div class="shop-card-footer"><div class="shop-card-price">8,90<em>€</em></div><button class="btn-ajouter">Ajouter</button></div>
+      </a>
+
+      <!-- DRINKS SECTION (PLACEHOLDERS) -->
+      <a href="produit-milkshake-vice.html" class="shop-card reveal" data-cat="drinks" style="display:block;">
+        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/drink-placeholder.webp" alt="Milkshake Vice" width="400" height="400" loading="lazy"/></div>
+        <div class="shop-card-name">Milkshake Vice</div><div class="shop-card-sub">Neon Rose · Addictif</div><div class="shop-card-footer"><div class="shop-card-price">7,50<em>€</em></div><button class="btn-ajouter">Ajouter</button></div>
+      </a>
+      <a href="produit-smoothie-sunset.html" class="shop-card reveal" data-cat="drinks" style="display:block;">
+        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/drink-placeholder.webp" alt="Smoothie Sunset" width="400" height="400" loading="lazy"/></div>
+        <div class="shop-card-name">Smoothie Sunset</div><div class="shop-card-sub">Tropical · Frais</div><div class="shop-card-footer"><div class="shop-card-price">6,90<em>€</em></div><button class="btn-ajouter">Ajouter</button></div>
+      </a>
+      <a href="produit-jus-frais.html" class="shop-card reveal" data-cat="drinks" style="display:block;">
+        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/drink-placeholder.webp" alt="Jus Frais" width="400" height="400" loading="lazy"/></div>
+        <div class="shop-card-name">Jus Frais</div><div class="shop-card-sub">Vitaminé · Premium</div><div class="shop-card-footer"><div class="shop-card-price">6,90<em>€</em></div><button class="btn-ajouter">Ajouter</button></div>
+      </a>
+
+      <!-- COOKIES SECTION (PLACEHOLDERS) -->
+      <a href="produit-cookie-vice.html" class="shop-card reveal" data-cat="cookies" style="display:block;">
+        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/cookie-placeholder.webp" alt="Cookie Vice" width="400" height="400" loading="lazy"/></div>
+        <div class="shop-card-name">Cookie Vice</div><div class="shop-card-sub">Chocolat Noir · Dangereux</div><div class="shop-card-footer"><div class="shop-card-price">5,90<em>€</em></div><button class="btn-ajouter">Ajouter</button></div>
+      </a>
+      <a href="produit-cookie-dough.html" class="shop-card reveal" data-cat="cookies" style="display:block;">
+        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/cookie-placeholder.webp" alt="Cookie Dough" width="400" height="400" loading="lazy"/></div>
+        <div class="shop-card-name">Cookie Dough</div><div class="shop-card-sub">Pâte Brute · Cru</div><div class="shop-card-footer"><div class="shop-card-price">5,90<em>€</em></div><button class="btn-ajouter">Ajouter</button></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       3. VIDEO REVEAL — Le moment Vice
+  ═══════════════════════════════════════════ -->
+  <section class="video-reveal-section" id="reveal">
+    <div class="video-reveal-header reveal">
+      <p class="section-eyebrow">Le Moment Vice</p>
+      <h2>L'illusion se<br><em>révèle.</em></h2>
+      <p>Tu coupes. Tu découvres. Tu comprends pourquoi on appelle ça un Vice.</p>
+    </div>
+    <div class="video-reveal-frame reveal">
+      <video id="revealVideo" src="img/peche-decoupe.mp4" poster="img/peche.webp" autoplay muted loop playsinline></video>
+
+      <!-- Overlay luxe — branding Vice Sweety -->
+      <div class="video-luxe-overlay">
+        <div class="video-luxe-bottom">
+          <span class="video-luxe-hashtag">#ViceSweety</span>
+          <span class="video-luxe-tagline">Dangerously Sweet.</span>
+        </div>
+      </div>
+
+      <button id="revealSoundBtn" class="video-sound-toggle" aria-label="Activer le son">
+        <svg class="icon-muted" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+        <svg class="icon-sound" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+        <span>ASMR</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       4. GUARANTEES — Réassurance
+  ═══════════════════════════════════════════ -->
+  <section class="guarantees-bar flamingo-bg reveal">
+    <div class="guarantee-item">
+      <div class="guarantee-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+        </svg>
+      </div>
+      <div class="guarantee-title">Prêt en 5 min</div>
+      <div class="guarantee-desc">Frais et chaud à la commande.</div>
+    </div>
+    <div class="guarantee-item">
+      <div class="guarantee-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+        </svg>
+      </div>
+      <div class="guarantee-title">Take-away Marseille</div>
+      <div class="guarantee-desc">À emporter sur place.</div>
+    </div>
+    <div class="guarantee-item">
+      <div class="guarantee-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+      </div>
+      <div class="guarantee-title">Paiement sécurisé</div>
+      <div class="guarantee-desc">SSL & cartes bancaires.</div>
+    </div>
+    <div class="guarantee-item">
+      <div class="guarantee-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <polygon points="12 2 15.09 10.26 23.77 10.26 17.39 15.74 20.48 24 12 18.52 3.52 24 6.61 15.74 0.23 10.26 8.91 10.26"/>
+        </svg>
+      </div>
+      <div class="guarantee-title">Ingrédients premium</div>
+      <div class="guarantee-desc">Sélectionnés avec soin.</div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       5. FAQ — Questions
+  ═══════════════════════════════════════════ -->
+  <section class="faq flamingo-bg" id="faq">
+    <div class="faq-left">
+      <p class="section-eyebrow reveal">Questions</p>
+      <h2 class="section-h2 reveal">FAQ<br><em>Vice.</em></h2>
+    </div>
+    <div class="faq-items reveal">
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span class="faq-q-text">C'est vraiment pas un vrai fruit ?</span>
+          <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M6 2v8M2 6h8"/></svg></div>
+        </button>
+        <div class="faq-answer"><p>Non. C'est mieux. C'est un dessert trompe-l'œil artisanal présenté comme un fruit parfait. À la première bouchée, tu découvres la magie : texture veloutée, saveur intense, effet visuel dingue.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span class="faq-q-text">Comment je commande ?</span>
+          <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M6 2v8M2 6h8"/></svg></div>
+        </button>
+        <div class="faq-answer"><p>Sur le site ou directement au comptoir. Les commandes se préparent en 5 minutes. Pour les grosses commandes, contacte hello@vicesweety.com.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span class="faq-q-text">Vous livrez ?</span>
+          <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M6 2v8M2 6h8"/></svg></div>
+        </button>
+        <div class="faq-answer"><p>Take-away pour l'instant. Viens chercher sur place — ça mérite d'être frais.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span class="faq-q-text">C'est quoi les Éditions limitées ?</span>
+          <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M6 2v8M2 6h8"/></svg></div>
+        </button>
+        <div class="faq-answer"><p>Notre série limitée inspirée des saveurs du moment. Elles changent. C'est limited edition, donc une fois parties, elles sont parties.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span class="faq-q-text">Allergènes ?</span>
+          <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M6 2v8M2 6h8"/></svg></div>
+        </button>
+        <div class="faq-answer"><p>Chaque fiche produit détaille les allergènes déclarés. Si tu as des allergies, on peut te proposer des alternatives ou tu peux vérifier directement avec nous.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Fade Divider -->
+  <div class="section-fade" style="height:80px;"></div>
+
+  <!-- ═══════════════════════════════════════════
+       6. FOOTER
+  ═══════════════════════════════════════════ -->
+  <footer>
+    <img src="img/Vice_Sweety_logo.png" alt="Vice Sweety" class="footer-logo" style="max-width:240px;margin:0 auto 1.5rem;display:block;" />
+    <div class="footer-tagline">Dangerously Sweet. Unapologetically Marseille.</div>
+
+    <nav class="footer-nav">
+      <a href="#menu">Menu</a>
+      <a href="notre-vice.html">Notre Vice</a>
+      <a href="lab.html">Le Lab</a>
+      <a href="mentions-legales.html">Mentions légales</a>
+    </nav>
+    <div class="footer-contact">
+      <a href="mailto:hello@vicesweety.com">hello@vicesweety.com</a><br/>
+      <a href="tel:+33622356575">+33 (0)6 22 35 65 75</a>
+    </div>
+    <p class="footer-address">Marseille, France · Tous les jours 10h–21h</p>
+
+    <!-- Social -->
+    <div class="footer-social">
+      <a href="https://www.instagram.com/vicesweety" target="_blank" rel="noopener noreferrer" aria-label="Instagram Vice Sweety">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <a href="https://www.tiktok.com/@vicesweety" target="_blank" rel="noopener noreferrer" aria-label="TikTok Vice Sweety">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.8a8.27 8.27 0 0 0 4.76 1.5v-3.4a4.85 4.85 0 0 1-1-.21z"/></svg>
+      </a>
+      <a href="mailto:hello@vicesweety.com" aria-label="Email Vice Sweety">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </a>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 Vice Sweety</span>
+      <a href="mentions-legales.html">Mentions légales</a>
+    </div>
+  </footer>
+
+  <!-- ═══════ PRODUCT MODAL ═══════ -->
+  <div id="product-modal" role="dialog" aria-label="Fiche Technique Produit" aria-modal="true">
+    <div class="pm-inner">
+      <button class="pm-close" id="pmClose"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M2 2l8 8M10 2l-8 8"/></svg></button>
+      <div class="pm-img" id="pmImgWrap">
+        <img class="pm-img-main" id="pmImg" src="" alt=""/>
+        <img class="pm-img-zoom" id="pmImgZoom" src="" alt=""/>
+        <div class="pm-toggle-wrap" id="pmToggleWrap" style="display:none;">
+          <button class="pm-toggle-btn active" data-view="main">Vue</button>
+          <button class="pm-toggle-btn" data-view="zoom">Texture</button>
+        </div>
+      </div>
+      <div class="pm-body">
+        <div class="pm-name" id="pmName"></div>
+        <div class="pm-sub" id="pmSub"></div>
+        <p class="pm-desc" id="pmDesc"></p>
+        <div class="pm-section-label">Allergènes déclarés</div>
+        <div class="pm-allergens" id="pmAllergens"></div>
+        <button class="btn-ajouter" id="pmAddToCart">
+          <span>Ajouter</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════ JAVASCRIPT ═══════ -->
+  <script>
+  // ═══════════════════════════════════════════════════════════════
+  // JAVASCRIPT — VICE SWEETY
+  // ═══════════════════════════════════════════════════════════════
+
+  // 1. DONNÉES PRODUITS
+  const productData = {
+    "fraise": { name: "La Fraise", sub: "T'as cru que c'était un fruit ?", img: "img/fraise.webp", zoom: "img/fraise-zoom.webp", desc: "Trompe-l'œil signature. Ganache montée, confit intense, présentation spectaculaire.", allergens: "Œufs, Lait, Fruits à coque", price: "8,90€" },
+    "mangue": { name: "La Mangue", sub: "Cœur Exotique · Velours", img: "img/mangue.webp", zoom: "img/mangue-zoom.webp", desc: "Trompe-l'œil exotique avec ganache velours et cœur de mangue.", allergens: "Œufs, Lait", price: "8,90€" },
+    "framboise": { name: "La Framboise", sub: "Velours Rouge · Acidulée", img: "img/framboise.webp", zoom: "img/framboise-zoom.webp", desc: "Trompe-l'œil fruits rouges avec ganache velours framboise.", allergens: "Œufs, Lait, Fruits à coque", price: "8,90€" },
+    "peche": { name: "La Pêche", sub: "Signature Fruitée", img: "img/peche.webp", zoom: "img/peche-zoom.webp", desc: "Notre signature. Trompe-l'œil pêche avec ganache fruitée.", allergens: "Œufs, Lait", price: "8,90€" },
+    "citron": { name: "Le Citron", sub: "Zeste Givré · Acidité", img: "img/citron.webp", zoom: "img/citron-zoom.webp", desc: "Trompe-l'œil citron avec zeste givré et acidité équilibrée.", allergens: "Œufs, Lait", price: "8,90€" },
+    "passion": { name: "La Passion", sub: "Éclat Tropical · Cœur Exotique", img: "img/passion.webp", zoom: "img/passion-zoom.webp", desc: "Édition limitée — Trompe-l'œil passion fruit avec éclat tropical.", allergens: "Œufs, Lait, Fruits à coque", price: "8,90€" }
+  };
+
+  // 2. NAVBAR & MOBILE MENU
+  const navBurger = document.getElementById("navBurger");
+  const mobileOverlay = document.getElementById("mobile-overlay");
+
+  if (navBurger) {
+    navBurger.addEventListener("click", () => {
+      const isOpen = navBurger.getAttribute("aria-expanded") === "true";
+      navBurger.setAttribute("aria-expanded", !isOpen);
+      navBurger.classList.toggle("open");
+      mobileOverlay.style.display = isOpen ? "none" : "flex";
+      document.body.classList.toggle("menu-active");
+    });
+
+    document.querySelectorAll(".mobile-nav-item").forEach(link => {
+      link.addEventListener("click", () => {
+        navBurger.setAttribute("aria-expanded", "false");
+        navBurger.classList.remove("open");
+        mobileOverlay.style.display = "none";
+        document.body.classList.remove("menu-active");
+      });
+    });
+  }
+
+  // 3. FILTER PILLS
+  const filterPills = document.querySelectorAll(".filter-pill");
+  const shopCards = document.querySelectorAll(".shop-card");
+
+  filterPills.forEach(pill => {
+    pill.addEventListener("click", () => {
+      filterPills.forEach(p => p.classList.remove("active"));
+      pill.classList.add("active");
+
+      const filter = pill.getAttribute("data-filter");
+
+      shopCards.forEach(card => {
+        const cats = card.getAttribute("data-cat").split(" ");
+        if (filter === "all" || cats.includes(filter)) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    });
+  });
+
+  // 4. PRODUCT MODAL
+  const productModal = document.getElementById("product-modal");
+  const pmClose = document.getElementById("pmClose");
+  const pmImg = document.getElementById("pmImg");
+  const pmImgZoom = document.getElementById("pmImgZoom");
+  const pmName = document.getElementById("pmName");
+  const pmSub = document.getElementById("pmSub");
+  const pmDesc = document.getElementById("pmDesc");
+  const pmAllergens = document.getElementById("pmAllergens");
+  const pmAddToCart = document.getElementById("pmAddToCart");
+  const pmToggleWrap = document.getElementById("pmToggleWrap");
+  const pmToggleBtns = document.querySelectorAll(".pm-toggle-btn");
+  let currentProduct = null;
+
+  document.querySelectorAll(".btn-ajouter").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      const card = btn.closest(".shop-card");
+      const productName = card.querySelector(".shop-card-name").textContent.toLowerCase();
+      const key = Object.keys(productData).find(k => productData[k].name.toLowerCase() === productName);
+      if (key) openProductModal(key);
+    });
+  });
+
+  function openProductModal(key) {
+    const product = productData[key];
+    currentProduct = product;
+    pmImg.src = product.img;
+    pmImgZoom.src = product.zoom;
+    pmName.textContent = product.name;
+    pmSub.textContent = product.sub;
+    pmDesc.textContent = product.desc;
+    pmAllergens.innerHTML = product.allergens.split(", ").map(a => `<div class="pm-allergen-badge">${a}</div>`).join("");
+    pmAddToCart.textContent = `Ajouter - ${product.price}`;
+
+    if (product.zoom) {
+      pmToggleWrap.style.display = "flex";
+    } else {
+      pmToggleWrap.style.display = "none";
+    }
+
+    productModal.classList.add("open");
+  }
+
+  pmClose.addEventListener("click", () => {
+    productModal.classList.remove("open");
+  });
+
+  productModal.addEventListener("click", (e) => {
+    if (e.target === productModal) {
+      productModal.classList.remove("open");
+    }
+  });
+
+  pmToggleBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      pmToggleBtns.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      const view = btn.getAttribute("data-view");
+      if (view === "main") {
+        pmImg.style.display = "block";
+        pmImgZoom.style.display = "none";
+      } else {
+        pmImg.style.display = "none";
+        pmImgZoom.style.display = "block";
+      }
+    });
+  });
+
+  // 5. CART
+  let cart = [];
+  const cartBadge = document.getElementById("cartBadge");
+  const navCartBtn = document.querySelector(".nav-cart-btn");
+
+  pmAddToCart.addEventListener("click", () => {
+    if (currentProduct) {
+      cart.push(currentProduct);
+      updateCartBadge();
+      productModal.classList.remove("open");
+    }
+  });
+
+  function updateCartBadge() {
+    if (cart.length > 0) {
+      cartBadge.textContent = cart.length;
+      cartBadge.style.display = "block";
+    } else {
+      cartBadge.style.display = "none";
+    }
+  }
+
+  // 6. FAQ ACCORDION
+  document.querySelectorAll(".faq-question").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const isOpen = btn.getAttribute("aria-expanded") === "true";
+      const answer = btn.nextElementSibling;
+
+      document.querySelectorAll(".faq-question").forEach(b => {
+        if (b !== btn) {
+          b.setAttribute("aria-expanded", "false");
+          b.nextElementSibling.classList.remove("open");
+        }
+      });
+
+      btn.setAttribute("aria-expanded", !isOpen);
+      answer.classList.toggle("open");
+    });
+  });
+
+  // 7. VIDEO SOUND TOGGLE
+  const revealSoundBtn = document.getElementById("revealSoundBtn");
+  const revealVideo = document.getElementById("revealVideo");
+  const iconMuted = revealSoundBtn.querySelector(".icon-muted");
+  const iconSound = revealSoundBtn.querySelector(".icon-sound");
+
+  revealSoundBtn.addEventListener("click", () => {
+    revealVideo.muted = !revealVideo.muted;
+    if (revealVideo.muted) {
+      iconMuted.style.display = "block";
+      iconSound.style.display = "none";
+    } else {
+      iconMuted.style.display = "none";
+      iconSound.style.display = "block";
+    }
+  });
+
+  // 8. GSAP REVEAL ANIMATIONS (if GSAP available)
+  if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
+    gsap.registerPlugin(ScrollTrigger);
+    document.querySelectorAll(".reveal").forEach(el => {
+      gsap.fromTo(el,
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: el,
+            start: "top 80%",
+            once: true
+          }
+        }
+      );
+    });
+  }
+
+  // 9. NAVBAR SCROLL EFFECT
+  window.addEventListener("scroll", () => {
+    const navbar = document.getElementById("navbar");
+    if (window.scrollY > 50) {
+      navbar.classList.add("scrolled");
+    } else {
+      navbar.classList.remove("scrolled");
+    }
+  });
+
+  </script>
+
+</body>
+</html>

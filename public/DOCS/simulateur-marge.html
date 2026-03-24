@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Simulateur de Marge — Maison Mirage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@200;300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --cream:#FAF5EF;--cream-2:#F5F0EA;--cream-3:#EDE8E2;
+  --ink:#1A1714;--ink-soft:#2C2824;--ink-muted:#6B6560;
+  --gold:#A8895C;--gold-light:#C9AA7C;--gold-pale:#E8D5B8;
+  --white:#FFFFFF;--success:#4A7C59;--warning:#B8860B;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Outfit',system-ui,sans-serif;
+  --mono:'JetBrains Mono',monospace;
+  --ease:cubic-bezier(0.16,1,0.3,1);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--sans);background:var(--cream);color:var(--ink);min-height:100vh;-webkit-font-smoothing:antialiased}
+body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E")}
+
+/* NAV */
+.nav{position:fixed;top:1.2rem;left:50%;transform:translateX(-50%);z-index:1000;width:min(94vw,900px);display:flex;justify-content:space-between;align-items:center;padding:.6rem 2rem;border-radius:999px;background:rgba(250,245,239,.75);backdrop-filter:blur(24px) saturate(1.6);border:1px solid rgba(255,255,255,.4);box-shadow:inset 0 1px 0 rgba(255,255,255,.6),0 8px 32px rgba(26,23,20,.05)}
+.nav-brand{display:flex;align-items:center;gap:.6rem}
+.nav-brand svg{width:28px;height:28px}
+.nav-brand span{font-family:var(--sans);font-size:.85rem;font-weight:400;letter-spacing:.15em;text-transform:uppercase}
+.nav-tag{font-family:var(--mono);font-size:.55rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);padding:.4rem .9rem;border-radius:999px;border:1px solid rgba(168,137,92,.2)}
+
+/* HERO */
+.hero{padding:8rem 6vw 3rem;text-align:center}
+.hero-eyebrow{font-family:var(--mono);font-size:.6rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;display:flex;align-items:center;justify-content:center;gap:1rem}
+.hero-eyebrow::before,.hero-eyebrow::after{content:'';width:40px;height:1px;background:var(--gold);opacity:.4}
+.hero h1{font-family:var(--serif);font-weight:300;font-size:clamp(2.5rem,5vw,4.5rem);line-height:.95;letter-spacing:-.02em;margin-bottom:1.5rem}
+.hero h1 em{font-style:italic;color:var(--gold-light)}
+.hero-sub{font-size:1rem;color:var(--ink-muted);max-width:50ch;margin:0 auto 2rem;line-height:1.7}
+
+/* SIMULATOR */
+.sim-container{max-width:1000px;margin:0 auto;padding:0 6vw 4rem}
+.sim-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start}
+@media(max-width:768px){.sim-grid{grid-template-columns:1fr;gap:2rem}}
+
+/* INPUT PANEL */
+.panel{background:var(--white);border-radius:1.5rem;padding:2.5rem;border:1px solid rgba(26,23,20,.05);box-shadow:0 4px 24px rgba(26,23,20,.06)}
+.panel-title{font-family:var(--serif);font-size:1.5rem;font-weight:400;margin-bottom:.3rem}
+.panel-sub{font-family:var(--mono);font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:2rem}
+
+.field{margin-bottom:2rem}
+.field:last-child{margin-bottom:0}
+.field-label{font-family:var(--mono);font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:.6rem;display:block}
+.field-input-wrap{position:relative}
+.field-input{width:100%;padding:1rem 1.2rem;border:1px solid rgba(26,23,20,.1);border-radius:1rem;font-family:var(--serif);font-size:1.5rem;font-weight:300;background:var(--cream);color:var(--ink);outline:none;transition:all .3s var(--ease);-moz-appearance:textfield}
+.field-input::-webkit-inner-spin-button,.field-input::-webkit-outer-spin-button{-webkit-appearance:none}
+.field-input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(168,137,92,.1)}
+.field-suffix{position:absolute;right:1.2rem;top:50%;transform:translateY(-50%);font-family:var(--mono);font-size:.7rem;color:var(--ink-muted)}
+
+/* SLIDER */
+.slider-wrap{position:relative;margin-top:.5rem}
+.slider{-webkit-appearance:none;width:100%;height:3px;background:var(--cream-3);border-radius:2px;outline:none}
+.slider::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--gold);cursor:pointer;box-shadow:0 2px 8px rgba(168,137,92,.3)}
+.slider::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--gold);cursor:pointer;border:none}
+.slider-labels{display:flex;justify-content:space-between;margin-top:.5rem;font-family:var(--mono);font-size:.5rem;letter-spacing:.1em;color:var(--ink-muted)}
+
+/* TIER SELECTOR */
+.tier-options{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem}
+.tier-btn{padding:.8rem .5rem;border:1px solid rgba(26,23,20,.1);border-radius:.8rem;background:var(--cream);text-align:center;cursor:pointer;transition:all .3s var(--ease)}
+.tier-btn:hover{border-color:rgba(168,137,92,.3)}
+.tier-btn.active{border-color:var(--gold);background:rgba(168,137,92,.06);box-shadow:0 0 0 2px rgba(168,137,92,.15)}
+.tier-name{font-family:var(--sans);font-size:.8rem;font-weight:500;margin-bottom:.2rem}
+.tier-price{font-family:var(--serif);font-size:1.1rem;font-weight:300;color:var(--gold)}
+.tier-vol{font-family:var(--mono);font-size:.45rem;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-muted);margin-top:.2rem}
+
+/* RESULT PANEL */
+.result-panel{background:var(--ink);border-radius:1.5rem;padding:2.5rem;color:var(--cream);position:sticky;top:6rem}
+.result-title{font-family:var(--serif);font-size:1.5rem;font-weight:400;color:var(--cream);margin-bottom:.3rem}
+.result-sub{font-family:var(--mono);font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(250,245,239,.4);margin-bottom:2.5rem}
+
+.result-row{display:flex;justify-content:space-between;align-items:baseline;padding:1rem 0;border-bottom:1px solid rgba(250,245,239,.06)}
+.result-row:last-child{border-bottom:none}
+.result-label{font-family:var(--sans);font-size:.85rem;color:rgba(250,245,239,.55)}
+.result-value{font-family:var(--serif);font-size:1.3rem;font-weight:300;color:var(--cream)}
+.result-value em{font-style:italic;color:var(--gold-light)}
+
+.result-hero{text-align:center;padding:2.5rem 0;margin:1.5rem 0;border-radius:1rem;background:rgba(250,245,239,.04);border:1px solid rgba(250,245,239,.06)}
+.result-hero-num{font-family:var(--serif);font-size:3.5rem;font-weight:300;color:var(--gold-light);line-height:1}
+.result-hero-label{font-family:var(--mono);font-size:.55rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(250,245,239,.4);margin-top:.5rem}
+
+.result-bar{margin-top:2rem}
+.result-bar-label{display:flex;justify-content:space-between;font-family:var(--mono);font-size:.5rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(250,245,239,.4);margin-bottom:.5rem}
+.result-bar-track{height:6px;background:rgba(250,245,239,.08);border-radius:3px;overflow:hidden}
+.result-bar-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));transition:width .8s var(--ease)}
+
+.result-badge{text-align:center;margin-top:2rem;padding:1rem;border-radius:.8rem;font-family:var(--mono);font-size:.55rem;letter-spacing:.15em;text-transform:uppercase}
+.result-badge.excellent{background:rgba(74,124,89,.15);color:#7CC48E}
+.result-badge.good{background:rgba(168,137,92,.15);color:var(--gold-light)}
+.result-badge.standard{background:rgba(250,245,239,.06);color:rgba(250,245,239,.4)}
+
+/* INSIGHTS */
+.insights{max-width:1000px;margin:0 auto;padding:2rem 6vw 5rem}
+.insight-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+.insight-card{background:var(--white);border-radius:1.5rem;padding:2rem;border:1px solid rgba(26,23,20,.05);box-shadow:0 2px 8px rgba(26,23,20,.04)}
+.insight-icon{font-size:1.5rem;margin-bottom:.8rem}
+.insight-title{font-family:var(--serif);font-size:1.1rem;font-weight:400;margin-bottom:.5rem}
+.insight-desc{font-size:.85rem;color:var(--ink-muted);line-height:1.7}
+
+/* FOOTER */
+.footer{background:var(--ink);color:var(--cream);text-align:center;padding:3rem 6vw}
+.footer-brand{font-family:var(--sans);font-size:.75rem;letter-spacing:.25em;text-transform:uppercase;margin-bottom:.5rem}
+.footer-tag{font-family:var(--serif);font-size:1rem;font-style:italic;color:var(--gold-light)}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-brand">
+    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 4L8 20L20 36L32 20L20 4Z" stroke="#A8895C" stroke-width="1" fill="none"/><path d="M20 4L14 20L20 36" stroke="#A8895C" stroke-width="1"/><path d="M20 4L26 20L20 36" stroke="#A8895C" stroke-width="1"/></svg>
+    <span>Maison Mirage</span>
+  </div>
+  <div class="nav-tag">Outil partenaire</div>
+</nav>
+
+<header class="hero">
+  <p class="hero-eyebrow">Outil interactif</p>
+  <h1>Simulateur<br>de <em>Marge.</em></h1>
+  <p class="hero-sub">Calculez votre rentabilité en temps réel. Ajustez votre prix carte, votre volume mensuel et découvrez l'impact sur votre marge nette.</p>
+</header>
+
+<div class="sim-container">
+  <div class="sim-grid">
+
+    <!-- INPUT -->
+    <div class="panel">
+      <div class="panel-title">Vos paramètres</div>
+      <div class="panel-sub">Ajustez selon votre établissement</div>
+
+      <div class="field">
+        <label class="field-label">Votre prix carte (dessert)</label>
+        <div class="field-input-wrap">
+          <input type="number" class="field-input" id="prixCarte" value="14" min="5" max="50" step="0.5"/>
+          <span class="field-suffix">€ TTC</span>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="field-label">Volume mensuel estimé</label>
+        <div class="field-input-wrap">
+          <input type="number" class="field-input" id="volume" value="80" min="10" max="500" step="10"/>
+          <span class="field-suffix">pièces</span>
+        </div>
+        <div class="slider-wrap">
+          <input type="range" class="slider" id="volumeSlider" min="10" max="500" step="10" value="80"/>
+          <div class="slider-labels"><span>10</span><span>100</span><span>250</span><span>500</span></div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="field-label">Votre palier Maison Mirage</label>
+        <div class="tier-options">
+          <div class="tier-btn" data-tier="decouverte" onclick="selectTier(this)">
+            <div class="tier-name">Découverte</div>
+            <div class="tier-price">6,00€</div>
+            <div class="tier-vol">&lt; 50 pièces</div>
+          </div>
+          <div class="tier-btn active" data-tier="pro" onclick="selectTier(this)">
+            <div class="tier-name">Pro</div>
+            <div class="tier-price">5,50€</div>
+            <div class="tier-vol">50+ pièces</div>
+          </div>
+          <div class="tier-btn" data-tier="volume" onclick="selectTier(this)">
+            <div class="tier-name">Volume</div>
+            <div class="tier-price">5,00€</div>
+            <div class="tier-vol">100+ pièces</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESULTS -->
+    <div class="result-panel" id="results">
+      <div class="result-title">Votre rentabilité</div>
+      <div class="result-sub">Mise à jour en temps réel</div>
+
+      <div class="result-hero">
+        <div class="result-hero-num" id="margeTotal">680€</div>
+        <div class="result-hero-label">Marge brute mensuelle</div>
+      </div>
+
+      <div class="result-row">
+        <span class="result-label">Coût unitaire Mirage</span>
+        <span class="result-value" id="coutUnit">5,50€</span>
+      </div>
+      <div class="result-row">
+        <span class="result-label">Marge par pièce</span>
+        <span class="result-value" id="margeUnit"><em>8,50€</em></span>
+      </div>
+      <div class="result-row">
+        <span class="result-label">Taux de marge</span>
+        <span class="result-value" id="tauxMarge"><em>154%</em></span>
+      </div>
+      <div class="result-row">
+        <span class="result-label">Volume × prix</span>
+        <span class="result-value" id="caTotal">1 120€</span>
+      </div>
+      <div class="result-row">
+        <span class="result-label">Coût total Mirage</span>
+        <span class="result-value" id="coutTotal">440€</span>
+      </div>
+
+      <div class="result-bar">
+        <div class="result-bar-label">
+          <span>Taux de marge</span>
+          <span id="barPercent">154%</span>
+        </div>
+        <div class="result-bar-track"><div class="result-bar-fill" id="barFill" style="width:77%"></div></div>
+      </div>
+
+      <div class="result-badge excellent" id="badge">Rentabilité excellente</div>
+    </div>
+  </div>
+</div>
+
+<!-- INSIGHTS -->
+<div class="insights">
+  <div class="insight-grid">
+    <div class="insight-card">
+      <div class="insight-icon">&#9670;</div>
+      <div class="insight-title">Zéro chef requis</div>
+      <div class="insight-desc">Nos créations arrivent prêtes à servir. Économisez le temps de préparation dessert de votre brigade — réallouez ces heures à votre cuisine.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-icon">&#9670;</div>
+      <div class="insight-title">5 jours de conservation</div>
+      <div class="insight-desc">Chambre froide 0-4°C. Commandez une fois, servez toute la semaine. Réduisez les pertes et simplifiez votre gestion des stocks desserts.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-icon">&#9670;</div>
+      <div class="insight-title">L'effet Instagram</div>
+      <div class="insight-desc">+45% d'engagement sur les publications de nos partenaires. Chaque dessert servi est une publicité gratuite pour votre établissement.</div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-brand">Maison Mirage</div>
+  <div class="footer-tag">Ce que vous voyez n'est jamais ce que vous goûtez.</div>
+</footer>
+
+<script>
+const tiers = { decouverte: 6.00, pro: 5.50, volume: 5.00 };
+let currentTier = 'pro';
+
+const prixInput = document.getElementById('prixCarte');
+const volInput = document.getElementById('volume');
+const volSlider = document.getElementById('volumeSlider');
+
+function selectTier(el) {
+  document.querySelectorAll('.tier-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  currentTier = el.dataset.tier;
+  calculate();
+}
+
+function autoSelectTier(vol) {
+  const btns = document.querySelectorAll('.tier-btn');
+  btns.forEach(b => b.classList.remove('active'));
+  if (vol >= 100) { btns[2].classList.add('active'); currentTier = 'volume'; }
+  else if (vol >= 50) { btns[1].classList.add('active'); currentTier = 'pro'; }
+  else { btns[0].classList.add('active'); currentTier = 'decouverte'; }
+}
+
+function fmt(n) { return n.toLocaleString('fr-FR', {minimumFractionDigits: 0, maximumFractionDigits: 0}); }
+function fmtD(n) { return n.toLocaleString('fr-FR', {minimumFractionDigits: 2, maximumFractionDigits: 2}).replace('.', ','); }
+
+function calculate() {
+  const prix = parseFloat(prixInput.value) || 14;
+  const vol = parseInt(volInput.value) || 80;
+  const cout = tiers[currentTier];
+
+  const margeU = prix - cout;
+  const taux = ((margeU / cout) * 100);
+  const ca = prix * vol;
+  const coutT = cout * vol;
+  const margeT = margeU * vol;
+
+  document.getElementById('coutUnit').textContent = fmtD(cout) + '€';
+  document.getElementById('margeUnit').innerHTML = '<em>' + fmtD(margeU) + '€</em>';
+  document.getElementById('tauxMarge').innerHTML = '<em>' + fmt(Math.round(taux)) + '%</em>';
+  document.getElementById('caTotal').textContent = fmt(Math.round(ca)) + '€';
+  document.getElementById('coutTotal').textContent = fmt(Math.round(coutT)) + '€';
+  document.getElementById('margeTotal').textContent = fmt(Math.round(margeT)) + '€';
+
+  const barW = Math.min(taux / 200 * 100, 100);
+  document.getElementById('barFill').style.width = barW + '%';
+  document.getElementById('barPercent').textContent = fmt(Math.round(taux)) + '%';
+
+  const badge = document.getElementById('badge');
+  if (taux >= 120) { badge.textContent = 'Rentabilité excellente'; badge.className = 'result-badge excellent'; }
+  else if (taux >= 80) { badge.textContent = 'Bonne rentabilité'; badge.className = 'result-badge good'; }
+  else { badge.textContent = 'Rentabilité standard'; badge.className = 'result-badge standard'; }
+}
+
+prixInput.addEventListener('input', calculate);
+volInput.addEventListener('input', () => { volSlider.value = volInput.value; autoSelectTier(parseInt(volInput.value)); calculate(); });
+volSlider.addEventListener('input', () => { volInput.value = volSlider.value; autoSelectTier(parseInt(volSlider.value)); calculate(); });
+
+calculate();
+</script>
+</body>
+</html>

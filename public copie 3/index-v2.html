@@ -1,0 +1,1864 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vice Sweety - Desserts dangereux & trompe-l'oeil premium à Marseille. Ton prochain plaisir coupable t'attend.">
+    <meta name="keywords" content="desserts, trompe-l'oeil, Marseille, neon, premium, cookies, milkshakes">
+    <meta name="theme-color" content="#0c0028">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Vice Sweety - Desserts Dangereux à Marseille">
+    <meta property="og:description" content="Ton prochain plaisir coupable. Trompe-l'oeil fruit, milkshakes & cookies neon.">
+    <meta property="og:image" content="img/og-image.webp">
+    <meta property="og:url" content="https://vice-sweety.fr">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Vice Sweety - Desserts Dangereux">
+    <meta name="twitter:description" content="Ton prochain plaisir coupable t'attend à Marseille.">
+    <meta name="twitter:image" content="img/og-image.webp">
+    
+    <title>Vice Sweety - Ton Prochain Plaisir Coupable | Marseille</title>
+    
+    <style>
+        /* ===== CSS CUSTOM PROPERTIES ===== */
+        :root {
+            --color-bg-primary: #0c0028;
+            --color-bg-secondary: #1a0a3e;
+            --color-accent-pink: #FF007F;
+            --color-accent-cyan: #00FFFF;
+            --color-accent-gold: #ffd319;
+            --color-text-primary: #ffffff;
+            --color-text-secondary: #c0c0c0;
+            --color-border: rgba(255, 0, 127, 0.3);
+            
+            --font-display: 'Bebas Neue', sans-serif;
+            --font-body: 'Space Grotesk', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            
+            --glow-pink: 0 0 20px rgba(255, 0, 127, 0.6);
+            --glow-cyan: 0 0 20px rgba(0, 255, 255, 0.4);
+            --glow-subtle: 0 0 15px rgba(255, 0, 127, 0.3);
+            
+            --transition-smooth: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-bg-primary);
+            color: var(--color-text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--color-bg-primary);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--color-accent-pink);
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--color-accent-cyan);
+        }
+        
+        /* Firefox scrollbar */
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: var(--color-accent-pink) var(--color-bg-primary);
+        }
+        
+        /* ===== TYPOGRAPHY ===== */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            line-height: 1.1;
+            text-transform: uppercase;
+        }
+        
+        h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            text-transform: uppercase;
+        }
+        
+        p {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        a {
+            color: var(--color-accent-pink);
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+        
+        a:hover {
+            color: var(--color-accent-cyan);
+        }
+        
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            text-align: center;
+            white-space: nowrap;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--color-accent-pink) 0%, #ff1493 100%);
+            color: #000;
+            box-shadow: var(--glow-pink);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(255, 0, 127, 0.8), 0 0 60px rgba(255, 0, 127, 0.5);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--color-accent-pink);
+            color: var(--color-accent-pink);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--color-accent-pink);
+            color: #000;
+            box-shadow: var(--glow-pink);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--color-accent-cyan);
+            color: var(--color-accent-cyan);
+        }
+        
+        .btn-outline:hover {
+            background: var(--color-accent-cyan);
+            color: var(--color-bg-primary);
+            box-shadow: var(--glow-cyan);
+        }
+        
+        /* ===== CONTAINER & GRID ===== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+        
+        .grid-cols-3 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+        
+        .grid-cols-2 {
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        }
+        
+        /* ===== NAVBAR ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: rgba(12, 0, 40, 0.7);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 0, 127, 0.1);
+            z-index: 1000;
+            transition: var(--transition-smooth);
+        }
+        
+        .navbar.scrolled {
+            background: rgba(12, 0, 40, 0.95);
+            border-bottom-color: rgba(255, 0, 127, 0.3);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+        
+        .navbar-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+            padding: 0 1.5rem;
+        }
+        
+        .navbar-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex: 1;
+            justify-content: center;
+        }
+        
+        .navbar-logo img {
+            height: 50px;
+            width: auto;
+        }
+        
+        .navbar-logo-text {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-accent-pink);
+        }
+        
+        .navbar-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex: 1;
+            justify-content: flex-end;
+        }
+        
+        .location-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--color-text-secondary);
+            padding: 0.5rem 1rem;
+            border: 1px solid rgba(255, 0, 127, 0.2);
+            border-radius: 20px;
+        }
+        
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: var(--transition-smooth);
+        }
+        
+        .cart-icon:hover {
+            color: var(--color-accent-cyan);
+            text-shadow: var(--glow-cyan);
+        }
+        
+        .cart-counter {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--color-accent-pink);
+            color: #000;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+        
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+        
+        .menu-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--color-accent-pink);
+            transition: var(--transition-smooth);
+        }
+        
+        /* ===== HERO SECTION ===== */
+        .hero {
+            margin-top: 80px;
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--color-bg-primary) 0%, var(--color-bg-secondary) 50%, #2a0a5e 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 300px;
+            background: linear-gradient(to bottom, transparent, rgba(255, 0, 127, 0.05));
+            pointer-events: none;
+        }
+        
+        .hero-grid {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background-image: 
+                linear-gradient(0deg, transparent 24%, rgba(255, 0, 127, 0.08) 25%, rgba(255, 0, 127, 0.08) 26%, transparent 27%, transparent 74%, rgba(255, 0, 127, 0.08) 75%, rgba(255, 0, 127, 0.08) 76%, transparent 77%, transparent),
+                linear-gradient(90deg, transparent 24%, rgba(255, 0, 127, 0.08) 25%, rgba(255, 0, 127, 0.08) 26%, transparent 27%, transparent 74%, rgba(255, 0, 127, 0.08) 75%, rgba(255, 0, 127, 0.08) 76%, transparent 77%, transparent);
+            background-size: 50px 50px;
+            pointer-events: none;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            min-height: calc(100vh - 80px);
+        }
+        
+        .hero-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        
+        .hero-eyebrow {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            color: var(--color-accent-cyan);
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+        }
+        
+        .hero-headline {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            color: var(--color-text-primary);
+            text-shadow: 0 0 20px rgba(255, 0, 127, 0.4);
+        }
+        
+        .hero-ctas {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .hero-reassurance {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--color-text-secondary);
+        }
+        
+        .hero-reassurance span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .hero-media {
+            position: relative;
+            height: 500px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 40px rgba(255, 0, 127, 0.2);
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .hero-media video,
+        .hero-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* ===== MENU / SHOP SECTION ===== */
+        .menu-section {
+            padding: 6rem 0;
+            background: linear-gradient(to bottom, var(--color-bg-primary) 0%, var(--color-bg-secondary) 50%, var(--color-bg-primary) 100%);
+        }
+        
+        .menu-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .menu-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            text-shadow: var(--glow-pink);
+        }
+        
+        .filter-pills {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .filter-pill {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid rgba(255, 0, 127, 0.3);
+            background: transparent;
+            color: var(--color-text-primary);
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: var(--transition-smooth);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .filter-pill:hover,
+        .filter-pill.active {
+            border-color: var(--color-accent-pink);
+            background: var(--color-accent-pink);
+            color: #000;
+            box-shadow: var(--glow-pink);
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .product-card {
+            background: var(--color-bg-secondary);
+            border: 1px solid rgba(255, 0, 127, 0.2);
+            border-radius: 4px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 450px;
+        }
+        
+        .product-card:hover {
+            border-color: var(--color-accent-pink);
+            box-shadow: 
+                0 0 20px rgba(255, 0, 127, 0.3),
+                inset 0 0 20px rgba(255, 0, 127, 0.1);
+            transform: translateY(-8px);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--color-accent-pink);
+            color: #000;
+            padding: 0.4rem 0.8rem;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: bold;
+            border-radius: 2px;
+            text-transform: uppercase;
+            z-index: 5;
+        }
+        
+        .product-badge.secondary {
+            background: transparent;
+            color: var(--color-accent-cyan);
+            border: 1px solid var(--color-accent-cyan);
+        }
+        
+        .product-image {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 1.5rem;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .product-image img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            filter: drop-shadow(0 0 15px rgba(255, 0, 127, 0.2));
+        }
+        
+        .product-name {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.05em;
+        }
+        
+        .product-category {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--color-accent-cyan);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+        
+        .product-price {
+            font-family: var(--font-mono);
+            font-size: 1.5rem;
+            color: var(--color-accent-gold);
+            margin: 1rem 0;
+            font-weight: bold;
+        }
+        
+        .product-description {
+            font-size: 0.9rem;
+            color: var(--color-text-secondary);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+        
+        .product-add {
+            margin-top: auto;
+            width: 100%;
+        }
+        
+        .product-add .btn {
+            width: 100%;
+        }
+        
+        /* ===== COFFRET SECTION ===== */
+        .coffret-section {
+            padding: 6rem 0;
+            background: linear-gradient(to right, rgba(255, 0, 127, 0.05), rgba(0, 255, 255, 0.05));
+            border-top: 1px solid rgba(255, 0, 127, 0.1);
+            border-bottom: 1px solid rgba(255, 0, 127, 0.1);
+        }
+        
+        .coffret-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .coffret-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            text-shadow: var(--glow-pink);
+        }
+        
+        .coffret-subtitle {
+            font-size: 1rem;
+            color: var(--color-text-secondary);
+            margin-bottom: 2rem;
+        }
+        
+        .coffret-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .coffret-slot {
+            background: var(--color-bg-secondary);
+            border: 2px dashed rgba(255, 0, 127, 0.3);
+            border-radius: 4px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 250px;
+            transition: var(--transition-smooth);
+            cursor: pointer;
+        }
+        
+        .coffret-slot:hover {
+            border-color: var(--color-accent-pink);
+            background: rgba(255, 0, 127, 0.05);
+            box-shadow: inset 0 0 20px rgba(255, 0, 127, 0.1);
+        }
+        
+        .coffret-slot img {
+            max-width: 120px;
+            max-height: 120px;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 0 10px rgba(255, 0, 127, 0.2));
+        }
+        
+        .coffret-slot-name {
+            font-family: var(--font-display);
+            text-transform: uppercase;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .coffret-slot-price {
+            font-family: var(--font-mono);
+            color: var(--color-accent-gold);
+            font-size: 0.9rem;
+        }
+        
+        .coffret-price-info {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .coffret-price-main {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            color: var(--color-accent-pink);
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+        
+        .coffret-price-savings {
+            font-size: 0.9rem;
+            color: var(--color-accent-cyan);
+            text-decoration: line-through;
+        }
+        
+        .coffret-cta {
+            text-align: center;
+        }
+        
+        /* ===== VIDEO SECTION ===== */
+        .video-section {
+            padding: 6rem 0;
+            background: var(--color-bg-secondary);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            aspect-ratio: 16 / 9;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 60px rgba(255, 0, 127, 0.3);
+        }
+        
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(12, 0, 40, 0.6);
+            z-index: 5;
+        }
+        
+        .video-text {
+            text-align: center;
+            color: var(--color-text-primary);
+        }
+        
+        .video-text h3 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            text-shadow: var(--glow-pink);
+        }
+        
+        .video-text p {
+            font-size: 1.1rem;
+            color: var(--color-accent-cyan);
+        }
+        
+        /* ===== GUARANTEES ===== */
+        .guarantees {
+            background: linear-gradient(90deg, rgba(255, 0, 127, 0.05), rgba(0, 255, 255, 0.05));
+            padding: 2rem;
+            border-top: 1px solid rgba(255, 0, 127, 0.1);
+            border-bottom: 1px solid rgba(255, 0, 127, 0.1);
+        }
+        
+        .guarantees-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .guarantee-item {
+            text-align: center;
+            padding: 1rem;
+        }
+        
+        .guarantee-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: var(--color-accent-pink);
+        }
+        
+        .guarantee-item p {
+            font-size: 0.9rem;
+            color: var(--color-text-secondary);
+        }
+        
+        /* ===== SOCIAL PROOF ===== */
+        .social-proof {
+            padding: 6rem 0;
+            background: var(--color-bg-primary);
+        }
+        
+        .social-proof-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .social-proof-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            text-shadow: var(--glow-pink);
+        }
+        
+        .social-proof-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .social-proof-item {
+            position: relative;
+            height: 250px;
+            border-radius: 4px;
+            overflow: hidden;
+            background: var(--color-bg-secondary);
+            border: 1px solid rgba(255, 0, 127, 0.2);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+        
+        .social-proof-item:hover {
+            border-color: var(--color-accent-pink);
+            box-shadow: 0 0 20px rgba(255, 0, 127, 0.3);
+        }
+        
+        .social-proof-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .social-proof-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(12, 0, 40, 0.7);
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding: 1.5rem;
+            opacity: 0;
+            transition: var(--transition-smooth);
+        }
+        
+        .social-proof-item:hover .social-proof-overlay {
+            opacity: 1;
+        }
+        
+        .social-proof-text {
+            text-align: center;
+            color: var(--color-text-primary);
+            font-size: 0.9rem;
+        }
+        
+        /* ===== FAQ ===== */
+        .faq-section {
+            padding: 6rem 0;
+            background: linear-gradient(to bottom, var(--color-bg-secondary) 0%, var(--color-bg-primary) 100%);
+        }
+        
+        .faq-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .faq-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            text-transform: uppercase;
+            text-shadow: var(--glow-pink);
+        }
+        
+        .faq-items {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .faq-item {
+            background: var(--color-bg-secondary);
+            border: 1px solid rgba(255, 0, 127, 0.2);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition-smooth);
+            background: var(--color-bg-secondary);
+            font-family: var(--font-display);
+            text-transform: uppercase;
+            font-size: 0.95rem;
+        }
+        
+        .faq-item.active .faq-question {
+            background: rgba(255, 0, 127, 0.1);
+            color: var(--color-accent-pink);
+        }
+        
+        .faq-question:hover {
+            background: rgba(255, 0, 127, 0.05);
+            color: var(--color-accent-pink);
+        }
+        
+        .faq-toggle {
+            font-size: 1.5rem;
+            transition: var(--transition-smooth);
+            color: var(--color-accent-pink);
+        }
+        
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: var(--color-text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 0 1.5rem 1.5rem 1.5rem;
+            max-height: 500px;
+        }
+        
+        /* ===== NEWSLETTER ===== */
+        .newsletter-section {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, rgba(255, 0, 127, 0.1), rgba(0, 255, 255, 0.1));
+            border-top: 1px solid rgba(255, 0, 127, 0.2);
+            border-bottom: 1px solid rgba(255, 0, 127, 0.2);
+        }
+        
+        .newsletter-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .newsletter-title {
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            text-shadow: var(--glow-pink);
+        }
+        
+        .newsletter-subtitle {
+            color: var(--color-text-secondary);
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 1rem;
+            background: var(--color-bg-secondary);
+            border: 2px solid rgba(255, 0, 127, 0.3);
+            border-radius: 2px;
+            color: var(--color-text-primary);
+            font-family: var(--font-body);
+            transition: var(--transition-smooth);
+        }
+        
+        .newsletter-form input:focus {
+            outline: none;
+            border-color: var(--color-accent-pink);
+            box-shadow: 0 0 15px rgba(255, 0, 127, 0.3);
+        }
+        
+        .newsletter-form input::placeholder {
+            color: var(--color-text-secondary);
+        }
+        
+        /* ===== FOOTER ===== */
+        .footer {
+            background: #050014;
+            border-top: 1px solid rgba(255, 0, 127, 0.1);
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h4 {
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            font-size: 0.95rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-section ul li a {
+            color: var(--color-text-secondary);
+            transition: var(--transition-smooth);
+        }
+        
+        .footer-section ul li a:hover {
+            color: var(--color-accent-pink);
+            text-shadow: 0 0 10px rgba(255, 0, 127, 0.4);
+        }
+        
+        .footer-logo {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .footer-logo img {
+            height: 50px;
+            width: auto;
+        }
+        
+        .footer-tagline {
+            font-family: var(--font-display);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            color: var(--color-accent-pink);
+            letter-spacing: 0.05em;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255, 0, 127, 0.3);
+            border-radius: 2px;
+            transition: var(--transition-smooth);
+        }
+        
+        .social-links a:hover {
+            border-color: var(--color-accent-pink);
+            background: rgba(255, 0, 127, 0.1);
+            box-shadow: 0 0 15px rgba(255, 0, 127, 0.3);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 0, 127, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--color-text-secondary);
+            font-size: 0.85rem;
+        }
+        
+        .footer-bottom a {
+            color: var(--color-accent-pink);
+        }
+        
+        /* ===== ANIMATIONS ===== */
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .reveal {
+            animation: slideInUp 0.6s ease-out forwards;
+            opacity: 0;
+        }
+        
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-media {
+                height: 350px;
+            }
+            
+            .navbar-right {
+                display: none;
+            }
+            
+            .menu-toggle {
+                display: flex;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .faq-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .coffret-showcase {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .hero-ctas {
+                flex-direction: column;
+            }
+            
+            .hero-ctas .btn {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            html {
+                font-size: 14px;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .coffret-showcase {
+                grid-template-columns: 1fr;
+            }
+            
+            .guarantees-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-text {
+                align-items: center;
+                text-align: center;
+            }
+            
+            .filter-pills {
+                gap: 0.5rem;
+            }
+            
+            .filter-pill {
+                padding: 0.5rem 1rem;
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <div class="navbar-logo">
+                <img src="img/Vice_Sweety_logo.png" alt="Vice Sweety Logo">
+                <span class="navbar-logo-text">Vice Sweety</span>
+            </div>
+            <div class="navbar-right">
+                <div class="location-badge">
+                    📍 Marseille
+                </div>
+                <div class="cart-icon">
+                    🛒
+                    <span class="cart-counter" id="cart-count">0</span>
+                </div>
+            </div>
+            <button class="menu-toggle" id="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-grid"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-eyebrow">Desserts Dangereux · Marseille · Since Now</div>
+                    <h1 class="hero-headline">Ton Prochain Plaisir Coupable</h1>
+                    <div class="hero-ctas">
+                        <a href="#menu" class="btn btn-primary">Commander mon Vice</a>
+                        <a href="#menu" class="btn btn-secondary">Voir le Menu</a>
+                    </div>
+                    <div class="hero-reassurance">
+                        <span>✨ Prêt en 5 min</span>
+                        <span>🚗 Take-away Marseille</span>
+                        <span>💰 À partir de 6€</span>
+                    </div>
+                </div>
+                <div class="hero-media">
+                    <video poster="img/hero-flatlay.webp" autoplay muted loop playsinline>
+                        <source src="img/peche-decoupe.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- MENU / SHOP SECTION -->
+    <section class="menu-section" id="menu">
+        <div class="container">
+            <div class="menu-header">
+                <h2 class="menu-title">Les Vices.</h2>
+                <div class="filter-pills">
+                    <button class="filter-pill active" data-filter="all">Tout</button>
+                    <button class="filter-pill" data-filter="trompe">Trompe-l'œil</button>
+                    <button class="filter-pill" data-filter="drinks">Drinks</button>
+                    <button class="filter-pill" data-filter="cookies">Cookies</button>
+                </div>
+            </div>
+            
+            <div class="products-grid" id="products-grid">
+                <!-- LA FRAISE -->
+                <div class="product-card" data-category="trompe" data-product-id="1">
+                    <span class="product-badge">Bestseller</span>
+                    <div class="product-image">
+                        <img src="img/fraise-trans.webp" alt="La Fraise">
+                    </div>
+                    <h3 class="product-name">La Fraise</h3>
+                    <div class="product-category">Trompe-l'œil</div>
+                    <p class="product-description">Illusion gourmande · Trompe-l'oeil classique</p>
+                    <div class="product-price">8,90€</div>
+                    <div class="product-add">
+                        <a href="/produit-fraise.html" class="btn btn-primary">Ajouter</a>
+                    </div>
+                </div>
+                
+                <!-- LA MANGUE -->
+                <div class="product-card" data-category="trompe" data-product-id="2">
+                    <span class="product-badge secondary">Saison été</span>
+                    <div class="product-image">
+                        <img src="img/mangue-trans.webp" alt="La Mangue">
+                    </div>
+                    <h3 class="product-name">La Mangue</h3>
+                    <div class="product-category">Trompe-l'œil</div>
+                    <p class="product-description">Douceur exotique · Tropical Vice</p>
+                    <div class="product-price">8,90€</div>
+                    <div class="product-add">
+                        <a href="/produit-mangue.html" class="btn btn-primary">Ajouter</a>
+                    </div>
+                </div>
+                
+                <!-- LA FRAMBOISE -->
+                <div class="product-card" data-category="trompe" data-product-id="3">
+                    <div class="product-image">
+                        <img src="img/framboise-trans.webp" alt="La Framboise">
+                    </div>
+                    <h3 class="product-name">La Framboise</h3>
+                    <div class="product-category">Trompe-l'œil</div>
+                    <p class="product-description">Acidité secrète · Berry bliss</p>
+                    <div class="product-price">8,90€</div>
+                    <div class="product-add">
+                        <a href="/produit-framboise.html" class="btn btn-primary">Ajouter</a>
+                    </div>
+                </div>
+                
+                <!-- LA PÊCHE -->
+                <div class="product-card" data-category="trompe" data-product-id="4">
+                    <span class="product-badge secondary">Saison été</span>
+                    <div class="product-image">
+                        <img src="img/peche-trans.webp" alt="La Pêche">
+                    </div>
+                    <h3 class="product-name">La Pêche</h3>
+                    <div class="product-category">Trompe-l'œil</div>
+                    <p class="product-description">Été en bouche · Nostalgie sucrée</p>
+                    <div class="product-price">8,90€</div>
+                    <div class="product-add">
+                        <a href="/produit-peche.html" class="btn btn-primary">Ajouter</a>
+                    </div>
+                </div>
+                
+                <!-- LE CITRON -->
+                <div class="product-card" data-category="trompe" data-product-id="5">
+                    <span class="product-badge">Nouveau</span>
+                    <div class="product-image">
+                        <img src="img/citron-trans.webp" alt="Le Citron">
+                    </div>
+                    <h3 class="product-name">Le Citron</h3>
+                    <div class="product-category">Trompe-l'œil</div>
+                    <p class="product-description">Acidité choc · Élégance amère</p>
+                    <div class="product-price">8,90€</div>
+                    <div class="product-add">
+                        <a href="/produit-citron.html" class="btn btn-primary">Ajouter</a>
+                    </div>
+                </div>
+                
+                <!-- LA PASSION -->
+                <div class="product-card" data-category="trompe" data-product-id="6">
+                    <span class="product-badge secondary">Édition limitée</span>
+                    <div class="product-image">
+                        <img src="img/passion-trans.webp" alt="La Passion">
+                    </div>
+                    <h3 class="product-name">La Passion</h3>
+                    <div class="product-category">Trompe-l'œil</div>
+                    <p class="product-description">Fruit rare · Dépravation exotique</p>
+                    <div class="product-price">8,90€</div>
+                    <div class="product-add">
+                        <a href="/produit-passion.html" class="btn btn-primary">Ajouter</a>
+                    </div>
+                </div>
+                
+                <!-- MILKSHAKE VICE -->
+                <div class="product-card" data-category="drinks" data-product-id="7">
+                    <div class="product-image">
+                        <img src="img/drink-placeholder.webp" alt="Milkshake Vice">
+                    </div>
+                    <h3 class="product-name">Milkshake Vice</h3>
+                    <div class="product-category">Drinks</div>
+                    <p class="product-description">Lait fouetté · Neon energy</p>
+                    <div class="product-price">7,50€</div>
+                    <div class="product-add">
+                        <a href="/produit-milkshake.html" class="btn btn-primary">Ajouter</a>
+                    </div>
+                </div>
+                
+                <!-- SMOOTHIE SUNSET -->
+                <div class="product-card" data-category="drinks" data-product-id="8">
+                    <div class="product-image">
+                        <img src="img/drink-placeholder.webp" alt="Smoothie Sunset">
+                    </div>
+                    <h3 class="product-name">Smoothie Sunset</h3>
+                    <div class="product-category">Drinks</div>
+                    <p class="product-description">Fruits frais · Coucher Vice</p>
+                    <div class="product-price">6,90€</div>
+                    <div class="product-add">
+                        <a href="/produit-smoothie.html" class="btn btn-primary">Ajouter</a>
+                    </div>
+                </div>
+                
+                <!-- JUS FRAIS -->
+                <div class="product-card" data-category="drinks" data-product-id="9">
+                    <div class="product-image">
+                        <img src="img/drink-placeholder.webp" alt="Jus Frais">
+                    </div>
+                    <h3 class="product-name">Jus Frais</h3>
+                    <div class="product-category">Drinks</div>
+                    <p class="product-description">100% pressé · Santé Vice</p>
+                    <div class="product-price">6,90€</div>
+                    <div class="product-add">
+                        <a href="/produit-jus.html" class="btn btn-primary">Ajouter</a>
+                    </div>
+                </div>
+                
+                <!-- COOKIE VICE -->
+                <div class="product-card" data-category="cookies" data-product-id="10">
+                    <div class="product-image">
+                        <img src="img/cookie-placeholder.webp" alt="Cookie Vice">
+                    </div>
+                    <h3 class="product-name">Cookie Vice</h3>
+                    <div class="product-category">Cookies</div>
+                    <p class="product-description">Chocolat noir · Acidité neon</p>
+                    <div class="product-price">5,90€</div>
+                    <div class="product-add">
+                        <a href="/produit-cookie.html" class="btn btn-primary">Ajouter</a>
+                    </div>
+                </div>
+                
+                <!-- COOKIE DOUGH -->
+                <div class="product-card" data-category="cookies" data-product-id="11">
+                    <div class="product-image">
+                        <img src="img/cookie-placeholder.webp" alt="Cookie Dough">
+                    </div>
+                    <h3 class="product-name">Cookie Dough</h3>
+                    <div class="product-category">Cookies</div>
+                    <p class="product-description">Pâte à cuire · Forbidden pleasure</p>
+                    <div class="product-price">5,90€</div>
+                    <div class="product-add">
+                        <a href="/produit-cookie-dough.html" class="btn btn-primary">Ajouter</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- COFFRET SECTION -->
+    <section class="coffret-section" id="coffret">
+        <div class="container">
+            <div class="coffret-header">
+                <h2 class="coffret-title">Le Coffret Vice</h2>
+                <p class="coffret-subtitle">Compose ton écrin · 3 trompe-l'oeil pour un plaisir sans limite</p>
+            </div>
+            
+            <div class="coffret-showcase">
+                <div class="coffret-slot">
+                    <img src="img/fraise-trans.webp" alt="La Fraise">
+                    <div class="coffret-slot-name">La Fraise</div>
+                    <div class="coffret-slot-price">8,90€</div>
+                </div>
+                <div class="coffret-slot">
+                    <img src="img/mangue-trans.webp" alt="La Mangue">
+                    <div class="coffret-slot-name">La Mangue</div>
+                    <div class="coffret-slot-price">8,90€</div>
+                </div>
+                <div class="coffret-slot">
+                    <img src="img/framboise-trans.webp" alt="La Framboise">
+                    <div class="coffret-slot-name">La Framboise</div>
+                    <div class="coffret-slot-price">8,90€</div>
+                </div>
+            </div>
+            
+            <div class="coffret-price-info">
+                <div class="coffret-price-main">Le Coffret 3 Vices — 22,90€</div>
+                <div class="coffret-price-savings">Au lieu de 26,70€</div>
+            </div>
+            
+            <div class="coffret-cta">
+                <a href="#" class="btn btn-primary">Composer mon Coffret</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- VIDEO SECTION -->
+    <section class="video-section">
+        <div class="container">
+            <div class="video-container">
+                <video poster="img/peche.webp" autoplay muted loop playsinline>
+                    <source src="img/peche-decoupe.mp4" type="video/mp4">
+                </video>
+                <div class="video-overlay">
+                    <div class="video-text">
+                        <h3>L'Illusion se Révèle</h3>
+                        <p>#ViceSweety</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- GUARANTEES -->
+    <section class="guarantees">
+        <div class="guarantees-grid">
+            <div class="guarantee-item">
+                <div class="guarantee-icon">⏱️</div>
+                <p><strong>Prêt en 5 min</strong><br>Pas d'attente</p>
+            </div>
+            <div class="guarantee-item">
+                <div class="guarantee-icon">🚗</div>
+                <p><strong>Take-away</strong><br>Marseille uniquement</p>
+            </div>
+            <div class="guarantee-item">
+                <div class="guarantee-icon">🔒</div>
+                <p><strong>Paiement sécurisé</strong><br>CB · Espèces · Apple/Google Pay</p>
+            </div>
+            <div class="guarantee-item">
+                <div class="guarantee-icon">⭐</div>
+                <p><strong>Ingrédients premium</strong><br>Sans compromis sur la qualité</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- SOCIAL PROOF -->
+    <section class="social-proof" id="social">
+        <div class="container">
+            <div class="social-proof-header">
+                <h2 class="social-proof-title">Le Mur du Vice</h2>
+                <p class="social-proof-subtitle" style="color: var(--color-text-secondary); margin-top: 1rem;">Tes Vices en photos · Rejoins la communauté #ViceSweety</p>
+            </div>
+            
+            <div class="social-proof-grid">
+                <div class="social-proof-item">
+                    <img src="img/social-1.webp" alt="Utilisateur Vice Sweety">
+                    <div class="social-proof-overlay">
+                        <div class="social-proof-text">@vicefollower_01</div>
+                    </div>
+                </div>
+                <div class="social-proof-item">
+                    <img src="img/social-2.webp" alt="Utilisateur Vice Sweety">
+                    <div class="social-proof-overlay">
+                        <div class="social-proof-text">@dessert_lover_marseille</div>
+                    </div>
+                </div>
+                <div class="social-proof-item">
+                    <img src="img/social-3.webp" alt="Utilisateur Vice Sweety">
+                    <div class="social-proof-overlay">
+                        <div class="social-proof-text">@neon_foodie</div>
+                    </div>
+                </div>
+                <div class="social-proof-item">
+                    <img src="img/social-4.webp" alt="Utilisateur Vice Sweety">
+                    <div class="social-proof-overlay">
+                        <div class="social-proof-text">@sweet_marseille</div>
+                    </div>
+                </div>
+                <div class="social-proof-item">
+                    <img src="img/social-5.webp" alt="Utilisateur Vice Sweety">
+                    <div class="social-proof-overlay">
+                        <div class="social-proof-text">@plaisir_coupable_</div>
+                    </div>
+                </div>
+                <div class="social-proof-item">
+                    <img src="img/social-6.webp" alt="Utilisateur Vice Sweety">
+                    <div class="social-proof-overlay">
+                        <div class="social-proof-text">@decadence_lab</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="https://www.instagram.com/vicesweety" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Rejoins le Vice @vicesweety</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="faq-container">
+                <div>
+                    <h2 class="faq-title">Questions Vice?</h2>
+                </div>
+                <div class="faq-items" id="faq-items">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>C'est quoi un trompe-l'oeil?</span>
+                            <span class="faq-toggle">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Un trompe-l'oeil Vice Sweety est un dessert qui imite la forme, la couleur et la texture d'un vrai fruit, mais qui est en réalité une création gourmande et décadente. C'est une illusion délicieuse.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Combien de temps pour me préparer ma commande?</span>
+                            <span class="faq-toggle">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Prêt en 5 minutes maximum! Vice Sweety prépare chaque dessert à la commande pour garantir la fraîcheur et la qualité. Perfection express.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Livrez-vous ou take-away uniquement?</span>
+                            <span class="faq-toggle">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Vice Sweety est pour l'instant en take-away uniquement à Marseille. Viens découvrir l'écrin à la boutique. Pas de livraison, pour préserver l'intégrité de tes desserts.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Quels paiements acceptez-vous?</span>
+                            <span class="faq-toggle">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Nous acceptons CB, espèces, Apple Pay et Google Pay. Paiement rapide et sécurisé pour ton Vice sans prise de tête.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Y a-t-il des allergènes dans tes produits?</span>
+                            <span class="faq-toggle">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Oui, Vice Sweety contient des traces de fruits à coque, lactose et gluten selon les créations. Nous avons une notice d'allergènes détaillée en boutique. Ta santé est notre Vice responsable.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- NEWSLETTER -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-content">
+                <h3 class="newsletter-title">Rejoins le Vice Club</h3>
+                <p class="newsletter-subtitle">Reçois tes codes promos, les éditions limitées et les Vices secrets en avant-première.</p>
+                <form class="newsletter-form" id="newsletter-form">
+                    <input type="email" placeholder="ton@email.vice" required>
+                    <button type="submit" class="btn btn-primary">S'inscrire</button>
+                </form>
+                <p style="font-size: 0.8rem; color: var(--color-text-secondary); margin-top: 1rem;">
+                    En t'inscrivant, tu acceptes de recevoir nos Vices par email. Désinscription facile.
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section footer-logo">
+                    <img src="img/Vice_Sweety_logo.png" alt="Vice Sweety">
+                    <p class="footer-tagline">Neon Decadence · Desserts Dangereux</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/vicesweety" target="_blank" rel="noopener noreferrer" title="Instagram">IG</a>
+                        <a href="https://www.tiktok.com/@vicesweety" target="_blank" rel="noopener noreferrer" title="TikTok">TK</a>
+                        <a href="mailto:hello@vicesweety.com" title="Email">@</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Menu</h4>
+                    <ul>
+                        <li><a href="#menu">Les Vices</a></li>
+                        <li><a href="#coffret">Le Coffret</a></li>
+                        <li><a href="#social">Le Mur</a></li>
+                        <li><a href="#faq">Questions</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="tel:+33622356575">+33 (0)6 22 35 65 75</a></li>
+                        <li><a href="mailto:hello@vicesweety.com">hello@vicesweety.com</a></li>
+                        <li>Marseille, France<br>Tous les jours 10h–21h</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Légal</h4>
+                    <ul>
+                        <li><a href="/mentions-legales.html">Mentions légales</a></li>
+                        <li><a href="/politique-confidentialite.html">Confidentialité</a></li>
+                        <li><a href="/cgv.html">Conditions d'utilisation</a></li>
+                        <li><a href="/politique-cookies.html">Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Vice Sweety. Tous les Vices sont réservés. | Fait avec 💖 à Marseille | Design: Neon Decadence Lab</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- STRUCTURED DATA -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Vice Sweety",
+        "description": "Desserts dangereux & trompe-l'oeil premium à Marseille",
+        "url": "https://vice-sweety.fr",
+        "image": "img/og-image.webp",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "32 Rue de la Paix",
+            "addressLocality": "Marseille",
+            "postalCode": "13000",
+            "addressCountry": "FR"
+        },
+        "telephone": "+33491000000",
+        "email": "hello@vice-sweety.fr",
+        "priceRange": "€€",
+        "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            "opens": "10:00",
+            "closes": "19:00"
+        },
+        "sameAs": [
+            "https://instagram.com/vice_sweety",
+            "https://facebook.com/vice_sweety",
+            "https://tiktok.com/@vice_sweety"
+        ]
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "C'est quoi un trompe-l'oeil?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Un trompe-l'oeil Vice Sweety est un dessert qui imite la forme, la couleur et la texture d'un vrai fruit, mais qui est en réalité une création gourmande et décadente. C'est une illusion délicieuse."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Combien de temps pour me préparer ma commande?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Prêt en 5 minutes maximum! Vice Sweety prépare chaque dessert à la commande pour garantir la fraîcheur et la qualité."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Livrez-vous ou take-away uniquement?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Vice Sweety est pour l'instant en take-away uniquement à Marseille. Pas de livraison, pour préserver l'intégrité de tes desserts."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Quels paiements acceptez-vous?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Nous acceptons CB, espèces, Apple Pay et Google Pay."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Y a-t-il des allergènes dans tes produits?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Vice Sweety contient des traces de fruits à coque, lactose et gluten selon les créations. Nous avons une notice d'allergènes détaillée en boutique."
+                }
+            }
+        ]
+    }
+    </script>
+    
+    <script>
+        // ===== CART COUNTER =====
+        let cartCount = 0;
+        const cartCountEl = document.getElementById('cart-count');
+        
+        document.querySelectorAll('.product-add a').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                cartCount++;
+                cartCountEl.textContent = cartCount;
+                cartCountEl.style.animation = 'none';
+                setTimeout(() => {
+                    cartCountEl.style.animation = 'slideInUp 0.3s ease-out';
+                }, 10);
+            });
+        });
+        
+        // ===== NAVBAR SCROLL BEHAVIOR =====
+        const navbar = document.querySelector('.navbar');
+        let lastScrollTop = 0;
+        
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            
+            if (scrollTop > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            
+            lastScrollTop = scrollTop;
+        });
+        
+        // ===== FILTER SYSTEM =====
+        const filterPills = document.querySelectorAll('.filter-pill');
+        const productCards = document.querySelectorAll('.product-card');
+        
+        filterPills.forEach(pill => {
+            pill.addEventListener('click', () => {
+                filterPills.forEach(p => p.classList.remove('active'));
+                pill.classList.add('active');
+                
+                const filter = pill.dataset.filter;
+                
+                productCards.forEach(card => {
+                    card.style.animation = 'none';
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.style.display = 'flex';
+                        setTimeout(() => {
+                            card.classList.add('reveal');
+                        }, 10);
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // ===== FAQ ACCORDION =====
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                faqItems.forEach(i => {
+                    if (i !== item) {
+                        i.classList.remove('active');
+                    }
+                });
+                item.classList.toggle('active');
+            });
+        });
+        
+        // ===== INTERSECTION OBSERVER FOR REVEAL ANIMATIONS =====
+        const revealElements = document.querySelectorAll(
+            '.product-card, .coffret-slot, .guarantee-item, .social-proof-item, .faq-item'
+        );
+        
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        revealElements.forEach(el => observer.observe(el));
+        
+        // ===== NEWSLETTER FORM =====
+        const newsletterForm = document.getElementById('newsletter-form');
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = newsletterForm.querySelector('input[type="email"]').value;
+            alert(`Bienvenue au Vice Club, ${email}! 🎉 Vérifie ta boîte mail pour confirmer.`);
+            newsletterForm.reset();
+        });
+        
+        // ===== MOBILE MENU TOGGLE =====
+        const menuToggle = document.getElementById('menu-toggle');
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => {
+                // Mobile menu would be implemented here
+                console.log('Menu toggled');
+            });
+        }
+        
+        // ===== GOOGLE FONTS PRELOAD =====
+        const fontLink = document.createElement('link');
+        fontLink.href = 'https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@400;500;700&display=swap';
+        fontLink.rel = 'stylesheet';
+        document.head.appendChild(fontLink);
+    </script>
+</body>
+</html>

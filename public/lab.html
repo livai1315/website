@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Le Lab — Vice Sweety · Où naissent les Vices</title>
+  <meta name="description" content="Le Lab Vice Sweety — où naissent les Vices. Un labo. Des moules. De l'obsession. Et zéro compromis. Découvrez le processus de création des desserts trompe-l'œil." />
+  <meta property="og:title" content="Le Lab — Vice Sweety" />
+  <meta property="og:description" content="Un labo. Des moules. De l'obsession. Et zéro compromis. Le processus de création Vice Sweety." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.vicesweety.com/lab.html" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:image" content="https://www.vicesweety.com/img/atelier-glacage.webp" />
+  <meta property="og:site_name" content="Vice Sweety" />
+  <link rel="canonical" href="https://www.vicesweety.com/lab.html" />
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="vice-sweety.css" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JCL4B8SJY0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JCL4B8SJY0');
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+
+  <style>
+    :root {
+      --vice-pink: #FF2D8A;
+      --vice-dark: #1a1025;
+      --vice-neon: #00f5ff;
+      --vice-purple: #b537f2;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      min-height: auto;
+      align-items: center;
+      background: #FFFFFF;
+      color: #1A1A2E;
+    }
+
+    /* === HERO SECTION === */
+    .story-hero {
+      width: 100%;
+      padding: 12rem 6vw 6rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      min-height: calc(100dvh - 100px);
+    }
+
+    .story-hero .visual-anchor {
+      position: absolute;
+      top: -10%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 300px;
+      border-radius: 999px;
+      background: radial-gradient(ellipse at center, rgba(255, 0, 110, 0.1) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+      filter: blur(60px);
+    }
+
+    .story-hero .eyebrow {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--vice-neon);
+      margin-bottom: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .story-hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3.5rem, 7vw, 7rem);
+      font-weight: 400;
+      line-height: 0.9;
+      letter-spacing: 0.02em;
+      margin-bottom: 2.5rem;
+      position: relative;
+      z-index: 1;
+      background: linear-gradient(135deg, #1A1A2E 0%, var(--vice-pink) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .story-hero .subtitle {
+      font-size: 1.15rem;
+      line-height: 1.85;
+      color: #6b5f78;
+      max-width: 60ch;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    /* === PROCESS STEPS === */
+    .process-section {
+      width: 100%;
+      max-width: 1100px;
+      padding: 0 6vw 6rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      width: 100%;
+    }
+
+    .step-card {
+      position: relative;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      background: #F8F7FC;
+      border: 1px solid rgba(28, 28, 46, 0.08);
+      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .step-card:hover {
+      border-color: var(--vice-neon);
+      background: rgba(0, 245, 255, 0.05);
+      box-shadow: 0 0 40px rgba(255, 45, 138, 0.15);
+      transform: translateY(-8px);
+    }
+
+    .step-img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(255, 0, 110, 0.1), rgba(0, 245, 255, 0.1));
+    }
+
+    .step-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .step-card:hover .step-img img {
+      transform: scale(1.08);
+    }
+
+    .step-body {
+      padding: 2rem 1.5rem;
+    }
+
+    .step-num {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--vice-pink);
+      margin-bottom: 0.8rem;
+    }
+
+    .step-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: #1A1A2E;
+      margin-bottom: 0.8rem;
+      line-height: 1.2;
+      letter-spacing: 0.01em;
+    }
+
+    .step-desc {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.85rem;
+      color: #6b5f78;
+      line-height: 1.6;
+    }
+
+    /* === CTA SECTION === */
+    .lab-cta {
+      width: 100%;
+      max-width: 800px;
+      padding: 6rem 6vw;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .lab-cta h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.4rem, 4vw, 3.8rem);
+      font-weight: 400;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      color: #1A1A2E;
+      letter-spacing: 0.01em;
+    }
+
+    .lab-cta h2 em {
+      color: var(--vice-pink);
+    }
+
+    .lab-cta p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #6b5f78;
+      max-width: 50ch;
+      margin: 0 auto 2.5rem;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .lab-cta .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 1rem 2.4rem;
+      border-radius: 6px;
+      background: var(--vice-pink);
+      color: #1a1025;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+      border: none;
+      cursor: pointer;
+    }
+
+    .lab-cta .btn-primary:hover {
+      background: var(--vice-neon);
+      color: #1A1A2E;
+      box-shadow: 0 0 30px rgba(0, 245, 255, 0.4);
+      transform: translateY(-2px);
+    }
+
+    /* === ANIMATIONS === */
+    .gs-reveal {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 768px) {
+      .story-hero {
+        padding: 8rem 6vw 4rem;
+        min-height: auto;
+      }
+
+      .story-hero h1 {
+        font-size: clamp(2.5rem, 8vw, 4rem);
+      }
+
+      .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .step-body {
+        padding: 1.5rem 1.5rem;
+      }
+
+      .process-section {
+        padding: 0 6vw 4rem;
+      }
+
+      .lab-cta {
+        padding: 4rem 6vw;
+      }
+
+      .lab-cta h2 {
+        font-size: clamp(1.8rem, 6vw, 2.6rem);
+      }
+    }
+  </style>
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@vicesweety" />
+  <meta name="twitter:title" content="Le Lab — Vice Sweety" />
+  <meta name="twitter:description" content="Un labo. Des moules. De l'obsession. Et zéro compromis." />
+  <meta name="twitter:image" content="https://www.vicesweety.com/img/atelier-glacage.webp" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Accueil",
+            "item": "https://www.vicesweety.com/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Le Lab",
+            "item": "https://www.vicesweety.com/lab.html"
+        }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <div class="page-transition" style="position:fixed;inset:0;z-index:99999;background:#FFFFFF;pointer-events:none;"></div>
+
+  <!-- MOBILE OVERLAY -->
+  <div id="mobile-overlay" role="dialog" aria-label="Menu de navigation">
+    <a href="index.html" class="mobile-nav-item">Accueil</a>
+    <a href="index.html#menu" class="mobile-nav-item">Le Menu</a>
+    <a href="notre-vice.html" class="mobile-nav-item">Notre Vice</a>
+    <a href="lab.html" class="mobile-nav-item">Le Lab</a>
+    <div class="mobile-nav-footer">
+      <a href="mailto:hello@vicesweety.com">hello@vicesweety.com</a>
+      <a href="tel:+33622356575">+33 (0)6 22 35 65 75</a>
+      <a href="https://www.instagram.com/vicesweety" target="_blank">@vicesweety</a>
+    </div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <nav id="navbar" class="visible">
+    <button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-overlay">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links-left">
+      <a href="index.html#menu">Menu</a>
+      <a href="notre-vice.html">Notre Vice</a>
+      <a href="lab.html">Le Lab</a>
+    </div>
+    <a href="index.html" class="nav-brand" aria-label="Retour à l'accueil">
+      <img src="img/Vice_Sweety_logo.png" alt="Vice Sweety" class="brand-logo" />
+    </a>
+    <div class="nav-links-right">
+      <a href="index.html#menu" class="nav-cta">
+        <span>Commander</span>
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- HERO -->
+    <section class="story-hero">
+      <div class="visual-anchor"></div>
+      <p class="eyebrow gs-reveal">Le Lab</p>
+      <h1 class="gs-reveal">Où naissent<br>les Vices.</h1>
+      <p class="subtitle gs-reveal">Un labo. Des moules. De l'obsession. Et zéro compromis.</p>
+    </section>
+
+    <!-- PROCESS STEPS -->
+    <section class="process-section gs-reveal">
+      <div class="steps-grid">
+        <div class="step-card gs-reveal">
+          <div class="step-img">
+            <img src="img/ingredient.webp" alt="Sculpture et création du moule en silicone" loading="lazy" />
+          </div>
+          <div class="step-body">
+            <div class="step-num">01 — Le Moule</div>
+            <h3 class="step-title">Sculpture</h3>
+            <p class="step-desc">Sculpture et création du moule en silicone. Zéro détail ne manque. Chaque texture, chaque imperfection, tous les dégradés sont mémorisés.</p>
+          </div>
+        </div>
+
+        <div class="step-card gs-reveal">
+          <div class="step-img">
+            <img src="img/atelier-glacage.webp" alt="Couches de chocolat, mousse, cœur coulant" loading="lazy" />
+          </div>
+          <div class="step-body">
+            <div class="step-num">02 — Le Glaçage</div>
+            <h3 class="step-title">Couches</h3>
+            <p class="step-desc">Couches de chocolat, mousse, cœur coulant. L'assemblage se déroule comme une chorégraphie. Chaque étape est timed. Rien ne traîne.</p>
+          </div>
+        </div>
+
+        <div class="step-card gs-reveal">
+          <div class="step-img">
+            <img src="img/atelier-finition.webp" alt="Aérographe, coloration, finition" loading="lazy" />
+          </div>
+          <div class="step-body">
+            <div class="step-num">03 — Le Velours</div>
+            <h3 class="step-title">Finition</h3>
+            <p class="step-desc">Aérographe, coloration, finition. C'est là où la magie se fait. La peau du fruit est reproduite avec une fidélité troublante. L'illusion commence.</p>
+          </div>
+        </div>
+
+        <div class="step-card gs-reveal">
+          <div class="step-img">
+            <img src="img/hamza-action.webp" alt="Le résultat final qui trompe tout le monde" loading="lazy" />
+          </div>
+          <div class="step-body">
+            <div class="step-num">04 — Le Piège</div>
+            <h3 class="step-title">Révélation</h3>
+            <p class="step-desc">Le résultat final. Y a pas de truc qui cloche. C'est un fruit. Jusqu'à la bouchée. Alors là, boom. Le Vice se dévoile.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="lab-cta gs-reveal">
+      <h2>Prêt à<br><em>Découvrir ?</em></h2>
+      <p>Le Lab produit en continu. Viens chercher ce qu'on vient de faire. C'est frais. C'est chaud. C'est dingue.</p>
+      <a href="index.html#menu" class="btn-primary">Voir les créations</a>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <img src="img/Vice_Sweety_logo.png" alt="Vice Sweety" class="footer-logo" style="max-width:240px;margin:0 auto 1.5rem;display:block;" />
+    <div class="footer-tagline">Dangerously Sweet. Unapologetically Marseille.</div>
+
+    <nav class="footer-nav">
+      <a href="index.html#menu">Menu</a>
+      <a href="notre-vice.html">Notre Vice</a>
+      <a href="lab.html">Le Lab</a>
+      <a href="mentions-legales.html">Mentions légales</a>
+    </nav>
+    <div class="footer-contact">
+      <a href="mailto:hello@vicesweety.com">hello@vicesweety.com</a><br/>
+      <a href="tel:+33622356575">+33 (0)6 22 35 65 75</a>
+    </div>
+    <p class="footer-address">Marseille, France · Tous les jours 10h–21h</p>
+
+    <!-- Social -->
+    <div class="footer-social">
+      <a href="https://www.instagram.com/vicesweety" target="_blank" rel="noopener noreferrer" aria-label="Instagram Vice Sweety">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <a href="https://www.tiktok.com/@vicesweety" target="_blank" rel="noopener noreferrer" aria-label="TikTok Vice Sweety">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.8a8.27 8.27 0 0 0 4.76 1.5v-3.4a4.85 4.85 0 0 1-1-.21z"/></svg>
+      </a>
+      <a href="mailto:hello@vicesweety.com" aria-label="Email Vice Sweety">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </a>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 Vice Sweety</span>
+      <a href="mentions-legales.html">Mentions légales</a>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const tl = gsap.timeline({ delay: 0.1 });
+      tl.from("#navReveal", { opacity: 0, y: -20, duration: 1, ease: "power3.out" })
+        .from(".gs-reveal", { opacity: 0, y: 30, duration: 1, stagger: 0.15, ease: "power3.out" }, "-=0.6");
+
+      // Page transitions
+      const transitionLayer = document.querySelector('.page-transition');
+      gsap.to(transitionLayer, { opacity:0, duration:0.8, ease:"power2.inOut", onComplete:()=>{ transitionLayer.style.display='none'; }});
+
+      document.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function(e) {
+          if (this.target==='_blank' || this.href.includes('#') || this.href.startsWith('mailto:') || this.href.startsWith('tel:') || this.hostname!==window.location.hostname) return;
+          e.preventDefault();
+          const targetUrl = this.href;
+          transitionLayer.style.display = 'block';
+          gsap.to(transitionLayer, { opacity:1, duration:0.5, ease:"power2.inOut", onComplete:()=>{ window.location.href=targetUrl; }});
+        });
+      });
+
+      window.addEventListener('pageshow', (e) => {
+        if (e.persisted) gsap.to(transitionLayer, { opacity:0, duration:0.4, onComplete:()=>{ transitionLayer.style.display='none'; }});
+      });
+    });
+
+    document.getElementById('navbar').classList.add('visible');
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Burger menu
+    const navBurger = document.getElementById('navBurger');
+    const mobileOverlay = document.getElementById('mobile-overlay');
+    const navbar = document.getElementById('navbar');
+    if(navBurger && mobileOverlay) {
+      function closeMenu() {
+        navBurger.classList.remove('open');
+        navBurger.setAttribute('aria-expanded', 'false');
+        mobileOverlay.classList.remove('open');
+        if(navbar) navbar.classList.remove('menu-open');
+        document.body.style.overflow = '';
+        document.body.classList.remove('menu-active');
+      }
+      navBurger.addEventListener('click', function() {
+        const opening = !this.classList.contains('open');
+        this.classList.toggle('open');
+        this.setAttribute('aria-expanded', opening);
+        mobileOverlay.classList.toggle('open');
+        if(navbar) navbar.classList.toggle('menu-open');
+        document.body.style.overflow = opening ? 'hidden' : '';
+        document.body.classList.toggle('menu-active', opening);
+      });
+      document.querySelectorAll('.mobile-nav-item').forEach(l => l.addEventListener('click', closeMenu));
+      document.addEventListener('keydown', e => { if(e.key === 'Escape' && mobileOverlay.classList.contains('open')) closeMenu(); });
+      mobileOverlay.addEventListener('click', e => { if(e.target === mobileOverlay) closeMenu(); });
+    }
+  </script>
+
+</body>
+</html>

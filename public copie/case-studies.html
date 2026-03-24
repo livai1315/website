@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Résultats Partenaires — Maison Mirage · Case Studies B2B</title>
+  <meta name="description" content="Découvrez comment nos partenaires B2B ont boosté leur ticket moyen dessert, leur visibilité Instagram et leur rentabilité grâce aux créations trompe-l'œil Maison Mirage." />
+  <meta property="og:title" content="Résultats Partenaires — Maison Mirage" />
+  <meta property="og:description" content="Les résultats concrets de nos partenaires : +45% contenu Instagram, +30% ticket dessert, rentable dès le 1er mois." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.lamaisonmirage.com/case-studies.html" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:image" content="https://www.lamaisonmirage.com/img/hero-flatlay.webp" />
+  <meta property="og:site_name" content="Maison Mirage" />
+  <link rel="canonical" href="https://www.lamaisonmirage.com/case-studies.html" />
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@200;300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JCL4B8SJY0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JCL4B8SJY0');
+  </script>
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Résultats Partenaires — Maison Mirage",
+    "description": "Études de cas B2B : comment nos partenaires ont transformé leur carte dessert avec les créations trompe-l'œil Maison Mirage.",
+    "url": "https://www.lamaisonmirage.com/case-studies.html",
+    "mainEntity": {
+      "@type": "ItemList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "L'Avenue Grill — +45% contenu Instagram",
+          "url": "https://www.lamaisonmirage.com/case-studies.html#avenue-grill"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Full Dessert — +30% ticket moyen",
+          "url": "https://www.lamaisonmirage.com/case-studies.html#full-dessert"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Royal Pâtisserie — Rentable dès le 1er mois",
+          "url": "https://www.lamaisonmirage.com/case-studies.html#royal-patisserie"
+        }
+      ]
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.lamaisonmirage.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Résultats Partenaires", "item": "https://www.lamaisonmirage.com/case-studies.html" }
+      ]
+    }
+  }
+  </script>
+
+  <style>
+    /* ═══════════════════════════════════════════════════════
+       CASE STUDIES — PAGE STYLES
+    ═══════════════════════════════════════════════════════ */
+    main {
+      display: flex; flex-direction: column; gap: 0;
+      min-height: calc(100dvh - 100px);
+      align-items: center;
+    }
+
+    /* --- BREADCRUMB --- */
+    .cs-breadcrumb {
+      width: 100%; max-width: 1100px;
+      padding: 8rem 6vw 0;
+      font-family: var(--mono); font-size: 0.55rem;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .cs-breadcrumb a { color: var(--ink-muted); transition: color 0.3s; }
+    .cs-breadcrumb a:hover { color: var(--gold); }
+    .cs-breadcrumb .sep { margin: 0 0.6rem; opacity: 0.4; }
+
+    /* --- HERO --- */
+    .cs-hero {
+      width: 100%; padding: 4rem 6vw 3rem;
+      text-align: center; position: relative;
+    }
+    .cs-hero .visual-anchor {
+      position: absolute; top: -15%; left: 50%; transform: translateX(-50%) rotate(-12deg);
+      width: 800px; height: 300px; border-radius: 999px;
+      background: radial-gradient(ellipse at center, rgba(168,137,92,0.10) 0%, transparent 70%);
+      pointer-events: none; z-index: 0;
+    }
+    .cs-hero .eyebrow {
+      font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.25em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 1.8rem;
+      position: relative; z-index: 1;
+      display: flex; align-items: center; justify-content: center; gap: 1rem;
+    }
+    .cs-hero .eyebrow::before,
+    .cs-hero .eyebrow::after {
+      content: ''; display: block; width: 30px; height: 1px;
+      background: var(--gold); opacity: 0.4;
+    }
+    .cs-hero h1 {
+      font-family: var(--serif); font-size: clamp(2.8rem, 5vw, 5rem);
+      font-weight: 300; line-height: 0.95; letter-spacing: -0.02em;
+      margin-bottom: 2rem; position: relative; z-index: 1;
+    }
+    .cs-hero h1 em { font-style: italic; color: var(--gold); }
+    .cs-hero .subtitle {
+      font-size: 1rem; line-height: 1.85; color: var(--ink-muted);
+      max-width: 55ch; margin: 0 auto; position: relative; z-index: 1;
+    }
+
+    /* --- GLOBAL KPIS --- */
+    .cs-kpis {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;
+      width: 100%; max-width: 1000px; padding: 2.5rem 6vw 3rem;
+      text-align: center;
+    }
+    .cs-kpi {
+      padding: 1.8rem 1rem;
+      border-radius: 1.5rem;
+      background: var(--cream-2);
+      border: 1px solid rgba(26,23,20,0.04);
+      transition: transform 0.4s var(--ease-out), box-shadow 0.4s;
+    }
+    .cs-kpi:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(168,137,92,0.1);
+    }
+    .cs-kpi .kpi-number {
+      font-family: var(--serif); font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-weight: 300; color: var(--gold); line-height: 1;
+    }
+    .cs-kpi .kpi-label {
+      font-family: var(--mono); font-size: 0.5rem; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--ink-muted); margin-top: 0.6rem;
+      line-height: 1.5;
+    }
+
+    /* --- PARTNER LOGOS BANNER --- */
+    .cs-logos {
+      width: 100%; max-width: 1100px;
+      padding: 3.5rem 6vw 4rem;
+      text-align: center;
+    }
+    .cs-logos-label {
+      font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.3em;
+      text-transform: uppercase; color: var(--ink-muted);
+      margin-bottom: 2.5rem; opacity: 0.7;
+    }
+    .cs-logos-grid {
+      display: flex; justify-content: center; align-items: flex-start;
+      gap: 3rem; flex-wrap: wrap;
+    }
+    .cs-logo-item {
+      display: flex; flex-direction: column; align-items: center; gap: 0.8rem;
+      cursor: default;
+    }
+    .cs-logo-item img {
+      width: 88px; height: 88px;
+      border-radius: 50%; object-fit: cover;
+      border: 1px solid rgba(26,23,20,0.08);
+      filter: grayscale(50%); opacity: 0.75;
+      transition: all 0.4s;
+    }
+    .cs-logo-item:hover img {
+      filter: grayscale(0%); opacity: 1;
+      box-shadow: 0 6px 20px rgba(26,23,20,0.12);
+      transform: translateY(-3px);
+    }
+    .cs-logo-name {
+      font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--ink-muted);
+      opacity: 0; transform: translateY(-4px);
+      transition: opacity 0.3s, transform 0.3s;
+      white-space: nowrap;
+    }
+    .cs-logo-item:hover .cs-logo-name {
+      opacity: 1; transform: translateY(0);
+    }
+
+    /* --- SECTION DIVIDER --- */
+    .cs-divider {
+      width: 60px; height: 1px;
+      background: var(--gold-pale);
+      margin: 0 auto;
+    }
+
+    /* --- PROCESS TIMELINE (Comment ça marche) --- */
+    .cs-process {
+      width: 100%; max-width: 1100px;
+      padding: 4rem 6vw 5rem;
+    }
+    .cs-process-header {
+      text-align: center; margin-bottom: 3.5rem;
+    }
+    .cs-process-header .eyebrow {
+      font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.25em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem;
+      display: flex; align-items: center; justify-content: center; gap: 1rem;
+    }
+    .cs-process-header .eyebrow::before,
+    .cs-process-header .eyebrow::after {
+      content: ''; display: block; width: 20px; height: 1px;
+      background: var(--gold); opacity: 0.4;
+    }
+    .cs-process-header h2 {
+      font-family: var(--serif); font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 300; line-height: 0.95;
+    }
+    .cs-process-header h2 em { font-style: italic; color: var(--gold); }
+    .cs-process-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem;
+      position: relative;
+    }
+    /* Connector line */
+    .cs-process-grid::before {
+      content: '';
+      position: absolute; top: 32px; left: 12.5%; right: 12.5%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-pale), var(--gold-pale), transparent);
+    }
+    .cs-step {
+      text-align: center; position: relative;
+    }
+    .cs-step-num {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: var(--cream-2); border: 1px solid var(--gold-pale);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.2rem;
+      font-family: var(--serif); font-size: 1.4rem;
+      font-weight: 300; color: var(--gold);
+      position: relative; z-index: 1;
+      transition: all 0.4s var(--ease-out);
+    }
+    .cs-step:hover .cs-step-num {
+      background: var(--gold);
+      color: var(--white);
+      border-color: var(--gold);
+      box-shadow: 0 8px 24px rgba(168,137,92,0.25);
+    }
+    .cs-step-title {
+      font-family: var(--serif); font-size: 1.15rem;
+      font-weight: 400; margin-bottom: 0.5rem;
+    }
+    .cs-step-desc {
+      font-size: 0.8rem; line-height: 1.75; color: var(--ink-muted);
+    }
+
+    /* --- CASE STUDY CARD --- */
+    .cs-card {
+      width: 100%; max-width: 1100px;
+      margin: 0 auto; padding: 4.5rem 6vw;
+      border-top: 1px solid rgba(26,23,20,0.06);
+    }
+    .cs-card-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 3.5rem; align-items: start;
+    }
+    .cs-card:nth-child(even) .cs-card-inner { direction: rtl; }
+    .cs-card:nth-child(even) .cs-card-inner > * { direction: ltr; }
+    .cs-card-visual {
+      border-radius: 2rem; overflow: hidden;
+      aspect-ratio: 4/3;
+      box-shadow: 0 16px 48px rgba(26,23,20,0.07);
+      border: 1px solid rgba(26,23,20,0.04);
+      background: var(--cream-2);
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+      transition: transform 0.6s var(--ease-out);
+      padding: 2.5rem;
+    }
+    .cs-card:hover .cs-card-visual {
+      transform: translateY(-6px);
+    }
+    .cs-card-visual img {
+      width: 55%; max-width: 200px; height: auto;
+      aspect-ratio: 1/1; object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 8px 32px rgba(26,23,20,0.12);
+    }
+    .cs-card-visual .cs-badge {
+      position: absolute; top: 1.2rem; right: 1.2rem;
+      background: var(--gold); color: var(--white);
+      font-family: var(--mono); font-size: 0.5rem;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      padding: 0.4rem 0.9rem; border-radius: 999px;
+    }
+    .cs-card-content { display: flex; flex-direction: column; gap: 1.4rem; }
+    .cs-card-header { display: flex; align-items: center; gap: 1rem; }
+    .cs-card-logo {
+      width: 48px; height: 48px; border-radius: 12px; overflow: hidden;
+      border: 1px solid rgba(26,23,20,0.06); flex-shrink: 0;
+      background: var(--white);
+    }
+    .cs-card-logo img { width: 100%; height: 100%; object-fit: cover; }
+    .cs-card-name {
+      font-family: var(--serif); font-size: 1.5rem; font-weight: 400; color: var(--ink);
+    }
+    .cs-card-type {
+      font-family: var(--mono); font-size: 0.5rem; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--ink-muted);
+    }
+
+    /* METRICS ROW */
+    .cs-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; }
+    .cs-metric {
+      background: var(--cream-2); border-radius: 1rem; padding: 1rem 0.8rem;
+      text-align: center; border: 1px solid rgba(26,23,20,0.03);
+      transition: border-color 0.3s;
+    }
+    .cs-metric:hover { border-color: var(--gold-pale); }
+    .cs-metric-value {
+      font-family: var(--serif); font-size: 1.4rem; font-weight: 400;
+      color: var(--gold); line-height: 1;
+    }
+    .cs-metric-label {
+      font-family: var(--mono); font-size: 0.45rem; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--ink-muted); margin-top: 0.35rem;
+    }
+
+    /* SECTIONS */
+    .cs-section-title {
+      font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 0.4rem;
+    }
+    .cs-section-text {
+      font-size: 0.85rem; line-height: 1.85; color: var(--ink-muted);
+    }
+
+    /* QUOTE */
+    .cs-quote {
+      font-family: var(--serif); font-size: 1.02rem; font-style: italic;
+      line-height: 1.7; color: var(--ink);
+      padding-left: 1.5rem; border-left: 2px solid var(--gold-pale);
+      position: relative;
+    }
+    .cs-quote::before {
+      content: '\201C'; position: absolute; left: -0.3rem; top: -0.5rem;
+      font-family: var(--serif); font-size: 3rem; color: var(--gold-pale);
+      line-height: 1;
+    }
+    .cs-quote-attr {
+      font-family: var(--mono); font-size: 0.5rem; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--ink-muted);
+      margin-top: 0.6rem; padding-left: 1.5rem;
+    }
+
+    /* --- AVANT/APRÈS SECTION --- */
+    .cs-comparison {
+      width: 100%; max-width: 1100px;
+      padding: 5rem 6vw;
+      border-top: 1px solid rgba(26,23,20,0.06);
+    }
+    .cs-comparison-header {
+      text-align: center; margin-bottom: 3rem;
+    }
+    .cs-comparison-header .eyebrow {
+      font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.25em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem;
+    }
+    .cs-comparison-header h2 {
+      font-family: var(--serif); font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 300; line-height: 0.95;
+    }
+    .cs-comparison-header h2 em { font-style: italic; color: var(--gold); }
+    .cs-comparison-grid {
+      display: grid; grid-template-columns: 1fr auto 1fr;
+      gap: 2.5rem; align-items: start;
+    }
+    .cs-col {
+      background: var(--cream-2); border-radius: 1.5rem;
+      padding: 2.5rem 2rem; border: 1px solid rgba(26,23,20,0.04);
+    }
+    .cs-col-before { }
+    .cs-col-after {
+      background: var(--ink); color: var(--cream);
+      border-color: transparent;
+    }
+    .cs-col-after .cs-col-item-label { color: var(--gold-light); }
+    .cs-col-after .cs-col-item-text { color: rgba(250,245,239,0.8); }
+    .cs-col-tag {
+      font-family: var(--mono); font-size: 0.5rem;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      margin-bottom: 2rem; display: flex; align-items: center; gap: 0.6rem;
+    }
+    .cs-col-before .cs-col-tag { color: var(--ink-muted); }
+    .cs-col-after .cs-col-tag { color: var(--gold); }
+    .cs-col-tag::before {
+      content: ''; display: block; width: 8px; height: 8px;
+      border-radius: 50%;
+    }
+    .cs-col-before .cs-col-tag::before { background: var(--ink-muted); opacity: 0.3; }
+    .cs-col-after .cs-col-tag::before { background: var(--gold); }
+    .cs-col-item { margin-bottom: 1.5rem; }
+    .cs-col-item:last-child { margin-bottom: 0; }
+    .cs-col-item-label {
+      font-family: var(--mono); font-size: 0.5rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--ink-muted); margin-bottom: 0.3rem;
+    }
+    .cs-col-item-text {
+      font-size: 0.9rem; line-height: 1.65; color: var(--ink);
+    }
+    .cs-col-arrow {
+      display: flex; align-items: center; justify-content: center;
+      align-self: center; color: var(--gold); font-size: 1.5rem;
+    }
+
+    /* --- CTA BOTTOM --- */
+    .cs-cta {
+      width: 100%; padding: 5rem 6vw;
+      text-align: center; display: flex; flex-direction: column; align-items: center;
+      border-top: 1px solid rgba(26,23,20,0.06);
+    }
+    .cs-cta .eyebrow {
+      font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.25em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem;
+    }
+    .cs-cta h2 {
+      font-family: var(--serif); font-size: clamp(2.2rem, 4vw, 3.5rem);
+      font-weight: 300; line-height: 0.95; margin-bottom: 1.2rem;
+    }
+    .cs-cta h2 em { font-style: italic; color: var(--gold); }
+    .cs-cta .desc {
+      font-size: 0.95rem; line-height: 1.8; color: var(--ink-muted);
+      max-width: 50ch; margin: 0 auto 2.5rem;
+    }
+    .cs-cta .cta-row { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+
+    /* CTA buttons (reuse global .btn-primary pattern) */
+    .cs-cta .btn-cta-primary {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      padding: 1.1rem 2.4rem; border-radius: 999px;
+      background: var(--gold); color: var(--white);
+      font-family: var(--mono); font-size: 0.65rem; font-weight: 400;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      text-decoration: none; transition: all 0.35s var(--ease-out);
+      border: 1px solid var(--gold);
+      box-shadow: 0 8px 24px rgba(168,137,92,0.25);
+      position: relative; overflow: hidden;
+    }
+    .cs-cta .btn-cta-primary::before {
+      content: ''; position: absolute; inset: 0;
+      background: var(--ink); transform: translateX(-101%);
+      transition: transform 0.55s var(--ease-out);
+    }
+    .cs-cta .btn-cta-primary:hover::before { transform: translateX(0); }
+    .cs-cta .btn-cta-primary span { position: relative; z-index: 1; }
+    .cs-cta .btn-cta-primary svg { position: relative; z-index: 1; }
+
+    .cs-cta .btn-cta-ghost {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      padding: 1rem 2.2rem; border-radius: 999px;
+      background: transparent; color: var(--ink);
+      border: 1px solid rgba(26,23,20,0.15);
+      font-family: var(--mono); font-size: 0.65rem; font-weight: 400;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      text-decoration: none; transition: all 0.35s var(--ease-out);
+    }
+    .cs-cta .btn-cta-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* --- RESPONSIVE --- */
+    @media (max-width: 768px) {
+      .cs-kpis { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+      .cs-card-inner,
+      .cs-card:nth-child(even) .cs-card-inner {
+        grid-template-columns: 1fr; direction: ltr;
+      }
+      .cs-metrics { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+      .cs-process-grid {
+        grid-template-columns: repeat(2, 1fr); gap: 1.5rem;
+      }
+      .cs-process-grid::before { display: none; }
+      .cs-comparison-grid {
+        grid-template-columns: 1fr;
+      }
+      .cs-col-arrow {
+        transform: rotate(90deg);
+      }
+      .cs-logos-grid { gap: 1.8rem; }
+      .cs-logo-item img { width: 64px; height: 64px; }
+    }
+    @media (max-width: 480px) {
+      .cs-kpis { grid-template-columns: repeat(2, 1fr); }
+      .cs-process-grid { grid-template-columns: 1fr 1fr; }
+      .cs-metric-label { font-size: 0.4rem; }
+    }
+
+    /* --- REVEAL ANIMATIONS --- */
+    .gs-reveal { opacity: 0; transform: translateY(30px); }
+    .gs-reveal-left { opacity: 0; transform: translateX(-40px); }
+    .gs-reveal-right { opacity: 0; transform: translateX(40px); }
+    .gs-reveal-scale { opacity: 0; transform: scale(0.92); }
+  </style>
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@maisonmirage" />
+  <meta name="twitter:title" content="Résultats Partenaires — Maison Mirage" />
+  <meta name="twitter:description" content="Les résultats concrets de nos partenaires : +45% contenu Instagram, +30% ticket dessert, rentable dès le 1er mois." />
+  <meta name="twitter:image" content="https://www.lamaisonmirage.com/img/hero-flatlay.webp" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Maison Mirage",
+    "url": "https://www.lamaisonmirage.com",
+    "logo": "https://www.lamaisonmirage.com/img/maison_mirage_logo_beige.webp",
+    "description": "Haute pâtisserie trompe-l'œil à Marseille. Desserts spectaculaires pour restaurants et événements.",
+    "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Marseille",
+        "addressRegion": "Provence-Alpes-Côte d'Azur",
+        "addressCountry": "FR"
+    },
+    "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "sales",
+        "email": "contact@lamaisonmirage.com"
+    }
+}
+  </script>
+</head>
+<body>
+
+  <!-- SKIP LINK (a11y) -->
+  <a href="#main-content" class="skip-to-content" style="position:absolute;top:-100%;left:0;background:var(--gold);color:var(--white);padding:0.5rem 1rem;z-index:9999;font-family:var(--mono);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;transition:top 0.3s;">Aller au contenu principal</a>
+
+  <!-- ═══════ MOBILE OVERLAY ═══════ -->
+  <div id="mobile-overlay" role="dialog" aria-label="Menu de navigation">
+    <a href="index.html" class="mobile-nav-item">Accueil</a>
+    <a href="index.html#boutique" class="mobile-nav-item">Le Catalogue</a>
+    <a href="atelier.html" class="mobile-nav-item">L'Atelier</a>
+    <a href="notre-histoire.html" class="mobile-nav-item">Notre Histoire</a>
+    <a href="partenaires.html" class="mobile-nav-item">Espace Pro</a>
+    <a href="case-studies.html" class="mobile-nav-item">Résultats</a>
+    <a href="evenements.html" class="mobile-nav-item">Événements</a>
+    <div class="mobile-nav-footer">
+      <a href="mailto:contact@lamaisonmirage.com">contact@lamaisonmirage.com</a>
+      <a href="tel:+33622356575">+33 (0)6 22 35 65 75</a>
+    </div>
+  </div>
+
+  <!-- ═══════ NAVIGATION ═══════ -->
+  <nav id="navbar" class="visible">
+    <!-- Mobile burger (hidden on desktop) -->
+    <button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-overlay">
+      <span></span><span></span><span></span>
+    </button>
+    <!-- Desktop links — left of brand -->
+    <div class="nav-links-left">
+      <a href="index.html#boutique">Catalogue</a>
+      <a href="atelier.html">L'Atelier</a>
+      <a href="notre-histoire.html">Notre Histoire</a>
+    </div>
+    <a href="index.html" class="nav-brand" aria-label="Retour à l'accueil">
+      <img src="img/maison_mirage_logo_beige.webp" alt="" class="brand-logo" width="36" height="36" />
+      <span class="brand-name">Maison Mirage</span>
+    </a>
+    <!-- Desktop links — right of brand + CTA -->
+    <div class="nav-links-right">
+      <a href="case-studies.html">Résultats</a>
+      <a href="evenements.html">Événements</a>
+      <a href="partenaires.html" class="nav-cta">
+        <span>Devis</span>
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </nav>
+
+  <main id="main-content">
+
+    <!-- BREADCRUMB -->
+    <nav class="cs-breadcrumb gs-reveal" aria-label="Fil d'Ariane">
+      <a href="index.html">Accueil</a>
+      <span class="sep">/</span>
+      <span>Résultats Partenaires</span>
+    </nav>
+
+    <!-- HERO -->
+    <section class="cs-hero">
+      <div class="visual-anchor"></div>
+      <p class="eyebrow gs-reveal">Études de cas</p>
+      <h1 class="gs-reveal">L'illusion parfaite,<br><em>les résultats concrets.</em></h1>
+      <p class="subtitle gs-reveal">Ils ont intégré les créations Maison Mirage à leur carte. Voici ce qui s'est passé — en chiffres, en témoignages, et en images.</p>
+    </section>
+
+    <!-- GLOBAL KPIS (animated counters) -->
+    <section class="cs-kpis" aria-label="Chiffres clés">
+      <div class="cs-kpi gs-reveal">
+        <div class="kpi-number" data-count="37" data-prefix="+" data-suffix="%">+37%</div>
+        <div class="kpi-label">Ticket dessert moyen</div>
+      </div>
+      <div class="cs-kpi gs-reveal">
+        <div class="kpi-number" data-count="100" data-suffix="%">100%</div>
+        <div class="kpi-label">Taux de renouvellement</div>
+      </div>
+      <div class="cs-kpi gs-reveal">
+        <div class="kpi-number" data-count="15" data-suffix="+">15+</div>
+        <div class="kpi-label">Partenaires actifs</div>
+      </div>
+      <div class="cs-kpi gs-reveal">
+        <div class="kpi-number" data-count="0" data-suffix="">0</div>
+        <div class="kpi-label">Chef pâtissier requis</div>
+      </div>
+    </section>
+
+    <!-- PARTNER LOGOS BANNER -->
+    <section class="cs-logos gs-reveal" aria-label="Nos partenaires">
+      <p class="cs-logos-label">Ils nous font confiance</p>
+      <div class="cs-logos-grid">
+        <div class="cs-logo-item">
+          <img src="img/avenuegrill.webp" alt="L'Avenue Grill" loading="lazy" />
+          <span class="cs-logo-name">L'Avenue Grill</span>
+        </div>
+        <div class="cs-logo-item">
+          <img src="img/fulldessert.webp" alt="Full Dessert" loading="lazy" />
+          <span class="cs-logo-name">Full Dessert</span>
+        </div>
+        <div class="cs-logo-item">
+          <img src="img/royalpatisserie.webp" alt="Royal Pâtisserie" loading="lazy" />
+          <span class="cs-logo-name">Royal Pâtisserie</span>
+        </div>
+        <div class="cs-logo-item">
+          <img src="img/magnussushi.webp" alt="Magnus Sushi" loading="lazy" />
+          <span class="cs-logo-name">Magnus Sushi</span>
+        </div>
+        <div class="cs-logo-item">
+          <img src="img/dubaisweet.webp" alt="Dubai Sweet" loading="lazy" />
+          <span class="cs-logo-name">Dubai Sweet</span>
+        </div>
+        <div class="cs-logo-item">
+          <img src="img/aslankadaifs.webp" alt="Aslan Kadaïfs" loading="lazy" />
+          <span class="cs-logo-name">Aslan Kadaïfs</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="cs-divider"></div>
+
+    <!-- PROCESS TIMELINE -->
+    <section class="cs-process gs-reveal">
+      <div class="cs-process-header">
+        <p class="eyebrow">Le parcours</p>
+        <h2>Du premier contact<br><em>à la vitrine.</em></h2>
+      </div>
+      <div class="cs-process-grid">
+        <div class="cs-step gs-reveal">
+          <div class="cs-step-num">01</div>
+          <div class="cs-step-title">Dégustation</div>
+          <div class="cs-step-desc">Nous vous envoyons un coffret découverte gratuit. Vous goûtez, vous décidez.</div>
+        </div>
+        <div class="cs-step gs-reveal">
+          <div class="cs-step-num">02</div>
+          <div class="cs-step-title">Sélection</div>
+          <div class="cs-step-desc">Vous choisissez les pièces adaptées à votre carte et votre positionnement.</div>
+        </div>
+        <div class="cs-step gs-reveal">
+          <div class="cs-step-num">03</div>
+          <div class="cs-step-title">Livraison</div>
+          <div class="cs-step-desc">Réception en chambre froide, prêt à servir. Aucune manipulation requise.</div>
+        </div>
+        <div class="cs-step gs-reveal">
+          <div class="cs-step-num">04</div>
+          <div class="cs-step-title">Résultats</div>
+          <div class="cs-step-desc">Vos clients filment, partagent, reviennent. Le dessert devient l'événement.</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="cs-divider"></div>
+
+    <!-- ═══════════════════════════════════════════
+         CASE STUDY 1 — L'Avenue Grill
+    ═══════════════════════════════════════════ -->
+    <article class="cs-card" id="avenue-grill">
+      <div class="cs-card-inner">
+        <div class="cs-card-visual gs-reveal-left">
+          <img src="img/avenuegrill.webp" alt="L'Avenue Grill — Restaurant partenaire Maison Mirage à Marseille" loading="lazy" />
+          <span class="cs-badge">Partenaire depuis 2024</span>
+        </div>
+        <div class="cs-card-content gs-reveal-right">
+          <div>
+            <div class="cs-card-header">
+              <div>
+                <div class="cs-card-name">L'Avenue Grill</div>
+                <div class="cs-card-type">Restaurant · Marseille</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cs-metrics">
+            <div class="cs-metric">
+              <div class="cs-metric-value">+45%</div>
+              <div class="cs-metric-label">Contenu Instagram</div>
+            </div>
+            <div class="cs-metric">
+              <div class="cs-metric-value">+28%</div>
+              <div class="cs-metric-label">Commandes dessert</div>
+            </div>
+            <div class="cs-metric">
+              <div class="cs-metric-value">3 mois</div>
+              <div class="cs-metric-label">Délai résultats</div>
+            </div>
+          </div>
+
+          <div>
+            <p class="cs-section-title">Le défi</p>
+            <p class="cs-section-text">L'Avenue Grill avait une carte salée solide, mais leurs desserts passaient inaperçus. Les clients commandaient rarement un dessert en fin de repas. L'établissement cherchait un moyen de dynamiser sa carte sucrée sans recruter un pâtissier à temps plein.</p>
+          </div>
+
+          <div>
+            <p class="cs-section-title">La solution</p>
+            <p class="cs-section-text">Intégration de 4 créations trompe-l'œil Maison Mirage sur la carte dessert. Livraison bi-hebdomadaire en chambre froide. Mise en avant sur table avec présentation sous cloche pour maximiser l'effet de surprise au moment du service.</p>
+          </div>
+
+          <div>
+            <p class="cs-section-title">Les résultats</p>
+            <p class="cs-section-text">En 3 mois, +45% de contenu spontané sur Instagram généré par les clients. Les vidéos de découpe sont devenues un rituel : les serveurs présentent la pièce intacte, puis la coupent devant le client. Le taux de commande dessert a bondi de 28%, sans aucune formation cuisine supplémentaire.</p>
+          </div>
+
+          <div>
+            <blockquote class="cs-quote">Depuis qu'on a intégré les créations Mirage, nos clients filment leurs desserts avant de les manger. C'est devenu le moment fort du repas.</blockquote>
+            <p class="cs-quote-attr">Gérant — L'Avenue Grill</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ═══════════════════════════════════════════
+         CASE STUDY 2 — Full Dessert
+    ═══════════════════════════════════════════ -->
+    <article class="cs-card" id="full-dessert">
+      <div class="cs-card-inner">
+        <div class="cs-card-visual gs-reveal-left">
+          <img src="img/fulldessert.webp" alt="Full Dessert — Concept Store partenaire Maison Mirage" loading="lazy" />
+          <span class="cs-badge">Partenaire depuis 2024</span>
+        </div>
+        <div class="cs-card-content gs-reveal-right">
+          <div>
+            <div class="cs-card-header">
+              <div>
+                <div class="cs-card-name">Full Dessert</div>
+                <div class="cs-card-type">Concept Store Dessert · Marseille</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cs-metrics">
+            <div class="cs-metric">
+              <div class="cs-metric-value">+30%</div>
+              <div class="cs-metric-label">Ticket moyen</div>
+            </div>
+            <div class="cs-metric">
+              <div class="cs-metric-value">×2</div>
+              <div class="cs-metric-label">Volume commandes</div>
+            </div>
+            <div class="cs-metric">
+              <div class="cs-metric-value">80+</div>
+              <div class="cs-metric-label">Pièces / semaine</div>
+            </div>
+          </div>
+
+          <div>
+            <p class="cs-section-title">Le défi</p>
+            <p class="cs-section-text">Full Dessert est un concept store spécialisé dans les desserts haut de gamme. Ils avaient besoin de renouveler régulièrement leur vitrine avec des pièces visuellement spectaculaires, tout en gardant une qualité constante sur de gros volumes — sans surcharger leur équipe en cuisine.</p>
+          </div>
+
+          <div>
+            <p class="cs-section-title">La solution</p>
+            <p class="cs-section-text">Partenariat avec Maison Mirage pour une gamme de 6 créations trompe-l'œil en rotation. Livraison en chambre froide 3 fois par semaine. Les pièces arrivent prêtes à servir — aucune manipulation, aucune finition nécessaire. Full Dessert les place directement en vitrine.</p>
+          </div>
+
+          <div>
+            <p class="cs-section-title">Les résultats</p>
+            <p class="cs-section-text">Le ticket moyen a augmenté de 30% dès le premier mois. Les créations trompe-l'œil sont devenues le produit phare de la boutique, attirant une nouvelle clientèle curieuse. Le volume de commandes a doublé en 6 mois, Full Dessert commandant désormais plus de 80 pièces par semaine.</p>
+          </div>
+
+          <div>
+            <blockquote class="cs-quote">Zéro manipulation en cuisine, la qualité est constante, et chaque service se transforme en expérience. C'est exactement ce qu'on cherchait.</blockquote>
+            <p class="cs-quote-attr">Gérant — Full Dessert</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ═══════════════════════════════════════════
+         CASE STUDY 3 — Royal Pâtisserie
+    ═══════════════════════════════════════════ -->
+    <article class="cs-card" id="royal-patisserie">
+      <div class="cs-card-inner">
+        <div class="cs-card-visual gs-reveal-left">
+          <img src="img/royalpatisserie.webp" alt="Royal Pâtisserie — Partenaire Maison Mirage à Marignane" loading="lazy" />
+          <span class="cs-badge">Partenaire depuis 2024</span>
+        </div>
+        <div class="cs-card-content gs-reveal-right">
+          <div>
+            <div class="cs-card-header">
+              <div>
+                <div class="cs-card-name">Royal Pâtisserie</div>
+                <div class="cs-card-type">Pâtisserie · Marignane</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cs-metrics">
+            <div class="cs-metric">
+              <div class="cs-metric-value">Mois 1</div>
+              <div class="cs-metric-label">Rentabilité atteinte</div>
+            </div>
+            <div class="cs-metric">
+              <div class="cs-metric-value">+120%</div>
+              <div class="cs-metric-label">Marge dessert</div>
+            </div>
+            <div class="cs-metric">
+              <div class="cs-metric-value">×2</div>
+              <div class="cs-metric-label">Commande mois 2</div>
+            </div>
+          </div>
+
+          <div>
+            <p class="cs-section-title">Le défi</p>
+            <p class="cs-section-text">Royal Pâtisserie souhaitait diversifier son offre avec des créations trompe-l'œil sans investir dans la formation ni le matériel spécialisé. Le challenge : proposer une gamme complémentaire qui se différencie nettement de leur production classique, tout en maîtrisant les coûts.</p>
+          </div>
+
+          <div>
+            <p class="cs-section-title">La solution</p>
+            <p class="cs-section-text">Sélection de 5 créations Maison Mirage positionnées en gamme premium dans leur vitrine. Livraison directe en chambre froide, intégration dans le parcours client existant. Le prix de revente à la pièce offre une marge confortable grâce au positionnement "dessert d'exception".</p>
+          </div>
+
+          <div>
+            <p class="cs-section-title">Les résultats</p>
+            <p class="cs-section-text">Rentabilité atteinte dès le premier mois. La marge sur les desserts trompe-l'œil dépasse 120%, bien au-dessus de la pâtisserie classique. L'effet vitrine attire une clientèle nouvelle qui découvre ensuite le reste de la boutique. Royal Pâtisserie a doublé sa commande initiale dès le deuxième mois.</p>
+          </div>
+
+          <div>
+            <blockquote class="cs-quote">La livraison en chambre froide directement, sans intermédiaire. On commande, on reçoit, on sert. Simple, spectaculaire, et rentable dès le premier mois.</blockquote>
+            <p class="cs-quote-attr">Gérant — Royal Pâtisserie</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <div class="cs-divider"></div>
+
+    <!-- AVANT / APRÈS SECTION -->
+    <section class="cs-comparison gs-reveal">
+      <div class="cs-comparison-header">
+        <p class="eyebrow">La transformation</p>
+        <h2>Avant et après<br><em>Maison Mirage.</em></h2>
+      </div>
+      <div class="cs-comparison-grid">
+        <div class="cs-col cs-col-before gs-reveal-left">
+          <div class="cs-col-tag"><span></span>Sans Maison Mirage</div>
+          <div class="cs-col-item">
+            <div class="cs-col-item-label">Carte dessert</div>
+            <div class="cs-col-item-text">Desserts classiques, peu commandés, faible marge</div>
+          </div>
+          <div class="cs-col-item">
+            <div class="cs-col-item-label">Visibilité sociale</div>
+            <div class="cs-col-item-text">Aucun contenu spontané des clients sur Instagram</div>
+          </div>
+          <div class="cs-col-item">
+            <div class="cs-col-item-label">Équipe requise</div>
+            <div class="cs-col-item-text">Pâtissier à temps plein ou desserts industriels</div>
+          </div>
+          <div class="cs-col-item">
+            <div class="cs-col-item-label">Expérience client</div>
+            <div class="cs-col-item-text">Le dessert est une fin de repas banale</div>
+          </div>
+        </div>
+
+        <div class="cs-col-arrow" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </div>
+
+        <div class="cs-col cs-col-after gs-reveal-right">
+          <div class="cs-col-tag"><span></span>Avec Maison Mirage</div>
+          <div class="cs-col-item">
+            <div class="cs-col-item-label">Carte dessert</div>
+            <div class="cs-col-item-text">Pièces trompe-l'œil premium, +30% ticket moyen, marge &gt;120%</div>
+          </div>
+          <div class="cs-col-item">
+            <div class="cs-col-item-label">Visibilité sociale</div>
+            <div class="cs-col-item-text">+45% de contenu organique, vidéos virales de découpe</div>
+          </div>
+          <div class="cs-col-item">
+            <div class="cs-col-item-label">Équipe requise</div>
+            <div class="cs-col-item-text">Zéro chef pâtissier. Livraison prête à servir.</div>
+          </div>
+          <div class="cs-col-item">
+            <div class="cs-col-item-label">Expérience client</div>
+            <div class="cs-col-item-text">Le dessert devient l'événement du repas — filmé, partagé, mémorable</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="cs-cta gs-reveal">
+      <p class="eyebrow">Rejoindre le réseau</p>
+      <h2>Votre établissement<br><em>est le prochain ?</em></h2>
+      <p class="desc">Dégustation gratuite, mise en place en 1 semaine, remplacement garanti. Rejoignez les 15+ établissements qui ont déjà transformé leur carte dessert.</p>
+      <div class="cta-row">
+        <a href="partenaires.html" class="btn-cta-primary">
+          <span>Demander une dégustation</span>
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="index.html#boutique" class="btn-cta-ghost">
+          Voir la collection
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-brand-text">Maison Mirage</div>
+    <div class="footer-tagline">Haute Pâtisserie · Marseille</div>
+
+    <nav class="footer-nav">
+      <a href="index.html#boutique">Le Catalogue</a>
+      <a href="atelier.html">L'Atelier</a>
+      <a href="notre-histoire.html">Notre Histoire</a>
+      <a href="case-studies.html">Résultats</a>
+      <a href="evenements.html">Événements</a>
+      <a href="partenaires.html">Espace Pro</a>
+    </nav>
+    <div class="footer-contact">
+      <a href="mailto:contact@lamaisonmirage.com">contact@lamaisonmirage.com</a><br/>
+      <a href="tel:+33622356575">+33 (0)6 22 35 65 75</a>
+    </div>
+    <p class="footer-address">Marseille, France · Lun–Sam 8h–18h</p>
+
+    <!-- Réseaux sociaux -->
+    <div class="footer-social">
+      <a href="https://www.instagram.com/maisonmirage" target="_blank" rel="noopener noreferrer" aria-label="Instagram Maison Mirage">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <a href="https://www.tiktok.com/@maisonmirage" target="_blank" rel="noopener noreferrer" aria-label="TikTok Maison Mirage">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.8a8.27 8.27 0 0 0 4.76 1.5v-3.4a4.85 4.85 0 0 1-1-.21z"/></svg>
+      </a>
+      <a href="mailto:contact@lamaisonmirage.com" aria-label="Email Maison Mirage">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </a>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 Maison Mirage</span>
+      <a href="mentions-legales.html">Mentions légales</a>
+      <a href="cgv-pro.html">CGV Pro</a>
+    </div>
+  </footer>
+
+  <script>
+    /* ════════════════════════════════════════════
+       NAV — Burger + Scroll
+    ════════════════════════════════════════════ */
+    const burger = document.getElementById('navBurger');
+    const overlay = document.getElementById('mobile-overlay');
+    const navbar = document.getElementById('navbar');
+
+    function toggleMenu(open) {
+      overlay.classList.toggle('active', open);
+      burger.classList.toggle('active', open);
+      burger.setAttribute('aria-expanded', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    }
+    if (burger && overlay) {
+      burger.addEventListener('click', () => toggleMenu(!overlay.classList.contains('active')));
+      overlay.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
+    }
+
+    // Scroll detection for navbar
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      navbar.classList.toggle('scrolled', y > 50);
+      lastScroll = y;
+    }, { passive: true });
+
+    /* ════════════════════════════════════════════
+       GSAP ANIMATIONS + COUNTER
+    ════════════════════════════════════════════ */
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof gsap === 'undefined') {
+        // Fallback: show all elements if GSAP fails to load
+        document.querySelectorAll('.gs-reveal, .gs-reveal-left, .gs-reveal-right, .gs-reveal-scale').forEach(el => {
+          el.style.opacity = '1';
+          el.style.transform = 'none';
+        });
+        return;
+      }
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Standard reveal (fade up)
+      gsap.utils.toArray('.gs-reveal').forEach((el, i) => {
+        gsap.to(el, {
+          opacity: 1, y: 0, duration: 0.9,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: el, start: 'top 88%',
+            toggleActions: 'play none none none'
+          },
+        });
+      });
+
+      // Reveal from left
+      gsap.utils.toArray('.gs-reveal-left').forEach(el => {
+        gsap.to(el, {
+          opacity: 1, x: 0, duration: 1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: el, start: 'top 85%',
+            toggleActions: 'play none none none'
+          },
+        });
+      });
+
+      // Reveal from right
+      gsap.utils.toArray('.gs-reveal-right').forEach(el => {
+        gsap.to(el, {
+          opacity: 1, x: 0, duration: 1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: el, start: 'top 85%',
+            toggleActions: 'play none none none'
+          },
+        });
+      });
+
+      // Scale reveal
+      gsap.utils.toArray('.gs-reveal-scale').forEach(el => {
+        gsap.to(el, {
+          opacity: 1, scale: 1, duration: 0.8,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: el, start: 'top 85%',
+            toggleActions: 'play none none none'
+          },
+        });
+      });
+
+      // KPI Counter Animation
+      document.querySelectorAll('.kpi-number[data-count]').forEach(el => {
+        const target = parseInt(el.dataset.count, 10);
+        const prefix = el.dataset.prefix || '';
+        const suffix = el.dataset.suffix || '';
+
+        ScrollTrigger.create({
+          trigger: el,
+          start: 'top 90%',
+          once: true,
+          onEnter: () => {
+            if (target === 0) {
+              el.textContent = prefix + '0' + suffix;
+              return;
+            }
+            const obj = { val: 0 };
+            gsap.to(obj, {
+              val: target,
+              duration: 1.8,
+              ease: 'power2.out',
+              onUpdate: () => {
+                el.textContent = prefix + Math.round(obj.val) + suffix;
+              }
+            });
+          }
+        });
+      });
+
+      // Process steps stagger
+      const steps = gsap.utils.toArray('.cs-step');
+      if (steps.length) {
+        gsap.to(steps, {
+          opacity: 1, y: 0, duration: 0.7,
+          stagger: 0.15, ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.cs-process-grid',
+            start: 'top 80%',
+            toggleActions: 'play none none none'
+          }
+        });
+      }
+    });
+  </script>
+
+  <!-- noscript fallback -->
+  <noscript>
+    <style>
+      .gs-reveal, .gs-reveal-left, .gs-reveal-right, .gs-reveal-scale {
+        opacity: 1 !important; transform: none !important;
+      }
+    </style>
+  </noscript>
+
+</body>
+</html>

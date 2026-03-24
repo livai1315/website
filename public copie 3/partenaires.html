@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Partenariats & B2B — Maison Mirage</title>
+  <meta name="description" content="Partenariats B2B — Maison Mirage, Marseille. Desserts trompe-l'œil dès 5€/pièce. Livraison 6j/7 en chambre froide. Dégustation gratuite pour votre équipe." />
+  <meta property="og:title" content="Partenariats & B2B — Maison Mirage" />
+  <meta property="og:description" content="Intégrez l'expérience Mirage à votre carte. Des créations spectaculaires, prêtes à servir, pour booster l'attractivité de votre établissement." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.lamaisonmirage.com/partenaires.html" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:image" content="https://www.lamaisonmirage.com/img/vitrine-boutique.webp" />
+  <link rel="canonical" href="https://www.lamaisonmirage.com/partenaires.html" />
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@200;300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JCL4B8SJY0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JCL4B8SJY0');
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+
+  <style>
+    .subpage-header { padding:2.5rem 6vw; display:flex; justify-content:space-between; align-items:center; position:relative; z-index:10; }
+
+    main {
+      display: flex; flex-direction: column; gap: 5rem;
+      min-height: calc(100dvh - 100px);
+      padding: 9rem 6vw 5rem; align-items: center;
+    }
+
+    /* HERO + INTRO */
+    .content-side {
+      width: 100%; max-width: 1100px; position: relative;
+      text-align: center; display: flex; flex-direction: column; align-items: center;
+    }
+
+    h1 { font-family:var(--serif); font-size:clamp(3.2rem, 5vw, 5.5rem); font-weight:300; line-height:0.9; margin-bottom:2.5rem; letter-spacing:-0.02em; }
+    h1 em { font-style:italic; color:var(--gold); }
+    .description { font-size:1.1rem; line-height:1.8; color:var(--ink-muted); max-width:60ch; margin: 0 auto 0 auto; }
+
+    /* HERO IMAGE */
+    .hero-img-wrapper {
+      width: 100%; height: 50vh; min-height: 400px; max-height: 550px;
+      border-radius: 2.5rem; overflow: hidden;
+      box-shadow: 0 40px 80px rgba(26,23,20,0.08);
+      margin: 3rem 0 0 0; border: 1px solid rgba(26,23,20,0.05);
+    }
+    .hero-img-wrapper img { width:100%; height:100%; object-fit:cover; transition:transform 1.2s cubic-bezier(0.2,0.8,0.2,1); }
+    .hero-img-wrapper:hover img { transform:scale(1.04); }
+
+    /* KPI MINI BAR */
+    .kpi-mini {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; background: rgba(26,23,20,0.06);
+      border-radius: 1.5rem; overflow: hidden;
+      width: 100%; max-width: 800px;
+    }
+    .kpi-mini-item {
+      background: var(--cream); padding: 2rem 1.5rem; text-align: center;
+    }
+    .kpi-mini-num {
+      font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight: 300; color: var(--ink); line-height: 1; margin-bottom: 0.4rem;
+    }
+    .kpi-mini-num em { font-style: italic; color: var(--gold-light); }
+    .kpi-mini-label {
+      font-family: var(--mono); font-size: 0.5rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--ink-muted); line-height: 1.5;
+    }
+
+    /* 3 ARGUMENTS B2B */
+    .b2b-list {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 4rem; width: 100%; text-align: left;
+    }
+    .b2b-item { position:relative; padding-top:2.5rem; border-top:1px solid rgba(26,23,20,0.1); cursor:default; }
+    .b2b-item::before {
+      content:''; position:absolute; left:0; top:-1px; width:40px; height:1px;
+      background:var(--gold); transition:width 0.5s ease;
+    }
+    .b2b-item:hover::before { width: 100%; }
+    .b2b-num {
+      position:absolute; top:0.8rem; left:0;
+      font-family:var(--mono); font-size:0.65rem; color:var(--gold); letter-spacing:0.1em;
+    }
+    .b2b-title { font-family:var(--serif); font-size:1.4rem; font-weight:400; color:var(--ink); margin-bottom:1rem; }
+    .b2b-desc { font-family:var(--sans); font-size:0.9rem; color:var(--ink-muted); line-height:1.7; max-width:90%; }
+
+    .visual-anchor { position:absolute; top:-10%; left:50%; transform:translateX(-50%) rotate(-15deg); width:600px; height:200px; border-radius:999px; background:radial-gradient(ellipse at center, rgba(168,137,92,0.15) 0%, transparent 70%); pointer-events:none; z-index:-1; }
+
+    /* TESTIMONIALS */
+    .testimonials-pro {
+      width: 100%; max-width: 1000px;
+    }
+    .testimonials-pro-label {
+      font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.35em;
+      text-transform: uppercase; color: var(--ink-muted); text-align: center; margin-bottom: 2.5rem;
+      display: flex; align-items: center; justify-content: center; gap: 1rem;
+    }
+    .testimonials-pro-label::before, .testimonials-pro-label::after {
+      content: ''; width: 30px; height: 1px; background: var(--gold); opacity: 0.3;
+    }
+    .testimonials-pro-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;
+    }
+    .testi-card {
+      background: var(--white); border-radius: 1.5rem; padding: 2.2rem;
+      border: 1px solid rgba(26,23,20,0.04); box-shadow: 0 4px 20px rgba(26,23,20,0.04);
+      transition: transform 0.3s var(--ease-out);
+    }
+    .testi-card:hover { transform: translateY(-4px); }
+    .testi-quote {
+      font-family: var(--serif); font-size: 1.05rem; font-style: italic;
+      line-height: 1.7; color: var(--ink); margin-bottom: 1.5rem;
+      padding-left: 1rem; border-left: 2px solid var(--gold-pale);
+    }
+    .testi-author { display: flex; align-items: center; gap: 0.8rem; }
+    .testi-author-img {
+      width: 40px; height: 40px; border-radius: 50%; object-fit: cover;
+      border: 2px solid var(--gold-pale);
+    }
+    .testi-author-name { font-family:var(--sans); font-weight:500; font-size:0.8rem; color:var(--ink); }
+    .testi-author-role { font-family:var(--mono); font-size:0.5rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-muted); }
+
+    /* PARTNER LOGOS */
+    .partners-logo-bar {
+      display: flex; align-items: flex-start; justify-content: center;
+      gap: 3rem; flex-wrap: wrap; margin-top: 2rem;
+    }
+    .partners-logo-bar .sp-wrap {
+      position: relative; display: flex; flex-direction: column;
+      align-items: center; gap: 0.8rem; cursor: pointer;
+    }
+    .partners-logo-bar .sp-wrap::after {
+      content: attr(data-name);
+      font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--ink-muted); white-space: nowrap;
+      opacity: 0; transform: translateY(-4px);
+      transition: opacity 0.3s, transform 0.3s; pointer-events: none;
+    }
+    .partners-logo-bar .sp-wrap:hover::after { opacity: 1; transform: translateY(0); }
+    .partners-logo-bar .sp-wrap img {
+      width: 88px; height: 88px; border-radius: 50%; object-fit: cover;
+      border: 1px solid rgba(26,23,20,0.08);
+      opacity: 0.75; filter: grayscale(50%); transition: all 0.4s;
+    }
+    .partners-logo-bar .sp-wrap:hover img {
+      opacity: 1; filter: grayscale(0%);
+      box-shadow: 0 6px 20px rgba(26,23,20,0.12);
+      transform: translateY(-3px);
+    }
+
+    /* FORM (version claire) */
+    .form-side {
+      width: 100%; max-width: 900px;
+      background: var(--white);
+      color: var(--ink); border-radius: 2.5rem; padding: 4.5rem;
+      box-shadow: 0 20px 60px rgba(26,23,20,0.07);
+      position: relative; overflow: hidden;
+      border: 1px solid rgba(26,23,20,0.06);
+    }
+    .form-header { margin-bottom:3.5rem; text-align:center; position:relative; z-index:2; }
+    .form-header p { font-family:var(--mono); font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); }
+
+    /* FORM FIELDS */
+    .form-grid { display:grid; grid-template-columns:1fr 1fr; column-gap:4rem; row-gap:2.5rem; margin-bottom:3.5rem; position:relative; z-index:2; }
+    .full-width { grid-column: 1 / -1; }
+
+    .form-side .input-group::after { content:''; position:absolute; bottom:0; left:50%; transform:translateX(-50%); width:0; height:1px; background:var(--gold); transition:width 0.5s cubic-bezier(0.16,1,0.3,1); }
+    .form-side .input-group:focus-within::after { width:100%; }
+    .form-side .input-group label { color:rgba(26,23,20,0.4); }
+    .form-side .input-group input, .form-side .input-group textarea { border-bottom-color:rgba(26,23,20,0.15); color:var(--ink); position:relative; z-index:2; }
+    .form-side .input-group input:focus ~ label, .form-side .input-group input:not(:placeholder-shown) ~ label,
+    .form-side .input-group textarea:focus ~ label, .form-side .input-group textarea:not(:placeholder-shown) ~ label { color:var(--gold); }
+    .form-side .input-group input:focus, .form-side .input-group textarea:focus { border-bottom-color:transparent; }
+    .form-side .input-group input:focus-visible, .form-side .input-group textarea:focus-visible { outline:none; }
+
+    .form-side .custom-select-wrapper label { color:var(--gold); }
+    .form-side .custom-select { border-bottom-color:rgba(26,23,20,0.15); color:var(--ink); }
+    .form-side .custom-select:hover { border-bottom-color:var(--gold); }
+    .form-side .custom-select::after { border-color:var(--ink-muted); }
+    .form-side .custom-select.open::after { border-color:var(--gold); }
+    .form-side .custom-options { background:var(--white); border:1px solid rgba(26,23,20,0.08); border-top:none; box-shadow:0 20px 50px rgba(26,23,20,0.1); }
+    .form-side .custom-option { color:var(--ink-muted); }
+    .form-side .custom-option:hover, .form-side .custom-option.selected { background:rgba(168,137,92,0.08); color:var(--ink); }
+
+    .submit-wrap { position:relative; z-index:2; margin-top:4rem; display:flex; align-items:center; justify-content:space-between; }
+    .form-side .submit-btn { background:var(--ink); color:var(--cream); }
+    .form-side .submit-btn:hover { background:var(--gold); }
+    .form-side .submit-btn:hover span, .form-side .submit-btn:hover svg { color:var(--white); }
+    .form-side .privacy-note { color:var(--ink-muted); }
+
+    .wa-pro-wrap { position:relative; z-index:2; margin-top:3.5rem; padding-top:2.5rem; border-top:1px solid rgba(26,23,20,0.08); display:flex; justify-content:space-between; align-items:center; }
+    .wa-pro-text { font-family:var(--sans); font-size:0.85rem; color:var(--ink-muted); }
+    .wa-btn-pro { display:inline-flex; align-items:center; gap:0.6rem; font-family:var(--mono); font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--white); background:var(--gold); padding:0.8rem 1.6rem; border-radius:999px; text-decoration:none; transition:transform 0.3s var(--ease-spring), background 0.3s; }
+    .wa-btn-pro:hover { background:var(--ink); transform:translateY(-2px); }
+
+    .form-side .success-overlay { background:var(--cream); z-index:10; }
+    .form-side .success-mark { border-color:var(--gold); color:var(--gold); }
+    .success-title { font-family:var(--serif); font-size:2.8rem; font-weight:300; margin-bottom:1.5rem; color:var(--ink); }
+    .success-desc { color:var(--ink-muted); line-height:1.8; max-width:35ch; margin-bottom:3rem; }
+
+    /* FOOTER */
+    .page-footer {
+      padding: 3rem 6vw 2rem; text-align: center;
+      border-top: 1px solid rgba(26,23,20,0.06);
+    }
+    .page-footer-brand { font-family:var(--serif); font-size:1.1rem; font-weight:300; color:var(--ink); letter-spacing:0.18em; text-transform:uppercase; }
+    .page-footer-tagline { font-family:var(--mono); font-size:0.5rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--ink-muted); margin:0.5rem 0 1.5rem; }
+    .page-footer-social { display:flex; gap:1rem; justify-content:center; margin-bottom:1.5rem; }
+    .page-footer-social a {
+      display:flex; align-items:center; justify-content:center;
+      width:36px; height:36px; border-radius:50%; border:1px solid rgba(26,23,20,0.1);
+      transition:all 0.3s;
+    }
+    .page-footer-social a:hover { border-color:var(--gold); background:rgba(168,137,92,0.08); }
+    .page-footer-social a svg { color:var(--ink-muted); transition:color 0.3s; }
+    .page-footer-social a:hover svg { color:var(--gold); }
+    .page-footer-links { display:flex; gap:2rem; justify-content:center; margin-bottom:1rem; }
+    .page-footer-links a { font-family:var(--mono); font-size:0.5rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--ink-muted); transition:color 0.3s; }
+    .page-footer-links a:hover { color:var(--gold); }
+    .page-footer-copy { font-family:var(--mono); font-size:0.45rem; letter-spacing:0.1em; color:rgba(26,23,20,0.3); }
+
+    @media (max-width:1024px) {
+      main { gap:4rem; padding-top:7rem; }
+      .b2b-list { grid-template-columns: 1fr; gap: 3rem; }
+      .kpi-mini { grid-template-columns: 1fr; max-width: 100%; }
+      .form-side { padding:3rem 2rem; }
+      .visual-anchor { display:none; }
+    }
+    @media (max-width:640px) {
+      .form-grid { grid-template-columns:1fr; gap:2rem; }
+      .full-width { grid-column:span 1; }
+      .submit-wrap { flex-direction:column; gap:2rem; align-items:stretch; text-align:center; }
+      .privacy-note { max-width:100%; }
+      .wa-pro-wrap { flex-direction:column; gap:1.5rem; text-align:center; }
+      .wa-btn-pro { width:100%; justify-content:center; }
+    }
+
+    /* PRICING GRID */
+    .pricing-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:0.6rem; }
+    .pricing-tier { padding:1rem 1.2rem; background:var(--cream-2); border-radius:1rem; text-align:center; border:1px solid transparent; }
+    .pricing-tier:last-child { background:rgba(168,137,92,0.08); border-color:rgba(168,137,92,0.2); }
+    .pricing-tier-qty { font-family:var(--mono); font-size:0.6rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-muted); margin-bottom:0.4rem; }
+    .pricing-tier-price { font-family:var(--serif); font-size:1.4rem; font-weight:300; color:var(--ink); }
+    .pricing-tier-price span { font-family:var(--mono); font-size:0.55rem; color:var(--ink-muted); }
+    .pricing-tier:last-child .pricing-tier-price { color:var(--gold); }
+    @media(max-width:480px) { .pricing-grid{grid-template-columns:1fr;} .pricing-tier{display:flex;justify-content:space-between;align-items:center;} .pricing-tier-qty{margin-bottom:0;} }
+  </style>
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@maisonmirage" />
+  <meta name="twitter:title" content="Partenariats & B2B — Maison Mirage" />
+  <meta name="twitter:description" content="Intégrez l'expérience Mirage à votre carte. Des créations spectaculaires, prêtes à servir, pour booster l'attractivité de votre établissement." />
+  <meta name="twitter:image" content="https://www.lamaisonmirage.com/img/vitrine-boutique.webp" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Accueil",
+            "item": "https://www.lamaisonmirage.com/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Nos Partenaires",
+            "item": "https://www.lamaisonmirage.com/partenaires.html"
+        }
+    ]
+}
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Maison Mirage",
+    "url": "https://www.lamaisonmirage.com",
+    "logo": "https://www.lamaisonmirage.com/img/maison_mirage_logo_beige.webp",
+    "description": "Haute pâtisserie trompe-l'œil à Marseille. Desserts spectaculaires pour restaurants et événements.",
+    "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Marseille",
+        "addressRegion": "Provence-Alpes-Côte d'Azur",
+        "addressCountry": "FR"
+    },
+    "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "sales",
+        "email": "contact@lamaisonmirage.com"
+    }
+}
+  </script>
+</head>
+<body>
+  <div class="page-transition"></div>
+  <script>setTimeout(function(){var t=document.querySelector(".page-transition");if(t){t.style.opacity="0";t.style.visibility="hidden";}},2000);</script>
+  <!-- ═══════ MOBILE OVERLAY ═══════ -->
+  <div id="mobile-overlay" role="dialog" aria-label="Menu de navigation">
+    <a href="index.html" class="mobile-nav-item">Accueil</a>
+    <a href="index.html#boutique" class="mobile-nav-item">Le Catalogue</a>
+    <a href="atelier.html" class="mobile-nav-item">L'Atelier</a>
+    <a href="notre-histoire.html" class="mobile-nav-item">Notre Histoire</a>
+    <a href="partenaires.html" class="mobile-nav-item">Espace Pro</a>
+    <a href="case-studies.html" class="mobile-nav-item">Résultats</a>
+    <a href="evenements.html" class="mobile-nav-item">Événements</a>
+    <div class="mobile-nav-footer">
+      <a href="mailto:contact@lamaisonmirage.com">contact@lamaisonmirage.com</a>
+      <a href="tel:+33622356575">+33 (0)6 22 35 65 75</a>
+    </div>
+  </div>
+
+  <!-- ═══════ NAVIGATION ═══════ -->
+  <nav id="navbar" class="visible">
+    <!-- Mobile burger (hidden on desktop) -->
+    <button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-overlay">
+      <span></span><span></span><span></span>
+    </button>
+    <!-- Desktop links — left of brand -->
+    <div class="nav-links-left">
+      <a href="index.html#boutique">Catalogue</a>
+      <a href="atelier.html">L'Atelier</a>
+      <a href="notre-histoire.html">Notre Histoire</a>
+    </div>
+    <a href="index.html" class="nav-brand" aria-label="Retour à l'accueil">
+      <img src="img/maison_mirage_logo_beige.webp" alt="" class="brand-logo" width="36" height="36" />
+      <span class="brand-name">Maison Mirage</span>
+    </a>
+    <!-- Desktop links — right of brand + CTA -->
+    <div class="nav-links-right">
+      <a href="case-studies.html">Résultats</a>
+      <a href="evenements.html">Événements</a>
+      <a href="partenaires.html" class="nav-cta">
+        <span>Devis</span>
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- HERO -->
+    <section class="content-side">
+      <div class="visual-anchor"></div>
+      <p class="eyebrow gs-reveal">B2B & partenariats</p>
+      <h1 class="gs-reveal">Boostez votre carte<br><em>sans chef pâtissier.</em></h1>
+      <p class="description gs-reveal">Rejoignez 15+ établissements qui ont intégré l'expérience Mirage à leur carte. Un dessert spectaculaire qui génère du contenu viral et augmente votre ticket moyen — prêt à servir, livré en chambre froide.</p>
+
+      <div class="hero-img-wrapper gs-reveal">
+        <img src="img/vitrine-boutique.webp" alt="Boutique Maison Mirage" />
+      </div>
+    </section>
+
+    <!-- KPI MINI -->
+    <section class="kpi-mini gs-reveal">
+      <div class="kpi-mini-item">
+        <div class="kpi-mini-num">200<em>+</em></div>
+        <div class="kpi-mini-label">Pièces / semaine</div>
+      </div>
+      <div class="kpi-mini-item">
+        <div class="kpi-mini-num">6<em>j/7</em></div>
+        <div class="kpi-mini-label">Livraison réfrigérée</div>
+      </div>
+      <div class="kpi-mini-item">
+        <div class="kpi-mini-num">0</div>
+        <div class="kpi-mini-label">Chef pâtissier requis</div>
+      </div>
+    </section>
+
+    <!-- 3 ARGUMENTS -->
+    <section class="content-side">
+      <div class="b2b-list gs-reveal">
+        <div class="b2b-item">
+          <span class="b2b-num">01</span>
+          <h3 class="b2b-title">Volumes & Régularité</h3>
+          <p class="b2b-desc">Une production calibrée pour vos besoins. Un standard de qualité irréprochable, sans nécessiter de chef pâtissier sur place.</p>
+        </div>
+        <div class="b2b-item">
+          <span class="b2b-num">02</span>
+          <h3 class="b2b-title">Clé en main & Livraison</h3>
+          <p class="b2b-desc">Un service de conciergerie pro dédié. Livraison directe dans vos vitrines ou chambres froides, 6 jours sur 7 sur Marseille et région.</p>
+        </div>
+        <div class="b2b-item">
+          <span class="b2b-num">03</span>
+          <h3 class="b2b-title">Viralité & Réseaux Sociaux</h3>
+          <p class="b2b-desc">Plus qu'un dessert, le trompe-l'œil est une expérience virale qui dynamise vos ventes additionnelles et fait rayonner votre établissement.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOCIAL PROOF -->
+    <section class="testimonials-pro gs-reveal">
+      <p class="testimonials-pro-label">Ils subliment nos créations</p>
+      <div class="testimonials-pro-grid">
+        <div class="testi-card">
+          <p class="testi-quote">Depuis qu'on a intégré Mirage, nos clients filment systématiquement leurs desserts. +45% de contenu spontané sur Instagram en 3 mois.</p>
+          <div class="testi-author">
+            <img class="testi-author-img" src="img/avenuegrill.webp" alt="L'Avenue Grill" />
+            <div>
+              <div class="testi-author-name">L'Avenue Grill</div>
+              <div class="testi-author-role">Restaurant · Marseille</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <p class="testi-quote">Zéro manipulation en cuisine, qualité constante, et chaque service se transforme en expérience. Notre ticket moyen dessert a augmenté de 30%.</p>
+          <div class="testi-author">
+            <img class="testi-author-img" src="img/fulldessert.webp" alt="Full Dessert" />
+            <div>
+              <div class="testi-author-name">Full Dessert</div>
+              <div class="testi-author-role">Concept Store · Marseille</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <p class="testi-quote">La livraison directe en chambre froide, sans intermédiaire. On commande, on reçoit, on sert. Rentable dès le premier mois.</p>
+          <div class="testi-author">
+            <img class="testi-author-img" src="img/royalpatisserie.webp" alt="Royal Pâtisserie" />
+            <div>
+              <div class="testi-author-name">Royal Pâtisserie</div>
+              <div class="testi-author-role">Pâtisserie · Marseille</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="partners-logo-bar">
+        <div class="sp-wrap" data-name="Full Dessert"><img src="img/fulldessert.webp" alt="Full Dessert" /></div>
+        <div class="sp-wrap" data-name="Dubai Sweet"><img src="img/dubaisweet.webp" alt="Dubai Sweet" /></div>
+        <div class="sp-wrap" data-name="Aslan Kadaifs"><img src="img/aslankadaifs.webp" alt="Aslan Kadaifs" /></div>
+        <div class="sp-wrap" data-name="La Graille Mobile"><img src="img/graillemobile.webp" alt="La Graille Mobile" /></div>
+        <div class="sp-wrap" data-name="L'Avenue Grill"><img src="img/avenuegrill.webp" alt="L'Avenue Grill" /></div>
+        <div class="sp-wrap" data-name="Royal Pâtisserie"><img src="img/royalpatisserie.webp" alt="Royal Pâtisserie" /></div>
+        <div class="sp-wrap" data-name="Magnus Sushi"><img src="img/magnussushi.webp" alt="Magnus Sushi" /></div>
+      </div>
+    </section>
+
+    <!-- TARIFS DÉGRESSIFS -->
+    <section class="content-side gs-reveal pricing-section-header">
+      <p class="eyebrow pricing-section-eyebrow">Tarifs B2B</p>
+      <h2 class="pricing-section-title">Des prix<br><em>dégressifs.</em></h2>
+      <div class="pricing-grid" class="pricing-grid-wrap">
+        <div class="pricing-tier">
+          <div class="pricing-tier-qty">&lt; 50 pièces</div>
+          <div class="pricing-tier-price">6€ <span>/pièce</span></div>
+        </div>
+        <div class="pricing-tier">
+          <div class="pricing-tier-qty">Dès 50 pièces</div>
+          <div class="pricing-tier-price">5,50€ <span>/pièce</span></div>
+        </div>
+        <div class="pricing-tier">
+          <div class="pricing-tier-qty">Dès 100 pièces</div>
+          <div class="pricing-tier-price">5€ <span>/pièce</span></div>
+        </div>
+      </div>
+      <p class="pricing-section-note">Dégustation gratuite pour votre équipe</p>
+    </section>
+
+    <!-- MICRO-CONFIGURATEUR DE DEVIS -->
+    <section class="content-side gs-reveal configurator-section">
+      <p class="eyebrow">Simulateur</p>
+      <h2 class="configurator-title">Estimez votre<br><em>budget.</em></h2>
+      <p class="configurator-subtitle">Sélectionnez vos créations et ajustez les quantités pour obtenir une estimation instantanée.</p>
+
+      <div class="configurator-wrap">
+        <div class="config-products">
+          <div class="config-product" data-product="fraise" data-price="5">
+            <div class="config-product-info">
+              <span class="config-product-name">La Fraise</span>
+              <span class="config-product-price">dès 5€/pièce</span>
+            </div>
+            <div class="config-qty-control">
+              <button class="config-qty-btn" data-action="minus" aria-label="Retirer">−</button>
+              <span class="config-qty-value">0</span>
+              <button class="config-qty-btn" data-action="plus" aria-label="Ajouter">+</button>
+            </div>
+          </div>
+          <div class="config-product" data-product="mangue" data-price="5">
+            <div class="config-product-info">
+              <span class="config-product-name">La Mangue</span>
+              <span class="config-product-price">dès 5€/pièce</span>
+            </div>
+            <div class="config-qty-control">
+              <button class="config-qty-btn" data-action="minus" aria-label="Retirer">−</button>
+              <span class="config-qty-value">0</span>
+              <button class="config-qty-btn" data-action="plus" aria-label="Ajouter">+</button>
+            </div>
+          </div>
+          <div class="config-product" data-product="peche" data-price="5">
+            <div class="config-product-info">
+              <span class="config-product-name">La Pêche</span>
+              <span class="config-product-price">dès 5€/pièce</span>
+            </div>
+            <div class="config-qty-control">
+              <button class="config-qty-btn" data-action="minus" aria-label="Retirer">−</button>
+              <span class="config-qty-value">0</span>
+              <button class="config-qty-btn" data-action="plus" aria-label="Ajouter">+</button>
+            </div>
+          </div>
+          <div class="config-product" data-product="citron" data-price="5">
+            <div class="config-product-info">
+              <span class="config-product-name">Le Citron</span>
+              <span class="config-product-price">dès 5€/pièce</span>
+            </div>
+            <div class="config-qty-control">
+              <button class="config-qty-btn" data-action="minus" aria-label="Retirer">−</button>
+              <span class="config-qty-value">0</span>
+              <button class="config-qty-btn" data-action="plus" aria-label="Ajouter">+</button>
+            </div>
+          </div>
+          <div class="config-product" data-product="framboise" data-price="5">
+            <div class="config-product-info">
+              <span class="config-product-name">La Framboise</span>
+              <span class="config-product-price">dès 5€/pièce</span>
+            </div>
+            <div class="config-qty-control">
+              <button class="config-qty-btn" data-action="minus" aria-label="Retirer">−</button>
+              <span class="config-qty-value">0</span>
+              <button class="config-qty-btn" data-action="plus" aria-label="Ajouter">+</button>
+            </div>
+          </div>
+          <div class="config-product" data-product="passion" data-price="5">
+            <div class="config-product-info">
+              <span class="config-product-name">Le Fruit de la Passion</span>
+              <span class="config-product-price">dès 5€/pièce</span>
+            </div>
+            <div class="config-qty-control">
+              <button class="config-qty-btn" data-action="minus" aria-label="Retirer">−</button>
+              <span class="config-qty-value">0</span>
+              <button class="config-qty-btn" data-action="plus" aria-label="Ajouter">+</button>
+            </div>
+          </div>
+          <div class="config-product" data-product="cacao" data-price="5">
+            <div class="config-product-info">
+              <span class="config-product-name">Le Cacao Grand Cru</span>
+              <span class="config-product-price">dès 5€/pièce</span>
+            </div>
+            <div class="config-qty-control">
+              <button class="config-qty-btn" data-action="minus" aria-label="Retirer">−</button>
+              <span class="config-qty-value">0</span>
+              <button class="config-qty-btn" data-action="plus" aria-label="Ajouter">+</button>
+            </div>
+          </div>
+          <div class="config-product" data-product="arachide" data-price="5">
+            <div class="config-product-info">
+              <span class="config-product-name">L'Arachide</span>
+              <span class="config-product-price">dès 5€/pièce</span>
+            </div>
+            <div class="config-qty-control">
+              <button class="config-qty-btn" data-action="minus" aria-label="Retirer">−</button>
+              <span class="config-qty-value">0</span>
+              <button class="config-qty-btn" data-action="plus" aria-label="Ajouter">+</button>
+            </div>
+          </div>
+          <div class="config-product" data-product="vanille" data-price="5">
+            <div class="config-product-info">
+              <span class="config-product-name">La Vanille Grand Cru</span>
+              <span class="config-product-price">dès 5€/pièce</span>
+            </div>
+            <div class="config-qty-control">
+              <button class="config-qty-btn" data-action="minus" aria-label="Retirer">−</button>
+              <span class="config-qty-value">0</span>
+              <button class="config-qty-btn" data-action="plus" aria-label="Ajouter">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="config-summary">
+          <div class="config-summary-inner">
+            <div class="config-summary-header">Votre estimation</div>
+            <div class="config-summary-line">
+              <span>Pièces sélectionnées</span>
+              <span id="configTotalQty">0</span>
+            </div>
+            <div class="config-summary-line">
+              <span>Prix unitaire appliqué</span>
+              <span id="configUnitPrice">—</span>
+            </div>
+            <div class="config-summary-line config-summary-tier" id="configTierInfo">
+              Ajoutez des pièces pour voir le tarif
+            </div>
+            <div class="config-summary-divider"></div>
+            <div class="config-summary-line config-summary-total">
+              <span>Estimation / livraison</span>
+              <span id="configTotal">0 €</span>
+            </div>
+            <div class="config-summary-line config-summary-weekly">
+              <span>Estimation / semaine (×2)</span>
+              <span id="configWeekly">0 €</span>
+            </div>
+            <a href="#partnerForm" class="config-cta-btn">
+              Demander un devis précis
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <p class="config-disclaimer">Estimation indicative. Le devis définitif est établi après votre dégustation gratuite.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMENT ÇA MARCHE -->
+    <section class="content-side gs-reveal">
+      <div class="b2b-list">
+        <div class="b2b-item">
+          <span class="b2b-num">01</span>
+          <h3 class="b2b-title">Dégustation gratuite</h3>
+          <p class="b2b-desc">Nous venons avec une sélection de nos créations pour que vous puissiez goûter, valider, et choisir celles qui correspondent à votre carte.</p>
+        </div>
+        <div class="b2b-item">
+          <span class="b2b-num">02</span>
+          <h3 class="b2b-title">Mise en place 1 semaine</h3>
+          <p class="b2b-desc">Vous validez vos choix. En 1 semaine, nous calons le prévisionnel, la fréquence de livraison et les volumes.</p>
+        </div>
+        <div class="b2b-item">
+          <span class="b2b-num">03</span>
+          <h3 class="b2b-title">Livraison & Sérénité</h3>
+          <p class="b2b-desc">Vous recevez vos créations en chambre froide, prêtes à servir. Zéro manipulation, zéro stress, qualité constante.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMULAIRE -->
+    <section class="form-side gs-form">
+      <div class="form-header">
+        <p>Formulaire de contact pro</p>
+      </div>
+      <form id="partnerForm" aria-label="Formulaire de contact partenaires B2B">
+        <div class="form-grid">
+          <div class="input-group">
+            <input type="text" id="name" name="name" required placeholder=" " />
+            <label for="name">Votre Nom & Prénom</label>
+            <svg class="validation-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <div class="input-group">
+            <input type="text" id="role" name="role" required placeholder=" " />
+            <label for="role">Votre Fonction (Gérant, Chef...)</label>
+            <svg class="validation-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <div class="input-group full-width">
+            <input type="text" id="company" name="company" required placeholder=" " />
+            <label for="company">Nom de l'établissement</label>
+            <svg class="validation-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <div class="input-group">
+            <input type="email" id="email" name="email" required placeholder=" " />
+            <label for="email">Email Professionnel</label>
+            <svg class="validation-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <div class="custom-select-wrapper">
+            <label id="establishment-type-label">Type d'établissement</label>
+            <div class="custom-select" id="customSelect" role="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="establishment-type-label">Sélectionner...</div>
+            <div class="custom-options" id="customOptions" role="listbox" aria-labelledby="establishment-type-label">
+              <div class="custom-option" role="option" data-value="restaurant">Restaurant & Brasserie</div>
+              <div class="custom-option" role="option" data-value="lounge">Bar Lounge & Lieu de vie</div>
+              <div class="custom-option" role="option" data-value="salon">Salon de Thé & Coffee Shop</div>
+              <div class="custom-option" role="option" data-value="hotel">Hôtel & Boutique Hôtel</div>
+              <div class="custom-option" role="option" data-value="traiteur">Traiteur & Événementiel</div>
+              <div class="custom-option" role="option" data-value="autre">Autre établissement</div>
+            </div>
+            <select name="type" id="realSelect" required>
+              <option value="" disabled selected></option>
+              <option value="restaurant">Restaurant & Brasserie</option>
+              <option value="lounge">Bar Lounge & Lieu de vie</option>
+              <option value="salon">Salon de Thé & Coffee Shop</option>
+              <option value="hotel">Hôtel & Boutique Hôtel</option>
+              <option value="traiteur">Traiteur & Événementiel</option>
+              <option value="autre">Autre établissement</option>
+            </select>
+          </div>
+          <div class="input-group full-width">
+            <textarea id="message" name="message" placeholder=" " required oninput="this.style.height='';this.style.height=this.scrollHeight+'px'"></textarea>
+            <label for="message">Vos besoins (volumes estimés, questions...)</label>
+          </div>
+        </div>
+        <div class="submit-wrap">
+          <p class="privacy-note">Réservé aux professionnels. Réponse sous 24h ouvrées.</p>
+          <button type="submit" class="submit-btn">
+            <span>Envoyer la demande</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </button>
+        </div>
+      </form>
+
+      <div class="wa-pro-wrap">
+        <span class="wa-pro-text">Préférez-vous un échange direct ?</span>
+        <a href="https://wa.me/33622356575?text=Bonjour%20Maison%20Mirage,%20je%20suis%20un%20professionnel%20et%20je%20souhaite%20échanger%20sur%20un%20partenariat." target="_blank" class="wa-btn-pro" rel="noopener noreferrer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          <span>WhatsApp Pro</span>
+        </a>
+      </div>
+
+      <div class="success-overlay" id="successOverlay" role="alert" aria-live="polite">
+        <div class="success-mark">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+        <h2 class="success-title">Demande transmise.</h2>
+        <p class="success-desc">Notre pôle B2B vous contactera très prochainement pour discuter de votre établissement.</p>
+        <a href="index.html" class="submit-btn" style="text-decoration:none;"><span>Retour au site</span></a>
+      </div>
+    </section>
+
+    <!-- STICKY WHATSAPP (visible en permanence) -->
+    <div style="position:fixed;bottom:2rem;right:2rem;z-index:800;">
+      <a href="https://wa.me/33622356575?text=Bonjour%20Maison%20Mirage%2C%20je%20suis%20un%20professionnel%20et%20je%20souhaite%20%C3%A9changer%20sur%20un%20partenariat." target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;width:3.2rem;height:3.2rem;border-radius:50%;background:var(--ink);border:1px solid rgba(255,255,255,0.08);box-shadow:0 8px 32px rgba(26,23,20,0.18);transition:transform 0.3s,background 0.3s;" aria-label="WhatsApp">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--cream)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+      </a>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-brand-text">Maison Mirage</div>
+    <div class="footer-tagline">Haute Pâtisserie · Marseille</div>
+
+    <nav class="footer-nav">
+      <a href="index.html#boutique">Le Catalogue</a>
+      <a href="atelier.html">L'Atelier</a>
+      <a href="notre-histoire.html">Notre Histoire</a>
+      <a href="case-studies.html">Résultats</a>
+      <a href="evenements.html">Événements</a>
+      <a href="partenaires.html">Espace Pro</a>
+    </nav>
+    <div class="footer-contact">
+      <a href="mailto:contact@lamaisonmirage.com">contact@lamaisonmirage.com</a><br/>
+      <a href="tel:+33622356575">+33 (0)6 22 35 65 75</a>
+    </div>
+    <p class="footer-address">Marseille, France · Lun–Sam 8h–18h</p>
+
+    <!-- Réseaux sociaux -->
+    <div class="footer-social">
+      <a href="https://www.instagram.com/maisonmirage" target="_blank" rel="noopener noreferrer" aria-label="Instagram Maison Mirage">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <a href="https://www.tiktok.com/@maisonmirage" target="_blank" rel="noopener noreferrer" aria-label="TikTok Maison Mirage">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.8a8.27 8.27 0 0 0 4.76 1.5v-3.4a4.85 4.85 0 0 1-1-.21z"/></svg>
+      </a>
+      <a href="mailto:contact@lamaisonmirage.com" aria-label="Email Maison Mirage">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </a>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 Maison Mirage</span>
+      <a href="mentions-legales.html">Mentions légales</a>
+      <a href="cgv-pro.html">CGV Pro</a>
+    </div>
+  </footer>
+
+  <!-- Cloudflare email-decode script removed (injected server-side) --><script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const tl = gsap.timeline({ delay: 0.1 });
+      tl.from("#navReveal", { opacity: 0, y: -20, duration: 1, ease: "power3.out" })
+        .from(".gs-reveal", { opacity: 0, y: 30, duration: 1, stagger: 0.15, ease: "power3.out" }, "-=0.6")
+        .from(".gs-form", { opacity: 0, y: 40, duration: 1.2, ease: "power2.out" }, "-=0.8");
+
+      // (halo retiré — formulaire en version claire)
+
+      const customSelect = document.getElementById('customSelect');
+      const customOptions = document.getElementById('customOptions');
+      const realSelect = document.getElementById('realSelect');
+      const options = document.querySelectorAll('.custom-option');
+
+      customSelect.addEventListener('click', (e) => {
+        e.stopPropagation();
+        customSelect.classList.toggle('open');
+        customSelect.setAttribute('aria-expanded', customSelect.classList.contains('open'));
+      });
+
+      options.forEach(opt => {
+        opt.addEventListener('click', () => {
+          customSelect.textContent = opt.textContent;
+          customSelect.style.color = 'var(--ink)';
+          customSelect.classList.remove('open');
+          customSelect.setAttribute('aria-expanded', 'false');
+          options.forEach(o => o.classList.remove('selected'));
+          opt.classList.add('selected');
+          realSelect.value = opt.dataset.value;
+          realSelect.dispatchEvent(new Event('change'));
+        });
+      });
+
+      // Page transitions
+      const transitionLayer = document.querySelector('.page-transition');
+      gsap.to(transitionLayer, { opacity:0, duration:0.8, ease:"power2.inOut", onComplete:()=>{ transitionLayer.style.display='none'; }});
+
+      document.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function(e) {
+          if (this.target==='_blank' || this.href.includes('#') || this.href.startsWith('mailto:') || this.href.startsWith('tel:') || this.hostname!==window.location.hostname) return;
+          e.preventDefault();
+          const targetUrl = this.href;
+          transitionLayer.style.display = 'block';
+          gsap.to(transitionLayer, { opacity:1, duration:0.5, ease:"power2.inOut", onComplete:()=>{ window.location.href=targetUrl; }});
+        });
+      });
+
+      window.addEventListener('pageshow', (e) => {
+        if (e.persisted) gsap.to(transitionLayer, { opacity:0, duration:0.4, onComplete:()=>{ transitionLayer.style.display='none'; }});
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.custom-select-wrapper')) { customSelect.classList.remove('open'); customSelect.setAttribute('aria-expanded','false'); }
+      });
+
+      // Form submit
+      const form = document.getElementById('partnerForm');
+      const successOverlay = document.getElementById('successOverlay');
+      const submitBtn = form.querySelector('.submit-btn');
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const originalBtnContent = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<span>Transmission...</span>';
+        submitBtn.style.pointerEvents = 'none';
+        const formData = new FormData(form);
+        try {
+          const response = await fetch('https://formspree.io/f/mreanzqp', { method:'POST', body:formData, headers:{'Accept':'application/json'} });
+          if (response.ok) {
+            gtag('event','generate_lead',{event_category:'B2B',event_label:'Formulaire Partenaire'});
+            gsap.to(form, { opacity:0, scale:0.95, duration:0.4, onComplete:() => {
+              form.style.visibility = 'hidden';
+              document.querySelector('.wa-pro-wrap').style.display = 'none';
+              successOverlay.classList.add('active');
+              gsap.fromTo(successOverlay, {opacity:0,y:20}, {opacity:1,y:0,duration:0.6,ease:"power2.out"});
+            }});
+          } else {
+            submitBtn.innerHTML = '<span>Erreur. Réessayez</span>';
+            setTimeout(() => { submitBtn.innerHTML = originalBtnContent; submitBtn.style.pointerEvents = 'auto'; }, 3000);
+          }
+        } catch (error) {
+          submitBtn.innerHTML = '<span>Erreur de réseau</span>';
+          setTimeout(() => { submitBtn.innerHTML = originalBtnContent; submitBtn.style.pointerEvents = 'auto'; }, 3000);
+        }
+      });
+    });
+
+    document.getElementById('navbar').classList.add('visible');
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    const navBurger = document.getElementById('navBurger');
+    const mobileOverlay = document.getElementById('mobile-overlay');
+    const navbar = document.getElementById('navbar');
+    if(navBurger && mobileOverlay) {
+      function closeMenu() {
+        navBurger.classList.remove('open');
+        navBurger.setAttribute('aria-expanded', 'false');
+        mobileOverlay.classList.remove('open');
+        if(navbar) navbar.classList.remove('menu-open');
+        document.body.style.overflow = '';
+        document.body.classList.remove('menu-active');
+      }
+      navBurger.addEventListener('click', function() {
+        const opening = !this.classList.contains('open');
+        this.classList.toggle('open');
+        this.setAttribute('aria-expanded', opening);
+        mobileOverlay.classList.toggle('open');
+        if(navbar) navbar.classList.toggle('menu-open');
+        document.body.style.overflow = opening ? 'hidden' : '';
+        document.body.classList.toggle('menu-active', opening);
+      });
+      document.querySelectorAll('.mobile-nav-item').forEach(l => l.addEventListener('click', closeMenu));
+      document.addEventListener('keydown', e => { if(e.key === 'Escape' && mobileOverlay.classList.contains('open')) closeMenu(); });
+      mobileOverlay.addEventListener('click', e => { if(e.target === mobileOverlay) closeMenu(); });
+    }
+  </script>
+
+  <!-- CONFIGURATEUR JS -->
+  <script>
+  (function() {
+    const products = document.querySelectorAll('.config-product');
+    if (!products.length) return;
+
+    function getTier(total) {
+      if (total >= 100) return { price: 5.00, label: 'Tarif volume · dès 100 pièces' };
+      if (total >= 50)  return { price: 5.50, label: 'Tarif intermédiaire · dès 50 pièces' };
+      if (total > 0)    return { price: 6.00, label: 'Tarif standard · moins de 50 pièces' };
+      return { price: 0, label: 'Ajoutez des pièces pour voir le tarif' };
+    }
+
+    function update() {
+      let totalQty = 0;
+      products.forEach(p => {
+        const qty = parseInt(p.querySelector('.config-qty-value').textContent) || 0;
+        totalQty += qty;
+        p.classList.toggle('active', qty > 0);
+      });
+
+      const tier = getTier(totalQty);
+      const totalPrice = totalQty * tier.price;
+      const weeklyPrice = totalPrice * 2;
+
+      document.getElementById('configTotalQty').textContent = totalQty;
+      document.getElementById('configUnitPrice').textContent = totalQty > 0 ? tier.price.toFixed(2).replace('.', ',') + ' €' : '—';
+      document.getElementById('configTierInfo').textContent = tier.label;
+      document.getElementById('configTotal').textContent = totalPrice.toFixed(0) + ' €';
+      document.getElementById('configWeekly').textContent = weeklyPrice.toFixed(0) + ' €';
+    }
+
+    products.forEach(product => {
+      product.querySelectorAll('.config-qty-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          const valEl = product.querySelector('.config-qty-value');
+          let val = parseInt(valEl.textContent) || 0;
+          if (this.dataset.action === 'plus') val += 5;
+          if (this.dataset.action === 'minus') val = Math.max(0, val - 5);
+          valEl.textContent = val;
+          update();
+        });
+      });
+    });
+
+    update();
+  })();
+  </script>
+</body>
+</html>

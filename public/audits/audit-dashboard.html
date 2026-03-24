@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Audit 360° — Maison Mirage</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@200;300;400;500;600&family=JetBrains+Mono:wght@300;400&display=swap');
+
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --cream:#FAF5EF;--cream-2:#F5EFE7;--ink:#1A1714;--ink-muted:#6B6560;
+  --gold:#A8895C;--gold-light:#C4A96D;--gold-pale:#E8DCC8;
+  --red:#C0392B;--orange:#E67E22;--yellow:#D4AC0D;--green:#27AE60;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Outfit',system-ui,sans-serif;
+  --mono:'JetBrains Mono',monospace;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.7;overflow-x:hidden}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:0.03;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+::selection{background:var(--gold-pale);color:var(--ink)}
+a{color:var(--gold);text-decoration:none}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:99px}
+
+/* LAYOUT */
+.container{max-width:1200px;margin:0 auto;padding:0 clamp(1.5rem,4vw,4rem)}
+
+/* NAVIGATION */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.2rem clamp(1.5rem,4vw,4rem);display:flex;justify-content:space-between;align-items:center;backdrop-filter:blur(24px) saturate(1.6);-webkit-backdrop-filter:blur(24px) saturate(1.6);background:rgba(250,245,239,0.7);border-bottom:1px solid rgba(168,137,92,0.1);transition:all 0.4s ease}
+nav.scrolled{padding:0.8rem clamp(1.5rem,4vw,4rem);background:rgba(250,245,239,0.92)}
+.nav-brand{font-family:var(--serif);font-size:1.1rem;font-weight:400;letter-spacing:0.1em;color:var(--ink)}
+.nav-brand span{color:var(--gold)}
+.nav-links{display:flex;gap:2rem;align-items:center}
+.nav-links a{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink-muted);transition:color 0.3s}
+.nav-links a:hover{color:var(--gold)}
+.nav-links a.active{color:var(--gold)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:8rem 2rem 4rem;position:relative}
+.hero::before{content:'';position:absolute;top:20%;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(ellipse,rgba(168,137,92,0.08) 0%,transparent 70%);pointer-events:none}
+.hero-eyebrow{font-family:var(--mono);font-size:0.58rem;letter-spacing:0.5em;text-transform:uppercase;color:var(--gold);margin-bottom:2.5rem;display:flex;align-items:center;gap:1rem;justify-content:center;opacity:0;animation:fadeUp 0.8s 0.2s forwards}
+.hero-eyebrow::before,.hero-eyebrow::after{content:'';width:40px;height:1px;background:var(--gold);opacity:0.4}
+.hero h1{font-family:var(--serif);font-weight:300;font-size:clamp(3rem,7vw,7rem);line-height:0.88;letter-spacing:-0.02em;margin-bottom:2rem;opacity:0;animation:fadeUp 0.8s 0.4s forwards}
+.hero h1 em{font-style:italic;color:var(--gold-light)}
+.hero-sub{font-size:1.1rem;color:var(--ink-muted);max-width:50ch;margin:0 auto 3rem;opacity:0;animation:fadeUp 0.8s 0.6s forwards}
+.hero-meta{display:flex;gap:3rem;justify-content:center;font-family:var(--mono);font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--ink-muted);opacity:0;animation:fadeUp 0.8s 0.8s forwards}
+.hero-scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:0.5rem;opacity:0;animation:fadeUp 0.8s 1s forwards}
+.hero-scroll-line{width:1px;height:3rem;background:linear-gradient(to bottom,var(--gold),transparent);animation:scrollPulse 2.5s ease-in-out infinite}
+.hero-scroll-text{font-family:var(--mono);font-size:0.48rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--ink-muted)}
+
+/* SECTION */
+section{padding:6rem 0;position:relative}
+section::before{content:'';position:absolute;top:0;left:clamp(1.5rem,4vw,4rem);right:clamp(1.5rem,4vw,4rem);height:1px;background:linear-gradient(to right,transparent,rgba(26,23,20,0.08) 30%,rgba(26,23,20,0.08) 70%,transparent)}
+.section-eyebrow{font-family:var(--mono);font-size:0.55rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;display:flex;align-items:center;gap:1rem}
+.section-eyebrow::before{content:'';width:30px;height:1px;background:var(--gold);opacity:0.5}
+.section-title{font-family:var(--serif);font-weight:300;font-size:clamp(2rem,4vw,3.5rem);line-height:1;letter-spacing:-0.01em;margin-bottom:1rem}
+.section-title em{font-style:italic;color:var(--gold-light)}
+.section-desc{color:var(--ink-muted);max-width:55ch;font-size:0.95rem;margin-bottom:3rem}
+
+/* SCORECARD */
+.scorecard{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-bottom:3rem}
+.score-item{background:rgba(255,255,255,0.5);border:1px solid rgba(168,137,92,0.1);border-radius:1.2rem;padding:1.8rem;transition:all 0.4s ease;cursor:default;position:relative;overflow:hidden}
+.score-item:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(26,23,20,0.06);border-color:var(--gold-pale)}
+.score-item::after{content:'';position:absolute;bottom:0;left:0;height:3px;background:var(--gold);transition:width 0.6s cubic-bezier(0.16,1,0.3,1);width:0}
+.score-item.visible::after{width:var(--score-width)}
+.score-label{font-family:var(--mono);font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:1rem}
+.score-row{display:flex;justify-content:space-between;align-items:flex-end}
+.score-value{font-family:var(--serif);font-size:2.5rem;font-weight:300;line-height:1;color:var(--ink)}
+.score-value small{font-size:1.2rem;color:var(--ink-muted)}
+.score-bar-track{height:4px;background:var(--cream-2);border-radius:99px;margin-top:1rem;overflow:hidden}
+.score-bar-fill{height:100%;border-radius:99px;background:var(--gold);width:0;transition:width 1.2s cubic-bezier(0.16,1,0.3,1)}
+.score-item.visible .score-bar-fill{width:var(--score-width)}
+
+/* GLOBAL SCORE */
+.global-score{text-align:center;padding:3rem;background:rgba(255,255,255,0.4);border:1px solid rgba(168,137,92,0.15);border-radius:2rem;margin-bottom:4rem}
+.global-score-num{font-family:var(--serif);font-size:clamp(4rem,8vw,7rem);font-weight:300;line-height:1;color:var(--ink);margin-bottom:0.5rem}
+.global-score-num span{color:var(--gold-light)}
+.global-score-label{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:1.5rem}
+.global-score-verdict{color:var(--ink-muted);max-width:60ch;margin:0 auto;font-size:0.95rem}
+
+/* ISSUES */
+.issues-list{display:flex;flex-direction:column;gap:1.5rem}
+.issue{background:rgba(255,255,255,0.5);border:1px solid rgba(168,137,92,0.08);border-radius:1.2rem;overflow:hidden;transition:all 0.3s ease}
+.issue:hover{box-shadow:0 10px 40px rgba(26,23,20,0.05)}
+.issue-header{padding:1.5rem 2rem;display:flex;align-items:center;gap:1.2rem;cursor:pointer;user-select:none}
+.issue-severity{font-family:var(--mono);font-size:0.5rem;letter-spacing:0.15em;text-transform:uppercase;padding:0.35rem 0.8rem;border-radius:99px;color:#fff;font-weight:400;flex-shrink:0}
+.issue-severity.critique{background:var(--red)}
+.issue-severity.majeur{background:var(--orange)}
+.issue-severity.mineur{background:var(--yellow);color:var(--ink)}
+.issue-title{font-family:var(--sans);font-weight:500;font-size:1rem;color:var(--ink);flex:1}
+.issue-toggle{width:24px;height:24px;border:1px solid rgba(168,137,92,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all 0.3s;flex-shrink:0;color:var(--gold)}
+.issue.open .issue-toggle{transform:rotate(180deg);background:var(--gold);color:var(--cream);border-color:var(--gold)}
+.issue-body{max-height:0;overflow:hidden;transition:max-height 0.5s cubic-bezier(0.16,1,0.3,1)}
+.issue.open .issue-body{max-height:600px}
+.issue-content{padding:0 2rem 2rem;display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.issue-block h4{font-family:var(--mono);font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:0.8rem}
+.issue-block.constat h4{color:var(--red)}
+.issue-block.reco h4{color:var(--gold)}
+.issue-block p{font-size:0.88rem;color:var(--ink-muted);line-height:1.8}
+
+/* QUICK WINS */
+.qw-grid{display:grid;gap:1.2rem;counter-reset:qw}
+.qw-item{counter-increment:qw;display:grid;grid-template-columns:auto 1fr auto auto;gap:1.5rem;align-items:center;padding:1.5rem 2rem;background:rgba(255,255,255,0.5);border:1px solid rgba(168,137,92,0.08);border-radius:1rem;transition:all 0.3s;cursor:default}
+.qw-item:hover{transform:translateX(8px);border-color:var(--gold-pale);box-shadow:0 8px 30px rgba(26,23,20,0.04)}
+.qw-num{font-family:var(--serif);font-size:2rem;font-weight:300;color:var(--gold-light);min-width:2.5rem}
+.qw-num::before{content:counter(qw,decimal-leading-zero)}
+.qw-text{font-size:0.95rem;color:var(--ink)}
+.qw-impact{font-family:var(--mono);font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;padding:0.4rem 1rem;background:var(--gold);color:#fff;border-radius:99px;white-space:nowrap}
+.qw-effort{font-family:var(--mono);font-size:0.55rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-muted);white-space:nowrap}
+
+/* ROADMAP */
+.roadmap{display:grid;gap:2rem;margin-top:2rem}
+.roadmap-item{padding:2.5rem;background:rgba(255,255,255,0.5);border:1px solid rgba(168,137,92,0.12);border-radius:1.5rem;position:relative;transition:all 0.4s;border-left:3px solid var(--gold)}
+.roadmap-item:hover{box-shadow:0 15px 50px rgba(26,23,20,0.06);transform:translateY(-2px)}
+.roadmap-num{font-family:var(--mono);font-size:0.55rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+.roadmap-title{font-family:var(--serif);font-size:1.6rem;font-weight:400;color:var(--ink);margin-bottom:1rem;line-height:1.2}
+.roadmap-desc{color:var(--ink-muted);font-size:0.9rem;line-height:1.8}
+
+/* FOOTER */
+footer{padding:4rem 0;text-align:center}
+footer p{font-family:var(--mono);font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink-muted)}
+footer .gold{color:var(--gold)}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes scrollPulse{0%,100%{opacity:0.3;transform:scaleY(0.6)}50%{opacity:1;transform:scaleY(1)}}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 0.8s ease,transform 0.8s cubic-bezier(0.16,1,0.3,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .nav-links{display:none}
+  .issue-content{grid-template-columns:1fr}
+  .qw-item{grid-template-columns:auto 1fr;gap:1rem}
+  .qw-impact,.qw-effort{grid-column:2}
+  .hero-meta{flex-direction:column;gap:0.8rem}
+  .score-item{padding:1.3rem}
+}
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="nav-brand">MAISON <span>MIRAGE</span></div>
+  <div class="nav-links">
+    <a href="#scorecard" class="active">Scorecard</a>
+    <a href="#issues">Probl&egrave;mes</a>
+    <a href="#quickwins">Quick Wins</a>
+    <a href="#roadmap">Roadmap</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow"><span>Expert Senior Design System &middot; Strat&egrave;ge CRO</span></div>
+  <h1>Audit <em>360&deg;</em></h1>
+  <p class="hero-sub">Analyse critique sans complaisance du site lamaisonmirage.com &mdash; proposition de valeur, UX, UI, marketing, technique et roadmap de transformation.</p>
+  <div class="hero-meta">
+    <span>11 mars 2026</span>
+    <span>lamaisonmirage.com</span>
+    <span>confidentiel</span>
+  </div>
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    <div class="hero-scroll-text">Scroll</div>
+  </div>
+</div>
+
+<!-- SCORECARD -->
+<section id="scorecard">
+  <div class="container">
+    <div class="section-eyebrow"><span>01 &mdash; Scorecard</span></div>
+    <h2 class="section-title">Vue d&rsquo;ensemble <em>chiffr&eacute;e</em></h2>
+    <p class="section-desc">Notation sur 10 dimensions cl&eacute;s. L&rsquo;&eacute;cart entre direction artistique (9/10) et conversion (4/10) r&eacute;v&egrave;le le d&eacute;s&eacute;quilibre structurel du site.</p>
+
+    <div class="global-score reveal">
+      <div class="global-score-num" id="globalNum">0<span>/10</span></div>
+      <div class="global-score-label">Note globale</div>
+      <p class="global-score-verdict">Excellente fondation artistique, mais un site qui contemple au lieu de convertir. Le produit est extraordinaire &mdash; le site doit &ecirc;tre &agrave; la hauteur de cette ambition commerciale.</p>
+    </div>
+
+    <div class="scorecard" id="scores"></div>
+  </div>
+</section>
+
+<!-- ISSUES -->
+<section id="issues">
+  <div class="container">
+    <div class="section-eyebrow"><span>02 &mdash; Probl&egrave;mes identifi&eacute;s</span></div>
+    <h2 class="section-title">Diagnostic <em>critique</em></h2>
+    <p class="section-desc">12 probl&egrave;mes class&eacute;s par s&eacute;v&eacute;rit&eacute;. Chaque entr&eacute;e contient un constat technique pr&eacute;cis et une recommandation actionnable.</p>
+    <div class="issues-list" id="issuesList"></div>
+  </div>
+</section>
+
+<!-- QUICK WINS -->
+<section id="quickwins">
+  <div class="container">
+    <div class="section-eyebrow"><span>03 &mdash; Quick Wins</span></div>
+    <h2 class="section-title">5 actions <em>imm&eacute;diates</em></h2>
+    <p class="section-desc">Impl&eacute;mentables en moins d&rsquo;une semaine, impact mesurable d&egrave;s le premier mois.</p>
+    <div class="qw-grid" id="qwGrid"></div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section id="roadmap">
+  <div class="container">
+    <div class="section-eyebrow"><span>04 &mdash; Roadmap strat&eacute;gique</span></div>
+    <h2 class="section-title">Vision <em>long terme</em></h2>
+    <p class="section-desc">3 chantiers structurants pour transformer la vitrine contemplative en machine &agrave; convertir.</p>
+    <div class="roadmap" id="roadmapGrid"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>Audit 360&deg; &mdash; <span class="gold">Maison Mirage</span> &mdash; Mars 2026</p>
+  </div>
+</footer>
+
+<script>
+// ─── DATA ───
+const scores = [
+  { label: "Direction Artistique", score: 9 },
+  { label: "Photographie Produit", score: 9 },
+  { label: "Copywriting & Ton", score: 8 },
+  { label: "Hi\u00e9rarchie Visuelle (UI)", score: 7 },
+  { label: "Accessibilit\u00e9 (a11y)", score: 6 },
+  { label: "Performance Mobile", score: 6 },
+  { label: "Parcours Utilisateur (UX)", score: 5 },
+  { label: "Preuve Sociale", score: 5 },
+  { label: "SEO & Architecture", score: 5 },
+  { label: "Tunnel de Conversion", score: 4 },
+];
+
+const issues = [
+  { sev: "critique", title: "Sous-titre hero invisible (contraste 3.2:1 < WCAG 4.5:1)",
+    constat: "Le hook \u00ab\u00a0Le dessert que vos clients filment avant de manger\u00a0\u00bb utilise font-weight: 300 en #A8895C sur #FAF5EF. Ratio de contraste de luminance : 3.2:1, insuffisant pour du texte normal (WCAG AA exige 4.5:1). C\u2019est pourtant la ligne la plus critique pour la conversion.",
+    reco: "Font-weight: 400+, couleur #1A1714 ou #6B6560, taille \u00e0 clamp(1.1rem, 2vw, 1.4rem). A/B test avec un hook direct : \u00ab\u00a0P\u00e2tisserie trompe-l\u2019\u0153il pour restaurateurs \u2014 d\u00e8s 5\u20ac/pi\u00e8ce\u00a0\u00bb." },
+  { sev: "critique", title: "Espaces vides excessifs (paddings 7-10rem entre sections)",
+    constat: "Les paddings inter-sections (7rem = 112px) cr\u00e9ent des \u00ab\u00a0d\u00e9serts de scroll\u00a0\u00bb. Ratio contenu/vide de 40/60 (vs 55/45 optimal). Selon la loi de Fitts, chaque pixel de vide augmente le risque d\u2019abandon.",
+    reco: "R\u00e9duire de 40-50% (7rem \u2192 4rem desktop, 3rem mobile). L\u2019espace blanc de luxe ne doit pas devenir du vide." },
+  { sev: "critique", title: "Navigation monolithique (burger menu unique sur desktop)",
+    constat: "Architecture one-pager avec ancres. Le burger menu est le seul acc\u00e8s aux sous-pages, m\u00eame sur desktop. Viole le principe de recognition over recall (Nielsen).",
+    reco: "Navigation horizontale desktop : Catalogue | L\u2019Atelier | \u00c9v\u00e9nements | Espace Pro. Burger r\u00e9serv\u00e9 au mobile." },
+  { sev: "critique", title: "CTA principal trop petit et monochromatique",
+    constat: "Le btn-primary utilise font-size: 0.62rem (~10px) en monospace uppercase. Zone de lecture trop petite (loi de Fitts). Couleur --ink identique au texte \u2014 pas de diff\u00e9renciation chromatique.",
+    reco: "Label \u00e0 0.72rem+, background --gold pour ancrage chromatique, micro-texte de r\u00e9assurance sous le CTA : \u00ab\u00a0R\u00e9ponse sous 24h \u00b7 D\u00e9gustation gratuite\u00a0\u00bb." },
+  { sev: "critique", title: "Absence de CTA interm\u00e9diaires dans le tunnel",
+    constat: "Entre le hero et le catalogue (3+ scrolls), z\u00e9ro CTA. Les sections Vid\u00e9o et T\u00e9moignages sont des moments d\u2019\u00e9motion forte sans appel \u00e0 l\u2019action. Fuite massive d\u2019intention.",
+    reco: "Un CTA contextuel apr\u00e8s chaque section cl\u00e9 : vid\u00e9o \u2192 \u00ab\u00a0D\u00e9couvrir la collection\u00a0\u00bb, t\u00e9moignages \u2192 \u00ab\u00a0Rejoindre nos partenaires\u00a0\u00bb, catalogue \u2192 \u00ab\u00a0Demander un devis\u00a0\u00bb." },
+  { sev: "majeur", title: "Concept \u00ab\u00a0Mirage\u00a0\u00bb sous-exploit\u00e9 visuellement",
+    constat: "Le mot \u00ab\u00a0Mirage\u00a0\u00bb n\u2019appara\u00eet que dans le logo. Aucune section ne d\u00e9construit l\u2019illusion (avant/apr\u00e8s, r\u00e9v\u00e9lation de la coupe). La vid\u00e9o ASMR est l\u2019\u00e9l\u00e9ment le plus r\u00e9ussi mais noy\u00e9 dans le scroll.",
+    reco: "Section \u00ab\u00a0La R\u00e9v\u00e9lation\u00a0\u00bb apr\u00e8s le hero : animation scroll-triggered fruit entier \u2192 coupe. Exploiter le product reveal d\u2019Apple." },
+  { sev: "majeur", title: "Preuve sociale incompl\u00e8te et peu convaincante",
+    constat: "KPI impr\u00e9cis (\u00ab\u00a0200+ pi\u00e8ces\u00a0\u00bb), un seul t\u00e9moignage avec photo, logos partenaires en 80x38px illisibles. Les m\u00e9triques business (+45% Instagram, +30% ticket) sont enterr\u00e9es dans les t\u00e9moignages.",
+    reco: "KPI de r\u00e9sultat : \u00ab\u00a0+30% ticket moyen\u00a0\u00bb, portraits photo des chefs, carrousel Instagram/TikTok en temps r\u00e9el." },
+  { sev: "majeur", title: "Storytelling fondateur totalement absent",
+    constat: "Le chef Hamza Hamdi est invisible sur le site (mention uniquement dans le PDF Kl\u00e9pierre). Pour un m\u00e9tier o\u00f9 le chef EST la marque, c\u2019est une lacune de confiance majeure.",
+    reco: "Page \u00ab\u00a0Notre Histoire\u00a0\u00bb avec portrait professionnel, parcours, vision. Vid\u00e9o portrait 1-2 min. Les marques artisanales de luxe misent toutes sur cette dimension humaine." },
+  { sev: "majeur", title: "Barri\u00e8res psychologiques \u00e0 la conversion non lev\u00e9es",
+    constat: "Les FAQ traitent la logistique mais pas les objections : \u00ab\u00a0Et si mes clients n\u2019aiment pas ?\u00a0\u00bb, \u00ab\u00a0Comment justifier le prix ?\u00a0\u00bb. Le bloc Garanties est absent.",
+    reco: "Bloc \u00ab\u00a0Garanties\u00a0\u00bb visible avant le formulaire : D\u00e9gustation gratuite, R\u00e9ponse 24h, Remplacement garanti." },
+  { sev: "majeur", title: "Breakpoints et adaptation mobile insuffisants",
+    constat: "Paddings desktop (6vw, 7vw) sans media query mobile sp\u00e9cifique. Grille catalogue 3 colonnes. Chat widget chevauche potentiellement les CTA sur mobile.",
+    reco: "3 breakpoints : <640px (mobile, 1 col), 640-1024px (tablette, 2 col), >1024px (desktop, 3 col). Chat masqu\u00e9 ou r\u00e9duit sur mobile." },
+  { sev: "mineur", title: "Monochromie excessive de la palette",
+    constat: "Palette exclusivement chaud (beige/or/brun). Aucune couleur d\u2019accent froide pour les CTA. Tout est or ou noir \u2014 l\u2019\u0153il n\u2019a pas de point focal diff\u00e9rentiant.",
+    reco: "Couleur d\u2019accent compl\u00e9mentaire (vert olive #5B6F4E ou bleu nuit #2C3E50) pour les CTA de conversion. Th\u00e9orie de Von Restorff : l\u2019\u00e9l\u00e9ment diff\u00e9rent est m\u00e9moris\u00e9." },
+  { sev: "mineur", title: "Poids CSS excessif et duplication de styles",
+    constat: "70 Ko de CSS + ~300 lignes inline par page sp\u00e9cifique. Duplication visible entre styles.css et les <style> inline de partenaires.html, evenements.html.",
+    reco: "Extraire les styles inline, auditer avec PurgeCSS. Objectif : <50 Ko total." },
+];
+
+const quickWins = [
+  { text: "Augmenter le contraste du hook hero et la taille du CTA (couleur, poids, font-size)", impact: "+15-25% CVR", effort: "2 heures" },
+  { text: "R\u00e9duire les paddings inter-sections de 40% sur desktop et 50% sur mobile", impact: "+20% r\u00e9tention", effort: "3 heures" },
+  { text: "Ajouter un CTA contextuel apr\u00e8s chaque section (vid\u00e9o, t\u00e9moignages, catalogue)", impact: "+30% leads", effort: "4 heures" },
+  { text: "Lier les cards catalogue vers les pages produit d\u00e9di\u00e9es (supprimer la modale JS)", impact: "SEO + UX", effort: "2 heures" },
+  { text: "Ajouter des portraits photo aux t\u00e9moignages et des m\u00e9triques business visibles", impact: "+25% confiance", effort: "1 jour" },
+];
+
+const roadmapItems = [
+  { num: "Chantier 01", title: "Refonte architecturale : du One-Pager au Multi-Pages",
+    desc: "Cr\u00e9er de vraies pages s\u00e9par\u00e9es (Catalogue, Atelier, Notre Histoire, Contact Pro). Chaque produit a d\u00e9j\u00e0 sa page HTML \u2014 les rendre centrales. Navigation desktop horizontale compl\u00e8te. Blog pour le SEO long-tail. Objectif : passer de 5 URLs index\u00e9es \u00e0 30+ en 6 mois." },
+  { num: "Chantier 02", title: "Storytelling fondateur & strat\u00e9gie de contenu vid\u00e9o",
+    desc: "Rendre Hamza Hamdi visible : page portrait, parcours, vision. Multiplier les vid\u00e9os courtes de d\u00e9coupe/r\u00e9v\u00e9lation \u2014 c\u2019est LE format viral pour ce produit. Int\u00e9grer un feed Instagram/TikTok sur le site. Transformer chaque visiteur en ambassadeur du contenu." },
+  { num: "Chantier 03", title: "Machine \u00e0 conversion B2B : configurateur + lead nurturing",
+    desc: "Configurateur de coffret interactif (choix pi\u00e8ces, quantit\u00e9, packaging) avec devis instantan\u00e9. Lead magnet PDF + s\u00e9quence email nurturing. CRM l\u00e9ger (Brevo/Pipedrive) pour le suivi. Objectif : passer d\u2019un site vitrine \u00e0 un entonnoir de conversion mesurable." },
+];
+
+// ─── RENDER ───
+const scoresEl = document.getElementById("scores");
+scores.forEach(s => {
+  const pct = s.score * 10;
+  const color = s.score >= 8 ? "var(--green)" : s.score >= 6 ? "var(--gold)" : s.score >= 5 ? "var(--orange)" : "var(--red)";
+  scoresEl.innerHTML += `
+    <div class="score-item reveal" style="--score-width:${pct}%">
+      <div class="score-label">${s.label}</div>
+      <div class="score-row">
+        <div class="score-value">${s.score}<small>/10</small></div>
+      </div>
+      <div class="score-bar-track"><div class="score-bar-fill" style="background:${color}"></div></div>
+    </div>`;
+});
+
+const issuesEl = document.getElementById("issuesList");
+issues.forEach((iss, i) => {
+  issuesEl.innerHTML += `
+    <div class="issue reveal" id="issue-${i}">
+      <div class="issue-header" onclick="toggleIssue(${i})">
+        <span class="issue-severity ${iss.sev}">${iss.sev}</span>
+        <span class="issue-title">${iss.title}</span>
+        <span class="issue-toggle"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+      </div>
+      <div class="issue-body">
+        <div class="issue-content">
+          <div class="issue-block constat"><h4>Constat</h4><p>${iss.constat}</p></div>
+          <div class="issue-block reco"><h4>Recommandation</h4><p>${iss.reco}</p></div>
+        </div>
+      </div>
+    </div>`;
+});
+
+const qwEl = document.getElementById("qwGrid");
+quickWins.forEach(qw => {
+  qwEl.innerHTML += `
+    <div class="qw-item reveal">
+      <div class="qw-num"></div>
+      <div class="qw-text">${qw.text}</div>
+      <div class="qw-impact">${qw.impact}</div>
+      <div class="qw-effort">${qw.effort}</div>
+    </div>`;
+});
+
+const rmEl = document.getElementById("roadmapGrid");
+roadmapItems.forEach(r => {
+  rmEl.innerHTML += `
+    <div class="roadmap-item reveal">
+      <div class="roadmap-num">${r.num}</div>
+      <div class="roadmap-title">${r.title}</div>
+      <div class="roadmap-desc">${r.desc}</div>
+    </div>`;
+});
+
+// ─── INTERACTIONS ───
+function toggleIssue(i) {
+  document.getElementById(`issue-${i}`).classList.toggle("open");
+}
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visible"); } });
+}, { threshold: 0.15 });
+document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+// Animated counter
+let counted = false;
+const globalObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting && !counted) {
+      counted = true;
+      const target = 6.4;
+      const el = document.getElementById("globalNum");
+      let current = 0;
+      const step = target / 40;
+      const timer = setInterval(() => {
+        current += step;
+        if (current >= target) { current = target; clearInterval(timer); }
+        el.innerHTML = current.toFixed(1) + '<span>/10</span>';
+      }, 30);
+    }
+  });
+}, { threshold: 0.5 });
+globalObs.observe(document.getElementById("globalNum"));
+
+// Nav scroll effect
+const nav = document.getElementById("navbar");
+window.addEventListener("scroll", () => {
+  nav.classList.toggle("scrolled", window.scrollY > 80);
+});
+
+// Active nav link
+const sections = document.querySelectorAll("section[id]");
+window.addEventListener("scroll", () => {
+  let current = "";
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 200) current = s.id;
+  });
+  document.querySelectorAll(".nav-links a").forEach(a => {
+    a.classList.toggle("active", a.getAttribute("href") === "#" + current);
+  });
+});
+</script>
+</body>
+</html>

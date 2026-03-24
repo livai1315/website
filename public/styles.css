@@ -1,0 +1,385 @@
+/* ══════════════════════════════════════════════════════════════════════════ */
+/* VICE SWEETY — DARK SYNTHWAVE DESIGN SYSTEM (GTA Vice City Aesthetic)     */
+/* Miami 80s / Synthwave Fever Dream · Neon Glow · Sunset Gradient · Grid   */
+/* ══════════════════════════════════════════════════════════════════════════ */
+
+/* ══════════════════════════════════════
+   1. TOKENS & BASELINE — Vice City Dark Palette
+══════════════════════════════════════ */
+:root {
+  /* ── Dark Backgrounds — Deep purple/black ── */
+  --bg:               #0c0028;
+  --surface:          #1a0a3e;
+  --surface-elevated: #2a1054;
+  --surface-hover:    #3d1561;
+
+  /* ── Neon Accents — Authentic Vice City ── */
+  --accent:           #FF007F;  /* Hot neon pink */
+  --accent-soft:      #EC6EAD;  /* Soft rose pink */
+  --accent-2:         #00FFFF;  /* Electric cyan */
+  --sunset:           #ff901f;  /* Chrome orange */
+  --gold:             #ffd319;  /* Chrome gold */
+  --white:            #FFFFFF;
+  --cyan:             #00CED1;
+  --purple-deep:      #8c1eff;
+  --purple-mid:       #1a0a3e;
+
+  /* ── Text Colors — Light on dark ── */
+  --text:             rgba(255,255,255,0.92);
+  --text-muted:       rgba(255,255,255,0.55);
+  --text-dim:         rgba(255,255,255,0.35);
+
+  /* ── Status Colors ── */
+  --success:          #00ff88;
+  --error:            #ff0055;
+  --warning:          #ffd319;
+
+  /* ── Premium Gradient Tokens — Vice City Sunset ── */
+  --gradient-hero:    linear-gradient(180deg, #0c0028 0%, #1a0a3e 15%, #3494E6 30%, #EC6EAD 50%, #ff2975 65%, #ff901f 80%, #ffd319 100%);
+  --gradient-cta:     linear-gradient(135deg, #FF007F, #ff2975);
+  --gradient-vice:    linear-gradient(to right, #3494E6, #EC6EAD);
+  --gradient-glass:   linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+
+  /* ── Neon Glow Effects — Multi-layer text shadow ── */
+  --glow-pink:        0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #FF007F, 0 0 82px #FF007F, 0 0 92px #FF007F;
+  --glow-cyan:        0 0 7px #fff, 0 0 10px #fff, 0 0 21px #00FFFF, 0 0 42px #00FFFF;
+  --glow-gold:        0 0 7px #fff, 0 0 10px #ffd319, 0 0 21px #ffd319, 0 0 42px #ff901f;
+  --box-glow-pink:    0 0 5px #FF007F, 0 0 10px #FF007F, inset 0 0 5px rgba(255,0,127,0.1);
+  --box-glow-cyan:    0 0 5px #00FFFF, 0 0 10px #00FFFF, inset 0 0 5px rgba(0,255,255,0.1);
+
+  /* ── Typography ── */
+  --display:          'Bebas Neue', sans-serif;        /* Brand, H1, titles */
+  --sans:             'Space Grotesk', system-ui, sans-serif;  /* Body */
+  --mono:             'JetBrains Mono', monospace;     /* Labels, prices */
+
+  /* ── Motion Curves ── */
+  --ease-out:         cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring:      cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-expo:        cubic-bezier(0.87, 0, 0.13, 1);
+  --ease:             cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth:      cubic-bezier(0.25, 0.1, 0.25, 1);
+
+  /* ── Elevation System (Shadows — dark theme) ── */
+  --shadow-xs:        0 1px 2px rgba(0,0,0,0.3);
+  --shadow-sm:        0 2px 8px rgba(0,0,0,0.4);
+  --shadow-md:        0 4px 24px rgba(0,0,0,0.5);
+  --shadow-lg:        0 12px 48px rgba(0,0,0,0.6);
+  --shadow-xl:        0 24px 64px rgba(0,0,0,0.7);
+
+  /* ── Spacing Scale (8px base) ── */
+  --space-xs:         0.25rem;
+  --space-sm:         0.5rem;
+  --space-md:         1rem;
+  --space-lg:         2rem;
+  --space-xl:         4rem;
+  --space-2xl:        6rem;
+  --space-3xl:        8rem;
+  --space-4xl:        12rem;
+
+  /* ── Border Radius ── */
+  --radius-sm:        0.75rem;
+  --radius-md:        1.5rem;
+  --radius-lg:        2rem;
+  --radius-xl:        2.5rem;
+  --radius-full:      999px;
+}
+
+/* ══════════════════════════════════════
+   2. RESET + BASE
+══════════════════════════════════════ */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ── Scanlines overlay (subtle CRT effect) ── */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.08) 2px,
+    rgba(0,0,0,0.08) 4px
+  );
+  pointer-events: none;
+  z-index: 9998;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255,0,127,0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #FF007F, #ff2975);
+  border-radius: 6px;
+  box-shadow: inset 0 0 5px rgba(255,0,127,0.3);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #ff2975, #FF007F);
+  box-shadow: inset 0 0 10px rgba(255,0,127,0.5), 0 0 10px #FF007F;
+}
+
+/* ══════════════════════════════════════
+   3. TYPOGRAPHY & HEADINGS
+══════════════════════════════════════ */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--display);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  line-height: 1.1;
+  color: var(--white);
+}
+
+h1 {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+}
+
+h2 {
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+p {
+  color: var(--text);
+  line-height: 1.7;
+}
+
+a {
+  color: var(--accent-2);
+  text-decoration: none;
+  transition: all 0.3s var(--ease-out);
+}
+
+a:hover {
+  color: #00ffff;
+  text-shadow: 0 0 10px #00FFFF;
+}
+
+/* ── Neon text glow ── */
+.neon-text {
+  text-shadow: var(--glow-pink);
+}
+
+.neon-text-cyan {
+  text-shadow: var(--glow-cyan);
+}
+
+.neon-text-gold {
+  text-shadow: var(--glow-gold);
+}
+
+/* ══════════════════════════════════════
+   4. BUTTONS — Neon Glow Style
+══════════════════════════════════════ */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  padding: 1.1rem 2.4rem;
+  border-radius: var(--radius-full);
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #fff;
+  background: linear-gradient(135deg, #FF007F, #ff2975);
+  border: 1px solid #FF007F;
+  transition: all 0.4s var(--ease-out);
+  position: relative;
+  overflow: hidden;
+  min-height: 48px;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(255,0,127,0.4), 0 0 30px rgba(255,0,127,0.2);
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #ff2975, #FF007F);
+  opacity: 0;
+  transition: opacity 0.4s var(--ease-out);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 0 25px rgba(255,0,127,0.7), 0 0 50px rgba(255,0,127,0.4);
+  transform: translateY(-2px);
+}
+
+.btn-primary:hover::before {
+  opacity: 0.5;
+}
+
+.btn-primary span {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-primary .btn-arrow {
+  position: relative;
+  z-index: 1;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s var(--ease-spring);
+}
+
+.btn-primary:hover .btn-arrow {
+  transform: translateX(5px);
+  border-color: rgba(255,255,255,0.6);
+}
+
+/* ══════════════════════════════════════
+   5. FORM ELEMENTS
+══════════════════════════════════════ */
+input, textarea, select {
+  font-family: var(--sans);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,0,127,0.2);
+  color: var(--text);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  transition: all 0.3s;
+}
+
+input::placeholder, textarea::placeholder {
+  color: var(--text-muted);
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: #FF007F;
+  box-shadow: 0 0 15px rgba(255,0,127,0.3), inset 0 0 10px rgba(255,0,127,0.1);
+  background: rgba(255,255,255,0.08);
+}
+
+/* ══════════════════════════════════════
+   6. CARD & SURFACES
+══════════════════════════════════════ */
+.card {
+  background: var(--surface);
+  border: 1px solid rgba(255,0,127,0.15);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  transition: all 0.3s var(--ease-out);
+}
+
+.card:hover {
+  border-color: #FF007F;
+  box-shadow: var(--box-glow-pink);
+}
+
+/* ══════════════════════════════════════
+   7. UTILITIES
+══════════════════════════════════════ */
+.text-accent { color: #FF007F; }
+.text-cyan { color: #00FFFF; }
+.text-gold { color: var(--gold); }
+.text-white { color: var(--white); }
+.text-muted { color: var(--text-muted); }
+
+.bg-dark { background: var(--bg); }
+.bg-surface { background: var(--surface); }
+.bg-elevated { background: var(--surface-elevated); }
+
+.section-title {
+  font-family: var(--display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  text-align: center;
+  margin-bottom: 3rem;
+  text-shadow: var(--glow-pink);
+  letter-spacing: 0.05em;
+}
+
+.section-desc {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  max-width: 70ch;
+  margin: 0 auto 2rem;
+  text-align: center;
+  line-height: 1.8;
+}
+
+/* ══════════════════════════════════════
+   8. GRID FLOOR (Perspective animation)
+══════════════════════════════════════ */
+.grid-floor {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background:
+    linear-gradient(rgba(255,0,127,0.2) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,0,127,0.2) 1px, transparent 1px);
+  background-size: 50px 50px;
+  background-position: 0 0;
+  transform: perspective(500px) rotateX(60deg) translateY(100px);
+  animation: gridScroll 4s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes gridScroll {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 50px; }
+}
+
+/* ══════════════════════════════════════
+   9. RESPONSIVE
+══════════════════════════════════════ */
+@media (max-width: 1024px) {
+  h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+  h2 { font-size: clamp(1.6rem, 4vw, 2.8rem); }
+  h3 { font-size: clamp(1.2rem, 3vw, 2rem); }
+}
+
+@media (max-width: 640px) {
+  h1 { font-size: clamp(1.5rem, 4vw, 2.5rem); }
+  h2 { font-size: clamp(1.2rem, 3vw, 1.8rem); }
+  h3 { font-size: 1.2rem; }
+
+  .section-title {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 2rem;
+  }
+
+  .btn-primary {
+    padding: 0.9rem 1.8rem;
+    font-size: 0.7rem;
+  }
+}

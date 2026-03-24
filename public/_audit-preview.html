@@ -1,0 +1,3231 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vice Sweety — Desserts Dangereux · Marseille</title>
+
+  <meta name="description" content="Vice Sweety — Desserts trompe-l'œil, milkshakes obscènes, cookies dangereux. Le plaisir coupable premium de Marseille. Take-away &amp; commande en ligne." />
+  <meta name="keywords" content="desserts trompe-l'œil, milkshakes premium, cookies, Marseille, take-away, commande en ligne, neon, Vice City" />
+  <link rel="canonical" href="https://www.vicesweety.com/" />
+  <meta property="og:title" content="Vice Sweety — Desserts Dangereux · Marseille" />
+  <meta property="og:description" content="Desserts trompe-l'œil, milkshakes obscènes, cookies dangereux. Le plaisir coupable premium de Marseille. Take-away &amp; commande en ligne." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.vicesweety.com/" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="Vice Sweety" />
+  <meta property="og:image" content="https://www.vicesweety.com/img/hero-flatlay.webp" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="800" />
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png" />
+
+  <!-- Structured Data: LocalBusiness + Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Vice Sweety",
+    "description": "Desserts trompe-l'œil, milkshakes obscènes, cookies dangereux. Le plaisir coupable premium de Marseille. Take-away et commande en ligne.",
+    "url": "https://www.vicesweety.com",
+    "telephone": "+33622356575",
+    "email": "hello@vicesweety.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Marseille",
+      "addressCountry": "FR"
+    },
+    "areaServed": "Marseille",
+    "priceRange": "€€",
+    "openingHours": "Mo-Su 10:00-21:00"
+  }
+  </script>
+
+  <!-- Structured Data: FAQ Page -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "C'est vraiment pas un vrai fruit ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Non. C'est mieux. C'est un dessert trompe-l'œil artisanal présenté comme un fruit parfait. À la première bouchée, tu découvres la magie : texture veloutée, saveur intense, effet visuel dingue."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Comment je commande ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sur le site ou directement au comptoir. Les commandes se préparent en 5 minutes. Pour les grosse commandes, contacte hello@vicesweety.com ou appelle."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Vous livrez ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Take-away pour l'instant. Viens chercher sur place — ça mérite d'être frais."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "C'est quoi les Éditions limitées ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Notre série limitée inspirée des saveurs du moment. Elles changent. C'est limited edition, donc une fois parties, elles sont parties."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Allergènes ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Chaque fiche produit détaille les allergènes déclarés. Si tu as des allergies, on peut te proposer des alternatives ou tu peux vérifier directement avec nous."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+/* ══════════════════════════════════════════════════════════════════════════ */
+/* VICE SWEETY — WHITE + NEON PINK DESIGN SYSTEM                             */
+/* Miami 80s / GTA Vice City Aesthetic · Dessert Brand · Luminous Luxury     */
+/* ══════════════════════════════════════════════════════════════════════════ */
+
+/* ══════════════════════════════════════
+   1. TOKENS & BASELINE — Vice Sweety Palette (Light Mode)
+══════════════════════════════════════ */
+:root {
+  /* ── Light Backgrounds — Pure white base ── */
+  --bg:               #FFFFFF;
+  --surface:          #F8F7FC;
+  --surface-elevated: #FFFFFF;
+  --surface-hover:    #F3F1FB;
+
+  /* ── Neon Accents — Miami 80s palette (stays) ── */
+  --accent:           #FF2D8A;  /* Neon pink primary */
+  --accent-soft:      #FF6EC7;  /* Softer pink */
+  --accent-2:         #00D4FF;  /* Cyan secondary */
+  --sunset:           #FF6B35;  /* Orange */
+  --gold:             #E8A040;  /* Warm gold (visible on white) */
+  --white:            #FFFFFF;
+
+  /* ── Text Colors — Dark on light ── */
+  --text:             #1A1A2E;
+  --text-muted:       #6B6580;
+  --text-dim:         #A09BAC;
+
+  /* ── Status Colors ── */
+  --success:          #2ECC71;
+  --error:            #E74C3C;
+  --warning:          #F39C12;
+
+  /* ── Premium Gradient Tokens ── */
+  --gradient-hero:    linear-gradient(180deg, #1a0a2e 0%, #0f1a3e 30%, #e94560 70%, #FF6B35 90%, #FFB347);
+  --gradient-cta:     linear-gradient(135deg, #FF2D8A, #FF6B35);
+  --gradient-dark:    linear-gradient(135deg, #F8F7FC 0%, #FFFFFF 100%);
+  --gradient-glass:   linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.5) 100%);
+
+  /* ── Glow Effects (Neon on light background) ── */
+  --glow-pink:        0 8px 32px rgba(255,45,138,0.15);
+  --glow-cyan:        0 8px 32px rgba(0,212,255,0.1);
+  --glow-gold:        0 8px 24px rgba(232,160,64,0.12);
+
+  /* ── Typography ── */
+  --display:          'Bebas Neue', sans-serif;        /* Brand, H1, titles */
+  --sans:             'Space Grotesk', system-ui, sans-serif;  /* Body, descriptions */
+  --mono:             'JetBrains Mono', monospace;     /* Labels, badges, prices */
+
+  /* ── Motion Curves ── */
+  --ease-out:         cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring:      cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-expo:        cubic-bezier(0.87, 0, 0.13, 1);
+  --ease:             cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth:      cubic-bezier(0.25, 0.1, 0.25, 1);
+
+  /* ── Elevation System (Shadows — light theme with cool tones) ── */
+  --shadow-xs:        0 1px 2px rgba(28,28,46,0.08);
+  --shadow-sm:        0 2px 8px rgba(28,28,46,0.12);
+  --shadow-md:        0 4px 24px rgba(28,28,46,0.15);
+  --shadow-lg:        0 12px 48px rgba(28,28,46,0.2);
+  --shadow-xl:        0 24px 64px rgba(28,28,46,0.25);
+  --shadow-pink-glow: 0 8px 32px rgba(255,45,138,0.15);
+
+  /* ── Spacing Scale (8px base) ── */
+  --space-xs:         0.25rem;
+  --space-sm:         0.5rem;
+  --space-md:         1rem;
+  --space-lg:         2rem;
+  --space-xl:         4rem;
+  --space-2xl:        6rem;
+  --space-3xl:        8rem;
+  --space-4xl:        12rem;
+
+  /* ── Border Radius ── */
+  --radius-sm:        0.75rem;
+  --radius-md:        1.5rem;
+  --radius-lg:        2rem;
+  --radius-xl:        2.5rem;
+  --radius-full:      999px;
+}
+
+/* ══════════════════════════════════════
+   2. RESET + BASE
+══════════════════════════════════════ */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* ══════════════════════════════════════
+   3. GRAIN OVERLAY & SCANLINE EFFECT
+══════════════════════════════════════ */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 5.5rem;
+  background: linear-gradient(to bottom, #FFFFFF 40%, transparent);
+  z-index: 700;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+body.menu-active::before,
+body.menu-active::after {
+  opacity: 0;
+}
+
+/* Subtle scanline effect */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  will-change: auto;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(28,28,46,0.01) 2px,
+    rgba(28,28,46,0.01) 4px
+  );
+}
+
+@media (hover: none) and (pointer: coarse) {
+  body::after {
+    opacity: 0.15;
+  }
+}
+
+/* ══════════════════════════════════════
+   4. BASE ELEMENT RESETS & SCROLLBAR
+══════════════════════════════════════ */
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Neon pink scrollbar on light background */
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+html {
+  scrollbar-color: var(--accent) var(--bg);
+  scrollbar-width: thin;
+}
+
+/* ══════════════════════════════════════
+   5. SHARED TYPOGRAPHY & BUTTONS
+══════════════════════════════════════ */
+.section-eyebrow {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.section-eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 30px;
+  height: 1px;
+  background: var(--accent);
+  opacity: 0.6;
+}
+
+.section-h2 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(2.8rem, 5vw, 5.5rem);
+  line-height: 0.9;
+  letter-spacing: 0.02em;
+  color: var(--text);
+}
+
+.section-h2 em {
+  font-style: italic;
+  background: var(--gradient-cta);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-desc {
+  font-size: 1rem;
+  line-height: 1.9;
+  color: var(--text-muted);
+  max-width: 42ch;
+  align-self: end;
+}
+
+/* Primary button — neon pink CTA with glow */
+.btn-primary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1.15rem 2.6rem;
+  background: var(--gradient-cta);
+  color: var(--white);
+  border-radius: var(--radius-full);
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: transform 0.15s var(--ease-spring), box-shadow 0.3s;
+  border: none;
+  box-shadow: var(--glow-pink);
+  min-height: 48px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 40px rgba(255,45,138,0.4);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+.btn-arrow {
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s var(--ease-spring), border-color 0.3s;
+  position: relative;
+  z-index: 1;
+}
+
+.btn-primary:hover .btn-arrow {
+  transform: translateX(5px);
+  border-color: rgba(255,255,255,0.4);
+}
+
+/* Ghost button — transparent with pink border */
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1.1rem 2.4rem;
+  border-radius: var(--radius-full);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  background: transparent;
+  transition: all 0.35s;
+  min-height: 48px;
+  cursor: pointer;
+}
+
+.btn-ghost:hover {
+  background: rgba(255,45,138,0.08);
+  box-shadow: var(--glow-pink);
+}
+
+/* ══════════════════════════════════════
+   6. NAVBAR — White glassmorphism (3-col grid)
+══════════════════════════════════════ */
+#navbar {
+  position: fixed;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  width: min(94vw, 1200px);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 0.65rem 2rem;
+  border-radius: var(--radius-full);
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(24px) saturate(1.6);
+  -webkit-backdrop-filter: blur(24px) saturate(1.6);
+  border: 1px solid rgba(255,45,138,0.06);
+  box-shadow: 0 8px 32px rgba(28,28,46,0.05);
+  transition: all 0.5s var(--ease-out);
+  opacity: 0;
+  translate: 0 -20px;
+}
+#navbar.visible { opacity: 1; translate: 0 0; }
+
+#navbar.scrolled {
+  background: rgba(255,255,255,0.95);
+  box-shadow: 0 12px 40px rgba(28,28,46,0.08);
+  border-color: rgba(255,45,138,0.1);
+}
+
+/* Navbar transparent when mobile menu open */
+#navbar.menu-open { background: transparent; border-color: transparent; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; }
+
+/* Brand — always centered (column 2) */
+.nav-brand { display: flex; align-items: center; gap: 0.9rem; grid-column: 2; grid-row: 1; justify-self: center; text-decoration: none; }
+.brand-logo { height: 36px; width: auto; object-fit: contain; transition: opacity 0.3s; }
+.brand-name {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 1.1rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text);
+  line-height: 1;
+  transition: color 0.3s;
+}
+.brand-name:hover { color: var(--accent); }
+#navbar.menu-open .brand-name { color: var(--white); }
+
+/* --- SPLIT NAV LINKS (Desktop) --- */
+.nav-links-left,
+.nav-links-right {
+  display: none; /* hidden on mobile */
+}
+
+.nav-links-left a:not(.nav-cta),
+.nav-links-right a:not(.nav-cta) {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+.nav-links-left a:not(.nav-cta):hover,
+.nav-links-right a:not(.nav-cta):hover {
+  color: var(--accent);
+}
+
+/* CTA button in nav */
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--gradient-cta);
+  padding: 0.5rem 1.2rem;
+  border-radius: var(--radius-full);
+  transition: all 0.3s var(--ease-spring);
+  border: none;
+  box-shadow: var(--glow-pink);
+  white-space: nowrap;
+}
+.nav-cta:hover { transform: scale(1.05); box-shadow: 0 0 30px rgba(255,45,138,0.35); }
+
+/* Cart & Location in nav */
+.nav-cart-btn {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  position: relative;
+  padding: 0.3rem;
+}
+.cart-badge {
+  position: absolute;
+  top: -4px; right: -6px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.55rem;
+  font-family: var(--mono);
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav-location {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* Burger — mobile only */
+.nav-burger {
+  display: flex;
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: start;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  min-width: 44px;
+  min-height: 44px;
+  position: relative;
+  z-index: 1005;
+}
+.nav-burger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: transform 0.4s var(--ease-out), background 0.3s, opacity 0.3s;
+  transform-origin: center;
+}
+/* X animation when open */
+.nav-burger.open span { background: var(--white); }
+.nav-burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-burger.open span:nth-child(2) { opacity: 0; }
+.nav-burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+@media (min-width: 769px) {
+  .nav-links-left {
+    grid-column: 1; grid-row: 1; justify-self: start;
+    display: flex; align-items: center; gap: 1.6rem;
+  }
+  .nav-links-right {
+    grid-column: 3; grid-row: 1; justify-self: end;
+    display: flex; align-items: center; gap: 1.2rem;
+  }
+  /* Hide burger on desktop */
+  .nav-burger { display: none; }
+}
+
+/* ═══ MOBILE OVERLAY ═══ */
+#mobile-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+  background: rgba(26,26,46,0.97);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s var(--ease-out);
+}
+#mobile-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.mobile-nav-item {
+  font-family: var(--display);
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--white);
+  transition: color 0.3s;
+}
+.mobile-nav-item:hover { color: var(--accent); }
+.mobile-nav-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.mobile-nav-footer a {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  color: rgba(255,255,255,0.5);
+  transition: color 0.3s;
+}
+.mobile-nav-footer a:hover { color: var(--accent); }
+
+/* ══════════════════════════════════════
+   7. HERO SECTION — Gradient hero with split layout
+══════════════════════════════════════ */
+.hero {
+  min-height: 100dvh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  background: var(--gradient-hero);
+  color: var(--white);
+}
+
+.hero-left {
+  position: relative;
+  z-index: 2;
+  padding: 5rem 7vw 3rem;
+  max-width: 650px;
+}
+
+.hero-eyebrow {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.55em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  opacity: 0;
+  transform: translateY(20px);
+}
+.hero-eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 40px;
+  height: 1px;
+  background: var(--accent-soft);
+  opacity: 0.6;
+}
+
+.hero-h1, .hero h1 {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(3.2rem, 5.5vw, 6rem);
+  line-height: 0.88;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--white);
+  opacity: 0;
+  transform: translateY(50px);
+}
+.hero-h1 em, .hero h1 em {
+  font-style: italic;
+  background: linear-gradient(135deg, var(--accent-soft), var(--sunset));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-baseline {
+  margin-top: 2rem;
+  font-family: var(--sans);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.7);
+  max-width: 45ch;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.hero-actions {
+  margin-top: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.hero-reassurance {
+  margin-top: 1.5rem;
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-soft);
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+/* Hero right — video/image background */
+.hero-right {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.hero-img-main, video.hero-img-main {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 65% center;
+  opacity: 0;
+  will-change: transform;
+}
+/* Hero gradient overlay — text readability */
+.hero-right::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(to right, rgba(26,10,46,0.95) 0%, rgba(26,10,46,0.7) 35%, rgba(26,10,46,0.2) 55%, transparent 75%),
+    linear-gradient(to top, rgba(26,10,46,0.5) 0%, transparent 30%);
+}
+
+/* Scroll hint */
+.scroll-hint {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 7vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0;
+  z-index: 5;
+}
+.scroll-hint-line {
+  width: 1px;
+  height: 3.5rem;
+  background: linear-gradient(to bottom, var(--accent-soft), transparent);
+  animation: scrollLine 2.5s ease-in-out infinite;
+}
+.scroll-hint-label {
+  font-family: var(--mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  writing-mode: vertical-rl;
+}
+@keyframes scrollLine {
+  0%, 100% { opacity: 0.3; transform: scaleY(0.6); }
+  50% { opacity: 1; transform: scaleY(1); }
+}
+  right: 10%;
+  animation-delay: 0.3s;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* (float items removed — not used in Vice Sweety HTML) */
+
+/* ══════════════════════════════════════
+   8. CARDS — White/light surfaces with pink accents
+══════════════════════════════════════ */
+.shop-card {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid transparent;
+  border-radius: var(--radius-lg);
+  padding: 1.8rem;
+  transition: all 0.35s var(--ease-out);
+  box-shadow: var(--shadow-sm);
+}
+
+.shop-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--glow-pink);
+  transform: translateY(-4px);
+}
+
+.shop-card-image {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  background: rgba(255,45,138,0.05);
+}
+
+.shop-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s var(--ease-out);
+}
+
+.shop-card:hover .shop-card-image img {
+  transform: scale(1.05);
+}
+
+.shop-card h3 {
+  font-family: var(--display);
+  font-size: 1.8rem;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+  line-height: 1.1;
+}
+
+.shop-card-meta {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  margin-bottom: 1rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.shop-card-desc {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.shop-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.shop-card-price {
+  font-family: var(--mono);
+  font-size: 1.3rem;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.testimonial-card {
+  background: var(--surface);
+  border: 1px solid rgba(255,45,138,0.08);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  transition: all 0.35s var(--ease-out);
+  box-shadow: var(--shadow-sm);
+}
+
+.testimonial-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--glow-pink);
+}
+
+.testimonial-rating {
+  color: var(--accent);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.testimonial-text {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.testimonial-meta {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ══════════════════════════════════════
+   9. PRICING — White cards with pink featured
+══════════════════════════════════════ */
+.pricing-card {
+  background: var(--surface);
+  border: 1px solid rgba(255,45,138,0.08);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  transition: all 0.35s var(--ease-out);
+  position: relative;
+}
+
+.pricing-card.featured {
+  border-color: var(--accent);
+  background: var(--white);
+  box-shadow: var(--glow-pink);
+  transform: scale(1.05);
+}
+
+.pricing-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--glow-pink);
+}
+
+.pricing-tag {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  color: var(--accent);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.pricing-name {
+  font-family: var(--display);
+  font-size: 1.8rem;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.pricing-price {
+  font-family: var(--mono);
+  font-size: 2.5rem;
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.pricing-period {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.1em;
+}
+
+.pricing-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.pricing-features {
+  list-style: none;
+  margin-bottom: 2rem;
+}
+
+.pricing-features li {
+  font-size: 0.9rem;
+  color: var(--text);
+  padding: 0.6rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  border-bottom: 1px solid rgba(255,45,138,0.08);
+}
+
+.pricing-features li:before {
+  content: '✓';
+  color: var(--accent);
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.pricing-card .btn-primary {
+  width: 100%;
+  justify-content: center;
+}
+
+/* ══════════════════════════════════════
+   10. FAQ — White cards with pink icons
+══════════════════════════════════════ */
+.faq-container {
+  background: var(--surface);
+  border: 1px solid rgba(255,45,138,0.08);
+  border-radius: var(--radius-lg);
+  padding: 0;
+  overflow: hidden;
+}
+
+.faq-item {
+  padding: 2rem 2.5rem;
+  border-bottom: 1px solid rgba(255,45,138,0.08);
+  cursor: pointer;
+  transition: all 0.35s var(--ease-out);
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+}
+
+.faq-item:hover {
+  background: rgba(255,45,138,0.02);
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.faq-q {
+  font-family: var(--display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text);
+  flex: 1;
+}
+
+.faq-toggle {
+  color: var(--accent);
+  font-size: 1.5rem;
+  transition: transform 0.3s var(--ease-spring);
+  flex-shrink: 0;
+}
+
+.faq-item.open .faq-toggle {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s var(--ease-out);
+  padding-top: 0;
+}
+
+.faq-item.open .faq-answer {
+  max-height: 400px;
+  padding-top: 1.5rem;
+}
+
+.faq-answer p {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+}
+
+/* ══════════════════════════════════════
+   11. GUARANTEES — White cards
+══════════════════════════════════════ */
+.guarantee-card {
+  background: var(--surface);
+  border: 1px solid rgba(255,45,138,0.08);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.35s var(--ease-out);
+}
+
+.guarantee-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--glow-pink);
+  transform: translateY(-4px);
+}
+
+.guarantee-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--accent);
+}
+
+.guarantee-title {
+  font-family: var(--display);
+  font-size: 1.3rem;
+  color: var(--text);
+  margin-bottom: 0.8rem;
+}
+
+.guarantee-text {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ══════════════════════════════════════
+   12. FOOTER — Dark footer on white site
+══════════════════════════════════════ */
+footer {
+  background: #1A1A2E;
+  color: rgba(255,255,255,0.8);
+  padding: 4rem 6vw 2rem;
+  border-top: 1px solid rgba(255,45,138,0.2);
+}
+
+footer .section-h2 {
+  color: #fff;
+}
+
+footer .section-h2 em {
+  background: var(--gradient-cta);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+footer a {
+  color: rgba(255,255,255,0.7);
+  transition: color 0.3s;
+}
+
+footer a:hover {
+  color: var(--accent);
+}
+
+.footer-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer-col h3 {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255,45,138,0.3);
+  padding-bottom: 1rem;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col li {
+  margin-bottom: 0.8rem;
+  font-size: 0.9rem;
+}
+
+.footer-col li a {
+  display: inline-block;
+  transition: all 0.3s;
+}
+
+.footer-col li a:hover {
+  margin-left: 4px;
+  color: var(--accent);
+}
+
+.footer-divider {
+  height: 1px;
+  background: rgba(255,45,138,0.2);
+  margin: 2rem 0;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.5);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-links a {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid rgba(255,45,138,0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s var(--ease-out);
+}
+
+.social-links a:hover {
+  border-color: var(--accent);
+  background: rgba(255,45,138,0.1);
+}
+
+/* ══════════════════════════════════════
+   13. FORMS — White inputs with pink focus
+══════════════════════════════════════ */
+input,
+textarea,
+select {
+  font-family: var(--sans);
+  font-size: 1rem;
+  padding: 0.8rem 1.2rem;
+  border: 1px solid rgba(255,45,138,0.15);
+  border-radius: var(--radius-md);
+  background: var(--white);
+  color: var(--text);
+  transition: all 0.3s;
+  width: 100%;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-dim);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(255,45,138,0.1);
+  background: var(--white);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* ══════════════════════════════════════
+   14. SECTIONS & SPACING
+══════════════════════════════════════ */
+section {
+  padding: 5rem 6vw;
+}
+
+.section-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.section-header {
+  margin-bottom: 4rem;
+  max-width: 800px;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2.5rem;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+/* ══════════════════════════════════════
+   15. RESPONSIVE
+══════════════════════════════════════ */
+@media (max-width: 1024px) {
+  section {
+    padding: 4rem 4vw;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 6rem 4vw 4rem;
+    min-height: auto;
+  }
+
+  .hero-right {
+    display: none;
+  }
+
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    font-size: 14px;
+  }
+
+  section {
+    padding: 3rem 3vw;
+  }
+
+  .hero {
+    padding: 5rem 3vw 3rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 6vw, 3.5rem);
+  }
+
+  .section-header {
+    margin-bottom: 3rem;
+  }
+
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .nav-links {
+    gap: 1.5rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .pricing-card.featured {
+    transform: scale(1);
+  }
+}
+
+/* ══════════════════════════════════════
+   16. UTILITIES
+══════════════════════════════════════ */
+.text-center {
+  text-align: center;
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.text-dim {
+  color: var(--text-dim);
+}
+
+.text-accent {
+  color: var(--accent);
+}
+
+.text-gold {
+  color: var(--gold);
+}
+
+.highlight {
+  position: relative;
+  display: inline-block;
+}
+
+.highlight::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-cta);
+  border-radius: 2px;
+  z-index: -1;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(255,45,138,0.08);
+  margin: 3rem 0;
+}
+
+/* ══════════════════════════════════════
+   17. ANIMATIONS
+══════════════════════════════════════ */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* ══════════════════════════════════════
+   18. PRINT STYLES
+══════════════════════════════════════ */
+@media print {
+  body::before,
+  body::after {
+    display: none;
+  }
+
+  #navbar {
+    position: static;
+    background: transparent;
+  }
+
+  section {
+    page-break-inside: avoid;
+  }
+}
+</style>
+  <link rel="preload" as="image" href="img/hero-flatlay.webp" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JCL4B8SJY0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JCL4B8SJY0');
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+  <style>
+/* ══════════════════════════════════════════════════════════════
+   VICE SWEETY — HOMEPAGE STYLES (WHITE + NEON PINK THEME)
+   Light theme with neon pink accents, Miami 80s aesthetic
+   To load AFTER styles.css:
+   <link rel="stylesheet" href="homepage.css" />
+══════════════════════════════════════════════════════════════ */
+
+/* --- HERO HOOK (Business tagline) --- */
+.hero-hook {
+  margin-top: 1.8rem;
+  font-family: var(--sans);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: 400;
+  color: var(--white);
+  letter-spacing: 0.02em;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* --- HERO REASSURANCE MICRO-TEXT --- */
+.hero-reassurance {
+  margin-top: 1.2rem;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+/* --- CONTEXTUAL CTA BLOCKS --- */
+.section-cta-contextual {
+  text-align: center;
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+}
+
+/* --- HERO DOUBLE CTA --- */
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Secondary button — pink border with light hover on white background */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1.1rem 2.4rem;
+  border-radius: var(--radius-full);
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--white);
+  border: 1px solid rgba(255,255,255,0.3);
+  background: transparent;
+  transition: all 0.4s var(--ease-out);
+  position: relative;
+  overflow: hidden;
+  min-height: 48px;
+  cursor: pointer;
+}
+
+.btn-secondary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,45,138,0.2);
+  transform: translateX(-101%);
+  transition: transform 0.55s var(--ease-out);
+}
+
+.btn-secondary:hover::before {
+  transform: translateX(0);
+}
+
+.btn-secondary:hover {
+  color: var(--white);
+  border-color: var(--accent);
+  box-shadow: 0 0 40px rgba(255,45,138,0.3);
+}
+
+.btn-secondary span {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-secondary .btn-arrow {
+  position: relative;
+  z-index: 1;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s var(--ease-spring);
+}
+
+.btn-secondary:hover .btn-arrow {
+  transform: translateX(5px);
+  border-color: rgba(255,255,255,0.4);
+}
+
+/* --- KPI BAR — Product highlights with metrics --- */
+.kpi-bar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding: 2rem;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  margin-top: 3rem;
+  border: 1px solid rgba(255,45,138,0.08);
+}
+
+.kpi-item {
+  text-align: center;
+  flex: 1;
+  min-width: 120px;
+}
+
+.kpi-number {
+  font-family: var(--mono);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.kpi-label {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* --- TESTIMONIALS SECTION --- */
+.testimonials-intro {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 3rem;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.testimonial-item {
+  background: var(--surface);
+  border: 1px solid rgba(255,45,138,0.08);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  transition: all 0.35s var(--ease-out);
+}
+
+.testimonial-item:hover {
+  border-color: var(--accent);
+  box-shadow: var(--glow-pink);
+  transform: translateY(-4px);
+}
+
+.testimonial-stars {
+  color: var(--accent);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.testimonial-quote {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.testimonial-author {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.testimonial-author-name {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* --- SHOP GRID SECTION --- */
+.shop-section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.shop-item {
+  background: var(--surface);
+  border: 1px solid transparent;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all 0.35s var(--ease-out);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+}
+
+.shop-item:hover {
+  border-color: var(--accent);
+  box-shadow: var(--glow-pink);
+  transform: translateY(-4px);
+}
+
+.shop-item-image {
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: rgba(255,45,138,0.05);
+}
+
+.shop-item-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s var(--ease-out);
+}
+
+.shop-item:hover .shop-item-image img {
+  transform: scale(1.08);
+}
+
+.shop-item-content {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.shop-item-name {
+  font-family: var(--display);
+  font-size: 1.4rem;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.shop-item-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+
+.shop-item-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.shop-item-price {
+  font-family: var(--mono);
+  font-size: 1.2rem;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.shop-item-cta {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--white);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s var(--ease-spring);
+  font-size: 1.2rem;
+}
+
+.shop-item-cta:hover {
+  transform: scale(1.1) rotate(45deg);
+}
+
+/* --- VIEW ALL BUTTON --- */
+.view-all-cta {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+/* --- VIDEO/MEDIA SECTION --- */
+.video-section {
+  position: relative;
+  padding: 4rem;
+  background: linear-gradient(135deg, rgba(26,26,46,0.05) 0%, rgba(255,45,138,0.03) 100%);
+  border-radius: var(--radius-lg);
+  margin: 3rem 0;
+  overflow: hidden;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+  background: rgba(255,45,138,0.05);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(255,45,138,0.15);
+}
+
+.video-container iframe,
+.video-container video {
+  width: 100%;
+  height: 100%;
+}
+
+.video-play-btn {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(26,26,46,0.4);
+  backdrop-filter: blur(4px);
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s var(--ease-out);
+}
+
+.video-play-btn:hover {
+  background: rgba(26,26,46,0.5);
+}
+
+.video-play-icon {
+  width: 80px;
+  height: 80px;
+  background: var(--accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 2rem;
+  transition: all 0.3s var(--ease-spring);
+}
+
+.video-play-btn:hover .video-play-icon {
+  transform: scale(1.1);
+  box-shadow: 0 0 50px rgba(255,45,138,0.4);
+}
+
+/* --- NEWSLETTER SECTION --- */
+.newsletter-section {
+  background: linear-gradient(135deg, rgba(26,26,46,0.03) 0%, rgba(255,45,138,0.05) 100%);
+  border: 1px solid rgba(255,45,138,0.1);
+  border-radius: var(--radius-lg);
+  padding: 3rem;
+  text-align: center;
+  margin: 4rem 0;
+}
+
+.newsletter-title {
+  font-family: var(--display);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+.newsletter-desc {
+  font-size: 1rem;
+  color: var(--text-muted);
+  max-width: 500px;
+  margin: 0 auto 2rem;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.newsletter-form input {
+  flex: 1;
+  min-width: 250px;
+  padding: 1rem 1.5rem;
+  border: 1px solid rgba(255,45,138,0.15);
+  border-radius: var(--radius-full);
+  font-family: var(--sans);
+  background: var(--white);
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.newsletter-form input::placeholder {
+  color: var(--text-dim);
+}
+
+.newsletter-form input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(255,45,138,0.1);
+}
+
+.newsletter-form .btn-primary {
+  padding: 1rem 2rem;
+  white-space: nowrap;
+  font-size: 0.75rem;
+}
+
+/* --- TRUST BADGES --- */
+.trust-section {
+  text-align: center;
+  padding: 3rem 0;
+  border-top: 1px solid rgba(255,45,138,0.08);
+  border-bottom: 1px solid rgba(255,45,138,0.08);
+  margin: 3rem 0;
+}
+
+.trust-title {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
+
+.trust-badges {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.trust-badge {
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.trust-badge-icon {
+  font-size: 2rem;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.trust-badge-text {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* --- SOCIAL PROOF --- */
+.social-proof {
+  background: var(--surface);
+  border: 1px solid rgba(255,45,138,0.08);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  text-align: center;
+  margin: 3rem 0;
+}
+
+.social-proof-title {
+  font-family: var(--display);
+  font-size: 1.8rem;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+.social-proof-content {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.social-proof-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,45,138,0.08);
+}
+
+.social-proof-stat {
+  text-align: center;
+}
+
+.social-proof-stat-value {
+  font-family: var(--mono);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.social-proof-stat-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* --- FAQ SECTION --- */
+.faq-section {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.faq-section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.faq-list {
+  background: var(--surface);
+  border: 1px solid rgba(255,45,138,0.08);
+  border-radius: var(--radius-lg);
+  padding: 0;
+  overflow: hidden;
+}
+
+.faq-question-item {
+  padding: 2rem;
+  border-bottom: 1px solid rgba(255,45,138,0.08);
+  cursor: pointer;
+  transition: all 0.35s var(--ease-out);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.faq-question-item:last-child {
+  border-bottom: none;
+}
+
+.faq-question-item:hover {
+  background: rgba(255,45,138,0.02);
+}
+
+.faq-question-text {
+  font-family: var(--display);
+  font-size: 1.2rem;
+  color: var(--text);
+  flex: 1;
+  text-align: left;
+}
+
+.faq-toggle-icon {
+  color: var(--accent);
+  font-size: 1.5rem;
+  transition: transform 0.3s var(--ease-spring);
+  flex-shrink: 0;
+}
+
+.faq-question-item.open .faq-toggle-icon {
+  transform: rotate(180deg);
+}
+
+.faq-answer-text {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s var(--ease-out), padding 0.3s var(--ease-out);
+  padding: 0 2rem;
+}
+
+.faq-question-item.open .faq-answer-text {
+  max-height: 400px;
+  padding: 1rem 2rem 2rem;
+}
+
+.faq-answer-text p {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+}
+
+/* --- CTA BANNER — End section --- */
+.cta-banner {
+  position: relative;
+  padding: 4rem;
+  background: var(--gradient-hero);
+  border-radius: var(--radius-lg);
+  color: var(--white);
+  text-align: center;
+  margin: 4rem 0;
+  overflow: hidden;
+}
+
+.cta-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 35px,
+    rgba(0,0,0,0.02) 35px,
+    rgba(0,0,0,0.02) 70px
+  );
+  pointer-events: none;
+}
+
+.cta-banner-content {
+  position: relative;
+  z-index: 2;
+}
+
+.cta-banner h2 {
+  font-family: var(--display);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+}
+
+.cta-banner-desc {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  opacity: 0.95;
+}
+
+.cta-banner .btn-primary {
+  box-shadow: 0 0 40px rgba(255,45,138,0.3);
+}
+
+.cta-banner .btn-primary:hover {
+  box-shadow: 0 0 50px rgba(255,45,138,0.5);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+  .kpi-bar {
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .shop-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+  }
+
+  .newsletter-form input,
+  .newsletter-form .btn-primary {
+    width: 100%;
+  }
+
+  .trust-badges {
+    gap: 1.5rem;
+  }
+
+  .social-proof-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .kpi-bar {
+    flex-direction: column;
+  }
+
+  .kpi-item {
+    width: 100%;
+  }
+
+  .shop-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .newsletter-section {
+    padding: 2rem;
+  }
+
+  .trust-badges {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .trust-badge {
+    padding: 0;
+  }
+
+  .social-proof-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-banner {
+    padding: 2rem;
+  }
+
+  .cta-banner h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .hero-actions .btn-primary,
+  .hero-actions .btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .faq-question-item {
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+
+  .faq-question-text {
+    font-size: 1rem;
+  }
+
+  .video-section {
+    padding: 2rem;
+  }
+}
+
+</style>
+  <style>
+/* ══════════════════════════════════════════════════════════════════════════ */
+/* VICE SWEETY — FIXES CSS                                                  */
+/* Corrections d'alignement HTML ↔ CSS                                     */
+/* Charger APRÈS styles.css et homepage.css                                 */
+/* ══════════════════════════════════════════════════════════════════════════ */
+
+/* ═══ FIX 1: Mobile overlay — hidden by default ═══ */
+#mobile-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+  background: rgba(26,26,46,0.97);
+  display: none; /* JS toggles to flex */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+}
+.mobile-nav-item {
+  font-family: var(--display);
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  transition: color 0.3s;
+}
+.mobile-nav-item:hover { color: var(--accent); }
+.mobile-nav-footer {
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem; margin-top: 1rem;
+}
+.mobile-nav-footer a {
+  font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.15em;
+  color: rgba(255,255,255,0.5); transition: color 0.3s;
+}
+.mobile-nav-footer a:hover { color: var(--accent); }
+
+/* ═══ FIX 2: Navbar layout — grid 3 colonnes ═══ */
+#navbar {
+  position: fixed;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  width: min(94vw, 1200px);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 0.65rem 2rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.88);
+  backdrop-filter: blur(24px) saturate(1.6);
+  -webkit-backdrop-filter: blur(24px) saturate(1.6);
+  border: 1px solid rgba(255,45,138,0.06);
+  box-shadow: 0 8px 32px rgba(28,28,46,0.05);
+  transition: all 0.5s cubic-bezier(0.16,1,0.3,1);
+  opacity: 0;
+  translate: 0 -20px;
+}
+#navbar.visible { opacity: 1; translate: 0 0; }
+#navbar.scrolled {
+  background: rgba(255,255,255,0.95);
+  box-shadow: 0 12px 40px rgba(28,28,46,0.08);
+}
+
+/* Brand — center */
+.nav-brand {
+  display: flex; align-items: center; gap: 0.9rem;
+  grid-column: 2; grid-row: 1; justify-self: center;
+}
+.brand-logo { height: 36px; width: auto; object-fit: contain; }
+.brand-name {
+  font-family: var(--display); font-weight: 400; font-size: 1.1rem;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--text); line-height: 1;
+}
+
+/* Nav links — split left/right */
+.nav-links-left,
+.nav-links-right { display: none; } /* hidden mobile */
+
+.nav-links-left a,
+.nav-links-right a:not(.nav-cta) {
+  font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--text-muted); transition: color 0.3s; white-space: nowrap;
+}
+.nav-links-left a:hover,
+.nav-links-right a:not(.nav-cta):hover { color: var(--accent); }
+
+/* Nav CTA */
+.nav-cta {
+  display: inline-flex; align-items: center; gap: 0.45rem;
+  font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: #fff; background: linear-gradient(135deg, #FF2D8A, #FF6B35);
+  padding: 0.5rem 1.2rem; border-radius: 999px;
+  transition: all 0.3s; border: none; box-shadow: 0 4px 16px rgba(255,45,138,0.2); white-space: nowrap;
+}
+.nav-cta:hover { transform: scale(1.05); box-shadow: 0 0 30px rgba(255,45,138,0.35); }
+
+/* Cart & Location */
+.nav-cart-btn { background: none; border: none; font-size: 1rem; cursor: pointer; padding: 0.3rem; }
+.cart-badge {
+  position: absolute; top: -4px; right: -6px; background: var(--accent); color: #fff;
+  font-size: 0.55rem; font-family: var(--mono); width: 16px; height: 16px;
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+}
+.nav-location { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.1em; color: var(--text-muted); white-space: nowrap; }
+
+/* Burger — mobile only */
+.nav-burger {
+  display: flex; grid-column: 1; grid-row: 1; justify-self: start;
+  flex-direction: column; gap: 5px; justify-content: center; align-items: center;
+  padding: 0; background: transparent; border: none; cursor: pointer;
+  min-width: 44px; min-height: 44px; z-index: 1005;
+}
+.nav-burger span {
+  display: block; width: 22px; height: 1.5px; background: var(--text); border-radius: 2px;
+  transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), background 0.3s, opacity 0.3s;
+}
+.nav-burger.open span { background: #fff; }
+.nav-burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-burger.open span:nth-child(2) { opacity: 0; }
+.nav-burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+@media (min-width: 769px) {
+  .nav-links-left { grid-column: 1; grid-row: 1; justify-self: start; display: flex; align-items: center; gap: 1.6rem; }
+  .nav-links-right { grid-column: 3; grid-row: 1; justify-self: end; display: flex; align-items: center; gap: 1.2rem; }
+  .nav-burger { display: none; }
+}
+
+/* ═══ FIX 3: Hero — Full viewport, split layout ═══ */
+.hero {
+  min-height: 100dvh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  background: var(--gradient-hero);
+  color: #fff;
+}
+.hero-left {
+  position: relative; z-index: 3; padding: 5rem 7vw 3rem; max-width: 650px;
+}
+.hero-eyebrow {
+  font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.55em;
+  text-transform: uppercase; color: rgba(255,255,255,0.7); margin-bottom: 2.5rem;
+  display: flex; align-items: center; gap: 1rem;
+  opacity: 0; transform: translateY(20px);
+}
+.hero-eyebrow::before { content: ''; display: inline-block; width: 40px; height: 1px; background: rgba(255,110,199,0.6); }
+.hero-h1, .hero h1 {
+  font-family: var(--display); font-weight: 400; font-size: clamp(3.2rem, 5.5vw, 6rem);
+  line-height: 0.88; letter-spacing: 0.02em; text-transform: uppercase;
+  opacity: 0; transform: translateY(50px);
+}
+.hero-h1 em, .hero h1 em {
+  font-style: italic; color: #fff;
+  /* Note: Bebas Neue n'a pas d'italic, donc on utilise juste un bloc distinct */
+}
+.hero-baseline {
+  margin-top: 2rem; font-size: 1.05rem; line-height: 1.8;
+  color: rgba(255,255,255,0.7); max-width: 45ch;
+  opacity: 0; transform: translateY(20px);
+}
+.hero-actions {
+  margin-top: 2.5rem; display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap;
+  opacity: 0; transform: translateY(20px);
+}
+.hero-reassurance {
+  margin-top: 1.5rem; font-family: var(--mono); font-size: 0.65rem;
+  letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,110,199,0.8);
+  opacity: 0; transform: translateY(10px);
+}
+.hero-right {
+  position: absolute; inset: 0; z-index: 0;
+}
+.hero-img-main, video.hero-img-main {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: 65% center;
+  opacity: 0; will-change: transform;
+}
+.hero-right::after {
+  content: ''; position: absolute; inset: 0; z-index: 1;
+  background:
+    linear-gradient(to right, rgba(26,10,46,0.95) 0%, rgba(26,10,46,0.7) 35%, rgba(26,10,46,0.15) 55%, transparent 75%),
+    linear-gradient(to top, rgba(26,10,46,0.5) 0%, transparent 30%);
+}
+.scroll-hint {
+  position: absolute; bottom: 2.5rem; left: 7vw; display: flex;
+  flex-direction: column; align-items: center; gap: 0.5rem; opacity: 0; z-index: 5;
+}
+.scroll-hint-line {
+  width: 1px; height: 3.5rem;
+  background: linear-gradient(to bottom, rgba(255,110,199,0.6), transparent);
+  animation: scrollLine 2.5s ease-in-out infinite;
+}
+.scroll-hint-label {
+  font-family: var(--mono); font-size: 0.52rem; letter-spacing: 0.35em;
+  text-transform: uppercase; color: rgba(255,255,255,0.5); writing-mode: vertical-rl;
+}
+@keyframes scrollLine {
+  0%, 100% { opacity: 0.3; transform: scaleY(0.6); }
+  50% { opacity: 1; transform: scaleY(1); }
+}
+
+/* ═══ FIX 4: Boutique / Menu section ═══ */
+.boutique { padding: 2.5rem 6vw 2rem; position: relative; }
+.boutique::before {
+  content: ''; position: absolute; top: 0; left: 6vw; right: 6vw; height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255,45,138,0.1) 30%, rgba(255,45,138,0.1) 70%, transparent);
+}
+.boutique-header {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: end; margin-bottom: 3.5rem;
+}
+.boutique-filters {
+  display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 2.5rem;
+}
+.filter-pill {
+  font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+  padding: 0.75rem 1.4rem; min-height: 44px; border-radius: 999px;
+  border: 1px solid rgba(28,28,46,0.12); color: var(--text-muted);
+  background: transparent; transition: all 0.3s; cursor: pointer;
+}
+.filter-pill:hover { border-color: var(--accent); color: var(--accent); }
+.filter-pill.active {
+  background: var(--accent); color: #fff; border-color: var(--accent);
+}
+.mobile-swipe-hint {
+  display: none; /* visible on mobile only */
+  font-family: var(--mono); font-size: 0.6rem; color: var(--text-dim);
+  align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;
+}
+
+.shop-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem;
+}
+
+/* ═══ FIX 5: Shop cards — match HTML classes ═══ */
+.shop-card {
+  position: relative; background: var(--surface); border: 1px solid transparent;
+  border-radius: var(--radius-lg); overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16,1,0.3,1); cursor: pointer;
+}
+.shop-card:hover {
+  border-color: var(--accent); box-shadow: 0 8px 32px rgba(255,45,138,0.12);
+  transform: translateY(-6px);
+}
+.shop-card-img-wrap {
+  position: relative; width: 100%; aspect-ratio: 1; overflow: hidden;
+  background: rgba(255,45,138,0.03);
+}
+.shop-card-img-wrap img.shop-card-main {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+}
+.shop-card:hover .shop-card-main { transform: scale(1.06); }
+.shop-card-img-wrap img.shop-card-zoom {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  opacity: 0; transition: opacity 0.5s;
+}
+.shop-card:hover .shop-card-zoom { opacity: 1; }
+.shop-card-zoom-hint {
+  position: absolute; bottom: 0.8rem; right: 0.8rem;
+  background: rgba(255,255,255,0.9); border-radius: 50%;
+  width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;
+  opacity: 0; transition: opacity 0.3s;
+}
+.shop-card:hover .shop-card-zoom-hint { opacity: 1; }
+
+/* Badges */
+.shop-card-badge-new, .shop-card-badge-season, .shop-card-badge-limited {
+  position: absolute; top: 1rem; left: 1rem; z-index: 2;
+  font-family: var(--mono); font-size: 0.5rem; letter-spacing: 0.15em;
+  text-transform: uppercase; padding: 0.35rem 0.8rem; border-radius: 999px;
+}
+.shop-card-badge-new { background: var(--accent); color: #fff; }
+.shop-card-badge-season { background: var(--sunset); color: #fff; }
+.shop-card-badge-limited { background: #B24BF3; color: #fff; }
+
+.shop-card-name {
+  font-family: var(--display); font-size: 1.3rem; letter-spacing: 0.04em;
+  color: var(--text); padding: 1rem 1.2rem 0.2rem; line-height: 1;
+}
+.shop-card-sub {
+  font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--text-muted); padding: 0 1.2rem 0.8rem;
+}
+.shop-card-footer {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0.6rem 1.2rem 1.2rem;
+}
+.shop-card-price {
+  font-family: var(--mono); font-size: 1rem; font-weight: 700; color: var(--gold);
+}
+.shop-card-price em { font-style: normal; font-size: 0.8rem; }
+.btn-ajouter {
+  font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.15em;
+  text-transform: uppercase; padding: 0.5rem 1rem; border-radius: 999px;
+  background: var(--accent); color: #fff; border: none; cursor: pointer;
+  transition: all 0.3s;
+}
+.btn-ajouter:hover { background: #e8267a; transform: scale(1.05); }
+
+/* ═══ FIX 6: Video Reveal section ═══ */
+.video-reveal-section { padding: 4rem 6vw; text-align: center; }
+.video-reveal-header { margin-bottom: 3rem; }
+.video-reveal-header h2 {
+  font-family: var(--display); font-size: clamp(2.5rem, 5vw, 4.5rem);
+  color: var(--text); line-height: 0.9; margin-top: 0.5rem;
+}
+.video-reveal-header h2 em {
+  background: linear-gradient(135deg, var(--accent), var(--sunset));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.video-reveal-header p { color: var(--text-muted); margin-top: 1rem; max-width: 50ch; margin-inline: auto; }
+.video-reveal-frame {
+  position: relative; max-width: 800px; margin: 0 auto; border-radius: var(--radius-lg);
+  overflow: hidden; box-shadow: 0 12px 48px rgba(28,28,46,0.1);
+}
+.video-reveal-frame video { width: 100%; display: block; }
+.video-luxe-overlay { position: absolute; inset: 0; pointer-events: none; }
+.video-luxe-bottom {
+  position: absolute; bottom: 1.5rem; left: 1.5rem; right: 1.5rem;
+  display: flex; justify-content: space-between; align-items: flex-end;
+}
+.video-luxe-hashtag { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.2em; color: rgba(255,255,255,0.7); }
+.video-luxe-tagline { font-family: var(--display); font-size: 0.9rem; letter-spacing: 0.15em; color: rgba(255,255,255,0.5); }
+.video-sound-toggle {
+  position: absolute; bottom: 1.5rem; right: 1.5rem;
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  background: rgba(26,23,20,0.5); backdrop-filter: blur(12px); color: #fff;
+  border: 1px solid rgba(255,255,255,0.2); padding: 0.6rem 1.2rem; border-radius: 999px;
+  font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.2em;
+  text-transform: uppercase; cursor: pointer; transition: all 0.3s; z-index: 10;
+}
+.video-sound-toggle:hover { background: rgba(26,23,20,0.8); }
+
+/* ═══ FIX 7: Guarantees bar ═══ */
+.guarantees-bar {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem;
+  padding: 3rem 6vw; border-top: 1px solid rgba(255,45,138,0.06);
+}
+.guarantee-item { text-align: center; }
+.guarantee-icon { font-size: 1.8rem; margin-bottom: 0.8rem; }
+.guarantee-title {
+  font-family: var(--display); font-size: 1rem; letter-spacing: 0.05em;
+  color: var(--text); margin-bottom: 0.3rem;
+}
+.guarantee-desc { font-size: 0.8rem; color: var(--text-muted); }
+
+/* ═══ FIX 8: FAQ section ═══ */
+.faq { padding: 4rem 6vw; display: grid; grid-template-columns: 1fr 1.5fr; gap: 6rem; align-items: start; }
+.faq-items { display: flex; flex-direction: column; }
+.faq-item { border-bottom: 1px solid rgba(28,28,46,0.06); }
+.faq-question {
+  width: 100%; display: flex; justify-content: space-between; align-items: center;
+  padding: 1.5rem 0; background: none; border: none; cursor: pointer;
+  font-family: var(--sans); font-size: 1rem; color: var(--text); text-align: left;
+}
+.faq-question:hover { color: var(--accent); }
+.faq-icon {
+  width: 24px; height: 24px; border-radius: 50%; border: 1px solid rgba(255,45,138,0.2);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  transition: all 0.3s; color: var(--accent);
+}
+.faq-question[aria-expanded="true"] .faq-icon { transform: rotate(45deg); background: var(--accent); color: #fff; }
+.faq-answer {
+  max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.16,1,0.3,1);
+}
+.faq-answer p { padding: 0 0 1.5rem; color: var(--text-muted); line-height: 1.8; font-size: 0.9rem; }
+
+/* ═══ FIX 9: Product Modal ═══ */
+#product-modal {
+  position: fixed; inset: 0; z-index: 10000;
+  background: rgba(28,28,46,0.6); backdrop-filter: blur(10px);
+  display: none; justify-content: center; align-items: center; padding: 2rem;
+}
+#product-modal.active { display: flex; }
+.pm-inner {
+  background: #fff; border-radius: var(--radius-lg); max-width: 800px; width: 100%;
+  display: grid; grid-template-columns: 1fr 1fr; overflow: hidden;
+  box-shadow: 0 24px 64px rgba(28,28,46,0.2);
+}
+.pm-close {
+  position: absolute; top: 1rem; right: 1rem; z-index: 10;
+  width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(28,28,46,0.1);
+  background: #fff; display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: all 0.3s;
+}
+.pm-close:hover { border-color: var(--accent); color: var(--accent); }
+.pm-img { position: relative; background: var(--surface); }
+.pm-img-main, .pm-img-zoom { width: 100%; aspect-ratio: 1; object-fit: cover; }
+.pm-img-zoom { position: absolute; inset: 0; opacity: 0; transition: opacity 0.3s; }
+.pm-toggle-wrap {
+  position: absolute; bottom: 1rem; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 0.5rem; background: rgba(255,255,255,0.9); padding: 0.3rem; border-radius: 999px;
+}
+.pm-toggle-btn {
+  font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.1em;
+  padding: 0.4rem 0.8rem; border-radius: 999px; border: none; cursor: pointer;
+  background: transparent; color: var(--text-muted); transition: all 0.3s;
+}
+.pm-toggle-btn.active { background: var(--accent); color: #fff; }
+.pm-body { padding: 2rem; display: flex; flex-direction: column; justify-content: center; }
+.pm-name { font-family: var(--display); font-size: 2rem; color: var(--text); margin-bottom: 0.3rem; }
+.pm-sub { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.15em; color: var(--text-muted); text-transform: uppercase; margin-bottom: 1.5rem; }
+.pm-desc { font-size: 0.9rem; line-height: 1.8; color: var(--text-muted); margin-bottom: 1.5rem; }
+.pm-section-label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.8rem; }
+.pm-allergens { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2rem; }
+.pm-allergens .allergen-tag,
+.pm-allergens span {
+  font-family: var(--mono); font-size: 0.55rem; padding: 0.3rem 0.7rem;
+  border: 1px solid var(--accent); color: var(--accent); border-radius: 999px;
+}
+
+/* ═══ FIX 10: Skip to content ═══ */
+.skip-to-content {
+  position: absolute; top: -100px; left: 50%; transform: translateX(-50%);
+  background: var(--accent); color: #fff; padding: 0.5rem 1rem; border-radius: 999px;
+  font-family: var(--mono); font-size: 0.7rem; z-index: 99999;
+}
+.skip-to-content:focus { top: 1rem; }
+
+/* ═══ FIX 11: Reveal animation class ═══ */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ═══ FIX 12: Responsive overrides ═══ */
+@media (max-width: 768px) {
+  .boutique-header { grid-template-columns: 1fr; gap: 1.5rem; }
+  .shop-grid { grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
+  .guarantees-bar { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+  .faq { grid-template-columns: 1fr; gap: 2rem; }
+  .hero-left { padding: 7rem 5vw 2.5rem; }
+  .mobile-swipe-hint { display: flex; }
+  .pm-inner { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .shop-grid { grid-template-columns: 1fr; }
+  .guarantees-bar { grid-template-columns: 1fr; }
+}
+
+/* ═══ FIX 13: Degustation note ═══ */
+.degustation-note {
+  font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.15em;
+  color: var(--accent); margin-top: 0.5rem;
+}
+
+/* ═══ FIX 14: Section CTA contextual ═══ */
+.section-cta-contextual {
+  text-align: center; margin-top: 2.5rem; padding-top: 1rem;
+}
+
+/* ═══ FIX 15: Hero secondary button on dark bg ═══ */
+.btn-secondary {
+  display: inline-flex; align-items: center; gap: 0.8rem;
+  padding: 1.1rem 2.4rem; border-radius: 999px;
+  font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.18em;
+  text-transform: uppercase; color: #fff;
+  border: 1px solid rgba(255,255,255,0.25); background: transparent;
+  transition: all 0.4s; min-height: 48px; cursor: pointer;
+}
+.btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.4); }
+
+</style>
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@vicesweety" />
+  <meta name="twitter:title" content="Vice Sweety — Desserts Dangereux · Marseille" />
+  <meta name="twitter:description" content="Desserts trompe-l'œil, milkshakes obscènes, cookies dangereux. Le plaisir coupable premium de Marseille." />
+  <meta name="twitter:image" content="https://www.vicesweety.com/img/hero-flatlay.webp" />
+</head>
+<body>
+
+  <!-- Accessibility: skip to content -->
+  <a href="#menu" class="skip-to-content">Aller au contenu</a>
+  <noscript><style>#navbar{opacity:1;translate:0 0;}.reveal{opacity:1;transform:none;}.hero-eyebrow,.hero-h1,.hero-hook,.hero-desc,.hero-actions,.hero-reassurance,.hero-img-main{opacity:1;transform:none;}</style></noscript>
+
+  <!-- ═══════ MOBILE OVERLAY ═══════ -->
+  <div id="mobile-overlay" role="dialog" aria-label="Menu de navigation">
+    <a href="#menu" class="mobile-nav-item">Menu</a>
+    <a href="notre-vice.html" class="mobile-nav-item">Notre Vice</a>
+    <a href="lab.html" class="mobile-nav-item">Le Lab</a>
+    <div class="mobile-nav-footer">
+      <a href="mailto:hello@vicesweety.com">hello@vicesweety.com</a>
+      <a href="tel:+33622356575">+33 (0)6 22 35 65 75</a>
+      <a href="https://www.instagram.com/vicesweety" target="_blank" rel="noopener noreferrer">Instagram @vicesweety</a>
+    </div>
+  </div>
+
+  <!-- ═══════ NAVIGATION ═══════ -->
+  <nav id="navbar">
+    <!-- Mobile burger (hidden on desktop) -->
+    <button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-overlay">
+      <span></span><span></span><span></span>
+    </button>
+    <!-- Desktop links — left of brand -->
+    <div class="nav-links-left">
+      <a href="#menu">Menu</a>
+      <a href="notre-vice.html">Notre Vice</a>
+      <a href="lab.html">Le Lab</a>
+    </div>
+    <a href="#" class="nav-brand" aria-label="Retour à l'accueil">
+      <span class="brand-name">Vice Sweety</span>
+    </a>
+    <!-- Desktop links — right of brand + Cart & Location -->
+    <div class="nav-links-right">
+      <button class="nav-cart-btn" aria-label="Panier">
+        🛒
+        <span class="cart-badge" id="cartBadge" style="display:none;">0</span>
+      </button>
+      <span class="nav-location">📍 Marseille</span>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════
+       1. HERO — Double CTA
+  ═══════════════════════════════════════════ -->
+  <header class="hero">
+    <div class="hero-left">
+      <p class="hero-eyebrow">Desserts Dangereux · Marseille · Since Now</p>
+      <h1 class="hero-h1">Ton Prochain<br><em>Plaisir Coupable.</em></h1>
+      <p class="hero-baseline">Desserts trompe-l'œil, milkshakes obscènes, cookies dangereux. Bienvenue dans le Vice.</p>
+      <div class="hero-actions">
+        <a href="#menu" class="btn-primary">
+          <span>Commander mon Vice</span>
+          <div class="btn-arrow"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </a>
+        <a href="#menu" class="btn-secondary">
+          <span>Voir le Menu</span>
+          <div class="btn-arrow"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </a>
+      </div>
+      <p class="hero-reassurance">Prêt en 5 min · Take-away · À partir de 6€</p>
+    </div>
+    <div class="scroll-hint">
+      <div class="scroll-hint-line"></div>
+      <span class="scroll-hint-label">Défiler</span>
+    </div>
+    <div class="hero-right">
+      <video class="hero-img-main" id="heroMain" src="img/peche-decoupe.mp4" poster="img/hero-flatlay.webp" autoplay muted loop playsinline fetchpriority="high"></video>
+      <img src="img/hero-flatlay.webp" alt="Vice Sweety — Desserts Trompe-l'œil" class="hero-img-fallback" width="1200" height="800" style="display:none;" />
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════
+       2. MENU — Grille 3×3
+  ═══════════════════════════════════════════ -->
+  <section class="boutique" id="menu">
+    <div class="boutique-header">
+      <div>
+        <p class="section-eyebrow reveal">Le Menu</p>
+        <h2 class="section-h2 reveal">Les<br><em>Vices.</em></h2>
+      </div>
+      <p class="section-desc reveal">Trompe-l'œil addictifs, drinks qui claquent, cookies dangereux. Choisis ton vice.</p>
+    </div>
+
+    <div class="boutique-filters reveal">
+      <button class="filter-pill active" data-filter="all">Tout</button>
+      <button class="filter-pill" data-filter="trompe">Trompe-l'œil</button>
+      <button class="filter-pill" data-filter="drinks">Drinks</button>
+      <button class="filter-pill" data-filter="cookies">Cookies</button>
+    </div>
+
+    <div class="mobile-swipe-hint">
+      <span>Glisser pour explorer</span>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="m14 6 6 6-6 6"/></svg>
+    </div>
+
+    <div class="shop-grid">
+      <!-- TROMPE-L'ŒIL SECTION -->
+      <a href="produit-fraise.html" class="shop-card reveal" data-cat="trompe" style="display:block;">
+        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/fraise.webp" alt="La Fraise" width="400" height="400" loading="lazy"/><img class="shop-card-zoom" src="img/fraise-zoom.webp" alt="Texture Fraise" loading="lazy"/><div class="shop-card-zoom-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div><div class="shop-card-badge-new">Bestseller</div></div>
+        <div class="shop-card-name">La Fraise</div><div class="shop-card-sub">T'as cru que c'était un fruit ?</div><div class="shop-card-footer"><div class="shop-card-price">8,90<em>€</em></div><button class="btn-ajouter">Ajouter</button></div>
+      </a>
+      <a href="produit-mangue.html" class="shop-card reveal" data-cat="trompe" style="display:block;">
+        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/mangue.webp" alt="La Mangue" width="400" height="400" loading="lazy"/><img class="shop-card-zoom" src="img/mangue-zoom.webp" alt="Texture Mangue" loading="lazy"/><div class="shop-card-badge-season">Saison été</div><div class="shop-card-zoom-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div></div>
+        <div class="shop-card-name">La Mangue</div><div class="shop-card-sub">Cœur Exotique · Velours</div><div class="shop-card-footer"><div class="shop-card-price">8,90<em>€</em></div><button class="btn-ajouter">Ajouter</button></div>
+      </a>
+      <a href="produit-framboise.html" class="shop-card reveal" data-cat="trompe" style="display:block;">
+        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/framboise.webp" alt="La Framboise" width="400" height="400" loading="lazy"/><img class="shop-card-zoom" src="img/framboise-zoom.webp" alt="Texture Framboise" loading="lazy"/><div class="shop-card-zoom-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div></div>
+        <div class="shop-card-name">La Framboise</div><div class="shop-card-sub">Velours Rouge · Acidulée</div><div class="shop-card-footer"><div class="shop-card-price">8,90<em>€</em></div><button class="btn-ajouter">Ajouter</button></div>
+      </a>
+      <a href="produit-peche.html" class="shop-card reveal" data-cat="trompe" style="display:block;">
+        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/peche.webp" alt="La Pêche" width="400" height="400" loading="lazy"/><img class="shop-card-zoom" src="img/peche-zoom.webp" alt="Texture Pêche" loading="lazy"/><div class="shop-card-badge-season">Saison été</div><div class="shop-card-zoom-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div></div>
+        <div class="shop-card-name">La Pêche</div><div class="shop-card-sub">Signature Fruitée</div><div class="shop-card-footer"><div class="shop-card-price">8,90<em>€</em></div><button class="btn-ajouter">Ajouter</button></div>
+      </a>
+      <a href="produit-citron.html" class="shop-card reveal" data-cat="trompe" style="display:block;">
+        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/citron.webp" alt="Le Citron" width="400" height="400" loading="lazy"/><img class="shop-card-zoom" src="img/citron-zoom.webp" alt="Texture Citron" loading="lazy"/><div class="shop-card-badge-new">Nouveau</div><div class="shop-card-zoom-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div></div>
+        <div class="shop-card-name">Le Citron</div><div class="shop-card-sub">Zeste Givré · Acidité</div><div class="shop-card-footer"><div class="shop-card-price">8,90<em>€</em></div><button class="btn-ajouter">Ajouter</button></div>
+      </a>
+      <a href="produit-passion.html" class="shop-card reveal" data-cat="trompe" style="display:block;">
+        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/passion.webp" alt="La Passion" width="400" height="400" loading="lazy"/><img class="shop-card-zoom" src="img/passion-zoom.webp" alt="Texture Passion" loading="lazy"/><div class="shop-card-badge-limited">Édition limitée</div><div class="shop-card-zoom-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div></div>
+        <div class="shop-card-name">La Passion</div><div class="shop-card-sub">Éclat Tropical · Cœur Exotique</div><div class="shop-card-footer"><div class="shop-card-price">8,90<em>€</em></div><button class="btn-ajouter">Ajouter</button></div>
+      </a>
+
+      <!-- DRINKS SECTION (PLACEHOLDERS) -->
+      <a href="produit-milkshake-vice.html" class="shop-card reveal" data-cat="drinks" style="display:none;">
+        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/drink-placeholder.webp" alt="Milkshake Vice" width="400" height="400" loading="lazy"/></div>
+        <div class="shop-card-name">Milkshake Vice</div><div class="shop-card-sub">Neon Rose · Addictif</div><div class="shop-card-footer"><div class="shop-card-price">7,50<em>€</em></div><button class="btn-ajouter">Ajouter</button></div>
+      </a>
+      <a href="produit-smoothie-sunset.html" class="shop-card reveal" data-cat="drinks" style="display:none;">
+        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/drink-placeholder.webp" alt="Smoothie Sunset" width="400" height="400" loading="lazy"/></div>
+        <div class="shop-card-name">Smoothie Sunset</div><div class="shop-card-sub">Tropical · Frais</div><div class="shop-card-footer"><div class="shop-card-price">6,90<em>€</em></div><button class="btn-ajouter">Ajouter</button></div>
+      </a>
+      <a href="produit-jus-frais.html" class="shop-card reveal" data-cat="drinks" style="display:none;">
+        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/drink-placeholder.webp" alt="Jus Frais" width="400" height="400" loading="lazy"/></div>
+        <div class="shop-card-name">Jus Frais</div><div class="shop-card-sub">Vitaminé · Premium</div><div class="shop-card-footer"><div class="shop-card-price">6,90<em>€</em></div><button class="btn-ajouter">Ajouter</button></div>
+      </a>
+
+      <!-- COOKIES SECTION (PLACEHOLDERS) -->
+      <a href="produit-cookie-vice.html" class="shop-card reveal" data-cat="cookies" style="display:none;">
+        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/cookie-placeholder.webp" alt="Cookie Vice" width="400" height="400" loading="lazy"/></div>
+        <div class="shop-card-name">Cookie Vice</div><div class="shop-card-sub">Chocolat Noir · Dangereux</div><div class="shop-card-footer"><div class="shop-card-price">5,90<em>€</em></div><button class="btn-ajouter">Ajouter</button></div>
+      </a>
+      <a href="produit-cookie-dough.html" class="shop-card reveal" data-cat="cookies" style="display:none;">
+        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/cookie-placeholder.webp" alt="Cookie Dough" width="400" height="400" loading="lazy"/></div>
+        <div class="shop-card-name">Cookie Dough</div><div class="shop-card-sub">Pâte Brute · Cru</div><div class="shop-card-footer"><div class="shop-card-price">5,90<em>€</em></div><button class="btn-ajouter">Ajouter</button></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       3. VIDEO REVEAL — Le moment Vice
+  ═══════════════════════════════════════════ -->
+  <section class="video-reveal-section" id="reveal">
+    <div class="video-reveal-header reveal">
+      <p class="section-eyebrow">Le Moment Vice</p>
+      <h2>L'illusion se<br><em>révèle.</em></h2>
+      <p>Tu coupes. Tu découvres. Tu comprends pourquoi on appelle ça un Vice.</p>
+    </div>
+    <div class="video-reveal-frame reveal">
+      <video id="revealVideo" src="img/peche-decoupe.mp4" poster="img/peche.webp" autoplay muted loop playsinline></video>
+
+      <!-- Overlay luxe — branding Vice Sweety -->
+      <div class="video-luxe-overlay">
+        <div class="video-luxe-bottom">
+          <span class="video-luxe-hashtag">#ViceSweety</span>
+          <span class="video-luxe-tagline">Dangerously Sweet.</span>
+        </div>
+      </div>
+
+      <button id="revealSoundBtn" class="video-sound-toggle" aria-label="Activer le son">
+        <svg class="icon-muted" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+        <svg class="icon-sound" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+        <span>ASMR</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       4. GUARANTEES — Réassurance
+  ═══════════════════════════════════════════ -->
+  <section class="guarantees-bar reveal">
+    <div class="guarantee-item">
+      <div class="guarantee-icon">⏱️</div>
+      <div class="guarantee-title">Prêt en 5 min</div>
+      <div class="guarantee-desc">Frais et chaud à la commande.</div>
+    </div>
+    <div class="guarantee-item">
+      <div class="guarantee-icon">📍</div>
+      <div class="guarantee-title">Take-away Marseille</div>
+      <div class="guarantee-desc">À emporter sur place.</div>
+    </div>
+    <div class="guarantee-item">
+      <div class="guarantee-icon">🔒</div>
+      <div class="guarantee-title">Paiement sécurisé</div>
+      <div class="guarantee-desc">SSL & cartes bancaires.</div>
+    </div>
+    <div class="guarantee-item">
+      <div class="guarantee-icon">✨</div>
+      <div class="guarantee-title">Ingrédients premium</div>
+      <div class="guarantee-desc">Sélectionnés avec soin.</div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       5. FAQ — Questions
+  ═══════════════════════════════════════════ -->
+  <section class="faq" id="faq">
+    <div class="faq-left">
+      <p class="section-eyebrow reveal">Questions</p>
+      <h2 class="section-h2 reveal">FAQ<br><em>Vice.</em></h2>
+    </div>
+    <div class="faq-items reveal">
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span class="faq-q-text">C'est vraiment pas un vrai fruit ?</span>
+          <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M6 2v8M2 6h8"/></svg></div>
+        </button>
+        <div class="faq-answer"><p>Non. C'est mieux. C'est un dessert trompe-l'œil artisanal présenté comme un fruit parfait. À la première bouchée, tu découvres la magie : texture veloutée, saveur intense, effet visuel dingue.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span class="faq-q-text">Comment je commande ?</span>
+          <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M6 2v8M2 6h8"/></svg></div>
+        </button>
+        <div class="faq-answer"><p>Sur le site ou directement au comptoir. Les commandes se préparent en 5 minutes. Pour les grosses commandes, contacte hello@vicesweety.com.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span class="faq-q-text">Vous livrez ?</span>
+          <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M6 2v8M2 6h8"/></svg></div>
+        </button>
+        <div class="faq-answer"><p>Take-away pour l'instant. Viens chercher sur place — ça mérite d'être frais.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span class="faq-q-text">C'est quoi les Éditions limitées ?</span>
+          <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M6 2v8M2 6h8"/></svg></div>
+        </button>
+        <div class="faq-answer"><p>Notre série limitée inspirée des saveurs du moment. Elles changent. C'est limited edition, donc une fois parties, elles sont parties.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span class="faq-q-text">Allergènes ?</span>
+          <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M6 2v8M2 6h8"/></svg></div>
+        </button>
+        <div class="faq-answer"><p>Chaque fiche produit détaille les allergènes déclarés. Si tu as des allergies, on peut te proposer des alternatives ou tu peux vérifier directement avec nous.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       6. FOOTER
+  ═══════════════════════════════════════════ -->
+  <footer>
+    <div class="footer-brand-text">Vice Sweety</div>
+    <div class="footer-tagline">Dangerously Sweet. Unapologetically Marseille.</div>
+
+    <nav class="footer-nav">
+      <a href="#menu">Menu</a>
+      <a href="notre-vice.html">Notre Vice</a>
+      <a href="lab.html">Le Lab</a>
+      <a href="mentions-legales.html">Mentions légales</a>
+    </nav>
+    <div class="footer-contact">
+      <a href="mailto:hello@vicesweety.com">hello@vicesweety.com</a><br/>
+      <a href="tel:+33622356575">+33 (0)6 22 35 65 75</a>
+    </div>
+    <p class="footer-address">Marseille, France · Tous les jours 10h–21h</p>
+
+    <!-- Social -->
+    <div class="footer-social">
+      <a href="https://www.instagram.com/vicesweety" target="_blank" rel="noopener noreferrer" aria-label="Instagram Vice Sweety">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <a href="https://www.tiktok.com/@vicesweety" target="_blank" rel="noopener noreferrer" aria-label="TikTok Vice Sweety">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.8a8.27 8.27 0 0 0 4.76 1.5v-3.4a4.85 4.85 0 0 1-1-.21z"/></svg>
+      </a>
+      <a href="mailto:hello@vicesweety.com" aria-label="Email Vice Sweety">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </a>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 Vice Sweety</span>
+      <a href="mentions-legales.html">Mentions légales</a>
+    </div>
+  </footer>
+
+  <!-- ═══════ PRODUCT MODAL ═══════ -->
+  <div id="product-modal" role="dialog" aria-label="Fiche Technique Produit" aria-modal="true">
+    <div class="pm-inner">
+      <button class="pm-close" id="pmClose"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M2 2l8 8M10 2l-8 8"/></svg></button>
+      <div class="pm-img" id="pmImgWrap">
+        <img class="pm-img-main" id="pmImg" src="" alt=""/>
+        <img class="pm-img-zoom" id="pmImgZoom" src="" alt=""/>
+        <div class="pm-toggle-wrap" id="pmToggleWrap" style="display:none;">
+          <button class="pm-toggle-btn active" data-view="main">Vue</button>
+          <button class="pm-toggle-btn" data-view="zoom">Texture</button>
+        </div>
+      </div>
+      <div class="pm-body">
+        <div class="pm-name" id="pmName"></div>
+        <div class="pm-sub" id="pmSub"></div>
+        <p class="pm-desc" id="pmDesc"></p>
+        <div class="pm-section-label">Allergènes déclarés</div>
+        <div class="pm-allergens" id="pmAllergens"></div>
+        <button class="btn-ajouter" id="pmAddToCart">
+          <span>Ajouter</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════ JAVASCRIPT ═══════ -->
+  <script>
+  // ═══════════════════════════════════════════════════════════════
+  // JAVASCRIPT — VICE SWEETY
+  // ═══════════════════════════════════════════════════════════════
+
+  // 1. DONNÉES PRODUITS
+  const productData = {
+    "fraise": { name: "La Fraise", sub: "T'as cru que c'était un fruit ?", img: "img/fraise.webp", zoom: "img/fraise-zoom.webp", desc: "Trompe-l'œil signature. Ganache montée, confit intense, présentation spectaculaire.", allergens: "Œufs, Lait, Fruits à coque", price: "8,90€" },
+    "mangue": { name: "La Mangue", sub: "Cœur Exotique · Velours", img: "img/mangue.webp", zoom: "img/mangue-zoom.webp", desc: "Trompe-l'œil exotique avec ganache velours et cœur de mangue.", allergens: "Œufs, Lait", price: "8,90€" },
+    "framboise": { name: "La Framboise", sub: "Velours Rouge · Acidulée", img: "img/framboise.webp", zoom: "img/framboise-zoom.webp", desc: "Trompe-l'œil fruits rouges avec ganache velours framboise.", allergens: "Œufs, Lait, Fruits à coque", price: "8,90€" },
+    "peche": { name: "La Pêche", sub: "Signature Fruitée", img: "img/peche.webp", zoom: "img/peche-zoom.webp", desc: "Notre signature. Trompe-l'œil pêche avec ganache fruitée.", allergens: "Œufs, Lait", price: "8,90€" },
+    "citron": { name: "Le Citron", sub: "Zeste Givré · Acidité", img: "img/citron.webp", zoom: "img/citron-zoom.webp", desc: "Trompe-l'œil citron avec zeste givré et acidité équilibrée.", allergens: "Œufs, Lait", price: "8,90€" },
+    "passion": { name: "La Passion", sub: "Éclat Tropical · Cœur Exotique", img: "img/passion.webp", zoom: "img/passion-zoom.webp", desc: "Édition limitée — Trompe-l'œil passion fruit avec éclat tropical.", allergens: "Œufs, Lait, Fruits à coque", price: "8,90€" }
+  };
+
+  // 2. NAVBAR & MOBILE MENU
+  const navBurger = document.getElementById("navBurger");
+  const mobileOverlay = document.getElementById("mobile-overlay");
+
+  if (navBurger) {
+    navBurger.addEventListener("click", () => {
+      const isOpen = navBurger.getAttribute("aria-expanded") === "true";
+      navBurger.setAttribute("aria-expanded", !isOpen);
+      navBurger.classList.toggle("open");
+      mobileOverlay.style.display = isOpen ? "none" : "flex";
+      document.body.classList.toggle("menu-active");
+    });
+
+    document.querySelectorAll(".mobile-nav-item").forEach(link => {
+      link.addEventListener("click", () => {
+        navBurger.setAttribute("aria-expanded", "false");
+        navBurger.classList.remove("open");
+        mobileOverlay.style.display = "none";
+        document.body.classList.remove("menu-active");
+      });
+    });
+  }
+
+  // 3. FILTER PILLS
+  const filterPills = document.querySelectorAll(".filter-pill");
+  const shopCards = document.querySelectorAll(".shop-card");
+
+  filterPills.forEach(pill => {
+    pill.addEventListener("click", () => {
+      filterPills.forEach(p => p.classList.remove("active"));
+      pill.classList.add("active");
+
+      const filter = pill.getAttribute("data-filter");
+
+      shopCards.forEach(card => {
+        const cats = card.getAttribute("data-cat").split(" ");
+        if (filter === "all" || cats.includes(filter)) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    });
+  });
+
+  // 4. PRODUCT MODAL
+  const productModal = document.getElementById("product-modal");
+  const pmClose = document.getElementById("pmClose");
+  const pmImg = document.getElementById("pmImg");
+  const pmImgZoom = document.getElementById("pmImgZoom");
+  const pmName = document.getElementById("pmName");
+  const pmSub = document.getElementById("pmSub");
+  const pmDesc = document.getElementById("pmDesc");
+  const pmAllergens = document.getElementById("pmAllergens");
+  const pmToggleWrap = document.getElementById("pmToggleWrap");
+
+  shopCards.forEach(card => {
+    card.addEventListener("click", (e) => {
+      if (e.target.closest(".btn-ajouter")) return; // Don't open modal on add button
+
+      const productKey = card.getAttribute("href").split("-")[1].split(".")[0];
+      const product = productData[productKey];
+
+      if (product) {
+        pmImg.src = product.img;
+        pmImgZoom.src = product.zoom;
+        pmName.textContent = product.name;
+        pmSub.textContent = product.sub;
+        pmDesc.textContent = product.desc;
+        pmAllergens.textContent = product.allergens;
+
+        if (product.zoom) {
+          pmToggleWrap.style.display = "flex";
+        }
+
+        productModal.style.display = "flex";
+        document.body.style.overflow = "hidden";
+      }
+    });
+  });
+
+  if (pmClose) {
+    pmClose.addEventListener("click", () => {
+      productModal.style.display = "none";
+      document.body.style.overflow = "auto";
+    });
+  }
+
+  productModal.addEventListener("click", (e) => {
+    if (e.target === productModal) {
+      productModal.style.display = "none";
+      document.body.style.overflow = "auto";
+    }
+  });
+
+  // 5. VIDEO REVEAL SOUND TOGGLE
+  const revealVideo = document.getElementById("revealVideo");
+  const revealSoundBtn = document.getElementById("revealSoundBtn");
+  const iconMuted = revealSoundBtn?.querySelector(".icon-muted");
+  const iconSound = revealSoundBtn?.querySelector(".icon-sound");
+
+  if (revealSoundBtn && revealVideo) {
+    revealSoundBtn.addEventListener("click", () => {
+      revealVideo.muted = !revealVideo.muted;
+      iconMuted.style.display = revealVideo.muted ? "block" : "none";
+      iconSound.style.display = revealVideo.muted ? "none" : "block";
+    });
+  }
+
+  // 6. FAQ ACCORDION
+  const faqQuestions = document.querySelectorAll(".faq-question");
+  faqQuestions.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const isOpen = btn.getAttribute("aria-expanded") === "true";
+
+      faqQuestions.forEach(b => {
+        b.setAttribute("aria-expanded", "false");
+        b.parentElement.querySelector(".faq-answer").style.maxHeight = "0";
+      });
+
+      if (!isOpen) {
+        btn.setAttribute("aria-expanded", "true");
+        const answer = btn.parentElement.querySelector(".faq-answer");
+        answer.style.maxHeight = answer.scrollHeight + "px";
+      }
+    });
+  });
+
+  // 7. REVEAL ANIMATIONS (GSAP ScrollTrigger)
+  if (window.gsap && window.ScrollTrigger) {
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.utils.toArray(".reveal").forEach(el => {
+      gsap.from(el, {
+        opacity: 0,
+        y: 30,
+        duration: 0.8,
+        scrollTrigger: {
+          trigger: el,
+          start: "top 80%",
+          toggleActions: "play none none none"
+        }
+      });
+    });
+
+    gsap.from(".hero-eyebrow, .hero-h1, .hero-baseline, .hero-hook, .hero-actions, .hero-reassurance", {
+      opacity: 0,
+      y: 20,
+      duration: 0.6,
+      stagger: 0.1
+    });
+
+    gsap.from(".hero-img-main", {
+      opacity: 0,
+      scale: 0.9,
+      duration: 0.8,
+      delay: 0.3
+    });
+  }
+
+  // 8. NAVBAR — show on load + scroll effect
+  const navbar = document.getElementById("navbar");
+  if (navbar) {
+    // Make navbar visible after small delay
+    setTimeout(() => navbar.classList.add("visible"), 100);
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 80) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    });
+  }
+
+  // 9. CART LOGIC (PLACEHOLDER)
+  let cartCount = 0;
+  const cartBadge = document.getElementById("cartBadge");
+
+  document.querySelectorAll(".btn-ajouter").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      cartCount++;
+      if (cartBadge) {
+        cartBadge.textContent = cartCount;
+        cartBadge.style.display = "block";
+      }
+      // Visual feedback
+      btn.textContent = "Ajouté !";
+      setTimeout(() => {
+        btn.textContent = "Ajouter";
+      }, 1500);
+    });
+  });
+
+  </script>
+
+</body>
+</html>

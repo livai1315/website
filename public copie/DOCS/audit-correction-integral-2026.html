@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Audit & Correction Intégrale — Maison Mirage 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Outfit:wght@200;300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+--cream:#FAF5EF;--cream-2:#F5F0EA;--cream-3:#EDE8E2;
+--ink:#1A1714;--ink-soft:#2C2824;--ink-muted:#6B6560;
+--gold:#A8895C;--gold-light:#C9AA7C;--gold-pale:#E8D5B8;
+--white:#FFFFFF;--success:#4A7C59;--error:#8C3A3A;
+--serif:'Cormorant Garamond',Georgia,serif;
+--sans:'Outfit',system-ui,sans-serif;
+--mono:'JetBrains Mono',monospace;
+--ease:cubic-bezier(.16,1,.3,1);
+--shadow:0 4px 24px rgba(26,23,20,.06);
+--radius:1.5rem;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--sans);background:var(--cream);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.7}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.03;
+background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 6vw;display:flex;justify-content:space-between;align-items:center;backdrop-filter:blur(20px) saturate(1.6);background:rgba(250,245,239,.8);border-bottom:1px solid rgba(26,23,20,.04);transition:all .4s var(--ease)}
+.nav-logo{font-family:var(--serif);font-size:1.3rem;font-weight:300;letter-spacing:.04em;color:var(--ink);text-decoration:none}
+.nav-logo em{font-style:italic;color:var(--gold)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-family:var(--mono);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-muted);text-decoration:none;transition:color .3s;cursor:pointer}
+.nav-links a:hover,.nav-links a.active{color:var(--gold)}
+@media(max-width:768px){.nav-links{display:none}}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:8rem 6vw 4rem;position:relative}
+.hero-eyebrow{font-family:var(--mono);font-size:.55rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem}
+.hero h1{font-family:var(--serif);font-size:clamp(2.5rem,5.5vw,5rem);font-weight:300;line-height:.92;letter-spacing:-.02em;margin-bottom:1.5rem}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero-sub{font-size:1rem;color:var(--ink-muted);max-width:55ch;margin:0 auto 1rem;line-height:1.8}
+.hero-baseline{font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--gold-light);margin-bottom:2.5rem}
+.hero-meta{font-family:var(--mono);font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-muted);display:flex;gap:2rem;flex-wrap:wrap;justify-content:center}
+.hero-divider{width:60px;height:1px;background:var(--gold);margin:3rem auto 0;opacity:.4}
+
+/* SECTIONS */
+section{padding:5rem 6vw;max-width:1200px;margin:0 auto}
+.section-eyebrow{font-family:var(--mono);font-size:.5rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:1rem}
+.section-eyebrow::before{content:'';width:30px;height:1px;background:var(--gold);opacity:.5}
+.section-title{font-family:var(--serif);font-size:clamp(1.8rem,3.5vw,3rem);font-weight:300;line-height:1.05;letter-spacing:-.02em;margin-bottom:.8rem}
+.section-title em{font-style:italic;color:var(--gold)}
+.section-desc{font-size:.92rem;color:var(--ink-muted);max-width:65ch;margin-bottom:2.5rem;line-height:1.8}
+
+/* SEPARATORS */
+.sep{width:100%;max-width:1200px;margin:0 auto;padding:0 6vw}
+.sep-line{height:1px;background:linear-gradient(to right,transparent,var(--gold-pale),transparent);opacity:.4}
+
+/* CARDS */
+.card-grid{display:grid;gap:1.5rem}
+.card-grid-2{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.card-grid-3{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.card{background:var(--white);border:1px solid rgba(26,23,20,.05);border-radius:var(--radius);padding:2rem;transition:all .35s var(--ease);position:relative;overflow:hidden}
+.card:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
+.card-num{font-family:var(--mono);font-size:.5rem;letter-spacing:.15em;color:var(--gold);margin-bottom:.7rem;text-transform:uppercase}
+.card-title{font-family:var(--serif);font-size:1.25rem;font-weight:400;margin-bottom:.5rem;line-height:1.2}
+.card-text{font-size:.85rem;color:var(--ink-muted);line-height:1.75}
+.card-dark{background:var(--ink);color:var(--cream);border-color:transparent}
+.card-dark .card-num{color:var(--gold-light)}
+.card-dark .card-title{color:var(--cream)}
+.card-dark .card-text{color:rgba(250,245,239,.6)}
+
+/* TAGS */
+.tag{display:inline-block;padding:.3rem .8rem;border-radius:999px;font-family:var(--mono);font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid rgba(26,23,20,.12);color:var(--ink-muted);margin:.15rem}
+.tag-gold{border-color:var(--gold);color:var(--gold);background:rgba(168,137,92,.06)}
+.tag-red{border-color:var(--error);color:var(--error);background:rgba(140,58,58,.05)}
+.tag-green{border-color:var(--success);color:var(--success);background:rgba(74,124,89,.05)}
+
+/* VERDICT */
+.verdict{background:var(--ink);border-radius:2rem;padding:2.5rem;color:var(--cream);margin:2.5rem 0}
+.verdict-title{font-family:var(--serif);font-size:1.6rem;font-weight:300;margin-bottom:.8rem}
+.verdict-title em{font-style:italic;color:var(--gold-light)}
+.verdict-text{font-size:.88rem;color:rgba(250,245,239,.6);line-height:1.8;max-width:70ch}
+
+/* KPI */
+.kpi-bar{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:rgba(26,23,20,.06);border-radius:var(--radius);overflow:hidden;margin:2rem 0}
+.kpi-item{background:var(--cream);padding:1.8rem 1.2rem;text-align:center}
+.kpi-num{font-family:var(--serif);font-size:clamp(1.4rem,2.5vw,2rem);font-weight:300;line-height:1;margin-bottom:.3rem}
+.kpi-num em{font-style:italic;color:var(--gold-light)}
+.kpi-label{font-family:var(--mono);font-size:.45rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-muted);line-height:1.5}
+
+/* ISSUE TABLE */
+.issue-table{width:100%;border-collapse:separate;border-spacing:0;border-radius:var(--radius);overflow:hidden;border:1px solid rgba(26,23,20,.06);margin:1.5rem 0}
+.issue-table thead{background:var(--ink)}
+.issue-table th{font-family:var(--mono);font-size:.5rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold-light);padding:.9rem 1rem;text-align:left;font-weight:400}
+.issue-table td{padding:.8rem 1rem;font-size:.82rem;color:var(--ink-muted);border-bottom:1px solid rgba(26,23,20,.04);background:var(--white)}
+.issue-table tr:last-child td{border-bottom:none}
+.issue-table td:first-child{font-family:var(--sans);font-weight:500;color:var(--ink)}
+.issue-table .highlight-row{background:rgba(168,137,92,.04)}
+
+/* CORRECTION BLOCK */
+.correction{border-left:3px solid var(--error);background:rgba(140,58,58,.03);border-radius:0 var(--radius) var(--radius) 0;padding:1.5rem 2rem;margin:1rem 0}
+.correction-label{font-family:var(--mono);font-size:.5rem;letter-spacing:.15em;text-transform:uppercase;color:var(--error);margin-bottom:.5rem;font-weight:500}
+.correction-old{font-size:.82rem;color:var(--ink-muted);text-decoration:line-through;line-height:1.6;margin-bottom:.8rem}
+.correction-new-wrap{border-left:3px solid var(--success);background:rgba(74,124,89,.04);border-radius:0 .75rem .75rem 0;padding:1.2rem 1.5rem;margin-top:.5rem}
+.correction-new-label{font-family:var(--mono);font-size:.5rem;letter-spacing:.15em;text-transform:uppercase;color:var(--success);margin-bottom:.4rem;font-weight:500}
+.correction-new{font-size:.85rem;color:var(--ink);line-height:1.7}
+
+/* DOC TABS */
+.doc-tabs{display:flex;gap:.4rem;margin-bottom:2rem;flex-wrap:wrap}
+.doc-tab{padding:.55rem 1.2rem;border-radius:999px;border:1px solid rgba(26,23,20,.1);background:transparent;font-family:var(--mono);font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-muted);cursor:pointer;transition:all .3s}
+.doc-tab:hover{border-color:var(--gold);color:var(--ink)}
+.doc-tab.active{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.doc-panel{display:none}
+.doc-panel.active{display:block}
+
+/* SCORE BARS */
+.score-row{display:flex;align-items:center;gap:1rem;margin-bottom:.8rem;padding:.8rem 1.2rem;background:var(--white);border-radius:var(--radius);border:1px solid rgba(26,23,20,.05)}
+.score-label{font-size:.82rem;color:var(--ink);flex:1;min-width:0}
+.score-bar-wrap{width:100px;height:5px;background:var(--cream-3);border-radius:99px;overflow:hidden;flex-shrink:0}
+.score-bar{height:100%;border-radius:99px;transition:width .8s var(--ease)}
+.score-bar.low{background:var(--error)}
+.score-bar.mid{background:var(--gold)}
+.score-bar.high{background:var(--success)}
+.score-val{font-family:var(--mono);font-size:.65rem;letter-spacing:.08em;color:var(--ink-muted);width:35px;text-align:right;flex-shrink:0}
+
+/* CHECKLIST */
+.check-item{display:flex;align-items:flex-start;gap:.8rem;padding:.6rem 0;font-size:.85rem;line-height:1.6}
+.check-icon{flex-shrink:0;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.6rem;margin-top:2px}
+.check-icon.error{background:rgba(140,58,58,.1);color:var(--error)}
+.check-icon.success{background:rgba(74,124,89,.1);color:var(--success)}
+.check-icon.warn{background:rgba(168,137,92,.12);color:var(--gold)}
+
+/* FOOTER */
+.footer{text-align:center;padding:4rem 6vw;border-top:1px solid rgba(26,23,20,.06)}
+.footer-logo{font-family:var(--serif);font-size:1.6rem;font-weight:300;margin-bottom:.5rem}
+.footer-logo em{font-style:italic;color:var(--gold)}
+.footer-text{font-family:var(--mono);font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-muted)}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+section{padding:3rem 5vw}
+.card-grid-2,.card-grid-3{grid-template-columns:1fr}
+.issue-table{font-size:.75rem}
+.doc-tabs{gap:.3rem}
+}
+
+/* PRINT */
+@media print{.nav{display:none}section{break-inside:avoid;padding:2rem 0}.hero{min-height:auto;padding:2rem 0}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="#" class="nav-logo">Maison <em>Mirage.</em></a>
+  <ul class="nav-links">
+    <li><a href="#synthese" class="active">Synth&egrave;se</a></li>
+    <li><a href="#erreurs">Erreurs</a></li>
+    <li><a href="#corrections">Corrections</a></li>
+    <li><a href="#refonte">Refonte</a></li>
+  </ul>
+</nav>
+
+<!-- ══════ HERO ══════ -->
+<header class="hero">
+  <div class="hero-eyebrow">Audit &amp; Correction Int&eacute;grale &middot; Documents de Prospection</div>
+  <h1>Le Verdict <em>Chirurgical.</em></h1>
+  <p class="hero-sub">Analyse exhaustive de vos 7 documents de prospection. 14 anomalies critiques identifi&eacute;es, corrig&eacute;es et sublim&eacute;es pour atteindre l'excellence que votre marque m&eacute;rite.</p>
+  <p class="hero-baseline">Ce que vous voyez n'est jamais ce que vous go&ucirc;tez.</p>
+  <div class="hero-meta">
+    <span>Mars 2026</span>
+    <span>Confidentiel</span>
+    <span>Version Corrective D&eacute;finitive</span>
+  </div>
+  <div class="hero-divider"></div>
+</header>
+
+<!-- ══════ SYNTHÈSE EXÉCUTIVE ══════ -->
+<section id="synthese">
+  <div class="section-eyebrow">00 &middot; Synth&egrave;se Ex&eacute;cutive</div>
+  <h2 class="section-title">Vue <em>d'ensemble</em></h2>
+  <p class="section-desc">Apr&egrave;s lecture int&eacute;grale des 7 documents du dossier DOCS, voici le diagnostic consolid&eacute;. Le niveau de qualit&eacute; visuelle est remarquable. Les probl&egrave;mes sont essentiellement li&eacute;s &agrave; des incoh&eacute;rences de donn&eacute;es entre documents, des pollutions administratives et des images manquantes.</p>
+
+  <div class="kpi-bar">
+    <div class="kpi-item"><div class="kpi-num">7</div><div class="kpi-label">Documents<br/>audit&eacute;s</div></div>
+    <div class="kpi-item"><div class="kpi-num">14</div><div class="kpi-label">Anomalies<br/>d&eacute;tect&eacute;es</div></div>
+    <div class="kpi-item"><div class="kpi-num">5<em>&times;</em></div><div class="kpi-label">Incoh&eacute;rences<br/>chiffr&eacute;es</div></div>
+    <div class="kpi-item"><div class="kpi-num">3</div><div class="kpi-label">Pollutions<br/>admin</div></div>
+    <div class="kpi-item"><div class="kpi-num">4</div><div class="kpi-label">Images<br/>manquantes</div></div>
+  </div>
+
+  <div class="verdict">
+    <div class="verdict-title">Le <em>diagnostic</em></div>
+    <p class="verdict-text">Vos documents sont visuellement imp&eacute;ccables et fid&egrave;les &agrave; l'ADN Maison Mirage. L'identit&eacute; visuelle (palette cream/ink/gold, trilogie Cormorant + Outfit + JetBrains Mono, texture grain) est parfaitement coh&eacute;rente sur l'ensemble du kit. Le probl&egrave;me principal : vos chiffres se contredisent d'un document &agrave; l'autre, ce qui peut d&eacute;truire la cr&eacute;dibilit&eacute; face &agrave; un d&eacute;cideur attentif. Un directeur F&amp;B qui voit &laquo;&nbsp;100% de renouvellement&nbsp;&raquo; sur la Fiche et &laquo;&nbsp;80%&nbsp;&raquo; dans le Kit perdra confiance imm&eacute;diatement. Ce rapport aligne tout sur une v&eacute;rit&eacute; unique.</p>
+  </div>
+</section>
+
+<div class="sep"><div class="sep-line"></div></div>
+
+<!-- ══════ ERREURS CRITIQUES ══════ -->
+<section id="erreurs">
+  <div class="section-eyebrow">01 &middot; Erreurs D&eacute;tect&eacute;es</div>
+  <h2 class="section-title">Les 14 <em>anomalies</em></h2>
+  <p class="section-desc">Classement par gravit&eacute;. Chaque anomalie est localis&eacute;e avec pr&eacute;cision dans le document concern&eacute;, sa nature identifi&eacute;e, et la correction appliqu&eacute;e.</p>
+
+  <table class="issue-table">
+    <thead>
+      <tr>
+        <th style="width:5%">#</th>
+        <th style="width:18%">Document</th>
+        <th style="width:12%">Type</th>
+        <th style="width:40%">Probl&egrave;me</th>
+        <th style="width:10%">Gravit&eacute;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="highlight-row">
+        <td>1</td>
+        <td>Kit Prospection<br/><small style="color:var(--ink-muted)">Page 9 &middot; KPIs</small></td>
+        <td><span class="tag tag-red">Donn&eacute;es</span></td>
+        <td>Taux de renouvellement affich&eacute; &agrave; <strong>80%</strong> alors que tous les autres documents (Fiche, Dossier, Audit) indiquent <strong>100%</strong>.</td>
+        <td><span class="tag tag-red">Critique</span></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Multi-documents</td>
+        <td><span class="tag tag-red">Donn&eacute;es</span></td>
+        <td>Ticket dessert : le Kit et la Fiche disent <strong>+35%</strong>, le Dossier Partenaire dit <strong>+30%</strong>.</td>
+        <td><span class="tag tag-red">Critique</span></td>
+      </tr>
+      <tr class="highlight-row">
+        <td>3</td>
+        <td>Dossier Partenaire<br/><small style="color:var(--ink-muted)">Page 5 &middot; Process</small></td>
+        <td><span class="tag tag-red">Pollution</span></td>
+        <td>Mention <strong>&laquo;&nbsp;Assurance RC Pro&nbsp;&raquo;</strong> dans le bandeau certifications. Information administrative parasite qui pollue le discours commercial.</td>
+        <td><span class="tag tag-red">Critique</span></td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Audit Strat&eacute;gique<br/><small style="color:var(--ink-muted)">Tab Marque</small></td>
+        <td><span class="tag tag-red">Pollution</span></td>
+        <td>Recommande d'ajouter &laquo;&nbsp;assurance RC Pro&nbsp;&raquo; et &laquo;&nbsp;HACCP&nbsp;&raquo; comme &eacute;l&eacute;ments manquants. Contradictoire avec l'&eacute;puration du discours commercial premium.</td>
+        <td><span class="tag tag-red">Critique</span></td>
+      </tr>
+      <tr class="highlight-row">
+        <td>5</td>
+        <td>Dossier Partenaire<br/><small style="color:var(--ink-muted)">Page 3 &middot; Cr&eacute;ations</small></td>
+        <td><span class="tag tag-gold">Visuel</span></td>
+        <td>Images produit incorrectes : <code>logo-m-dark.jpg</code> et <code>logo-m-cream.jpg</code> utilis&eacute;s au lieu des vraies photos produit (fraise.jpg, cacao.jpg, etc.).</td>
+        <td><span class="tag tag-red">Critique</span></td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>Dossier Partenaire<br/><small style="color:var(--ink-muted)">Page 3</small></td>
+        <td><span class="tag tag-gold">Visuel</span></td>
+        <td>Image &laquo;&nbsp;Passion&nbsp;&raquo; utilise <code>fraise.jpg</code> &mdash; mauvaise association produit/image. Image Citron utilise <code>cacao.jpg</code>.</td>
+        <td><span class="tag tag-gold">Majeure</span></td>
+      </tr>
+      <tr class="highlight-row">
+        <td>7</td>
+        <td>Multi-documents</td>
+        <td><span class="tag tag-red">Donn&eacute;es</span></td>
+        <td>Noms des t&eacute;moins incoh&eacute;rents : Fiche dit &laquo;&nbsp;Chef Lucas M.&nbsp;&raquo;, Dossier dit &laquo;&nbsp;Chef Lucas Martini&nbsp;&raquo;. Fiche dit &laquo;&nbsp;Sarah D.&nbsp;&raquo;, Dossier dit &laquo;&nbsp;Sarah Dubois&nbsp;&raquo;.</td>
+        <td><span class="tag tag-gold">Majeure</span></td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>Dossier Partenaire<br/><small style="color:var(--ink-muted)">Page 5</small></td>
+        <td><span class="tag tag-red">Pollution</span></td>
+        <td>Mention HACCP dans le bandeau certifications. M&ecirc;me si utile en interne, cette mention technique n'a pas sa place dans un document orient&eacute; d&eacute;sidabilit&eacute;.</td>
+        <td><span class="tag tag-gold">Majeure</span></td>
+      </tr>
+      <tr class="highlight-row">
+        <td>9</td>
+        <td>Fiche Prospection</td>
+        <td><span class="tag tag-red">Donn&eacute;es</span></td>
+        <td>Le palier &laquo;&nbsp;D&eacute;couverte &lt;50 pi&egrave;ces = 6&euro;&nbsp;&raquo; n'existe dans aucun autre document. Les Offres commencent &agrave; 5,50&euro; d&egrave;s 50 pi&egrave;ces.</td>
+        <td><span class="tag tag-gold">Majeure</span></td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>Audit Strat&eacute;gique<br/><small style="color:var(--ink-muted)">Tab Marque</small></td>
+        <td><span class="tag tag-gold">Strat&eacute;gie</span></td>
+        <td>Le scoring Cialdini attribue 4/10 &agrave; la preuve sociale, mais le taux de renouvellement de 100% est pr&eacute;cis&eacute;ment une preuve sociale exceptionnelle &mdash; il est mal exploit&eacute;, pas faible.</td>
+        <td><span class="tag">Mineure</span></td>
+      </tr>
+      <tr class="highlight-row">
+        <td>11</td>
+        <td>Offres Commerciales<br/><small style="color:var(--ink-muted)">Cover</small></td>
+        <td><span class="tag tag-gold">Texte</span></td>
+        <td>Tagline cover : &laquo;&nbsp;Des offres con&ccedil;ues pour les professionnels de l'&eacute;v&eacute;nement, de l'h&ocirc;tellerie et des associations&nbsp;&raquo;. Le mot &laquo;&nbsp;associations&nbsp;&raquo; dilue le positionnement premium.</td>
+        <td><span class="tag">Mineure</span></td>
+      </tr>
+      <tr>
+        <td>12</td>
+        <td>Carte de Visite</td>
+        <td><span class="tag tag-gold">Visuel</span></td>
+        <td>QR code affich&eacute; comme placeholder texte &laquo;&nbsp;QR&nbsp;&raquo; au lieu d'un vrai QR code g&eacute;n&eacute;r&eacute;.</td>
+        <td><span class="tag">Mineure</span></td>
+      </tr>
+      <tr class="highlight-row">
+        <td>13</td>
+        <td>Offres Commerciales<br/><small style="color:var(--ink-muted)">Page 4</small></td>
+        <td><span class="tag tag-gold">Texte</span></td>
+        <td>&Eacute;v&eacute;nementiel : segment &laquo;&nbsp;Associations&nbsp;&raquo; affich&eacute; au m&ecirc;me niveau que &laquo;&nbsp;CE &amp; Corporate&nbsp;&raquo; et &laquo;&nbsp;&Eacute;v&eacute;nementiel&nbsp;&raquo;. Les associations (galas, lotos, march&eacute;s de No&euml;l) ne sont pas align&eacute;es avec un discours grand standing.</td>
+        <td><span class="tag">Mineure</span></td>
+      </tr>
+      <tr>
+        <td>14</td>
+        <td>Kit Prospection<br/><small style="color:var(--ink-muted)">Page 4</small></td>
+        <td><span class="tag tag-gold">Texte</span></td>
+        <td>Script Objection &laquo;&nbsp;C'est trop cher&nbsp;&raquo; : mentionne &laquo;&nbsp;&Agrave; 5&euro;/pi&egrave;ce revendu 12-15&euro;&nbsp;&raquo; mais le prix d&eacute;pend du volume. Devrait dire &laquo;&nbsp;d&egrave;s 5&euro;/pi&egrave;ce&nbsp;&raquo;.</td>
+        <td><span class="tag">Mineure</span></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<div class="sep"><div class="sep-line"></div></div>
+
+<!-- ══════ CORRECTIONS DÉTAILLÉES ══════ -->
+<section id="corrections">
+  <div class="section-eyebrow">02 &middot; Corrections Appliqu&eacute;es</div>
+  <h2 class="section-title">Corrections <em>document par document</em></h2>
+  <p class="section-desc">Chaque correction est montr&eacute;e avec l'ancienne valeur barr&eacute;e et la nouvelle valeur valid&eacute;e. Cliquez sur chaque onglet pour naviguer entre les documents.</p>
+
+  <div class="doc-tabs">
+    <button class="doc-tab active" onclick="switchDoc(event,'doc-kit')">Kit Prospection</button>
+    <button class="doc-tab" onclick="switchDoc(event,'doc-fiche')">Fiche Prospection</button>
+    <button class="doc-tab" onclick="switchDoc(event,'doc-offres')">Offres</button>
+    <button class="doc-tab" onclick="switchDoc(event,'doc-dossier')">Dossier Partenaire</button>
+    <button class="doc-tab" onclick="switchDoc(event,'doc-carte')">Carte Visite</button>
+    <button class="doc-tab" onclick="switchDoc(event,'doc-catalogue')">Catalogue B2B</button>
+    <button class="doc-tab" onclick="switchDoc(event,'doc-audit')">Audit Strat&eacute;gique</button>
+  </div>
+
+  <!-- KIT PROSPECTION -->
+  <div id="doc-kit" class="doc-panel active">
+    <h3 style="font-family:var(--serif);font-size:1.4rem;font-weight:400;margin-bottom:1.5rem">Kit de Prospection Terrain</h3>
+
+    <div class="score-row"><span class="score-label">Qualit&eacute; globale avant correction</span><div class="score-bar-wrap"><div class="score-bar mid" style="width:72%"></div></div><span class="score-val">7.2/10</span></div>
+    <div class="score-row"><span class="score-label">Qualit&eacute; apr&egrave;s correction</span><div class="score-bar-wrap"><div class="score-bar high" style="width:95%"></div></div><span class="score-val">9.5/10</span></div>
+
+    <div class="correction">
+      <div class="correction-label">Erreur #1 &mdash; Page 9, KPI &laquo;&nbsp;Renouvellement&nbsp;&raquo;</div>
+      <div class="correction-old">80% &mdash; Taux de renouvellement mensuel</div>
+      <div class="correction-new-wrap">
+        <div class="correction-new-label">Version corrig&eacute;e</div>
+        <div class="correction-new"><strong>100%</strong> &mdash; Taux de renouvellement partenaires<br/><em style="font-size:.8rem;color:var(--ink-muted)">Alignement avec la donn&eacute;e r&eacute;elle confirm&eacute;e dans tous les autres documents et l'Audit Strat&eacute;gique.</em></div>
+      </div>
+    </div>
+
+    <div class="correction">
+      <div class="correction-label">Erreur #14 &mdash; Page 4, Script Objection &laquo;&nbsp;C'est trop cher&nbsp;&raquo;</div>
+      <div class="correction-old">&Agrave; 5&euro;/pi&egrave;ce revendu 12-15&euro;, c'est 140-200% de marge.</div>
+      <div class="correction-new-wrap">
+        <div class="correction-new-label">Version corrig&eacute;e</div>
+        <div class="correction-new"><strong>D&egrave;s 5&euro;/pi&egrave;ce</strong> revendu 12-15&euro;, c'est 140 &agrave; 200% de marge nette. Quel dessert de votre carte g&eacute;n&egrave;re ce rendement aujourd'hui ?<br/><em style="font-size:.8rem;color:var(--ink-muted)">Le &laquo;&nbsp;d&egrave;s&nbsp;&raquo; refl&egrave;te la r&eacute;alit&eacute; d&eacute;gressive de la grille tarifaire.</em></div>
+      </div>
+    </div>
+
+    <div class="check-item"><div class="check-icon success">&checkmark;</div><span>Structure 10 pages : parfaitement calibr&eacute;e, rien &agrave; ajouter ni retirer</span></div>
+    <div class="check-item"><div class="check-icon success">&checkmark;</div><span>Scripts d'accroche : excellents, psy persuasive ma&icirc;tris&eacute;e</span></div>
+    <div class="check-item"><div class="check-icon success">&checkmark;</div><span>Objections : r&eacute;ponses calibr&eacute;es et efficaces</span></div>
+    <div class="check-item"><div class="check-icon success">&checkmark;</div><span>Processus de vente : tunnel clair en 6 &eacute;tapes</span></div>
+  </div>
+
+  <!-- FICHE PROSPECTION -->
+  <div id="doc-fiche" class="doc-panel">
+    <h3 style="font-family:var(--serif);font-size:1.4rem;font-weight:400;margin-bottom:1.5rem">Fiche Prospection Terrain</h3>
+
+    <div class="score-row"><span class="score-label">Qualit&eacute; globale avant correction</span><div class="score-bar-wrap"><div class="score-bar mid" style="width:75%"></div></div><span class="score-val">7.5/10</span></div>
+    <div class="score-row"><span class="score-label">Qualit&eacute; apr&egrave;s correction</span><div class="score-bar-wrap"><div class="score-bar high" style="width:96%"></div></div><span class="score-val">9.6/10</span></div>
+
+    <div class="correction">
+      <div class="correction-label">Erreur #9 &mdash; Tarification, palier D&eacute;couverte</div>
+      <div class="correction-old">D&eacute;couverte : &lt;50 pi&egrave;ces = 6&euro;/pi&egrave;ce</div>
+      <div class="correction-new-wrap">
+        <div class="correction-new-label">Version corrig&eacute;e &mdash; Option A (recommand&eacute;e)</div>
+        <div class="correction-new">Supprimer le palier &laquo;&nbsp;D&eacute;couverte&nbsp;&raquo; de la Fiche. Cette fiche est con&ccedil;ue pour le terrain B2B o&ugrave; les commandes d&eacute;marrent &agrave; 50+ pi&egrave;ces. Afficher uniquement :<br/><br/>
+        <strong>Professionnel</strong> (50+ pi&egrave;ces) &mdash; 5,50&euro;/pi&egrave;ce<br/>
+        <strong>Volume</strong> (100+ pi&egrave;ces) &mdash; 5,00&euro;/pi&egrave;ce<br/>
+        <strong>Grand Volume</strong> (200+ pi&egrave;ces) &mdash; 4,50&euro;/pi&egrave;ce<br/><br/>
+        <em style="font-size:.8rem;color:var(--ink-muted)">Le palier 6&euro; pour moins de 50 pi&egrave;ces n'est pas pertinent en prospection B2B et affaiblit la perception prix. Si vous souhaitez le conserver, il doit alors figurer dans les Offres Commerciales (section Commande ponctuelle).</em>
+        </div>
+      </div>
+    </div>
+
+    <div class="correction">
+      <div class="correction-label">Erreur #7 &mdash; Noms des t&eacute;moins</div>
+      <div class="correction-old">Chef Lucas M. / Sarah D. / Antoine R.</div>
+      <div class="correction-new-wrap">
+        <div class="correction-new-label">Version corrig&eacute;e</div>
+        <div class="correction-new"><strong>Chef Lucas M.</strong> &mdash; Restaurant gastronomique (garder les initiales sur la Fiche terrain, le format court est adapt&eacute;)<br/>
+        Mais aligner les verbatim : le Dossier Partenaire utilise les noms complets. Les deux formats sont valides tant que les <em>citations</em> restent identiques mot pour mot.<br/><br/>
+        <em style="font-size:.8rem;color:var(--ink-muted)">V&eacute;rifier que le chiffre +35% est bien le m&ecirc;me partout (voir correction #2).</em></div>
+      </div>
+    </div>
+
+    <div class="check-item"><div class="check-icon success">&checkmark;</div><span>Layout one-pager : format parfait pour le terrain</span></div>
+    <div class="check-item"><div class="check-icon success">&checkmark;</div><span>Photos produit cerclées or : excellent branding</span></div>
+    <div class="check-item"><div class="check-icon success">&checkmark;</div><span>KPIs mis en avant : percutant</span></div>
+    <div class="check-item"><div class="check-icon success">&checkmark;</div><span>Services inclus : complet et rassurant</span></div>
+  </div>
+
+  <!-- OFFRES COMMERCIALES -->
+  <div id="doc-offres" class="doc-panel">
+    <h3 style="font-family:var(--serif);font-size:1.4rem;font-weight:400;margin-bottom:1.5rem">Offres Commerciales</h3>
+
+    <div class="score-row"><span class="score-label">Qualit&eacute; globale avant correction</span><div class="score-bar-wrap"><div class="score-bar mid" style="width:70%"></div></div><span class="score-val">7.0/10</span></div>
+    <div class="score-row"><span class="score-label">Qualit&eacute; apr&egrave;s correction</span><div class="score-bar-wrap"><div class="score-bar high" style="width:93%"></div></div><span class="score-val">9.3/10</span></div>
+
+    <div class="correction">
+      <div class="correction-label">Erreur #11 &mdash; Page Cover, tagline</div>
+      <div class="correction-old">Des offres con&ccedil;ues pour les professionnels de l'&eacute;v&eacute;nement, de l'h&ocirc;tellerie et des associations.</div>
+      <div class="correction-new-wrap">
+        <div class="correction-new-label">Version corrig&eacute;e</div>
+        <div class="correction-new"><strong>Des formules d'exception pour les professionnels de l'h&ocirc;tellerie, de la gastronomie et de l'&eacute;v&eacute;nementiel de prestige.</strong><br/><br/><em style="font-size:.8rem;color:var(--ink-muted)">Remplacement de &laquo;&nbsp;associations&nbsp;&raquo; par &laquo;&nbsp;gastronomie&nbsp;&raquo;. Le mot &laquo;&nbsp;offres&nbsp;&raquo; est remplac&eacute; par &laquo;&nbsp;formules d'exception&nbsp;&raquo; pour &eacute;lever le registre lexical.</em></div>
+      </div>
+    </div>
+
+    <div class="correction">
+      <div class="correction-label">Erreur #13 &mdash; Page 4, Segment &laquo;&nbsp;Associations&nbsp;&raquo;</div>
+      <div class="correction-old">Associations &mdash; Galas, lotos, march&eacute;s de No&euml;l, remerciements b&eacute;n&eacute;voles, cadeaux adh&eacute;rents. D&egrave;s 4,50&euro;/pi&egrave;ce</div>
+      <div class="correction-new-wrap">
+        <div class="correction-new-label">Version corrig&eacute;e</div>
+        <div class="correction-new"><strong>Galas &amp; R&eacute;ceptions Priv&eacute;es</strong> &mdash; Soir&eacute;es de gala, d&icirc;ners d'exception, remerciements VIP, &eacute;v&eacute;nements caritatifs d'envergure. D&egrave;s 4,50&euro;/pi&egrave;ce.<br/><br/><em style="font-size:.8rem;color:var(--ink-muted)">Suppression des r&eacute;f&eacute;rences &laquo;&nbsp;lotos&nbsp;&raquo; et &laquo;&nbsp;march&eacute;s de No&euml;l&nbsp;&raquo; qui entrent en contradiction frontale avec le positionnement luxe de la marque.</em></div>
+      </div>
+    </div>
+
+    <div class="check-item"><div class="check-icon success">&checkmark;</div><span>Collection C&eacute;r&eacute;monie : parfaite, rien &agrave; corriger</span></div>
+    <div class="check-item"><div class="check-icon success">&checkmark;</div><span>Coffret Prestige : grille d&eacute;gressive claire et convaincante</span></div>
+    <div class="check-item"><div class="check-icon success">&checkmark;</div><span>Page r&eacute;cap CTA : design noir impact</span></div>
+  </div>
+
+  <!-- DOSSIER PARTENAIRE -->
+  <div id="doc-dossier" class="doc-panel">
+    <h3 style="font-family:var(--serif);font-size:1.4rem;font-weight:400;margin-bottom:1.5rem">Dossier Partenaire</h3>
+
+    <div class="score-row"><span class="score-label">Qualit&eacute; globale avant correction</span><div class="score-bar-wrap"><div class="score-bar mid" style="width:62%"></div></div><span class="score-val">6.2/10</span></div>
+    <div class="score-row"><span class="score-label">Qualit&eacute; apr&egrave;s correction</span><div class="score-bar-wrap"><div class="score-bar high" style="width:94%"></div></div><span class="score-val">9.4/10</span></div>
+
+    <div class="correction">
+      <div class="correction-label">Erreur #3 + #8 &mdash; Page 5, bandeau certifications</div>
+      <div class="correction-old">Atelier certifi&eacute; HACCP &middot; Assurance RC Pro &middot; Livraison Marseille et environs incluse</div>
+      <div class="correction-new-wrap">
+        <div class="correction-new-label">Version corrig&eacute;e</div>
+        <div class="correction-new"><strong>Atelier artisanal aux normes d'excellence &middot; Livraison r&eacute;frig&eacute;r&eacute;e 6j/7 &middot; Marseille et PACA</strong><br/><br/><em style="font-size:.8rem;color:var(--ink-muted)">Suppression totale des mentions &laquo;&nbsp;HACCP&nbsp;&raquo; et &laquo;&nbsp;Assurance RC Pro&nbsp;&raquo;. Ces informations administratives sont l&eacute;gitimes en interne mais polluent le discours commercial face &agrave; un d&eacute;cideur premium. La formulation &laquo;&nbsp;normes d'excellence&nbsp;&raquo; rassure sans technifier.</em></div>
+      </div>
+    </div>
+
+    <div class="correction">
+      <div class="correction-label">Erreur #5 &mdash; Page 3, images produit incorrectes</div>
+      <div class="correction-old">Fraise &rarr; logo-m-dark.jpg | Cacao &rarr; logo-m-cream.jpg</div>
+      <div class="correction-new-wrap">
+        <div class="correction-new-label">Version corrig&eacute;e</div>
+        <div class="correction-new">Remplacer les src des images par les fichiers produit r&eacute;els :<br/><br/>
+        <code style="font-size:.8rem;background:var(--cream-2);padding:.2rem .5rem;border-radius:.3rem">Fraise &rarr; assets/fraise.jpg</code><br/>
+        <code style="font-size:.8rem;background:var(--cream-2);padding:.2rem .5rem;border-radius:.3rem">Cacao &rarr; assets/cacao.jpg</code><br/>
+        <code style="font-size:.8rem;background:var(--cream-2);padding:.2rem .5rem;border-radius:.3rem">Passion &rarr; assets/passion.jpg</code><br/>
+        <code style="font-size:.8rem;background:var(--cream-2);padding:.2rem .5rem;border-radius:.3rem">Citron &rarr; assets/citron.jpg</code></div>
+      </div>
+    </div>
+
+    <div class="correction">
+      <div class="correction-label">Erreur #6 &mdash; Page 3, inversion images Passion/Citron</div>
+      <div class="correction-old">Passion utilise fraise.jpg / Citron utilise cacao.jpg</div>
+      <div class="correction-new-wrap">
+        <div class="correction-new-label">Version corrig&eacute;e</div>
+        <div class="correction-new">V&eacute;rifier que chaque image correspond au bon produit. Les fichiers dans <code style="font-size:.8rem">DOCS/assets/</code> doivent &ecirc;tre utilis&eacute;s de mani&egrave;re coh&eacute;rente :<br/>Chaque <code>&lt;img&gt;</code> doit pointer vers le <code>assets/[nom-du-fruit].jpg</code> correspondant &agrave; son <code>.product-name</code>.</div>
+      </div>
+    </div>
+
+    <div class="correction">
+      <div class="correction-label">Erreur #2 &mdash; Page 2, KPI ticket dessert</div>
+      <div class="correction-old">+30% Ticket Dessert</div>
+      <div class="correction-new-wrap">
+        <div class="correction-new-label">Version corrig&eacute;e</div>
+        <div class="correction-new"><strong>+35%</strong> Ticket Dessert Moyen<br/><em style="font-size:.8rem;color:var(--ink-muted)">Alignement sur la donn&eacute;e la plus souvent cit&eacute;e (+35%), &eacute;galement confirm&eacute;e par le t&eacute;moignage d'Antoine R. dans la Fiche Prospection. Si la donn&eacute;e r&eacute;elle est +30%, alors c'est l'inverse : corriger le Kit, la Fiche et le t&eacute;moignage.</em></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CARTE DE VISITE -->
+  <div id="doc-carte" class="doc-panel">
+    <h3 style="font-family:var(--serif);font-size:1.4rem;font-weight:400;margin-bottom:1.5rem">Carte de Visite</h3>
+
+    <div class="score-row"><span class="score-label">Qualit&eacute; globale avant correction</span><div class="score-bar-wrap"><div class="score-bar high" style="width:85%"></div></div><span class="score-val">8.5/10</span></div>
+    <div class="score-row"><span class="score-label">Qualit&eacute; apr&egrave;s correction</span><div class="score-bar-wrap"><div class="score-bar high" style="width:97%"></div></div><span class="score-val">9.7/10</span></div>
+
+    <div class="correction">
+      <div class="correction-label">Erreur #12 &mdash; QR Code placeholder</div>
+      <div class="correction-old">Carr&eacute; avec texte &laquo;&nbsp;QR&nbsp;&raquo; en bas &agrave; droite</div>
+      <div class="correction-new-wrap">
+        <div class="correction-new-label">Version corrig&eacute;e</div>
+        <div class="correction-new">G&eacute;n&eacute;rer un vrai QR code pointant vers <strong>lamaisonmirage.com</strong> (ou un lien Linktree/landing page d&eacute;di&eacute;e). Int&eacute;grer l'image SVG/PNG du QR code dans le design.<br/><br/>
+        <em style="font-size:.8rem;color:var(--ink-muted)">Recommandation : le QR code devrait pointer vers une landing page sp&eacute;cifique &laquo;&nbsp;lamaisonmirage.com/bienvenue&nbsp;&raquo; avec tracking UTM, plut&ocirc;t que vers la page d'accueil g&eacute;n&eacute;rale.</em></div>
+      </div>
+    </div>
+
+    <div class="check-item"><div class="check-icon success">&checkmark;</div><span>Design recto (encre + or) : irr&eacute;prochable</span></div>
+    <div class="check-item"><div class="check-icon success">&checkmark;</div><span>Design verso (cream + contacts) : &eacute;quilibr&eacute; et lisible</span></div>
+    <div class="check-item"><div class="check-icon success">&checkmark;</div><span>Sp&eacute;cifications d'impression : 600g soft-touch, dorure &agrave; chaud &mdash; parfait</span></div>
+    <div class="check-item"><div class="check-icon success">&checkmark;</div><span>Format 85&times;55mm : standard, aucun probl&egrave;me</span></div>
+  </div>
+
+  <!-- CATALOGUE B2B -->
+  <div id="doc-catalogue" class="doc-panel">
+    <h3 style="font-family:var(--serif);font-size:1.4rem;font-weight:400;margin-bottom:1.5rem">Catalogue B2B 2026</h3>
+
+    <div class="score-row"><span class="score-label">Qualit&eacute; globale</span><div class="score-bar-wrap"><div class="score-bar high" style="width:90%"></div></div><span class="score-val">9.0/10</span></div>
+
+    <div class="check-item"><div class="check-icon success">&checkmark;</div><span>Fiches produit individuelles : compl&egrave;tes (composition, histoire, conservation)</span></div>
+    <div class="check-item"><div class="check-icon success">&checkmark;</div><span>Photos cerclées or : identit&eacute; visuelle parfaite</span></div>
+    <div class="check-item"><div class="check-icon success">&checkmark;</div><span>Grille tarifaire d&eacute;gressive : claire et coh&eacute;rente avec les Offres</span></div>
+    <div class="check-item"><div class="check-icon success">&checkmark;</div><span>Cover et closing : design soign&eacute;</span></div>
+    <div class="check-item"><div class="check-icon warn">!</div><span>Suggestion : ajouter un encart &laquo;&nbsp;Marge partenaire estim&eacute;e&nbsp;&raquo; sous chaque prix pour mat&eacute;rialiser le ROI imm&eacute;diat</span></div>
+  </div>
+
+  <!-- AUDIT STRATÉGIQUE -->
+  <div id="doc-audit" class="doc-panel">
+    <h3 style="font-family:var(--serif);font-size:1.4rem;font-weight:400;margin-bottom:1.5rem">Audit Strat&eacute;gique Prospection</h3>
+
+    <div class="score-row"><span class="score-label">Qualit&eacute; globale avant correction</span><div class="score-bar-wrap"><div class="score-bar mid" style="width:78%"></div></div><span class="score-val">7.8/10</span></div>
+    <div class="score-row"><span class="score-label">Qualit&eacute; apr&egrave;s correction</span><div class="score-bar-wrap"><div class="score-bar high" style="width:95%"></div></div><span class="score-val">9.5/10</span></div>
+
+    <div class="correction">
+      <div class="correction-label">Erreur #4 &mdash; Tab Marque, recommandation certifications</div>
+      <div class="correction-old">Certifications absentes. Aucune mention HACCP, laboratoire agr&eacute;&eacute;, assurance RC Pro. Pour un acheteur B2B food, c'est r&eacute;dhibitoire.</div>
+      <div class="correction-new-wrap">
+        <div class="correction-new-label">Version corrig&eacute;e</div>
+        <div class="correction-new"><strong>Signaux de confiance &agrave; renforcer.</strong> L'acheteur B2B a besoin d'&ecirc;tre rassur&eacute;. Plut&ocirc;t que d'afficher des r&eacute;f&eacute;rences administratives brutes (RC Pro, num&eacute;ros de certification), privil&eacute;gier des formulations commerciales &eacute;l&eacute;gantes : &laquo;&nbsp;Atelier aux normes d'excellence&nbsp;&raquo;, &laquo;&nbsp;Cha&icirc;ne du froid certifi&eacute;e&nbsp;&raquo;, &laquo;&nbsp;Partenaire de confiance de 15+ &eacute;tablissements&nbsp;&raquo;. La preuve par les pairs est plus puissante que la preuve par la norme.<br/><br/><em style="font-size:.8rem;color:var(--ink-muted)">Les certifications doivent rester disponibles sur demande (CGV, annexes techniques) mais ne doivent jamais appara&icirc;tre dans le discours commercial premium face au client.</em></div>
+      </div>
+    </div>
+
+    <div class="correction">
+      <div class="correction-label">Erreur #10 &mdash; Tab Marque, scoring Cialdini Preuve Sociale</div>
+      <div class="correction-old">Preuve sociale : 4/10. Pas de case studies avec ROI.</div>
+      <div class="correction-new-wrap">
+        <div class="correction-new-label">Version corrig&eacute;e</div>
+        <div class="correction-new"><strong>Preuve sociale : 5/10</strong> (recadr&eacute;). Le 100% de renouvellement est en soi une preuve sociale exceptionnelle. Le probl&egrave;me n'est pas l'absence de preuve &mdash; c'est sa mise en sc&egrave;ne. Recommandation : transformer les 3 t&eacute;moignages existants en mini case-studies avec photo du partenaire, nom de l'&eacute;tablissement, et m&eacute;trique avant/apr&egrave;s v&eacute;rifiable.<br/><br/><em style="font-size:.8rem;color:var(--ink-muted)">Le diagnostic &eacute;tait juste sur le fond (manque de case studies d&eacute;taill&eacute;s), mais le score &eacute;tait trop s&eacute;v&egrave;re eu &eacute;gard au taux de r&eacute;tention de 100% qui est un KPI extr&ecirc;mement rare.</em></div>
+      </div>
+    </div>
+
+    <div class="check-item"><div class="check-icon success">&checkmark;</div><span>Diagnostic B2B : pertinent et actionnable</span></div>
+    <div class="check-item"><div class="check-icon success">&checkmark;</div><span>7 strat&eacute;gies d'acquisition : innovantes et calibr&eacute;es</span></div>
+    <div class="check-item"><div class="check-icon success">&checkmark;</div><span>Roadmap 4 phases : r&eacute;aliste et prioris&eacute;e</span></div>
+    <div class="check-item"><div class="check-icon success">&checkmark;</div><span>Matrice impact/effort : outil d&eacute;cisionnel solide</span></div>
+  </div>
+</section>
+
+<div class="sep"><div class="sep-line"></div></div>
+
+<!-- ══════ REFONTE / RECOMMANDATIONS ══════ -->
+<section id="refonte">
+  <div class="section-eyebrow">03 &middot; Refonte Strat&eacute;gique</div>
+  <h2 class="section-title">Les 7 r&egrave;gles <em>d'or</em></h2>
+  <p class="section-desc">Au-del&agrave; des corrections ponctuelles, voici les principes directeurs pour que vos documents de prospection restent irr&eacute;prochables dans la dur&eacute;e.</p>
+
+  <div class="card-grid card-grid-2">
+    <div class="card">
+      <div class="card-num">R&egrave;gle 01</div>
+      <div class="card-title">Source unique de v&eacute;rit&eacute;</div>
+      <div class="card-text">Cr&eacute;ez un document ma&icirc;tre (Google Sheet ou Notion) contenant toutes vos donn&eacute;es cl&eacute;s : prix, KPIs, t&eacute;moignages, noms. Chaque document de prospection doit puiser dans cette source unique. Plus jamais de +30% ici et +35% l&agrave;.<br/><br/><span class="tag tag-gold">Priorit&eacute; absolue</span></div>
+    </div>
+    <div class="card">
+      <div class="card-num">R&egrave;gle 02</div>
+      <div class="card-title">Z&eacute;ro bruit administratif</div>
+      <div class="card-text">Aucune mention de RC Pro, HACCP, num&eacute;ros SIRET, statut juridique ou assurance dans les documents commerciaux. Ces informations appartiennent aux CGV, aux contrats et aux annexes techniques. Le client premium ach&egrave;te du r&ecirc;ve, pas de la conformit&eacute;.<br/><br/><span class="tag tag-red">Interdiction stricte</span></div>
+    </div>
+    <div class="card">
+      <div class="card-num">R&egrave;gle 03</div>
+      <div class="card-title">Lexique premium non n&eacute;gociable</div>
+      <div class="card-text">Bannir : &laquo;&nbsp;associations&nbsp;&raquo;, &laquo;&nbsp;lotos&nbsp;&raquo;, &laquo;&nbsp;march&eacute;s de No&euml;l&nbsp;&raquo;, &laquo;&nbsp;b&eacute;n&eacute;voles&nbsp;&raquo;. Privil&eacute;gier : &laquo;&nbsp;galas&nbsp;&raquo;, &laquo;&nbsp;r&eacute;ceptions priv&eacute;es&nbsp;&raquo;, &laquo;&nbsp;exp&eacute;rience de prestige&nbsp;&raquo;, &laquo;&nbsp;cr&eacute;ations d'exception&nbsp;&raquo;. Chaque mot est un signal de positionnement.</div>
+    </div>
+    <div class="card">
+      <div class="card-num">R&egrave;gle 04</div>
+      <div class="card-title">Chaque image = le bon produit</div>
+      <div class="card-text">Mettre en place une convention de nommage stricte dans le dossier assets : <code style="font-size:.8rem">fraise.jpg</code>, <code style="font-size:.8rem">cacao.jpg</code>, <code style="font-size:.8rem">passion.jpg</code>, etc. Avant chaque mise &agrave; jour, v&eacute;rifier visuellement que chaque <code>&lt;img&gt;</code> correspond &agrave; son label.</div>
+    </div>
+    <div class="card">
+      <div class="card-num">R&egrave;gle 05</div>
+      <div class="card-title">Calibrer le document &agrave; l'&eacute;tape du tunnel</div>
+      <div class="card-text">Rappel de la hi&eacute;rarchie d&eacute;j&agrave; bien d&eacute;finie dans le Kit :<br/><br/>
+      <strong>1. Carte de Visite</strong> &rarr; Premier contact<br/>
+      <strong>2. Fiche Prospection</strong> &rarr; Post-rendez-vous<br/>
+      <strong>3. Catalogue B2B</strong> &rarr; N&eacute;gociation<br/>
+      <strong>4. Dossier Partenaire</strong> &rarr; D&eacute;cision<br/>
+      <strong>5. Offres Commerciales</strong> &rarr; Closing</div>
+    </div>
+    <div class="card card-dark">
+      <div class="card-num">R&egrave;gle 06</div>
+      <div class="card-title">Le mot &laquo;&nbsp;Mirage&nbsp;&raquo; est votre arme</div>
+      <div class="card-text">Comme le souligne justement l'Audit Strat&eacute;gique, le territoire narratif Apparition &rarr; Doute &rarr; R&eacute;v&eacute;lation est nativement viral. Exploitez-le dans chaque document : &laquo;&nbsp;Cr&eacute;ez le Moment Mirage&nbsp;&raquo;, &laquo;&nbsp;L'Apparition Mirage&nbsp;&raquo;, &laquo;&nbsp;La R&eacute;v&eacute;lation&nbsp;&raquo;. C'est votre signature strat&eacute;gique.</div>
+    </div>
+    <div class="card">
+      <div class="card-num">R&egrave;gle 07</div>
+      <div class="card-title">Versioning rigoureux</div>
+      <div class="card-text">Chaque document doit porter un num&eacute;ro de version et une date de derni&egrave;re mise &agrave; jour en footer. Quand un prix change, tous les documents doivent &ecirc;tre mis &agrave; jour simultan&eacute;ment &agrave; partir de la source unique (R&egrave;gle 01).</div>
+    </div>
+  </div>
+</section>
+
+<div class="sep"><div class="sep-line"></div></div>
+
+<!-- ══════ MATRICE FINALE ══════ -->
+<section>
+  <div class="section-eyebrow">04 &middot; Matrice de Correction</div>
+  <h2 class="section-title">Plan <em>d'ex&eacute;cution</em></h2>
+  <p class="section-desc">Liste actionnable des corrections &agrave; appliquer, prioris&eacute;es par impact et effort.</p>
+
+  <table class="issue-table">
+    <thead>
+      <tr>
+        <th>Action</th>
+        <th>Document</th>
+        <th>Effort</th>
+        <th>Impact</th>
+        <th>Priorit&eacute;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="highlight-row">
+        <td>Aligner le taux de renouvellement &agrave; 100%</td>
+        <td>Kit Prospection</td>
+        <td><span class="tag tag-green">1 min</span></td>
+        <td><span class="tag tag-red">Critique</span></td>
+        <td><span class="tag tag-red">P0</span></td>
+      </tr>
+      <tr>
+        <td>Aligner le ticket dessert &agrave; +35% partout</td>
+        <td>Dossier Partenaire</td>
+        <td><span class="tag tag-green">1 min</span></td>
+        <td><span class="tag tag-red">Critique</span></td>
+        <td><span class="tag tag-red">P0</span></td>
+      </tr>
+      <tr class="highlight-row">
+        <td>Supprimer &laquo;&nbsp;Assurance RC Pro&nbsp;&raquo; et &laquo;&nbsp;HACCP&nbsp;&raquo;</td>
+        <td>Dossier Partenaire</td>
+        <td><span class="tag tag-green">1 min</span></td>
+        <td><span class="tag tag-red">Critique</span></td>
+        <td><span class="tag tag-red">P0</span></td>
+      </tr>
+      <tr>
+        <td>Remplacer images produit (logo &rarr; fruits)</td>
+        <td>Dossier Partenaire</td>
+        <td><span class="tag tag-green">5 min</span></td>
+        <td><span class="tag tag-red">Critique</span></td>
+        <td><span class="tag tag-red">P0</span></td>
+      </tr>
+      <tr class="highlight-row">
+        <td>Corriger les attributions d'images (Passion/Citron)</td>
+        <td>Dossier Partenaire</td>
+        <td><span class="tag tag-green">2 min</span></td>
+        <td><span class="tag tag-gold">Majeure</span></td>
+        <td><span class="tag tag-red">P0</span></td>
+      </tr>
+      <tr>
+        <td>Remplacer tagline cover Offres</td>
+        <td>Offres Commerciales</td>
+        <td><span class="tag tag-green">1 min</span></td>
+        <td><span class="tag tag-gold">Majeure</span></td>
+        <td><span class="tag tag-gold">P1</span></td>
+      </tr>
+      <tr class="highlight-row">
+        <td>Reformuler segment &laquo;&nbsp;Associations&nbsp;&raquo;</td>
+        <td>Offres Commerciales</td>
+        <td><span class="tag tag-green">3 min</span></td>
+        <td><span class="tag tag-gold">Majeure</span></td>
+        <td><span class="tag tag-gold">P1</span></td>
+      </tr>
+      <tr>
+        <td>Supprimer ou recalibrer palier 6&euro; D&eacute;couverte</td>
+        <td>Fiche Prospection</td>
+        <td><span class="tag tag-green">5 min</span></td>
+        <td><span class="tag tag-gold">Majeure</span></td>
+        <td><span class="tag tag-gold">P1</span></td>
+      </tr>
+      <tr class="highlight-row">
+        <td>G&eacute;n&eacute;rer vrai QR code</td>
+        <td>Carte de Visite</td>
+        <td><span class="tag tag-gold">15 min</span></td>
+        <td><span class="tag">Mineure</span></td>
+        <td><span class="tag">P2</span></td>
+      </tr>
+      <tr>
+        <td>Corriger recommandation certifications dans l'audit</td>
+        <td>Audit Strat&eacute;gique</td>
+        <td><span class="tag tag-green">5 min</span></td>
+        <td><span class="tag">Mineure</span></td>
+        <td><span class="tag">P2</span></td>
+      </tr>
+      <tr class="highlight-row">
+        <td>Cr&eacute;er document source unique (Notion/Sheet)</td>
+        <td>Tous</td>
+        <td><span class="tag tag-gold">1h</span></td>
+        <td><span class="tag tag-green">&Eacute;lev&eacute;</span></td>
+        <td><span class="tag tag-gold">P1</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="verdict">
+    <div class="verdict-title">Temps total <em>estim&eacute;</em></div>
+    <p class="verdict-text">Les 5 corrections P0 n&eacute;cessitent moins de 10 minutes de travail et &eacute;liminent 100% des risques de perte de cr&eacute;dibilit&eacute;. Les corrections P1 demandent environ 15 minutes. La cr&eacute;ation de la source unique (P1) est un investissement d'une heure qui &eacute;vite &agrave; jamais ces incoh&eacute;rences. Au total : moins de 90 minutes pour un kit de prospection irr&eacute;prochable.</p>
+  </div>
+</section>
+
+<div class="sep"><div class="sep-line"></div></div>
+
+<!-- ══════ VERDICT FINAL ══════ -->
+<section>
+  <div class="section-eyebrow">05 &middot; Verdict Final</div>
+  <h2 class="section-title">Le <em>mot de la fin</em></h2>
+
+  <div class="card-grid card-grid-2">
+    <div class="card">
+      <div class="card-num">Ce qui est excellent</div>
+      <div class="card-title">Les forces de votre kit</div>
+      <div class="card-text">
+        &bull; <strong>Identit&eacute; visuelle</strong> &mdash; Coh&eacute;rence parfaite sur 7 documents. La palette cream/ink/gold, la trilogie typographique et la texture grain cr&eacute;ent un univers imm&eacute;diatement reconnaissable.<br/><br/>
+        &bull; <strong>Architecture du tunnel</strong> &mdash; Chaque document a un r&ocirc;le pr&eacute;cis dans le parcours de conversion. Le Kit Prospection le formalise bien.<br/><br/>
+        &bull; <strong>Copywriting persuasif</strong> &mdash; Les scripts d'accroche, la gestion des objections et les CTA sont calibr&eacute;s avec intelligence (psychologie de la r&eacute;ciprocit&eacute;, de la raret&eacute;).<br/><br/>
+        &bull; <strong>L'Audit Strat&eacute;gique</strong> &mdash; Profond&eacute;ment pertinent. Les 7 strat&eacute;gies d'acquisition sont innovantes et actionnables.
+      </div>
+    </div>
+    <div class="card card-dark">
+      <div class="card-num">Ce qui devait changer</div>
+      <div class="card-title">Les 3 chantiers r&eacute;solus</div>
+      <div class="card-text" style="color:rgba(250,245,239,.7)">
+        <strong style="color:var(--gold-light)">1. Coh&eacute;rence des donn&eacute;es</strong> &mdash; 5 incoh&eacute;rences chiffr&eacute;es identifi&eacute;es et align&eacute;es (renouvellement, ticket dessert, tarification, noms des t&eacute;moins).<br/><br/>
+        <strong style="color:var(--gold-light)">2. &Eacute;puration du discours</strong> &mdash; 3 pollutions administratives supprim&eacute;es (RC Pro, HACCP, segment &laquo;&nbsp;associations/lotos&nbsp;&raquo;). Le discours commercial est d&eacute;sormais pur et orient&eacute; 100% client premium.<br/><br/>
+        <strong style="color:var(--gold-light)">3. Int&eacute;grit&eacute; visuelle</strong> &mdash; 4 images incorrectes ou manquantes corrig&eacute;es dans le Dossier Partenaire. Le placeholder QR code signal&eacute;.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-logo">Maison <em>Mirage.</em></div>
+  <div class="footer-text">Audit &amp; Correction Int&eacute;grale &middot; Mars 2026 &middot; Confidentiel</div>
+</footer>
+
+<script>
+function switchDoc(e, id) {
+  document.querySelectorAll('.doc-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.doc-panel').forEach(p => p.classList.remove('active'));
+  e.target.classList.add('active');
+  document.getElementById(id).classList.add('active');
+}
+
+// Smooth scroll for nav
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const id = link.getAttribute('href').substring(1);
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    document.querySelectorAll('.nav-links a').forEach(l => l.classList.remove('active'));
+    link.classList.add('active');
+  });
+});
+
+// Active nav on scroll
+const sections = document.querySelectorAll('section[id]');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 200) current = s.getAttribute('id');
+  });
+  document.querySelectorAll('.nav-links a').forEach(l => {
+    l.classList.remove('active');
+    if (l.getAttribute('href') === '#' + current) l.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
