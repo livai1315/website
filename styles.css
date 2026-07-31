@@ -44,10 +44,9 @@ header.on{
 .nav{display:flex;align-items:center;justify-content:space-between;gap:28px}
 .brand{display:flex;align-items:center;gap:14px}
 .brand-badge{
-  width:40px;height:40px;border:1px solid var(--or);border-radius:50%;
-  display:grid;place-items:center;flex:none;
+  width:34px;height:40px;display:grid;place-items:center;flex:none;
 }
-.brand-badge svg{width:20px;height:20px}
+.brand-badge img,.brand-badge svg{width:auto;height:34px;display:block}
 .brand-name{display:flex;flex-direction:column;line-height:1.15}
 .brand-name .m{font-family:'Marcellus',serif;font-size:1.15rem;letter-spacing:.04em}
 .brand-name .s{font-family:'Spline Sans Mono',monospace;font-size:.56rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gris)}
