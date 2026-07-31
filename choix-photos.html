@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Planche de sélection photos — outil interne (à supprimer avant mise en ligne)</title>
+<meta name="robots" content="noindex,nofollow">
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Cormorant+Garamond:ital,wght@1,500;1,600&family=Figtree:wght@400;500;600&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .outil{max-width:1200px;margin:0 auto;padding:60px 32px 120px}
+  .outil h1{font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:10px}
+  .outil>p{color:var(--gris);max-width:680px;margin-bottom:14px}
+  .slot{margin-top:64px}
+  .slot h2{font-size:1.5rem;margin-bottom:6px}
+  .slot .note{font-family:'Spline Sans Mono',monospace;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--or);margin-bottom:20px}
+  .cartes{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+  .carte{
+    position:relative;border:2px solid var(--ligne-faible);border-radius:4px;overflow:hidden;
+    cursor:pointer;aspect-ratio:4/3;background:var(--acier);transition:border-color .2s,transform .2s;
+  }
+  .carte:hover{transform:translateY(-3px)}
+  .carte img{width:100%;height:100%;object-fit:cover;filter:saturate(.85) brightness(.9)}
+  .carte .tag{
+    position:absolute;top:10px;left:10px;font-family:'Spline Sans Mono',monospace;font-size:.72rem;
+    letter-spacing:.15em;background:rgba(7,14,20,.85);color:var(--ivoire);padding:5px 10px;border-radius:2px;
+  }
+  .carte.sel{border-color:var(--or)}
+  .carte.sel::after{
+    content:"✓ choisie";position:absolute;bottom:10px;right:10px;
+    font-family:'Spline Sans Mono',monospace;font-size:.68rem;letter-spacing:.12em;
+    background:var(--or);color:var(--encre);padding:6px 12px;border-radius:2px;font-weight:600;
+  }
+  .barre{
+    position:fixed;left:0;right:0;bottom:0;background:rgba(7,14,20,.95);backdrop-filter:blur(12px);
+    border-top:1px solid var(--ligne);padding:16px 32px;display:flex;gap:18px;align-items:center;
+    flex-wrap:wrap;z-index:50;
+  }
+  .barre code{font-family:'Spline Sans Mono',monospace;font-size:.8rem;color:var(--or-clair);flex:1;min-width:200px}
+  .avert{background:rgba(224,138,138,.1);border:1px solid rgba(224,138,138,.3);border-radius:4px;padding:14px 18px;color:#E0A5A5;font-size:.88rem;max-width:680px}
+</style>
+</head>
+<body>
+<div class="outil">
+  <span class="eyebrow">Outil interne</span>
+  <h1>Choisis les photos du site</h1>
+  <p>Clique sur une photo pour la sélectionner (1 par emplacement, 3 pour la galerie). Les photos qui ne s'affichent pas ont été retirées automatiquement. Quand tu as fini, clique « Copier ma sélection » en bas et colle le code dans la conversation avec Claude.</p>
+  <p class="avert">Cette page est un outil de travail — supprime <b>choix-photos.html</b> avant la mise en ligne du site.</p>
+
+  <div class="slot" data-slot="hero" data-max="1">
+    <h2>Fond du hero (accueil)</h2>
+    <p class="note">Vue en filigrane derrière l'écran d'accueil — nuit ou crépuscule de préférence</p>
+    <div class="cartes">
+      <div class="carte" data-id="H1"><span class="tag">H1</span><img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=700&q=70&auto=format&fit=crop" loading="lazy" onerror="this.parentElement.remove()"></div>
+      <div class="carte" data-id="H2"><span class="tag">H2</span><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=700&q=70&auto=format&fit=crop" loading="lazy" onerror="this.parentElement.remove()"></div>
+      <div class="carte" data-id="H3"><span class="tag">H3</span><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=700&q=70&auto=format&fit=crop" loading="lazy" onerror="this.parentElement.remove()"></div>
+      <div class="carte" data-id="H4"><span class="tag">H4</span><img src="https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=700&q=70&auto=format&fit=crop" loading="lazy" onerror="this.parentElement.remove()"></div>
+    </div>
+  </div>
+
+  <div class="slot" data-slot="gardiennage" data-max="1">
+    <h2>Page Gardiennage de villa</h2>
+    <p class="note">En-tête de la page + galerie accueil « Villas & propriétés »</p>
+    <div class="cartes">
+      <div class="carte" data-id="G1"><span class="tag">G1</span><img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=700&q=70&auto=format&fit=crop" loading="lazy" onerror="this.parentElement.remove()"></div>
+      <div class="carte" data-id="G2"><span class="tag">G2</span><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=700&q=70&auto=format&fit=crop" loading="lazy" onerror="this.parentElement.remove()"></div>
+      <div class="carte" data-id="G3"><span class="tag">G3</span><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=700&q=70&auto=format&fit=crop" loading="lazy" onerror="this.parentElement.remove()"></div>
+      <div class="carte" data-id="G4"><span class="tag">G4</span><img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=700&q=70&auto=format&fit=crop" loading="lazy" onerror="this.parentElement.remove()"></div>
+      <div class="carte" data-id="G5"><span class="tag">G5</span><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=700&q=70&auto=format&fit=crop" loading="lazy" onerror="this.parentElement.remove()"></div>
+      <div class="carte" data-id="G6"><span class="tag">G6</span><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=700&q=70&auto=format&fit=crop" loading="lazy" onerror="this.parentElement.remove()"></div>
+    </div>
+  </div>
+
+  <div class="slot" data-slot="evenementiel" data-max="1">
+    <h2>Page Sécurité événementielle</h2>
+    <p class="note">En-tête de la page — réception, soirée, mariage</p>
+    <div class="cartes">
+      <div class="carte" data-id="E1"><span class="tag">E1</span><img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=700&q=70&auto=format&fit=crop" loading="lazy" onerror="this.parentElement.remove()"></div>
+      <div class="carte" data-id="E2"><span class="tag">E2</span><img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=700&q=70&auto=format&fit=crop" loading="lazy" onerror="this.parentElement.remove()"></div>
+      <div class="carte" data-id="E3"><span class="tag">E3</span><img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=700&q=70&auto=format&fit=crop" loading="lazy" onerror="this.parentElement.remove()"></div>
+      <div class="carte" data-id="E4"><span class="tag">E4</span><img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=700&q=70&auto=format&fit=crop" loading="lazy" onerror="this.parentElement.remove()"></div>
+      <div class="carte" data-id="E5"><span class="tag">E5</span><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=700&q=70&auto=format&fit=crop" loading="lazy" onerror="this.parentElement.remove()"></div>
+    </div>
+  </div>
+
+  <div class="slot" data-slot="protection" data-max="1">
+    <h2>Page Protection rapprochée</h2>
+    <p class="note">En-tête de la page — yacht, port, arrivée discrète</p>
+    <div class="cartes">
+      <div class="carte" data-id="P1"><span class="tag">P1</span><img src="https://images.unsplash.com/photo-1570125909232-eb263c188f7e?w=700&q=70&auto=format&fit=crop" loading="lazy" onerror="this.parentElement.remove()"></div>
+      <div class="carte" data-id="P2"><span class="tag">P2</span><img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=700&q=70&auto=format&fit=crop" loading="lazy" onerror="this.parentElement.remove()"></div>
+      <div class="carte" data-id="P3"><span class="tag">P3</span><img src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=700&q=70&auto=format&fit=crop" loading="lazy" onerror="this.parentElement.remove()"></div>
+      <div class="carte" data-id="P4"><span class="tag">P4</span><img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=700&q=70&auto=format&fit=crop" loading="lazy" onerror="this.parentElement.remove()"></div>
+      <div class="carte" data-id="P5"><span class="tag">P5</span><img src="https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=700&q=70&auto=format&fit=crop" loading="lazy" onerror="this.parentElement.remove()"></div>
+    </div>
+  </div>
+
+  <div class="slot" data-slot="galerie" data-max="3">
+    <h2>Galerie de l'accueil (choisis-en 3)</h2>
+    <p class="note">Bande de 3 photos sous les prestations</p>
+    <div class="cartes">
+      <div class="carte" data-id="A1"><span class="tag">A1</span><img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=700&q=70&auto=format&fit=crop" loading="lazy" onerror="this.parentElement.remove()"></div>
+      <div class="carte" data-id="A2"><span class="tag">A2</span><img src="https://images.unsplash.com/photo-1570125909232-eb263c188f7e?w=700&q=70&auto=format&fit=crop" loading="lazy" onerror="this.parentElement.remove()"></div>
+      <div class="carte" data-id="A3"><span class="tag">A3</span><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&q=70&auto=format&fit=crop" loading="lazy" onerror="this.parentElement.remove()"></div>
+      <div class="carte" data-id="A4"><span class="tag">A4</span><img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=700&q=70&auto=format&fit=crop" loading="lazy" onerror="this.parentElement.remove()"></div>
+      <div class="carte" data-id="A5"><span class="tag">A5</span><img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=700&q=70&auto=format&fit=crop" loading="lazy" onerror="this.parentElement.remove()"></div>
+      <div class="carte" data-id="A6"><span class="tag">A6</span><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=700&q=70&auto=format&fit=crop" loading="lazy" onerror="this.parentElement.remove()"></div>
+      <div class="carte" data-id="A7"><span class="tag">A7</span><img src="https://images.unsplash.com/photo-1476673160081-cf065607f449?w=700&q=70&auto=format&fit=crop" loading="lazy" onerror="this.parentElement.remove()"></div>
+      <div class="carte" data-id="A8"><span class="tag">A8</span><img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=700&q=70&auto=format&fit=crop" loading="lazy" onerror="this.parentElement.remove()"></div>
+    </div>
+  </div>
+  <div class="slot" data-slot="cynophile" data-max="1">
+    <h2>Page Sécurité cynophile (garde canin)</h2>
+    <p class="note">En-tête de la page — chien de travail, berger, ambiance nuit</p>
+    <div class="cartes">
+      <div class="carte" data-id="C1"><span class="tag">C1</span><img src="https://images.unsplash.com/photo-1589941013453-ec89f33b5e95?w=700&q=70&auto=format&fit=crop" loading="lazy" onerror="this.parentElement.remove()"></div>
+      <div class="carte" data-id="C2"><span class="tag">C2</span><img src="https://images.unsplash.com/photo-1605725657590-b2cf0d31b1a6?w=700&q=70&auto=format&fit=crop" loading="lazy" onerror="this.parentElement.remove()"></div>
+      <div class="carte" data-id="C3"><span class="tag">C3</span><img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=700&q=70&auto=format&fit=crop" loading="lazy" onerror="this.parentElement.remove()"></div>
+      <div class="carte" data-id="C4"><span class="tag">C4</span><img src="https://images.unsplash.com/photo-1553882809-a4f57e59501d?w=700&q=70&auto=format&fit=crop" loading="lazy" onerror="this.parentElement.remove()"></div>
+      <div class="carte" data-id="C5"><span class="tag">C5</span><img src="https://images.unsplash.com/photo-1568393691622-c7ba131d63b4?w=700&q=70&auto=format&fit=crop" loading="lazy" onerror="this.parentElement.remove()"></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="barre">
+  <button class="btn btn-plein" onclick="copier()">Copier ma sélection</button>
+  <code id="resume">Aucune photo choisie pour l'instant</code>
+</div>
+
+<script>
+  const sel={};
+  document.querySelectorAll('.slot').forEach(s=>{
+    const nom=s.dataset.slot,max=+s.dataset.max;
+    sel[nom]=[];
+    s.querySelectorAll('.carte').forEach(c=>{
+      c.addEventListener('click',()=>{
+        const id=c.dataset.id;
+        if(c.classList.contains('sel')){
+          c.classList.remove('sel');sel[nom]=sel[nom].filter(x=>x!==id);
+        }else{
+          if(max===1){s.querySelectorAll('.carte.sel').forEach(x=>x.classList.remove('sel'));sel[nom]=[]}
+          if(sel[nom].length>=max)return;
+          c.classList.add('sel');sel[nom].push(id);
+        }
+        maj();
+      });
+    });
+  });
+  function maj(){
+    const parts=Object.entries(sel).filter(([k,v])=>v.length).map(([k,v])=>k+': '+v.join(','));
+    document.getElementById('resume').textContent=parts.length?('Sélection photos — '+parts.join(' · ')):'Aucune photo choisie pour l\'instant';
+  }
+  function copier(){
+    const t=document.getElementById('resume').textContent;
+    navigator.clipboard.writeText(t).then(()=>alert('Copié ! Colle ce texte dans la conversation avec Claude.'))
+      .catch(()=>prompt('Copie ce texte et colle-le dans la conversation :',t));
+  }
+</script>
+</body>
+</html>

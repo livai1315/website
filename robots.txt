@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /choix-photos.html
+Sitemap: https://sttropezsecurity.com/sitemap.xml
