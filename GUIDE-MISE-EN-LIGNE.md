@@ -4,18 +4,18 @@
 
 | Quoi | Où | Valeur actuelle |
 |---|---|---|
-| Numéro de téléphone | toutes les pages | `+33 6 00 00 00 00` |
-| Numéro WhatsApp | liens `wa.me/33600000000` sur toutes les pages | `33600000000` |
+| Numéro de téléphone | toutes les pages | `+33 7 53 46 39 08` |
+| Numéro WhatsApp | liens `wa.me/33753463908` sur toutes les pages | `33753463908` |
 | Email | toutes les pages | `contact@sttropezsecurity.com` |
 | N° CNAPS | pieds de page + mentions légales | `[à compléter]` |
 | Infos société (SIREN, adresse, gérant…) | `mentions-legales.html` | `[à compléter]` |
 | Nom de domaine | balises `canonical` et `og:url` de chaque page | `sttropezsecurity.com` |
 
-Astuce : recherche/remplace global sur `33600000000` et `contact@sttropezsecurity.com`.
+Astuce : recherche/remplace global sur `33753463908` et `contact@sttropezsecurity.com`.
 
 ## 2. Le formulaire
 
-Le formulaire (EN sur `index.html`, FR sur `accueil.html`) ouvre directement **WhatsApp** avec le message prérempli — aucune configuration nécessaire, aucune donnée stockée. Il suffit de remplacer le numéro `33600000000` partout par ton vrai numéro WhatsApp Business.
+Le formulaire (EN sur `index.html`, FR sur `accueil.html`) ouvre directement **WhatsApp** avec le message prérempli — aucune configuration nécessaire, aucune donnée stockée. Il suffit de remplacer le numéro `33753463908` partout par ton vrai numéro WhatsApp Business.
 
 ## 3. Mise en ligne
 
